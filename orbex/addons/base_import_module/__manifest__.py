@@ -23,6 +23,5 @@ for customization purpose.
             'base_import_module/static/src/**/*',
         ]
     },
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

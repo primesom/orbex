@@ -262,6 +262,5 @@ For more specific needs, you may also assign custom-defined actions
             ('remove', 'web/static/src/**/*.dark.scss'),
         ]
     },
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

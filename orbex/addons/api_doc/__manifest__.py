@@ -59,6 +59,5 @@ the methods over HTTP, with examples in various programming languages.
         ],
     },
     'bootstrap': True,
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

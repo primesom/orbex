@@ -553,6 +553,5 @@ This module provides the core of the Orbex Web Client.
         ],
     },
     'bootstrap': True,  # load translations for login screen,
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

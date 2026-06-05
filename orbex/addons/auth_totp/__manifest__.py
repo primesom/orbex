@@ -33,6 +33,5 @@ can setup API keys to replace their main password.
             'auth_totp/static/src/**/*',
         ],
     },
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

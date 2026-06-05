@@ -10,6 +10,5 @@ programmatically access models.
     'depends': ["base"],
     'category': 'Extra Tools',
     'auto_install': True,
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

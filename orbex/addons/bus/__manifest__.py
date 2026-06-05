@@ -34,6 +34,5 @@
             'bus/static/src/workers/*',
         ],
     },
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

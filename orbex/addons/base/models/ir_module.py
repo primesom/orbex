@@ -309,10 +309,9 @@ class IrModuleModule(models.Model):
         ('AGPL-3', 'Affero GPL-3'),
         ('LGPL-3', 'LGPL Version 3'),
         ('Other OSI approved licence', 'Other OSI Approved License'),
-        ('OEEL-1', 'Orbex License v1.0'),
-        ('OPL-1', 'Orbex Proprietary License v1.0'),
+        ('OSPL-1', 'OS Proprietary License v1.0'),
         ('Other proprietary', 'Other Proprietary')
-    ], string='License', default='LGPL-3', readonly=True)
+    ], string='License', default='OSPL-1', readonly=True)
     menus_by_module = fields.Text(string='Menus', compute='_get_views', store=True)
     reports_by_module = fields.Text(string='Reports', compute='_get_views', store=True)
     views_by_module = fields.Text(string='Views', compute='_get_views', store=True)
@@ -746,7 +745,7 @@ class IrModuleModule(models.Model):
             'maintainer': terp.get('maintainer', False),
             'contributors': ', '.join(terp.get('contributors', [])) or False,
             'website': terp.get('website', ''),
-            'license': terp.get('license', 'LGPL-3'),
+            'license': terp.get('license', 'OSPL-1'),
             'sequence': terp.get('sequence', 100),
             'application': terp.get('application', False),
             'auto_install': terp.get('auto_install', False) is not False,

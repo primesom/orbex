@@ -39,6 +39,5 @@ Re-implement Orbex's file import system:
             'base_import/static/tests/**/*.test.js',
         ],
     },
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

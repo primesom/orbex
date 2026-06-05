@@ -37619,11 +37619,6 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
-msgid "Orbex License v1.0"
-msgstr "Giấy phép Phiên bản Orbex Enterprise v1.0"
-
-#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Phân hệ Orbex Enterprise"
@@ -38432,8 +38427,8 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
-msgid "Orbex Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
+msgid "OS Proprietary License v1.0"
 msgstr "Giấy phép Độc quyền Orbex v1.0"
 
 #. module: base

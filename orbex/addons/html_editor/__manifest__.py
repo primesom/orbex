@@ -120,5 +120,5 @@ This addon provides an extensible, maintainable editor.
             'web/static/lib/prismjs/themes/okaida.css',
         ]
     },
-    'license': 'LGPL-3'
+    'license': 'OSPL-1'
 }

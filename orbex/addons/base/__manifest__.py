@@ -94,6 +94,5 @@ The kernel of Orbex, needed for all installation.
     'installable': True,
     'auto_install': True,
     'post_init_hook': 'post_init',
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

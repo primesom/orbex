@@ -9,6 +9,5 @@
     ],
     'installable': True,
     'auto_install': True,
-    'author': 'Orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

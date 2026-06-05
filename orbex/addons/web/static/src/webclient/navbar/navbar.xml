@@ -11,7 +11,7 @@
         data-command-category="disabled"
       >
         <div t-if="!this.ui.isSmall and !isScopedApp" class="o_orbex_topbar_brand">
-          <a href="/orbex" class="o_orbex_brand_link" t-on-click.prevent="onAllAppsBtnClick">
+          <a href="/orbex/chat" class="o_orbex_brand_link">
             <span>Orbex Suite</span>
           </a>
           <button type="button" class="o_orbex_sidebar_toggle" t-att-title="state.isAppSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'" t-on-click="toggleAppSidebar">
@@ -70,7 +70,7 @@
   <t t-name="web.NavBar.AppSidebar">
     <aside class="o_orbex_app_sidebar d-print-none" t-att-class="{ 'o-collapsed': state.isAppSidebarCollapsed }">
       <div class="o_orbex_sidebar_brand">
-        <a href="/orbex" class="o_orbex_brand_link" t-on-click.prevent="onAllAppsBtnClick">
+        <a href="/orbex/chat" class="o_orbex_brand_link">
           <span>Orbex Suite</span>
         </a>
         <button type="button" class="o_orbex_sidebar_toggle" t-att-title="state.isAppSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'" t-on-click="toggleAppSidebar">
@@ -164,7 +164,7 @@
         <div class="o_app_menu_sidebar position-fixed top-0 bottom-0 end-100 d-flex flex-column flex-nowrap" t-att-class="transition.className" t-on-touchstart.stop="_onSwipeStart" t-on-touchend.stop="_onSwipeEnd">
           <div class="o_sidebar_topbar d-flex align-items-center justify-content-between flex-shrink-0 py-0 fs-4">
               <small class="o_orbex_mobile_brand d-flex align-items-center justify-content-between ms-2">
-                  <a href="/orbex" t-on-click.prevent="() => { this.onAllAppsBtnClick(); this._closeAppMenuSidebar(); }">Orbex Suite</a>
+                  <a href="/orbex/chat">Orbex Suite</a>
               </small>
               <button class="o_sidebar_close oi oi-close btn d-flex align-items-center h-100 bg-transparent border-0 fs-2 text-reset" aria-label="Close menu" title="Close menu" t-on-click.stop="_closeAppMenuSidebar"/>
           </div>

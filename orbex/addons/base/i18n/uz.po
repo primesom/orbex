@@ -39565,12 +39565,6 @@ msgid ""
 msgstr ""
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
-#, fuzzy
-msgid "Orbex License v1.0"
-msgstr "Orbex Enterprise nashri litsenziyasi v1.0"
-
-#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 #, fuzzy
 msgid "Orbex Enterprise Module"
@@ -40104,9 +40098,9 @@ msgid ""
 msgstr ""
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
 #, fuzzy
-msgid "Orbex Proprietary License v1.0"
+msgid "OS Proprietary License v1.0"
 msgstr "Orbex xususiy litsenziyasi v1.0"
 
 #. module: base
