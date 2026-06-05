@@ -1,0 +1,28 @@
+{
+  "records": [
+    {
+      "id": "auth_passkey_users_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "auth.passkey.users.form",
+        "model": "res.users",
+        "inherit_id": {
+          "ref": "base.view_users_form"
+        },
+        "arch": "<xpath expr=\"//div[@name='api_keys']\" position=\"after\">\n                <div invisible=\"id != uid\" class=\"d-md-flex mt-3\">\n                    <div class=\"col-md-6 col-lg-3 d-flex flex-column\">\n                        <label for=\"action_create_passkey\" string=\"Passkeys\" class=\"o_form_label\"/>\n                        <span class=\"text-muted\">\n                            Recommended for extra security.\n                        </span>\n                    </div>\n                    <div class=\"w-md-50 w-lg-75 d-flex flex-column my-auto\">\n                        <field name=\"auth_passkey_key_ids\" invisible=\"not auth_passkey_key_ids\" mode=\"kanban\" class=\"w-sm-75 w-md-100 w-lg-75 w-xl-50 o_auth_passkey_kanban_view\"/>\n                        <div>\n                            <button type=\"object\" name=\"action_create_passkey\" class=\"btn btn-secondary h-100\" string=\"Add Passkey\"/>\n                        </div>\n                    </div>\n                </div>\n            </xpath>\n        "
+      }
+    },
+    {
+      "id": "auth_passkey_users_preferences",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "auth.passkey.users.preferences",
+        "model": "res.users",
+        "inherit_id": {
+          "ref": "base.view_users_form_simple_modif"
+        },
+        "arch": "<xpath expr=\"//div[@name='api_keys']\" position=\"after\">\n                <div class=\"d-lg-flex mt-3\">\n                    <div class=\"col-lg-3 d-flex flex-column\">\n                        <label for=\"action_create_passkey\" string=\"Passkeys\" class=\"o_form_label\"/>\n                        <span class=\"text-muted\">\n                            Recommended for extra security.\n                        </span>\n                    </div>\n                    <div class=\"w-lg-75 d-flex flex-column my-auto\">\n                        <field name=\"auth_passkey_key_ids\" invisible=\"not auth_passkey_key_ids\" mode=\"kanban\" class=\"w-lg-75 o_auth_passkey_kanban_view\"/>\n                        <div>\n                            <button type=\"object\" name=\"action_create_passkey\" class=\"btn btn-secondary h-100\" string=\"Add Passkey\"/>\n                        </div>\n                    </div>\n                </div>\n            </xpath>\n        "
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "id": "auth_passkey_key_view_kanban",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "auth.passkey.key.kanban",
+        "model": "auth.passkey.key",
+        "arch": "<kanban create=\"0\" can_open=\"0\">\n                <templates>\n                    <t t-name=\"menu\">\n                        <a role=\"menuitem\" type=\"object\" name=\"action_rename_passkey\" class=\"dropdown-item\">Rename</a>\n                        <a role=\"menuitem\" type=\"object\" name=\"action_delete_passkey\" class=\"dropdown-item\">Delete</a>\n                    </t>\n                    <t t-name=\"card\">\n                        <div>\n                            <field name=\"name\" class=\"fw-bold fs-5\"/>\n                            <field name=\"create_date\" class=\"ms-2 text-muted\"/>\n                        </div>\n                        <small>Last used: <field name=\"write_date\"/></small>\n                    </t>\n                </templates>\n            </kanban>\n        "
+      }
+    },
+    {
+      "id": "auth_passkey_key_rename",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "auth.passkey.key.rename",
+        "model": "auth.passkey.key",
+        "arch": "<form>\n                <sheet>\n                    <group>\n                        <field name=\"name\"/>\n                    </group>\n                </sheet>\n                <footer>\n                    <button special=\"save\" data-hotkey=\"s\" string=\"Save\" class=\"btn-primary\"/>\n                    <button special=\"cancel\" data-hotkey=\"x\" string=\"Cancel\" class=\"btn-secondary\"/>\n                </footer>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "action_auth_passkey_key_create",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Create Passkey Wizard",
+        "res_model": "auth.passkey.key.create",
+        "target": "new",
+        "view_mode": "form"
+      }
+    },
+    {
+      "id": "auth_passkey_key_create_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Create Passkey Wizard Form",
+        "model": "auth.passkey.key.create",
+        "arch": "<form js_class=\"auth_passkey_key_create_view_form\">\n                <sheet>\n                    <group>\n                        <field name=\"name\"/>\n                    </group>\n                </sheet>\n                <footer>\n                    <button name=\"make_key\" type=\"object\" string=\"Create\" class=\"btn-primary\" data-hotkey=\"q\"/>\n                    <button special=\"cancel\" data-hotkey=\"x\" string=\"Cancel\" class=\"btn-secondary\"/>\n                </footer>\n            </form>\n        "
+      }
+    }
+  ]
+}

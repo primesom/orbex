@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "id": "access_auth_totp_wizard",
+      "model": "ir.model.access",
+      "values": {
+        "name": "auth_totp wizard access rules",
+        "model_id": {
+          "ref": "model_auth_totp_wizard"
+        },
+        "group_id": {
+          "ref": "base.group_user"
+        },
+        "perm_read": "1",
+        "perm_write": "1",
+        "perm_create": "1",
+        "perm_unlink": "1"
+      }
+    },
+    {
+      "id": "rule_auth_totp_wizard",
+      "model": "ir.rule",
+      "values": {
+        "name": "Users can only access their own wizard",
+        "model_id": {
+          "ref": "model_auth_totp_wizard"
+        },
+        "domain_force": "[('user_id', '=', user.id)]"
+      }
+    },
+    {
+      "id": "api_key_public",
+      "model": "ir.rule",
+      "values": {
+        "name": "Public users can't interact with keys at all",
+        "model_id": {
+          "ref": "model_auth_totp_device"
+        },
+        "domain_force": "[(0, '=', 1)]",
+        "groups": {
+          "eval": "[Command.link(ref('base.group_public'))]"
+        }
+      }
+    },
+    {
+      "id": "api_key_user",
+      "model": "ir.rule",
+      "values": {
+        "name": "Users can read and delete their own keys",
+        "model_id": {
+          "ref": "model_auth_totp_device"
+        },
+        "domain_force": "[('user_id', '=', user.id)]",
+        "groups": {
+          "eval": "[                 Command.link(ref('base.group_portal')),                 Command.link(ref('base.group_user')),             ]"
+        }
+      }
+    },
+    {
+      "id": "api_key_admin",
+      "model": "ir.rule",
+      "values": {
+        "name": "Administrators can view user keys to revoke them",
+        "model_id": {
+          "ref": "model_auth_totp_device"
+        },
+        "domain_force": "[(1, '=', 1)]",
+        "groups": {
+          "eval": "[Command.link(ref('base.group_system'))]"
+        }
+      }
+    }
+  ]
+}

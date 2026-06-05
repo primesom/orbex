@@ -8,7 +8,7 @@
     'description': """Explore the free high-resolution image library of Unsplash.com and find images to use in Orbex. An Unsplash search bar is added to the image library modal.""",
     'depends': ['base_setup', 'html_editor'],
     'data': [
-        'views/res_config_settings_view.xml',
+        'views/res_config_settings_view.json',
         ],
     'auto_install': True,
     'assets': {

@@ -668,7 +668,7 @@ class IrModuleModule(models.Model):
             """,
             module=module,
             js_pattern=f'/{module_}/static/src/%.js',
-            xml_pattern=f'/{module_}/static/src/%.xml',
+            xml_pattern=f'/{module_}/static/src/%.html',
         ))]
         attachments = IrAttachment.browse(OrderedSet(ids))
         if not attachments:

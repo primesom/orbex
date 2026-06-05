@@ -1,0 +1,34 @@
+{
+  "records": [
+    {
+      "id": "autovacuum_job",
+      "model": "ir.cron",
+      "values": {
+        "name": "Base: Auto-vacuum internal data",
+        "model_id": {
+          "ref": "model_ir_autovacuum"
+        },
+        "state": "code",
+        "code": "model._run_vacuum_cleaner()",
+        "interval_number": "1",
+        "interval_type": "days",
+        "priority": "3"
+      }
+    },
+    {
+      "id": "ir_cron_res_users_deletion",
+      "model": "ir.cron",
+      "values": {
+        "name": "Base: Portal Users Deletion",
+        "model_id": {
+          "ref": "base.model_res_users_deletion"
+        },
+        "state": "code",
+        "code": "model._gc_portal_users(batch_size=50)",
+        "interval_number": "1",
+        "interval_type": "days",
+        "priority": "8"
+      }
+    }
+  ]
+}

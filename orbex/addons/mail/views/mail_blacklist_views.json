@@ -1,0 +1,46 @@
+{
+  "records": [
+    {
+      "id": "mail_blacklist_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.blacklist.view.list",
+        "model": "mail.blacklist",
+        "arch": "<list string=\"Email Blacklist\">\n                <field name=\"create_date\" string=\"Blacklist Date\"/>\n                <field name=\"email\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "mail_blacklist_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.blacklist.view.form",
+        "model": "mail.blacklist",
+        "arch": "<form string=\"Add Email Blacklist\" duplicate=\"false\">\n                <header>\n                    <button name=\"mail_action_blacklist_remove\" string=\"Unblacklist\" type=\"object\" class=\"oe_highlight\" context=\"{'default_email': email}\" invisible=\"not active or not email\"/>\n                    <button name=\"action_add\" string=\"Blacklist\" type=\"object\" class=\"oe_highlight\" invisible=\"active or not email\"/>\n                </header>\n                <sheet>\n                    <div class=\"badge rounded-pill text-bg-danger float-end fs-6 border-0\" invisible=\"active\">Archived</div>\n                    <group>\n                        <field name=\"email\"/>\n                    </group>\n                </sheet>\n                <chatter/>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_blacklist_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.blacklist.view.search",
+        "model": "mail.blacklist",
+        "arch": "<search>\n                <field name=\"email\"/>\n                <filter string=\"Archived\" name=\"inactive\" domain=\"[('active','=',False)]\"/>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "mail_blacklist_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Blacklisted Email Addresses",
+        "res_model": "mail.blacklist",
+        "view_id": {
+          "ref": "mail_blacklist_view_tree"
+        },
+        "search_view_id": {
+          "ref": "mail_blacklist_view_search"
+        },
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n            Add an email address to the blacklist\n          </p><p>\n            Email addresses that are blacklisted won't receive Email mailings anymore.\n        </p>\n        "
+      }
+    }
+  ]
+}

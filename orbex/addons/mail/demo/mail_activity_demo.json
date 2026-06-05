@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "id": "mail_activity_demo_admin_email",
+      "model": "mail.activity",
+      "values": {
+        "activity_type_id": {
+          "ref": "mail.mail_activity_data_email"
+        },
+        "note": "Much email, nice ChatGPT",
+        "summary": "Send Email to Alfred",
+        "user_id": {
+          "ref": "base.user_admin"
+        }
+      }
+    },
+    {
+      "id": "mail_activity_demo_admin_todo",
+      "model": "mail.activity",
+      "values": {
+        "activity_type_id": {
+          "ref": "mail.mail_activity_data_todo"
+        },
+        "note": "Nomnom yummy yummy",
+        "summary": "Eat cookies",
+        "user_id": {
+          "ref": "base.user_admin"
+        }
+      }
+    }
+  ]
+}

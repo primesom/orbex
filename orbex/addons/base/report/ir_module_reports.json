@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "id": "ir_module_reference_print",
+      "model": "ir.actions.report",
+      "values": {
+        "name": "Technical guide",
+        "model": "ir.module.module",
+        "report_type": "qweb-pdf",
+        "report_name": "base.report_irmodulereference",
+        "report_file": "base.report_irmodulereference",
+        "binding_model_id": {
+          "ref": "model_ir_module_module"
+        },
+        "binding_type": "report"
+      }
+    }
+  ]
+}

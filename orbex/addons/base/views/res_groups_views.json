@@ -1,0 +1,99 @@
+{
+  "records": [
+    {
+      "id": "view_res_groups_privilege_list",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.groups.privilege.list",
+        "model": "res.groups.privilege",
+        "arch": "<list default_group_by=\"category_id\">\n                    <field name=\"name\"/>\n                    <field name=\"group_ids\" widget=\"many2many_tags\" context=\"{'short_display_name': True}\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_res_groups_privilege_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.groups.privilege.form",
+        "model": "res.groups.privilege",
+        "arch": "<form>\n                    <sheet>\n                        <h1><field name=\"name\" placeholder=\"Privilege Name\"/></h1>\n                        <group>\n                            <group>\n                                <field name=\"sequence\" groups=\"base.group_no_one\"/>\n                                <field name=\"category_id\" invisible=\"'default_category_id' in context\"/>\n                                <field name=\"placeholder\"/>\n                            </group>\n                        </group>\n                        <notebook>\n                            <page string=\"Groups\" name=\"groups\">\n                                <field name=\"group_ids\" widget=\"many2many\" domain=\"[('privilege_id', '=', False)]\" context=\"{'default_privilege_id': id}\">\n                                    <list string=\"Groups\">\n                                        <field name=\"sequence\" widget=\"handle\"/>\n                                        <field name=\"name\"/>\n                                    </list>\n                                </field>\n                            </page>\n                            <page string=\"Notes\" name=\"notes\">\n                                <field name=\"description\"/>\n                            </page>\n                        </notebook>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "action_res_groups_privilege",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Privileges",
+        "res_model": "res.groups.privilege"
+      }
+    },
+    {
+      "id": "view_groups_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.groups.search",
+        "model": "res.groups",
+        "arch": "<search string=\"Groups\">\n                    <field name=\"full_name\" string=\"Group\"/>\n                    <field name=\"implied_by_ids\" filter_domain=\"[('implied_by_ids.full_name','ilike',self)]\" string=\"Added from\"/>\n                    <field name=\"implied_ids\" filter_domain=\"[('implied_ids.full_name','ilike',self)]\" string=\"Implied\"/>\n                    <separator orientation=\"vertical\"/>\n                    <field name=\"share\"/>\n                    <filter name=\"filter_no_share\" string=\"Internal Groups\" domain=\"[('share','=',False)]\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "view_groups_list",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.groups.list",
+        "model": "res.groups",
+        "arch": "<list string=\"Implied groups\" default_order=\"privilege_id,name\">\n                    <field name=\"privilege_id\"/>\n                    <field name=\"name\"/>\n                    <field name=\"comment\" optional=\"hide\"/>\n                    <field name=\"implied_ids\" widget=\"many2many_tags\" optional=\"hide\"/>\n                    <field name=\"implied_by_ids\" widget=\"many2many_tags\" optional=\"hide\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_groups_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.groups.form",
+        "model": "res.groups",
+        "arch": "<form string=\"Groups\">\n                  <sheet>\n                    <div class=\"oe_button_box\" name=\"button_box\">\n                        <button name=\"action_show_all_users\" type=\"object\" groups=\"base.group_no_one\" class=\"oe_stat_button\" icon=\"fa-users\" help=\"Users having this group (implicitly or explicitly)\">\n                            <field string=\"Users\" name=\"all_users_count\" widget=\"statinfo\"/>\n                        </button>\n                    </div>\n                    <h1><field name=\"name\" placeholder=\"Group Name\" required=\"1\"/></h1>\n                    <group>\n                        <group>\n                            <field name=\"privilege_id\" invisible=\"'default_privilege_id' in context\" readonly=\"context.get('is_action_res_users')\"/>\n                            <field name=\"share\" invisible=\"'default_privilege_id' in context\" readonly=\"context.get('is_action_res_users')\"/>\n                            <field name=\"api_key_duration\" groups=\"base.group_no_one\"/>\n                        </group>\n                    </group>\n                    <notebook>\n                        <page string=\"Users\" name=\"user_ids\">\n                            <field name=\"user_ids\" context=\"{'search_default_filter_no_share':1}\"/>\n                        </page>\n                        <page string=\"Inherited\" name=\"inherit_groups\">\n                            <group>\n                                <field name=\"implied_ids\"/>\n                                <field name=\"implied_by_ids\"/>\n                                <field name=\"disjoint_ids\" widget=\"many2many_tags\"/>\n                            </group>\n                        </page>\n                        <page string=\"Menus\" name=\"menus\">\n                            <field name=\"menu_access\"/>\n                        </page>\n                        <page string=\"Views\" name=\"views\">\n                            <field name=\"view_access\" groups=\"base.group_system\"/>\n                        </page>\n                        <page string=\"Access Rights\" name=\"access_rights\">\n                            <field name=\"model_access\">\n                                <list string=\"Access Rights\" editable=\"top\">\n                                    <field name=\"name\"/>\n                                    <field name=\"model_id\"/>\n                                    <field name=\"perm_read\"/>\n                                    <field name=\"perm_write\"/>\n                                    <field name=\"perm_create\"/>\n                                    <field name=\"perm_unlink\"/>\n                                </list>\n                            </field>\n                        </page>\n                        <page string=\"Record Rules\" name=\"record_rules\">\n                            <field name=\"rule_groups\">\n                                <list string=\"Record Rules\" editable=\"top\">\n                                    <field name=\"name\"/>\n                                    <field name=\"model_id\"/>\n                                    <field name=\"domain_force\"/>\n                                    <field name=\"perm_read\"/>\n                                    <field name=\"perm_write\"/>\n                                    <field name=\"perm_create\"/>\n                                    <field name=\"perm_unlink\"/>\n                                </list>\n                            </field>\n                        </page><page string=\"Notes\" name=\"notes\">\n                            <field name=\"comment\"/>\n                        </page>\n                    </notebook>\n                  </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "action_res_groups",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Groups",
+        "res_model": "res.groups",
+        "context": "{'search_default_filter_no_share': 1}",
+        "help": "A group is a set of functional areas that will be assigned to the user in order to give them access and rights to specific applications and tasks in the system. You can create custom groups or edit the ones existing by default in order to customize the view of the menu that users will be able to see. Whether they can have a read, write, create and delete access right can be managed from here."
+      }
+    },
+    {
+      "id": "view_default_groups_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.groups default groups form",
+        "model": "res.groups",
+        "priority": "100",
+        "arch": "<form string=\"Groups\">\n                  <sheet>\n                    <group>\n                        <field name=\"implied_ids\" widget=\"res_user_group_ids\" nolabel=\"1\" colspan=\"2\"/>\n                    </group>\n                  </sheet>\n                </form>\n            "
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "menu_action_res_groups_privilege",
+      "name": null,
+      "parent": "base.menu_users",
+      "action": "action_res_groups_privilege",
+      "sequence": 5,
+      "groups": [
+        "base.group_no_one"
+      ]
+    },
+    {
+      "id": "menu_action_res_groups",
+      "name": null,
+      "parent": "base.menu_users",
+      "action": "action_res_groups",
+      "sequence": 3,
+      "groups": [
+        "base.group_no_one"
+      ]
+    }
+  ]
+}

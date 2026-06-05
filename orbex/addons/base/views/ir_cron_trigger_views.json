@@ -1,0 +1,49 @@
+{
+  "records": [
+    {
+      "id": "ir_cron_trigger_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.cron.trigger.view.form",
+        "model": "ir.cron.trigger",
+        "arch": "<form string=\"Cron Trigger\">\n                <sheet>\n                    <group>\n                        <field name=\"cron_id\"/>\n                        <field name=\"call_at\"/>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "ir_cron_trigger_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.cron.trigger.view.list",
+        "model": "ir.cron.trigger",
+        "arch": "<list string=\"Cron Triggers\">\n                <field name=\"cron_id\"/>\n                <field name=\"call_at\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "ir_cron_trigger_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.cron.trigger.view.search",
+        "model": "ir.cron.trigger",
+        "arch": "<search string=\"Cron Triggers\">\n                <field name=\"cron_id\"/>\n                <field name=\"call_at\"/>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "ir_cron_trigger_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Scheduled Actions Triggers",
+        "res_model": "ir.cron.trigger",
+        "view_mode": "list,form"
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "ir_cron_trigger_menu",
+      "name": null,
+      "parent": "base.menu_automation",
+      "action": "ir_cron_trigger_action",
+      "sequence": 3
+    }
+  ]
+}

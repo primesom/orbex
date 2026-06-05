@@ -33,7 +33,7 @@ Re-implement Orbex's file import system:
         'web.assets_backend': [
             'base_import/static/src/**/*.scss',
             'base_import/static/src/**/*.js',
-            'base_import/static/src/**/*.xml',
+            'base_import/static/src/**/*.html',
         ],
         'web.assets_unit_tests': [
             'base_import/static/tests/**/*.test.js',

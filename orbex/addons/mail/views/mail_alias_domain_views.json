@@ -1,0 +1,40 @@
+{
+  "records": [
+    {
+      "id": "mail_alias_domain_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.alias.domain.view.form",
+        "model": "mail.alias.domain",
+        "arch": "<form string=\"Alias Domain\" duplicate=\"false\">\n                <sheet>\n                    <group>\n                        <group>\n                            <label for=\"name\"/>\n                            <div>\n                                <span class=\"me-1 oe_inline\">@</span>\n                                <field name=\"name\" string=\"Domain\" class=\"oe_inline\" placeholder=\"e.g. &quot;mycompany.com&quot;\"/>\n                            </div>\n                            <field name=\"company_ids\" widget=\"many2many_tags\" string=\"Used In\" readonly=\"True\" groups=\"base.group_multi_company\" placeholder=\"Visible to all\"/>\n                        </group>\n                        <group>\n                            <field name=\"bounce_alias\" groups=\"base.group_no_one\" placeholder=\"e.g. &quot;bounce&quot;\"/>\n                            <field name=\"catchall_alias\" groups=\"base.group_no_one\" placeholder=\"e.g. &quot;catchall&quot;\"/>\n                            <field name=\"default_from\" groups=\"base.group_no_one\" placeholder=\"e.g. &quot;notifications&quot;\"/>\n                        </group>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_alias_domain_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.alias.domain.view.list",
+        "model": "mail.alias.domain",
+        "arch": "<list string=\"Alias Domains\" duplicate=\"false\">\n                <field name=\"sequence\" widget=\"handle\"/>\n                <field name=\"name\"/>\n                <field name=\"bounce_alias\"/>\n                <field name=\"catchall_alias\"/>\n                <field name=\"default_from\"/>\n                <field name=\"company_ids\" optional=\"hide\" widget=\"many2many_tags\" groups=\"base.group_multi_company\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "mail_alias_domain_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.alias.domain.view.search",
+        "model": "mail.alias.domain",
+        "arch": "<search string=\"Alias Domains\">\n                <field name=\"name\"/>\n                <field name=\"bounce_alias\"/>\n                <field name=\"catchall_alias\"/>\n                <field name=\"company_ids\" groups=\"base.group_multi_company\"/>\n                <group>\n                    <filter string=\"Company\" name=\"group_by_company_ids\" domain=\"[]\" context=\"{'group_by': 'company_ids'}\" groups=\"base.group_multi_company\"/>\n                </group>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "mail_alias_domain_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Alias Domains",
+        "res_model": "mail.alias.domain",
+        "view_mode": "list,form"
+      }
+    }
+  ]
+}

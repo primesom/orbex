@@ -1,0 +1,17 @@
+{
+  "records": [
+    {
+      "id": "group_allow_doc",
+      "model": "res.groups",
+      "values": {
+        "name": "Technical Documentation",
+        "user_ids": {
+          "eval": "[Command.link(ref('base.user_root'))]"
+        },
+        "implied_by_ids": {
+          "eval": "[Command.link(ref('base.group_system'))]"
+        }
+      }
+    }
+  ]
+}

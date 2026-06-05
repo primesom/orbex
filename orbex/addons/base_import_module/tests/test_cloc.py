@@ -159,7 +159,7 @@ class TestClocFields(test_cloc.TestClocCustomization):
             archive.writestr('test_imported_module/__manifest__.py', manifest_content)
             archive.writestr('test_imported_module/static/src/js/test.js', test_cloc.JS_TEST)
             archive.writestr('test_imported_module/static/src/js/test.scss', test_cloc.SCSS_TEST)
-            archive.writestr('test_imported_module/static/src/js/test.xml', VALID_XML)
+            archive.writestr('test_imported_module/static/src/js/test.html', VALID_XML)
 
         # Import test module
         self.env['ir.module.module']._import_zipfile(stream)
@@ -209,7 +209,7 @@ class TestClocFields(test_cloc.TestClocCustomization):
             archive.writestr('test_imported_module/__manifest__.py', manifest_content)
             archive.writestr('test_imported_module/static/src/js/test.js', test_cloc.JS_TEST)
             archive.writestr('test_imported_module/static/src/js/test.scss', test_cloc.SCSS_TEST)
-            archive.writestr('test_imported_module/static/src/js/test.xml', VALID_XML)
+            archive.writestr('test_imported_module/static/src/js/test.html', VALID_XML)
 
         id_names = [
             'attachment_/test_imported_module/static/src/js/test_js',
@@ -237,7 +237,7 @@ class TestClocFields(test_cloc.TestClocCustomization):
                 'web.assets_backend': [
                     'test_imported_module/static/src/js/test.js',
                     'test_imported_module/static/src/js/test.scss',
-                    'test_imported_module/static/src/js/test.xml',
+                    'test_imported_module/static/src/js/test.html',
                 ]
             },
             'cloc_exclude': [
@@ -253,7 +253,7 @@ class TestClocFields(test_cloc.TestClocCustomization):
             archive.writestr('test_imported_module/__manifest__.py', manifest_content)
             archive.writestr('test_imported_module/static/src/js/test.js', test_cloc.JS_TEST)
             archive.writestr('test_imported_module/static/src/js/test.scss', test_cloc.SCSS_TEST)
-            archive.writestr('test_imported_module/static/src/js/test.xml', VALID_XML)
+            archive.writestr('test_imported_module/static/src/js/test.html', VALID_XML)
             archive.writestr('test_imported_module/data/test.xml', VALID_XML_2)
         # Import test module
         self.env['ir.module.module']._import_zipfile(stream)

@@ -3,11 +3,13 @@
 
 __all__ = [
     'convert_file', 'convert_sql_import',
-    'convert_csv_import', 'convert_xml_import'
+    'convert_csv_import', 'convert_xml_import',
+    'convert_json_import', 'convert_html_import',
 ]
 import base64
 import csv
 import io
+import json
 import logging
 import os.path
 import pprint
@@ -37,6 +39,14 @@ IdRef = dict[str, int | Literal[False]]
 
 class ParseError(Exception):
     ...
+
+
+def _ensure_list(value, label):
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return value
+    raise ParseError(f"{label} must be a list, got {type(value).__name__}")
 
 
 def _get_eval_context(self, env, model_str):
@@ -664,6 +674,360 @@ form: module.record_id""" % (xml_id,)
     DATA_ROOTS = ['orbex', 'data', 'openerp']
 
 
+class json_import:
+    DATA_KEYS = ('records', 'menus', 'actions', 'templates', 'assets', 'delete', 'functions')
+
+    def __init__(
+            self,
+            env,
+            module,
+            idref: Optional[IdRef],
+            mode: ConvertMode,
+            noupdate: bool = False,
+            filename: str = '',
+    ):
+        self.mode = mode
+        self.module = module
+        self.env = env(context=dict(env.context, lang=None))
+        self.idref: IdRef = {} if idref is None else idref
+        self.noupdate = noupdate
+        self.filename = filename
+        self._pending_menu_actions = []
+
+    def make_xml_id(self, record_id):
+        if not record_id or '.' in record_id:
+            return record_id
+        return "%s.%s" % (self.module, record_id)
+
+    def id_get(self, id_str, raise_if_not_found=True):
+        xid = self.make_xml_id(id_str)
+        if xid in self.idref:
+            return self.idref[xid]
+        return self.model_id_get(xid, raise_if_not_found)[1]
+
+    def model_id_get(self, id_str, raise_if_not_found=True):
+        xid = self.make_xml_id(id_str)
+        return self.env['ir.model.data']._xmlid_to_res_model_res_id(xid, raise_if_not_found=raise_if_not_found)
+
+    def _eval_context(self, model_name=None):
+        return _get_eval_context(self, self.env, model_name)
+
+    def _resolve_search(self, spec, field):
+        model_name = spec.get('model') or field.comodel_name
+        if not model_name:
+            raise ParseError(f"JSON search value in {self.filename} requires a model")
+        domain = spec.get('domain', spec.get('search', []))
+        if isinstance(domain, str):
+            domain = safe_eval(domain, self._eval_context(model_name))
+        use = spec.get('use', 'id')
+        records = self.env[model_name].search(domain)
+        if field.type == 'many2many':
+            from orbex.fields import Command  # noqa: PLC0415
+            return [Command.set([record[use] for record in records])]
+        return records and records[0][use] or False
+
+    def _resolve_command(self, spec):
+        from orbex.fields import Command  # noqa: PLC0415
+        command = spec.get('command')
+        refs = [self.id_get(ref) for ref in spec.get('refs', [])]
+        ids = spec.get('ids', [])
+        values = refs + ids
+        match command:
+            case 'set':
+                return Command.set(values)
+            case 'link':
+                return [Command.link(value) for value in values]
+            case 'unlink':
+                return [Command.unlink(value) for value in values]
+            case 'clear':
+                return Command.clear()
+            case _:
+                raise ParseError(f"Unsupported JSON command {command!r} in {self.filename}")
+
+    def _read_module_file(self, path, binary=False):
+        path_parts = path.split('/', 1)
+        if len(path_parts) == 2 and path_parts[0] == f'{self.module}_json':
+            path = f'{self.module}/{path_parts[1]}'
+        if os.path.isabs(path) or path.split('/', 1)[0] == self.module:
+            full_path = path
+        else:
+            full_path = os.path.join(self.module, path)
+        mode = 'rb' if binary else 'r'
+        with file_open(full_path, mode, env=self.env) as file:
+            return file.read()
+
+    def _process_string_refs(self, value):
+        def replace(match):
+            record_id = match.group(1)
+            xid = self.make_xml_id(record_id)
+            if (database_id := self.idref.get(xid)) is None:
+                database_id = self.idref[xid] = self.id_get(xid)
+            return str(database_id)
+        return re.sub(r'(?<!%)%\((.*?)\)[ds]', replace, value).replace('%%', '%')
+
+    def _resolve_value(self, value, model, field_name):
+        field = model._fields.get(field_name)
+        if field and field.type == 'json':
+            return value
+        if isinstance(value, list):
+            return [self._resolve_value(item, model, field_name) for item in value]
+        if isinstance(value, str):
+            return self._process_string_refs(value)
+        if not isinstance(value, dict):
+            return value
+
+        if 'ref' in value:
+            if field and field.type == 'reference':
+                ref_model, ref_id = self.model_id_get(value['ref'])
+                return f'{ref_model},{ref_id}'
+            return self.id_get(value['ref'], raise_if_not_found=value.get('required', True))
+        if 'eval' in value:
+            eval_model = value.get('model') or (field and field.comodel_name)
+            return safe_eval(value['eval'], self._eval_context(eval_model))
+        if 'search' in value or 'domain' in value:
+            if not field:
+                raise ParseError(f"JSON search value for unknown field {field_name!r} in {self.filename}")
+            return self._resolve_search(value, field)
+        if 'command' in value:
+            return self._resolve_command(value)
+        if 'file' in value:
+            if value.get('type') == 'file':
+                path = value['file']
+                if path.split('/', 1)[0] == self.module:
+                    path = path.split('/', 1)[1]
+                return '%s,%s' % (self.module, path)
+            data = self._read_module_file(value['file'], binary=value.get('type') == 'base64')
+            if value.get('type') == 'base64':
+                return base64.b64encode(data)
+            return data
+        if 'html' in value:
+            return self._read_module_file(value['html'])
+
+        return {
+            key: self._resolve_value(item, model, key)
+            for key, item in value.items()
+        }
+
+    def _record_values(self, model, values):
+        resolved = {}
+        for field_name, value in values.items():
+            if '@' in field_name:
+                continue
+            resolved[field_name] = self._resolve_value(value, model, field_name)
+        return resolved
+
+    def _load_record(self, item, default_model=None):
+        model_name = item.get('model') or default_model
+        if not model_name:
+            raise ParseError(f"JSON record in {self.filename} requires a model")
+        record_id = item.get('id', '')
+        xid = self.make_xml_id(record_id)
+        model = self.env[model_name]
+        if self.filename and record_id:
+            model = model.with_context(
+                install_mode=True,
+                install_module=self.module,
+                install_filename=self.filename,
+                install_xmlid=record_id,
+            )
+        if self.noupdate and self.mode != 'init' and record_id:
+            if record := self.env['ir.model.data']._load_xmlid(xid):
+                self.idref[xid] = record.id
+                return record
+            if item.get('forcecreate') is False:
+                return None
+        values = self._record_values(model, item.get('values', item.get('fields', {})))
+        data = {
+            'xml_id': xid,
+            'values': values,
+            'noupdate': item.get('noupdate', self.noupdate),
+        }
+        record = model._load_records([data], self.mode == 'update')
+        if xid:
+            self.idref[xid] = record.id
+        if config.get('import_partial'):
+            self.env.cr.commit()
+        return record
+
+    def _load_menu(self, item):
+        values = {
+            'name': item.get('name') or item.get('id') or '?',
+            'active': item.get('active', True),
+            'parent_id': False,
+        }
+        if item.get('parent'):
+            values['parent_id'] = self.id_get(item['parent'])
+        if item.get('sequence') is not None:
+            values['sequence'] = item['sequence']
+        if item.get('web_icon'):
+            values['web_icon'] = item['web_icon']
+        if item.get('action'):
+            action_ref = item['action']
+            action = self.env.ref(self.make_xml_id(action_ref), raise_if_not_found=False)
+            if action:
+                action = action.sudo()
+                values['action'] = "%s,%d" % (action.type, action.id)
+        if item.get('groups'):
+            from orbex.fields import Command  # noqa: PLC0415
+            values['group_ids'] = [Command.link(self.id_get(group)) for group in item['groups']]
+        record = self._load_record({
+            'id': item['id'],
+            'model': 'ir.ui.menu',
+            'values': values,
+            'noupdate': item.get('noupdate', self.noupdate),
+        })
+        for child in item.get('children', []):
+            child.setdefault('parent', item['id'])
+            self._load_menu(child)
+        if item.get('action') and 'action' not in values:
+            self._pending_menu_actions.append((record, item['action']))
+        return record
+
+    def _flush_pending_menu_actions(self):
+        for menu, action_ref in self._pending_menu_actions:
+            action = self.env.ref(self.make_xml_id(action_ref)).sudo()
+            menu.write({'action': "%s,%d" % (action.type, action.id)})
+        self._pending_menu_actions.clear()
+
+    def _load_template(self, item):
+        template_id = item.get('id') or item.get('t_name')
+        if not template_id:
+            raise ParseError(f"JSON template in {self.filename} requires an id or t_name")
+        full_template_id = self.make_xml_id(template_id)
+        source_path = item.get('template') or item.get('html')
+        arch = item.get('arch') or self._read_module_file(source_path)
+        if item.get('type') == 'html' or item.get('template'):
+            root = etree.fromstring(arch.encode(), parser=etree.XMLParser(recover=True))
+            root.set('data-template', item.get('id') or template_id)
+            for node in root.xpath('//*[@data-value]'):
+                value_name = node.attrib.pop('data-value')
+                node.set('t-att-value', "request.csrf_token()" if value_name == 'csrf_token' else value_name)
+            for node in root.xpath('//*[@data-visible-if]'):
+                node.set('t-if', node.attrib.pop('data-visible-if'))
+            for node in root.xpath('//*[@data-text]'):
+                node.append(builder.E.t(**{'t-esc': node.attrib.pop('data-text')}))
+
+            body = etree.tostring(root, encoding='unicode')
+            if layout := item.get('layout'):
+                context = item.get('context') or {}
+                context_nodes = [
+                    builder.E.t(str(int(value)) if isinstance(value, bool) else str(value), **{'t-set': key})
+                    for key, value in context.items()
+                ]
+                wrapper = builder.E.template(
+                    builder.E.t(
+                        *context_nodes,
+                        etree.fromstring(body.encode(), parser=etree.XMLParser(recover=True)),
+                        **{'t-call': layout},
+                    ),
+                    name=item.get('name') or template_id,
+                )
+                arch = etree.tostring(wrapper, encoding='unicode')
+            else:
+                wrapper = builder.E.template(
+                    etree.fromstring(body.encode(), parser=etree.XMLParser(recover=True)),
+                    name=item.get('name') or template_id,
+                )
+                arch = etree.tostring(wrapper, encoding='unicode')
+        try:
+            root = etree.fromstring(arch.encode())
+        except etree.XMLSyntaxError:
+            root = None
+        if root is not None and root.tag == 'template':
+            inherit_id = item.get('inherit_id') or root.get('inherit_id')
+            root.attrib.pop('id', None)
+            if inherit_id:
+                root.tag = 'data'
+            else:
+                root.set('t-name', full_template_id)
+                root.tag = 't'
+            if item.get('primary') is True or root.get('primary') == 'True':
+                root.append(
+                    builder.E.xpath(
+                        builder.E.attribute(full_template_id, name='t-name'),
+                        expr=".",
+                        position="attributes",
+                    )
+                )
+                item = {**item, 'mode': 'primary'}
+            arch = etree.tostring(root, encoding='unicode')
+        values = {
+            'name': item.get('name') or template_id,
+            'key': item.get('key') or full_template_id,
+            'type': 'qweb',
+            'arch': arch,
+        }
+        for field_name in ('priority', 'track', 'mode', 'active', 'customize_show'):
+            if field_name in item:
+                values[field_name] = item[field_name]
+        if item.get('inherit_id'):
+            values['inherit_id'] = {'ref': item['inherit_id']}
+        if item.get('website_id'):
+            values['website_id'] = {'ref': item['website_id']}
+        return self._load_record({
+            'id': template_id,
+            'model': item.get('model') or ('theme.ir.ui.view' if self.module.startswith('theme_') else 'ir.ui.view'),
+            'values': values,
+            'noupdate': item.get('noupdate', self.noupdate),
+        })
+
+    def _load_delete(self, item):
+        model_name = item.get('model')
+        records = self.env[model_name]
+        if item.get('search'):
+            domain = item['search']
+            if isinstance(domain, str):
+                domain = safe_eval(domain, self._eval_context(model_name))
+            records = records.search(domain)
+        if item.get('id'):
+            records += records.browse(self.id_get(item['id']))
+        if records:
+            records.unlink()
+
+    def _load_function(self, item):
+        if self.noupdate and self.mode != 'init':
+            return
+        model = self.env[item['model']]
+        method = getattr(model, item['name'])
+        args = [self._resolve_value(arg, model, '') for arg in item.get('args', [])]
+        kwargs = {
+            key: self._resolve_value(value, model, key)
+            for key, value in item.get('kwargs', {}).items()
+        }
+        method(*args, **kwargs)
+
+    def parse(self, payload):
+        if isinstance(payload, list):
+            payload = {'records': payload}
+        if not isinstance(payload, dict):
+            raise ParseError(f"JSON root in {self.filename} must be an object or list")
+
+        local_noupdate = payload.get('noupdate')
+        previous_noupdate = self.noupdate
+        if local_noupdate is not None:
+            self.noupdate = bool(local_noupdate)
+        try:
+            for item in _ensure_list(payload.get('menus'), 'menus'):
+                self._load_menu(item)
+            for item in _ensure_list(payload.get('records'), 'records'):
+                self._load_record(item)
+            for item in _ensure_list(payload.get('actions'), 'actions'):
+                self._load_record(item)
+            self._flush_pending_menu_actions()
+            for item in _ensure_list(payload.get('templates'), 'templates'):
+                self._load_template(item)
+            for item in _ensure_list(payload.get('assets'), 'assets'):
+                self._load_record(item, default_model='ir.asset')
+            for item in _ensure_list(payload.get('delete'), 'delete'):
+                self._load_delete(item)
+            for item in _ensure_list(payload.get('functions'), 'functions'):
+                self._load_function(item)
+        except Exception as err:
+            raise ParseError(f"while parsing {self.filename}\n{err}") from err
+        finally:
+            self.noupdate = previous_noupdate
+
+
 def convert_file(
         env,
         module,
@@ -689,8 +1053,15 @@ def convert_file(
             convert_csv_import(env, module, pathname, fp.read(), idref, mode, noupdate)
         elif ext == '.sql':
             convert_sql_import(env, fp)
+        elif ext == '.json':
+            convert_json_import(env, module, fp, idref, mode, noupdate)
+        elif ext == '.html':
+            convert_html_import(env, module, fp, idref, mode, noupdate)
         elif ext == '.xml':
-            convert_xml_import(env, module, fp, idref, mode, noupdate)
+            raise ValueError(
+                "XML imports are not supported in Orbex. Convert %s to JSON/HTML before loading it."
+                % filename
+            )
         elif ext == '.js':
             pass # .js files are valid but ignored here.
         else:
@@ -757,6 +1128,53 @@ def convert_csv_import(
             file=fname,
             message=warning_msg,
         ))
+
+
+def convert_json_import(
+        env,
+        module,
+        jsonfile,
+        idref: Optional[IdRef] = None,
+        mode: ConvertMode = 'init',
+        noupdate=False,
+):
+    try:
+        payload = json.load(io.TextIOWrapper(jsonfile, encoding='utf-8'))
+    except json.JSONDecodeError as err:
+        raise ParseError(f"while parsing {getattr(jsonfile, 'name', '<json>')}\n{err}") from err
+    importer = json_import(
+        env,
+        module,
+        idref,
+        mode,
+        noupdate=noupdate,
+        filename=getattr(jsonfile, 'name', ''),
+    )
+    importer.parse(payload)
+
+
+def convert_html_import(
+        env,
+        module,
+        htmlfile,
+        idref: Optional[IdRef] = None,
+        mode: ConvertMode = 'init',
+        noupdate=False,
+):
+    filename = getattr(htmlfile, 'name', '')
+    arch = htmlfile.read().decode('utf-8')
+    template_names = re.findall(r"""\bt-name\s*=\s*["']([^"']+)["']""", arch)
+    template_id = template_names[0] if template_names else os.path.splitext(os.path.basename(filename))[0]
+    if template_id.startswith(f'{module}.'):
+        template_id = template_id.split('.', 1)[1]
+    importer = json_import(env, module, idref, mode, noupdate=noupdate, filename=filename)
+    importer.parse({
+        'templates': [{
+            'id': template_id,
+            'name': template_id,
+            'arch': arch,
+        }]
+    })
 
 
 def convert_xml_import(

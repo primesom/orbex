@@ -1,0 +1,9 @@
+{
+  "templates": [
+    {
+      "id": "mail.discuss_public_channel_template",
+      "name": "Discuss Public Template",
+      "arch": "<template name=\"Discuss Public Template\">&lt;!DOCTYPE html&gt;\n        <html class=\"h-100\">\n            <head>\n                <meta charset=\"utf-8\"/>\n                <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>\n                <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\"/>\n                <title t-esc=\"title or 'Orbex'\"/>\n                <link type=\"image/x-icon\" rel=\"shortcut icon\" t-att-href=\"x_icon or '/web/static/img/favicon.ico'\"/>\n                <script>\n                    window.orbex = {\n                        __session_info__: <t t-out=\"json.dumps(session_info)\"/>,\n                        csrf_token: \"<t t-out=\"request.csrf_token(None)\"/>\",\n                        debug: \"<t t-out=\"debug\"/>\",\n                        discuss_data: <t t-out=\"json.dumps(data)\"/>\n                    };\n                </script>\n                <t t-call-assets=\"mail.assets_public\"/>\n                <t t-call-assets=\"mail.assets_discuss_public_test_tours\" t-if=\"'tests' in debug or test_mode_enabled\"/>\n                <style>\n                    body {\n                        direction: <t t-out=\"env['res.lang']._get_data(code=lang or env.user.lang).direction or 'ltr'\"/>;\n                    }\n                </style>\n            </head>\n            <body class=\"d-flex flex-column h-100\">\n                <t t-out=\"body or ''\"/>\n            </body>\n        </html>\n    </template>"
+    }
+  ]
+}

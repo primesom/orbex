@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "id": "discuss_channel_tour",
+      "model": "web_tour.tour",
+      "values": {
+        "name": "discuss_channel_tour",
+        "sequence": "2000",
+        "url": "/orbex?tour=discuss_channel_tour"
+      }
+    }
+  ]
+}

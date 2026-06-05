@@ -1,0 +1,2123 @@
+{
+  "records": [
+    {
+      "id": "rateUSD",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.0",
+        "currency_id": {
+          "ref": "USD"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateVEF",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "5.864",
+        "currency_id": {
+          "ref": "VEF"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCAD",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.3388",
+        "currency_id": {
+          "ref": "CAD"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCHF",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.3086",
+        "currency_id": {
+          "ref": "CHF"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBRL",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "2.2344",
+        "currency_id": {
+          "ref": "BRL"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCNY",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "8.7556",
+        "currency_id": {
+          "ref": "CNY"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCOP",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "2933.8378",
+        "currency_id": {
+          "ref": "COP"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCZK",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "26.5634",
+        "currency_id": {
+          "ref": "CZK"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateDKK",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "7.4445",
+        "currency_id": {
+          "ref": "DKK"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateHUF",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "271.5621",
+        "currency_id": {
+          "ref": "HUF"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateIDR1",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "14352.00",
+        "currency_id": {
+          "ref": "IDR"
+        },
+        "name": "2009-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateIDR",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "11796.39",
+        "currency_id": {
+          "ref": "IDR"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLVL",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "0.7086",
+        "currency_id": {
+          "ref": "LVL"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateNOK",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "7.8668",
+        "currency_id": {
+          "ref": "NOK"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateXPF",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "119.331742",
+        "currency_id": {
+          "ref": "XPF"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePAB",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.2676",
+        "currency_id": {
+          "ref": "PAB"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePLN",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "4.1005",
+        "currency_id": {
+          "ref": "PLN"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSEK",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "10.3004",
+        "currency_id": {
+          "ref": "SEK"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateARS",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "5.0881",
+        "currency_id": {
+          "ref": "ARS"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateINR",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "59.9739",
+        "currency_id": {
+          "ref": "INR"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAUD",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.4070",
+        "currency_id": {
+          "ref": "AUD"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateUAH",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "10.1969",
+        "currency_id": {
+          "ref": "UAH"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateVND",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "26330.01",
+        "currency_id": {
+          "ref": "VND"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateHKD",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "11.1608",
+        "currency_id": {
+          "ref": "HKD"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateJPY",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "133.62",
+        "currency_id": {
+          "ref": "JPY"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBGN",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.9558",
+        "currency_id": {
+          "ref": "BGN"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLTL",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "3.4528",
+        "currency_id": {
+          "ref": "LTL"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateRON",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "4.2253",
+        "currency_id": {
+          "ref": "RON"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateHRK",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "7.2936",
+        "currency_id": {
+          "ref": "HRK"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateRUB",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "43.16",
+        "currency_id": {
+          "ref": "RUB"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTRY",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "2.1411",
+        "currency_id": {
+          "ref": "TRY"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKRW",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1662.37",
+        "currency_id": {
+          "ref": "KRW"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMXN",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "18.6664",
+        "currency_id": {
+          "ref": "MXN"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMYR",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "4.8887",
+        "currency_id": {
+          "ref": "MYR"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateNZD",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "1.9764",
+        "currency_id": {
+          "ref": "NZD"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePHP",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "66.1",
+        "currency_id": {
+          "ref": "PHP"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSGD",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "2.0126",
+        "currency_id": {
+          "ref": "SGD"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateZAR",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "10.5618",
+        "currency_id": {
+          "ref": "ZAR"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCRC",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "691.3153",
+        "currency_id": {
+          "ref": "CRC"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMUR",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "40.28",
+        "currency_id": {
+          "ref": "MUR"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateXOF",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "655.957",
+        "currency_id": {
+          "ref": "XOF"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateXAF",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "655.957",
+        "currency_id": {
+          "ref": "XAF"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateUGX",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "3401.91388",
+        "currency_id": {
+          "ref": "UGX"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateHNL",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "25",
+        "currency_id": {
+          "ref": "HNL"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCLP",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "710",
+        "currency_id": {
+          "ref": "CLP"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateUYU",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "UYU"
+        },
+        "name": "2010-01-01",
+        "rate": "28.36"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateUYI",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "UYI"
+        },
+        "name": "2023-09-13",
+        "rate": "5.7778"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAFN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "AFN"
+        },
+        "name": "2010-01-01",
+        "rate": "59.33"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAOA",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "AOA"
+        },
+        "name": "2010-01-01",
+        "rate": "117.080"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateXCD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "XCD"
+        },
+        "name": "2010-01-01",
+        "rate": "3.32"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAMD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "AMD"
+        },
+        "name": "2010-01-01",
+        "rate": "506.02"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAWG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "AWG"
+        },
+        "name": "2010-01-01",
+        "rate": "0.45"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAZN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "AZN"
+        },
+        "name": "2010-01-01",
+        "rate": "0.96"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBSD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BSD"
+        },
+        "name": "2010-01-01",
+        "rate": "1.23"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBHD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BHD"
+        },
+        "name": "2010-01-01",
+        "rate": "0.46"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBDT",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BDT"
+        },
+        "name": "2010-01-01",
+        "rate": "100.59"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBBD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BBD"
+        },
+        "name": "2010-01-01",
+        "rate": "2.46"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBYR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BYR"
+        },
+        "name": "2010-01-01",
+        "rate": "10228.19"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBYN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BYN"
+        },
+        "name": "2016-07-01",
+        "rate": "2.23151"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBZD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BZD"
+        },
+        "name": "2010-01-01",
+        "rate": "2.33"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBMD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BMD"
+        },
+        "name": "2010-01-01",
+        "rate": "1.23"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBTN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BTN"
+        },
+        "name": "2010-01-01",
+        "rate": " 67.81"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBOB",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BOB"
+        },
+        "name": "2010-01-01",
+        "rate": "8.50"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBAM",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BAM"
+        },
+        "name": "2010-01-01",
+        "rate": "1.96"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBWP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BWP"
+        },
+        "name": "2010-01-01",
+        "rate": "9.45"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBIF",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BIF"
+        },
+        "name": "2010-01-01",
+        "rate": "1736.73"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKHR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KHR"
+        },
+        "name": "2010-01-01",
+        "rate": "5054.53"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKYD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KYD"
+        },
+        "name": "2010-01-01",
+        "rate": "1.007"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKMF",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KMF"
+        },
+        "name": "2010-01-01",
+        "rate": "492.23"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCDF",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "CDF"
+        },
+        "name": "2010-01-01",
+        "rate": "1112.80"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCUP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "CUP"
+        },
+        "name": "2010-01-01",
+        "rate": "1.226"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateANG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ANG"
+        },
+        "name": "2010-01-01",
+        "rate": "2.11"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateXCG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "XCG"
+        },
+        "name": "2025-01-15",
+        "rate": "1.80302"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateDJF",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "DJF"
+        },
+        "name": "2010-01-01",
+        "rate": "222.22"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateDOP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "DOP"
+        },
+        "name": "2010-01-01",
+        "rate": "48.09"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateEGP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "EGP"
+        },
+        "name": "2010-01-01",
+        "rate": "7.46"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSVC",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SVC"
+        },
+        "name": "2010-01-01",
+        "rate": "10.74"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateERN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ERN"
+        },
+        "name": "2010-01-01",
+        "rate": "18.89"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateEEB",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ETB"
+        },
+        "name": "2010-01-01",
+        "rate": "21.94"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateFKP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "FKP"
+        },
+        "name": "2010-01-01",
+        "rate": "0.78"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateFJD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "FJD"
+        },
+        "name": "2010-01-01",
+        "rate": "2.22"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGEL",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GEL"
+        },
+        "name": "2010-01-01",
+        "rate": "2.018"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGIP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GIP"
+        },
+        "name": "2010-01-01",
+        "rate": "0.786"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGNF",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GNF"
+        },
+        "name": "2010-01-01",
+        "rate": "8835.85"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGYD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GYD"
+        },
+        "name": "2010-01-01",
+        "rate": "247.31"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateHTG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "HTG"
+        },
+        "name": "2010-01-01",
+        "rate": "51.69"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateISK",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ISK"
+        },
+        "name": "2010-01-01",
+        "rate": "158.70"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateIRR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "IRR"
+        },
+        "name": "2010-01-01",
+        "rate": "15059.97"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateIQD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "IQD"
+        },
+        "name": "2010-01-01",
+        "rate": "1432.27"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateILS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ILS"
+        },
+        "name": "2010-01-01",
+        "rate": "4.89"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateJMD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "JMD"
+        },
+        "name": "2010-01-01",
+        "rate": "108.94 "
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateJOD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "JOD"
+        },
+        "name": "2010-01-01",
+        "rate": "0.87"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKZT",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KZT"
+        },
+        "name": "2010-01-01",
+        "rate": "184.09"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKES",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KES"
+        },
+        "name": "2010-01-01",
+        "rate": "103.43"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKWD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KWD"
+        },
+        "name": "2010-01-01",
+        "rate": "0.35"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKGS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KGS"
+        },
+        "name": "2010-01-01",
+        "rate": "57.93"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLAK",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "LAK"
+        },
+        "name": "2010-01-01",
+        "rate": "9847.72"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLBP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "LBP"
+        },
+        "name": "2010-01-01",
+        "rate": "1853.94"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLSL",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "LSL"
+        },
+        "name": "2010-01-01",
+        "rate": "10.06"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLRD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "LRD"
+        },
+        "name": "2010-01-01",
+        "rate": "90.28"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLYD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "LYD"
+        },
+        "name": "2010-01-01",
+        "rate": "1.54"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMOP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MOP"
+        },
+        "name": "2010-01-01",
+        "rate": "9.81"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMKD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MKD"
+        },
+        "name": "2010-01-01",
+        "rate": "60.29"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMGA",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MGA"
+        },
+        "name": "2010-01-01",
+        "rate": "2775.86"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMWK",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MWK"
+        },
+        "name": "2010-01-01",
+        "rate": "329.79"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMVR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MVR"
+        },
+        "name": "2010-01-01",
+        "rate": "18.89"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMRO",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MRO"
+        },
+        "name": "2010-01-01",
+        "rate": "362.23"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMDL",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MDL"
+        },
+        "name": "2010-01-01",
+        "rate": "15.27"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMNT",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MNT"
+        },
+        "name": "2010-01-01",
+        "rate": "1643.57"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMAD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MAD"
+        },
+        "name": "2010-01-01",
+        "rate": "10.9962499"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateBND",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "BND"
+        },
+        "name": "2010-01-01",
+        "rate": "1.54"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateDZD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "DZD"
+        },
+        "name": "2010-01-01",
+        "rate": "99.65"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGHS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GHS"
+        },
+        "name": "2010-01-01",
+        "rate": "2.39"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGMD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GMD"
+        },
+        "name": "2010-01-01",
+        "rate": "38.89"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMZN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MZN"
+        },
+        "name": "2010-01-01",
+        "rate": "33.65"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateMMK",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "MMK"
+        },
+        "name": "2010-01-01",
+        "rate": "1080.82"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateNAD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "NAD"
+        },
+        "name": "2010-01-01",
+        "rate": "10.06"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateNPR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "NPR"
+        },
+        "name": "2010-01-01",
+        "rate": "108.33"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateALL",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ALL"
+        },
+        "name": "2010-01-01",
+        "rate": "138.00"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateNIO",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "NIO"
+        },
+        "name": "2010-01-01",
+        "rate": "28.97"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateNGN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "NGN"
+        },
+        "name": "2010-01-01",
+        "rate": "196.77"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateKPW",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "KPW"
+        },
+        "name": "2010-01-01",
+        "rate": "1105.24376765"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateZIG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ZIG"
+        },
+        "name": "2024-04-08",
+        "rate": "14.69"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateZMW",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "ZMW"
+        },
+        "name": "2010-01-01",
+        "rate": "11.61"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateYER",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "YER"
+        },
+        "name": "2010-01-01",
+        "rate": "264.784483"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateEUR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "EUR"
+        },
+        "name": "2010-01-01",
+        "rate": "1.2834"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateVUV",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "VUV"
+        },
+        "name": "2010-01-01",
+        "rate": "114.024315363"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateUZS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "UZS"
+        },
+        "name": "2010-01-01",
+        "rate": "2331.3093"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateAED",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "AED"
+        },
+        "name": "2010-01-01",
+        "rate": "4.51253195"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTMT",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TMT"
+        },
+        "name": "2010-01-01",
+        "rate": "4.31"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTND",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TND"
+        },
+        "name": "2010-01-01",
+        "rate": "34.0661408"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTTD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TTD"
+        },
+        "name": "2010-01-01",
+        "rate": "8.61926302"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTOP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TOP"
+        },
+        "name": "2010-01-01",
+        "rate": "31.1217"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTHB",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "THB"
+        },
+        "name": "2010-01-01",
+        "rate": "38.4070124"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTZS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TZS"
+        },
+        "name": "2010-01-01",
+        "rate": "1947.06815"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTJS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TJS"
+        },
+        "name": "2010-01-01",
+        "rate": "6.15"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateTWD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "TWD"
+        },
+        "name": "2010-01-01",
+        "rate": "36.8329536"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSYP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SYP"
+        },
+        "name": "2010-01-01",
+        "rate": "78.8338"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSZL",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SZL"
+        },
+        "name": "2010-01-01",
+        "rate": "10.07"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSRD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SRD"
+        },
+        "name": "2010-01-01",
+        "rate": "9.17930"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSDG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SDG"
+        },
+        "name": "2010-01-01",
+        "rate": "3.1999"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateLKR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "LKR"
+        },
+        "name": "2010-01-01",
+        "rate": "163.552526"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSSP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SSP"
+        },
+        "name": "2010-01-01",
+        "rate": "5.528"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGBP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "GBP"
+        },
+        "name": "2010-01-01",
+        "rate": " 0.784221994"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSOS",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SOS"
+        },
+        "name": "2010-01-01",
+        "rate": "1993.71"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSBD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SBD"
+        },
+        "name": "2010-01-01",
+        "rate": "8.6605"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSLL",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SLL"
+        },
+        "name": "2010-01-01",
+        "rate": "5320.43478"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSLE",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SLE"
+        },
+        "name": "2023-06-08",
+        "rate": "22.5847"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSCR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SCR"
+        },
+        "name": "2010-01-01",
+        "rate": "18.2587287"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateRSD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "RSD"
+        },
+        "name": "2010-01-01",
+        "rate": "117.381295"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSAR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SAR"
+        },
+        "name": "2010-01-01",
+        "rate": "4.58898972"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSTD",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "STD"
+        },
+        "name": "2010-01-01",
+        "rate": "24105.86"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateWST",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "WST"
+        },
+        "name": "2010-01-01",
+        "rate": "2.8628"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateSHP",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "SHP"
+        },
+        "name": "2010-01-01",
+        "rate": "0.7856"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateRWF",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "RWF"
+        },
+        "name": "2010-01-01",
+        "rate": "752.57"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateQAR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "QAR"
+        },
+        "name": "2010-01-01",
+        "rate": "4.45500218"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePEN",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "PEN"
+        },
+        "name": "2010-01-01",
+        "rate": "3.20731573"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePYG",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "PYG"
+        },
+        "name": "2010-01-01",
+        "rate": "5343.66812"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePGK",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "PGK"
+        },
+        "name": "2010-01-01",
+        "rate": "2.5903895"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "ratePKR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "PKR"
+        },
+        "name": "2010-01-01",
+        "rate": "115.97432"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateOMR",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "OMR"
+        },
+        "name": "2010-01-01",
+        "rate": "0.472921728"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateCVE",
+      "model": "res.currency.rate",
+      "values": {
+        "currency_id": {
+          "ref": "CVE"
+        },
+        "name": "2010-01-01",
+        "rate": "0.61"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    },
+    {
+      "id": "rateGTQ",
+      "model": "res.currency.rate",
+      "values": {
+        "rate": "11.2020",
+        "currency_id": {
+          "ref": "GTQ"
+        },
+        "name": "2010-01-01"
+      },
+      "forcecreate": false,
+      "noupdate": true
+    }
+  ]
+}

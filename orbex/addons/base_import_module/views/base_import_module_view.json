@@ -1,0 +1,35 @@
+{
+  "records": [
+    {
+      "id": "view_base_module_import",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "base.import.module.form",
+        "model": "base.import.module",
+        "arch": "<form string=\"Install the application\">\n                    <field name=\"state\" invisible=\"1\"/>\n                    <p class=\"alert alert-warning\" role=\"alert\" invisible=\"state == 'done' or context.get('data_module')\">Note: you can only import data modules (.xml files, i18n files and static assets)</p>\n                    <field name=\"modules_dependencies\" readonly=\"1\" nolabel=\"1\" invisible=\"state == 'done'\"/>\n                    <group invisible=\"state != 'init'\">\n                        <field name=\"module_file\" string=\"Module file (.zip)\" options=\"{'accepted_file_extensions': '.zip'}\" invisible=\"context.get('data_module')\"/>\n                        <field name=\"force\" groups=\"base.group_no_one\"/>\n                        <field name=\"with_demo\" string=\"Load demo data\"/>\n                    </group>\n                    <group invisible=\"state != 'done'\">\n                        <field name=\"import_message\" nolabel=\"1\" readonly=\"1\"/>\n                    </group>\n                    <footer>\n                        <div invisible=\"state != 'init'\">\n                            <button name=\"import_module\" string=\"Install\" type=\"object\" class=\"btn-primary\" data-hotkey=\"q\"/>\n                            <button special=\"cancel\" data-hotkey=\"x\" string=\"Cancel\" class=\"btn-secondary\"/>\n                        </div>\n                        <div invisible=\"state != 'done'\">\n                            <button special=\"cancel\" data-hotkey=\"x\" string=\"Close\" class=\"btn-secondary\"/>\n                        </div>\n                    </footer>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "action_view_base_module_import",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Import Module",
+        "res_model": "base.import.module",
+        "view_mode": "form",
+        "target": "new"
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "menu_view_base_module_import",
+      "name": "Import Module",
+      "parent": "base.menu_management",
+      "action": "action_view_base_module_import",
+      "sequence": 100,
+      "groups": [
+        "base.group_no_one"
+      ]
+    }
+  ]
+}

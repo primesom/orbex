@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "id": "mail_message_reaction_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.message.reaction.form",
+        "model": "mail.message.reaction",
+        "arch": "<form string=\"Reactions\" create=\"0\" edit=\"0\">\n                <sheet>\n                    <group>\n                        <group>\n                            <field name=\"message_id\"/>\n                            <field name=\"content\"/>\n                        </group>\n                        <group>\n                            <field name=\"partner_id\"/>\n                            <field name=\"guest_id\"/>\n                        </group>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_message_reaction_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.message.reaction.list",
+        "model": "mail.message.reaction",
+        "priority": "10",
+        "arch": "<list string=\"Reactions\" create=\"0\" edit=\"0\">\n                <field name=\"id\"/>\n                <field name=\"message_id\"/>\n                <field name=\"content\"/>\n                <field name=\"partner_id\"/>\n                <field name=\"guest_id\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "mail_message_reaction_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Message Reactions",
+        "res_model": "mail.message.reaction",
+        "view_mode": "list,form"
+      }
+    }
+  ]
+}

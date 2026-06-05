@@ -1,0 +1,377 @@
+{
+  "records": [
+    {
+      "id": "action_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.actions",
+        "model": "ir.actions.actions",
+        "arch": "<form string=\"Action\">\n                <sheet>\n                    <group>\n                        <field name=\"name\"/>\n                        <field name=\"type\"/>\n                    </group>\n                </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "action_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.actions.list",
+        "model": "ir.actions.actions",
+        "arch": "<list string=\"Action\">\n                    <field name=\"name\"/>\n                    <field name=\"type\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "action_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.actions.search",
+        "model": "ir.actions.actions",
+        "arch": "<search string=\"Action\">\n                    <field name=\"name\" filter_domain=\"['|', ('name','ilike',self), ('type','ilike',self)]\" string=\"Action\"/>\n                    <group>\n                        <filter string=\"Action Type\" name=\"type\" context=\"{'group_by':'type'}\"/>\n                        <filter string=\"Binding Type\" name=\"binding_type\" context=\"{'group_by':'binding_type'}\"/>\n                        <filter string=\"Binding Model\" name=\"binding_model_id\" context=\"{'group_by':'binding_model_id'}\"/>\n                    </group>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "ir_sequence_actions",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Actions",
+        "res_model": "ir.actions.actions",
+        "view_id": {
+          "ref": "action_view_tree"
+        },
+        "search_view_id": {
+          "ref": "action_view_search"
+        }
+      }
+    },
+    {
+      "id": "act_report_xml_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.report",
+        "model": "ir.actions.report",
+        "arch": "<form string=\"Report\">\n                    <sheet>\n                        <div class=\"oe_button_box\" name=\"button_box\">\n                            <button name=\"create_action\" type=\"object\" invisible=\"binding_model_id\" icon=\"fa-plus-square\" help=\"Display an option on related documents to print this report\" class=\"oe_stat_button\">\n                                    <div class=\"o_field_widget o_stat_info\">\n                                        <span class=\"o_stat_text\">Add to the 'Print' menu</span>\n                                    </div>\n                            </button>\n                            <button name=\"unlink_action\" type=\"object\" invisible=\"not binding_model_id\" icon=\"fa-minus-square\" help=\"Remove the contextual action related to this report\" class=\"oe_stat_button\">\n                                    <div class=\"o_field_widget o_stat_info\">\n                                        <span class=\"o_stat_text\">Remove from the 'Print' menu</span>\n                                    </div>\n                            </button>\n                            <button name=\"associated_view\" type=\"object\" invisible=\"report_type not in ['qweb-pdf', 'qweb-html', 'qweb-text']\" icon=\"fa-code\" class=\"oe_stat_button\">\n                                    <div class=\"o_field_widget o_stat_info\">\n                                        <span class=\"o_stat_text\">Qweb Views</span>\n                                    </div>\n                            </button>\n                        </div>\n                        <group>\n                            <group>\n                                <field name=\"name\"/>\n                                <field name=\"report_type\"/>\n                                <field name=\"paperformat_id\" invisible=\"report_type != 'qweb-pdf'\"/>\n                            </group>\n                            <group>\n                                <field name=\"model\"/>\n                                <field name=\"report_name\"/>\n                                <field name=\"print_report_name\"/>\n                            </group>\n                        </group>\n                        <notebook>\n                            <page name=\"security\" string=\"Visibility\">\n                                <field name=\"group_ids\"/>\n                            </page>\n                            <page name=\"advanced\" string=\"Advanced Properties\">\n                                <group>\n                                    <field name=\"attachment_use\"/>\n                                    <field name=\"attachment\"/>\n                                </group>\n                            </page>\n                        </notebook>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "act_report_xml_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.report.list",
+        "model": "ir.actions.report",
+        "arch": "<list string=\"Report xml\">\n                    <field name=\"name\"/>\n                    <field name=\"model\"/>\n                    <field name=\"type\"/>\n                    <field name=\"report_name\"/>\n                    <field name=\"report_type\"/>\n                    <field name=\"attachment\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "act_report_xml_search_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.report.search",
+        "model": "ir.actions.report",
+        "arch": "<search string=\"Report Xml\">\n                    <field name=\"name\" filter_domain=\"['|', '|', '|', '|', ('name','ilike',self), ('model','ilike',self), ('type','ilike',self), ('report_name','ilike',self), ('report_type','ilike',self)]\" string=\"Report\"/>\n                    <field name=\"model\" filter_domain=\"[('model','=', self)]\" string=\"Model\"/>\n                    <group colspan=\"4\">\n                        <filter string=\"Report Type\" name=\"report_type\" domain=\"[]\" context=\"{'group_by':'report_type'}\"/>\n                        <filter string=\"Report Model\" name=\"report_model\" domain=\"[]\" context=\"{'group_by':'model'}\"/>\n                    </group>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "ir_action_report",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Reports",
+        "res_model": "ir.actions.report",
+        "view_id": {
+          "ref": "act_report_xml_view_tree"
+        },
+        "search_view_id": {
+          "ref": "act_report_xml_search_view"
+        }
+      }
+    },
+    {
+      "id": "view_client_action_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.client.form",
+        "model": "ir.actions.client",
+        "arch": "<form string=\"Client Action\">\n                    <sheet>\n                        <group>\n                            <group name=\"main_details\">\n                                <field name=\"name\"/>\n                                <field name=\"xml_id\" string=\"External ID\"/>\n                                <field name=\"binding_type\"/>\n                                <field name=\"tag\"/>\n                            </group>\n                            <group name=\"action_details\">\n                                <field name=\"type\" readonly=\"1\"/>\n                                <field name=\"target\"/>\n                                <field name=\"context\"/>\n                            </group>\n                        </group>\n                        <group name=\"help\" string=\"Help\">\n                            <field name=\"help\" nolabel=\"1\" class=\"oe-bordered-editor\"/>\n                        </group>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_window_action_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.windows.list",
+        "model": "ir.actions.act_window",
+        "arch": "<list string=\"Open Window\">\n                    <field name=\"name\"/>\n                    <field name=\"res_model\"/>\n                    <field name=\"view_id\"/>\n                    <field name=\"domain\"/>\n                    <field name=\"context\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_window_action_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.windows.form",
+        "model": "ir.actions.act_window",
+        "arch": "<form string=\"Open a Window\">\n                <sheet>\n                    <group>\n                        <group name=\"main_details\">\n                            <field name=\"name\"/>\n                            <field name=\"xml_id\" string=\"External ID\"/>\n                            <field name=\"path\" string=\"Path\"/>\n                            <field name=\"res_model\" string=\"Object\"/>\n                        </group>\n                        <group name=\"action_details\">\n                            <field name=\"usage\"/>\n                            <field name=\"type\" readonly=\"1\"/>\n                            <field name=\"target\"/>\n                            <field name=\"cache\"/>\n                        </group>\n                    </group>\n                    <notebook>\n                        <page name=\"general_settings\" string=\"General Settings\">\n                            <group>\n                                <group name=\"views\" string=\"Views\">\n                                    <field name=\"view_mode\"/>\n                                    <field name=\"mobile_view_mode\"/>\n                                    <field name=\"view_id\"/>\n                                    <field name=\"search_view_id\"/>\n                                </group>\n                                <group name=\"filters\" string=\"Filters\">\n                                    <field name=\"domain\"/>\n                                    <field name=\"context\"/>\n                                    <field name=\"limit\"/>\n                                    <field name=\"filter\"/>\n                                </group>\n                            </group>\n                            <group name=\"help\" string=\"Help\">\n                                <field colspan=\"2\" name=\"help\" options=\"{'codeview': true}\" nolabel=\"1\" class=\"oe-bordered-editor\"/>\n                            </group>\n                            <group name=\"views_tree\" string=\"Views\">\n                                <field colspan=\"2\" name=\"view_ids\" nolabel=\"1\">\n                                    <form string=\"Views\">\n                                        <group>\n                                            <field name=\"sequence\"/>\n                                            <field name=\"view_mode\"/>\n                                            <field domain=\"[('type', '=', view_mode)]\" name=\"view_id\"/>\n                                        </group>\n                                    </form>\n                                    <list string=\"Views\">\n                                        <field name=\"sequence\" widget=\"handle\"/>\n                                        <field name=\"view_mode\"/>\n                                        <field name=\"view_id\"/>\n                                    </list>\n                                </field>\n                            </group>\n                        </page>\n                        <page string=\"Visibility\" name=\"security\">\n                            <field name=\"group_ids\"/>\n                        </page>\n                    </notebook>\n                </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_window_action_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.windows.search",
+        "model": "ir.actions.act_window",
+        "arch": "<search string=\"Open a Window\">\n                    <field name=\"name\" filter_domain=\"['|', ('name','ilike',self), ('res_model','ilike',self)]\" string=\"Action\"/>\n                    <group>\n                        <filter string=\"Binding Model\" name=\"binding_model_id\" context=\"{'group_by':'binding_model_id'}\"/>\n                        <filter string=\"Target Window\" name=\"target\" context=\"{'group_by':'target'}\"/>\n                    </group>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "ir_action_window",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Window Actions",
+        "res_model": "ir.actions.act_window",
+        "search_view_id": {
+          "ref": "view_window_action_search"
+        }
+      }
+    },
+    {
+      "id": "ir_action_window_view1",
+      "model": "ir.actions.act_window.view",
+      "values": {
+        "sequence": {
+          "eval": "1"
+        },
+        "view_mode": "list",
+        "view_id": {
+          "ref": "view_window_action_tree"
+        },
+        "act_window_id": {
+          "ref": "ir_action_window"
+        }
+      }
+    },
+    {
+      "id": "ir_action_window_view2",
+      "model": "ir.actions.act_window.view",
+      "values": {
+        "sequence": {
+          "eval": "2"
+        },
+        "view_mode": "form",
+        "view_id": {
+          "ref": "view_window_action_form"
+        },
+        "act_window_id": {
+          "ref": "ir_action_window"
+        }
+      }
+    },
+    {
+      "id": "view_client_action_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Client Actions",
+        "model": "ir.actions.client",
+        "arch": "<list string=\"Client Actions\">\n                    <field name=\"name\"/>\n                    <field name=\"tag\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "ir_client_actions_report",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Client Actions",
+        "res_model": "ir.actions.client",
+        "view_id": {
+          "ref": "view_client_action_tree"
+        }
+      }
+    },
+    {
+      "id": "server_action_history_wizard_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Server Action History Wizard",
+        "model": "server.action.history.wizard",
+        "arch": "<form>\n                    <group>\n                        <group>\n                            <field name=\"revision\" required=\"1\" widget=\"selection\"/>\n                        </group>\n                    </group>\n                    <field name=\"code_diff\" invisible=\"not code_diff\"/>\n                    <div class=\"alert alert-warning my-2\" role=\"alert\" invisible=\"code_diff\">\n                        <span>No diff available</span>\n                    </div>\n                    <footer>\n                        <button string=\"Restore Revision\" name=\"restore_revision\" type=\"object\" class=\"btn-primary\" invisible=\"not code_diff\" data-hotkey=\"q\"/>\n                        <button string=\"Cancel\" class=\"btn-secondary\" special=\"cancel\" data-hotkey=\"x\"/>\n                    </footer>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_server_action_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Server Action",
+        "model": "ir.actions.server",
+        "arch": "<form string=\"Server Action\">\n                    <header invisible=\"context.get('is_modal')\">\n                        <button name=\"create_action\" string=\"Create Contextual Action\" type=\"object\" class=\"btn-primary\" invisible=\"binding_model_id\" help=\"Display an option in the 'More' top-menu in order to run this action.\"/>\n                        <button name=\"unlink_action\" string=\"Remove Contextual Action\" type=\"object\" invisible=\"not binding_model_id\" help=\"Remove 'More' top-menu contextual action related to this action\"/>\n                        <button name=\"run\" string=\"Run\" type=\"object\" class=\"btn-primary\" invisible=\"model_name != 'ir.actions.server' or state != 'code'\" help=\"Run this action manually.\"/>\n                        <button name=\"history_wizard_action\" string=\"Code History\" type=\"object\" invisible=\"not show_code_history\" help=\"View code history and restore a previous version\"/>\n                    </header>\n                    <sheet>\n                        <div class=\"oe_button_box\" name=\"button_box\">\n                            <button type=\"object\" name=\"action_open_parent_action\" invisible=\"not parent_id\" class=\"oe_stat_button\" icon=\"fa-database\">\n                                <div class=\"o_stat_info\">\n                                    <span class=\"o_stat_text\">Parent Action</span>\n                                </div>\n                            </button>\n                            <button type=\"object\" name=\"action_open_scheduled_action\" invisible=\"not ir_cron_ids or context.key != 'server_action'\" context=\"{'key': 'ir_cron'}\" class=\"oe_stat_button\" icon=\"fa-refresh\">\n                                <div class=\"o_stat_info\">\n                                    <span class=\"o_stat_text\">Scheduled Action</span>\n                                </div>\n                            </button>\n                        </div>\n                        <h1 class=\"oe_title\">\n                            <field name=\"automated_name\" invisible=\"1\"/> <!-- needed for name compute -->\n                            <field name=\"name\" placeholder=\"Set an explicit name\"/>\n                        </h1>\n                        <group invisible=\"context.get('is_modal')\">\n                            <group>\n                                <field name=\"model_id\" options=\"{'no_create': True, 'no_open': True}\" groups=\"base.group_no_one\"/>\n                                <field name=\"model_id\" options=\"{'no_create': True, 'no_open': True}\" groups=\"!base.group_no_one\" invisible=\"context.get('default_model_id')\" domain=\"[('id', 'in', available_model_ids)]\"/>\n                            </group>\n                            <group groups=\"base.group_no_one\">\n                                <field name=\"group_ids\" widget=\"many2many_tags\"/>\n                            </group>\n                        </group>\n                        <t name=\"action_content\" invisible=\"not model_id\">\n                            <field name=\"allowed_states\" invisible=\"1\"/> <!-- Used to filter state using selection_badge_with_filter -->\n                            <div class=\"d-flex flex-column\">\n                                <label for=\"state\"/>\n                                <field name=\"state\" widget=\"selection_badge_with_filter\" options=\"{'size': 'sm', 'allowed_selection_field': 'allowed_states'}\"/>\n                            </div>\n                            <div class=\"alert alert-warning\" role=\"alert\" invisible=\"not warning\">\n                                <i class=\"fa fa-warning pe-2\" title=\"Warning\"/><field class=\"d-inline\" name=\"warning\" nolabel=\"1\"/>\n                            </div>\n                            <div class=\"d-flex flex-row flex-wrap gap-2\" invisible=\"state != 'object_write'\">\n                                <field name=\"evaluation_type\" class=\"oe_inline\"/>\n                                <field name=\"update_path\" widget=\"field_selector\" class=\"oe_inline\" options=\"{'model': 'model_name', 'allow_properties': False}\" required=\"state == 'object_write'\"/>\n                                <field name=\"update_field_id\" invisible=\"True\"/>  <!-- The field is store=True and readonly=False, in this view we want to save the value from compute/onchange -->\n                                <field name=\"update_related_model_id\" invisible=\"True\"/> <!-- This field is required for 'resource_ref' to compute possible m2m and m2o values -->\n                                <span invisible=\"evaluation_type != 'value' or update_field_type not in ['one2many', 'many2many']\">by</span>\n                                <field name=\"update_m2m_operation\" class=\"oe_inline\" invisible=\"evaluation_type != 'value' or update_field_type not in ['one2many', 'many2many']\" required=\"update_field_type in ['one2many', 'many2many']\"/>\n                                <span invisible=\"evaluation_type != 'value' or update_field_type in ['one2many', 'many2many']\">to</span>\n                                <span invisible=\"evaluation_type != 'sequence'\">with</span>\n                                <field name=\"value\" class=\"oe_inline\" placeholder=\"Set a value...\" invisible=\"update_field_id == False or value_field_to_show != 'value' or evaluation_type != 'value'\" string=\"Custom Value\"/>\n                                <field name=\"html_value\" class=\"w-100\" placeholder=\"Set a value...\" invisible=\"update_field_id == False or value_field_to_show != 'html_value' or evaluation_type != 'value'\" string=\"Custom Value\"/>\n                                <field name=\"sequence_id\" class=\"oe_inline\" placeholder=\"Select a sequence...\" invisible=\"evaluation_type != 'sequence'\" required=\"evaluation_type == 'sequence'\"/>\n                                <field name=\"resource_ref\" class=\"oe_inline\" placeholder=\"Choose a value...\" string=\"Custom Value\" options=\"{'model_field': 'update_related_model_id', 'no_create': True, 'no_open': True}\" invisible=\"update_field_id == False or value_field_to_show != 'resource_ref' or evaluation_type == 'equation' or update_m2m_operation == 'clear'\"/>\n                                <field name=\"selection_value\" class=\"oe_inline\" placeholder=\"Choose a value...\" options=\"{'no_create': True, 'no_open': True}\" invisible=\"update_field_id == False or value_field_to_show != 'selection_value' or evaluation_type == 'equation'\"/>\n                                <field name=\"update_boolean_value\" class=\"oe_inline\" invisible=\"evaluation_type != 'value' or value_field_to_show != 'update_boolean_value'\" required=\"value_field_to_show == 'update_boolean_value'\"/>\n                                <span invisible=\"update_field_id != False or evaluation_type != 'value'\" class=\"o_actions_server_set_a_value text-muted\">Set a value...</span>\n                                <span invisible=\"evaluation_type != 'equation'\">\n                                    to this Python expression:\n                                </span>\n                                <div class=\"w-100 d-flex flex-row gap-3\" invisible=\"evaluation_type != 'equation'\">\n                                    <field name=\"value\" class=\"w-50\" widget=\"code\" options=\"{'mode': 'python'}\" string=\"Expression\"/>\n                                    <div class=\"w-50 opacity-75\">\n                                        <span colspan=\"2\" class=\"text-muted\"> Available variables: </span>\n                                            <ul colspan=\"2\" class=\"text-muted\">\n                                                <li><code>env</code>: environment on which the action is triggered</li>\n                                                <li><code>model</code>: model of the record on which the action is triggered; is a void recordset</li>\n                                                <li><code>record</code>: record on which the action is triggered</li>\n                                                <li><code>records</code>: recordset of all records on which the action is triggered in multi mode</li>\n                                                <li><code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>timezone</code>: useful Python libraries</li>\n                                                <li><code>float_compare()</code>: utility function to compare floats based on a specific precision</li>\n                                            </ul>\n                                    </div>\n                                </div>\n                            </div>\n                            <group invisible=\"state not in ['object_create', 'object_copy']\">\n                                <group>\n                                    <field name=\"crud_model_id\" options=\"{'no_create': True, 'no_open': True}\" required=\"state in ['object_create', 'object_copy']\"/>\n                                    <field name=\"value\" widget=\"char\" string=\"Name\" invisible=\"state != 'object_create'\" help=\"The name of the record to create\" placeholder=\"e.g. Follow-up\"/>\n                                    <field name=\"resource_ref\" placeholder=\"Choose a record...\" string=\"Duplicate from\" options=\"{'model_field': 'crud_model_id', 'no_create': True, 'no_open': True}\" invisible=\"crud_model_id == False or state != 'object_copy'\" required=\"state == 'object_copy'\"/>\n                                    <field name=\"link_field_id\" domain=\"[('model_id', '=', model_id), ('relation', '=', crud_model_name),                                         ('ttype', 'in', ['many2one', 'one2many', 'many2many'])]\" placeholder=\"Select a field to link the record to\" options=\"{'no_create': True, 'no_open': True}\" context=\"{'default_model_id': model_id, 'default_relation': crud_model_name}\"/>\n                                </group>\n                            </group>\n                            <group invisible=\"state != 'webhook'\">\n                                <group>\n                                    <field name=\"webhook_url\" string=\"URL\" placeholder=\"e.g. https://maker.ifttt.com/use/...\"/>\n                                    <field name=\"webhook_field_ids\" string=\"Fields\" widget=\"many2many_tags\" context=\"{'hide_model': 1}\" domain=\"[('model_id', '=', model_id)]\" placeholder=\"Select fields to include in the request...\"/>\n                                </group>\n                                <group>\n                                    <label for=\"webhook_sample_payload\"/>\n                                    <field name=\"webhook_sample_payload\" string=\"Sample Payload\" nolabel=\"1\" colspan=\"2\" readonly=\"1\" widget=\"code\" options=\"{'mode': 'javascript'}\"/>\n                                </group>\n                            </group>\n                            <t invisible=\"state != 'multi'\">\n                                <field name=\"child_ids\" widget=\"many2many\" mode=\"kanban\" context=\"{                                     'is_modal': 1,                                     'default_model_id': model_id,                                 }\"/>\n                            </t>\n                            <notebook>\n                                <page string=\"Code\" invisible=\"state != 'code'\">\n                                    <field name=\"code\" invisible=\"state != 'code'\" widget=\"code\" options=\"{'mode': 'python'}\" placeholder=\"Enter Python code here. Help about Python expression is available in the help tab of this document.\"/>\n                                </page>\n                                <page string=\"Help\" invisible=\"state != 'code'\" name=\"ir_actions_server_code_help\">\n                                    <p>The following variables can be used:</p>\n                                    <ul>\n                                        <li><code>env</code>: environment on which the action is triggered</li>\n                                        <li><code>model</code>: model of the record on which the action is triggered; is a void recordset</li>\n                                        <li><code>record</code>: record on which the action is triggered; may be be void</li>\n                                        <li><code>records</code>: recordset of all records on which the action is triggered in multi mode; may be void</li>\n                                        <li><code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>timezone</code>: useful Python libraries</li>\n                                        <li><code>float_compare()</code>: utility function to compare floats based on a specific precision</li>\n                                        <li><code>log(message, level='info')</code>: logging function to record debug information in <code>ir.logging</code> table</li>\n                                        <li><code>_logger.info(message)</code>: logger to emit messages in server logs</li>\n                                        <li><code>UserError</code>: exception class for raising user-facing warning messages</li>\n                                        <li><code>Command</code>: x2many commands namespace</li>\n                                        <li>To return an action, assign: <code>action = {...}</code></li>\n                                        <li>To notify progress for CRON call and re-trigger a call if there is remaining tasks, use <code>env['ir.cron']._notify_progress(done=task_done_count, remaining=task_remaining_count)</code></li>\n                                    </ul>\n                                    <p>\n                                        <widget name=\"documentation_link\" path=\"/developer/reference/backend/orm.html\" label=\"ORM API Documentation\" icon=\"oi oi-fw oi-arrow-right me-1\"/>\n                                    </p>\n                                    <div>\n                                        <p>Example of Python code:</p>\n                                        <pre style=\"white-space: pre-wrap\">partner_name = record.name + '_code'\nenv['res.partner'].create({'name': partner_name})\n    </pre>\n                                    </div>\n                                </page>\n                                <page string=\"Usage\" name=\"usage\" invisible=\"1\"/>\n                            </notebook>\n                        </t>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_server_action_kanban",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Server Actions",
+        "model": "ir.actions.server",
+        "arch": "<kanban>\n                    <control>\n                        <create string=\"Add an action\"/>\n                    </control>\n                    <field name=\"state\"/>\n                    <field name=\"evaluation_type\"/>\n                    <field name=\"value\"/>\n                    <field name=\"value_field_to_show\"/>\n                    <field name=\"update_field_type\"/>\n                    <field name=\"update_m2m_operation\"/>\n                    <templates>\n                        <t t-name=\"card\" class=\"o_draggable_norotate w-100 flex-row align-items-center gap-1\">\n                            <field name=\"sequence\" widget=\"handle\" class=\"px-1\"/>\n                            <!-- Icon section -->\n                            <i data-name=\"server_action_icon\" t-att-title=\"record.state.value\" class=\"fa fa-fw\" t-att-class=\"{                                     'code': 'fa-code',                                     'object_create': 'fa-plus-square',                                     'object_copy': 'fa-clone',                                     'object_write': 'fa-pencil',                                     'multi': 'fa-list-ul',                                     'mail_post': 'fa-envelope',                                     'followers': 'fa-user',                                     'remove_followers': 'fa-user-times',                                     'next_activity': 'fa-clock-o',                                     'sms': 'fa-mobile',                                     'webhook': 'fa-paper-plane',                                     'whatsapp': 'fa-whatsapp',                                     'ai': 'fa-magic',                                 }[record.state.raw_value] || 'fa-circle-thin'\"/>\n                            <i class=\"fa fa-warning text-warning px-2 m-0\" invisible=\"not warning\" t-att-title=\"record.warning.raw_value\"/>\n                            <field name=\"name\" class=\"text-truncate\"/>\n                            <button type=\"delete\" name=\"delete\" class=\"btn fa fa-trash fa-xl px-3 ms-auto\" title=\"Delete Action\"/>\n                        </t>\n                    </templates>\n                </kanban>\n            "
+      }
+    },
+    {
+      "id": "view_server_action_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Server Actions",
+        "model": "ir.actions.server",
+        "arch": "<list string=\"Server Actions\">\n                    <field name=\"name\" string=\"Name\"/>\n                    <field name=\"model_id\"/>\n                    <field name=\"state\"/>\n                    <field name=\"usage\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_server_action_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.actions.server.search",
+        "model": "ir.actions.server",
+        "arch": "<search string=\"Server Actions\">\n                    <field name=\"name\" string=\"Server Action\"/>\n                    <field name=\"model_id\"/>\n                    <field name=\"state\"/>\n                    <filter string=\"Top-level actions\" name=\"toplevel_actions\" domain=\"[('parent_id', '=', False)]\"/>\n                    <group colspan=\"4\" col=\"4\">\n                        <filter string=\"Action Type\" name=\"action_type\" domain=\"[]\" context=\"{'group_by':'state'}\"/>\n                        <filter string=\"Model\" name=\"model\" domain=\"[]\" context=\"{'group_by':'model_id'}\"/>\n                        <filter string=\"Usage\" name=\"usage\" domain=\"[]\" context=\"{'group_by':'usage'}\"/>\n                    </group>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "action_server_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Server Actions",
+        "res_model": "ir.actions.server",
+        "path": "server-actions",
+        "view_mode": "list,form",
+        "view_id": {
+          "ref": "view_server_action_tree"
+        },
+        "search_view_id": {
+          "ref": "view_server_action_search"
+        },
+        "context": "{\n                'key':'server_action',\n                'search_default_toplevel_actions': 1,\n            }"
+      }
+    },
+    {
+      "id": "embedded_action_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.embedded.actions.form",
+        "model": "ir.embedded.actions",
+        "arch": "<form>\n                    <sheet>\n                        <group>\n                            <group>\n                                <field name=\"name\"/>\n                                <field name=\"parent_action_id\"/>\n                                <field name=\"action_id\"/>\n                                <field name=\"user_id\"/>\n                                <field name=\"filter_ids\" widget=\"many2many_tags\"/>\n                            </group>\n                            <group>\n                                <field name=\"sequence\"/>\n                                <field name=\"is_deletable\"/>\n                                <field name=\"default_view_mode\"/>\n                                <field name=\"parent_res_model\"/>\n                                <field name=\"domain\"/>\n                                <field name=\"groups_ids\" widget=\"many2many_tags\"/>\n                            </group>\n                        </group>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "embedded_action_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Embedded Actions",
+        "model": "ir.embedded.actions",
+        "arch": "<list>\n                    <field name=\"name\"/>\n                    <field name=\"parent_action_id\"/>\n                    <field name=\"action_id\"/>\n                    <field name=\"user_id\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "ir_embedded_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Embedded Actions",
+        "res_model": "ir.embedded.actions",
+        "view_id": {
+          "ref": "embedded_action_tree"
+        }
+      }
+    },
+    {
+      "id": "ir_actions_todo_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "model": "ir.actions.todo",
+        "name": "Config Wizard Steps",
+        "arch": "<list string=\"Config Wizard Steps\">\n                    <field name=\"sequence\" widget=\"handle\"/>\n                    <field name=\"action_id\"/>\n                    <field name=\"state\" readonly=\"1\"/>\n                    <button name=\"action_launch\" invisible=\"state != 'open'\" string=\"Launch\" type=\"object\" icon=\"fa-cogs\" help=\"Launch Configuration Wizard\"/>\n                    <button name=\"action_open\" invisible=\"state != 'done'\" string=\"Todo\" type=\"object\" help=\"Set as Todo\" icon=\"fa-exchange\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "config_wizard_step_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "model": "ir.actions.todo",
+        "name": "Config Wizard Steps",
+        "arch": "<form string=\"Config Wizard Steps\">\n                  <header>\n                        <button name=\"action_launch\" invisible=\"state != 'open'\" string=\"Launch\" type=\"object\" icon=\"fa-cogs\" class=\"oe_highlight\" help=\"Launch Configuration Wizard\"/>\n                        <button name=\"action_open\" invisible=\"state != 'done'\" string=\"Set as Todo\" type=\"object\" icon=\"fa-exchange\" class=\"oe_highlight\"/>\n                        <field name=\"state\" widget=\"statusbar\" statusbar_visible=\"open,done\" nolabel=\"1\" readonly=\"1\"/>\n                  </header>\n                  <sheet>\n                    <group col=\"4\">\n                        <field name=\"action_id\"/>\n                        <field name=\"sequence\"/>\n                    </group>\n                  </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "config_wizard_step_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "model": "ir.actions.todo",
+        "name": "ir.actions.todo.select",
+        "arch": "<search string=\"Search Actions\">\n                    <filter string=\"To Do\" name=\"todo\" domain=\"[('state','=','open')]\" help=\"Wizards to be Launched\"/>\n                    <field name=\"action_id\"/>\n                    <field name=\"state\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "act_ir_actions_todo_form",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Configuration Wizards",
+        "res_model": "ir.actions.todo",
+        "view_id": {
+          "ref": "ir_actions_todo_tree"
+        },
+        "help": "The configuration wizards are used to help you configure a new instance of Orbex. They are launched during the installation of new modules, but you can choose to restart some wizards manually from this menu."
+      }
+    },
+    {
+      "id": "action_run_ir_action_todo",
+      "model": "ir.actions.server",
+      "values": {
+        "name": "Config: Run Remaining Action Todo",
+        "model_id": {
+          "ref": "model_res_config"
+        },
+        "state": "code",
+        "code": "\nconfig = model.next() or {}\nif config.get('type') not in ('ir.actions.act_window_close',):\n    action = config\n"
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "next_id_6",
+      "name": "Actions",
+      "parent": "base.menu_custom",
+      "sequence": 5
+    },
+    {
+      "id": "menu_ir_sequence_actions",
+      "name": null,
+      "parent": "next_id_6",
+      "action": "ir_sequence_actions"
+    },
+    {
+      "id": "menu_ir_action_report",
+      "name": null,
+      "parent": "base.next_id_6",
+      "action": "ir_action_report"
+    },
+    {
+      "id": "menu_ir_action_window",
+      "name": null,
+      "parent": "base.next_id_6",
+      "action": "ir_action_window"
+    },
+    {
+      "id": "menu_ir_client_actions_report",
+      "name": null,
+      "parent": "base.next_id_6",
+      "action": "ir_client_actions_report"
+    },
+    {
+      "id": "menu_server_action",
+      "name": null,
+      "parent": "base.next_id_6",
+      "action": "action_server_action"
+    },
+    {
+      "id": "menu_ir_embedded_action",
+      "name": null,
+      "parent": "base.next_id_6",
+      "action": "ir_embedded_action"
+    },
+    {
+      "id": "menu_ir_actions_todo_form",
+      "name": null,
+      "parent": "base.next_id_6",
+      "action": "act_ir_actions_todo_form"
+    }
+  ]
+}

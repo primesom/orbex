@@ -5,7 +5,7 @@
     'description': "",
     'depends': ['test_install_base'],
     'data': [
-        'views/res_currency_views.xml',
+        'views/res_currency_views.json',
     ],
     'installable': True,
     'license': 'OSPL-1',

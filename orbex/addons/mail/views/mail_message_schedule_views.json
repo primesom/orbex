@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "id": "mail_message_schedule_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.message.schedule.view.form",
+        "model": "mail.message.schedule",
+        "arch": "<form string=\"Scheduled Message\" duplicate=\"0\">\n                <header>\n                    <button name=\"force_send\" string=\"Force Send\" type=\"object\"/>\n                </header>\n                <sheet>\n                    <group>\n                        <field name=\"mail_message_id\"/>\n                        <field name=\"scheduled_datetime\"/>\n                    </group>\n                    <group>\n                        <field name=\"notification_parameters\"/>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_message_schedule_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.message.schedule.view.list",
+        "model": "mail.message.schedule",
+        "arch": "<list string=\"Emails\">\n                <field name=\"mail_message_id\"/>\n                <field name=\"scheduled_datetime\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "mail_message_schedule_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.message.schedule.view.search",
+        "model": "mail.message.schedule",
+        "arch": "<search string=\"Scheduled Messages\">\n                <field name=\"mail_message_id\"/>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "mail_message_schedule_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Scheduled Messages",
+        "res_model": "mail.message.schedule",
+        "view_mode": "list,form",
+        "context": "{}"
+      }
+    }
+  ]
+}

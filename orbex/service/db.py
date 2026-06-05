@@ -10,7 +10,6 @@ import zipfile
 
 from contextlib import closing
 from datetime import datetime
-from xml.etree import ElementTree as ET
 
 import psycopg2
 from psycopg2.extensions import quote_ident
@@ -490,10 +489,17 @@ def exp_list_lang():
 
 def exp_list_countries():
     list_countries = []
-    root = ET.parse(os.path.join(orbex.tools.config.root_path, 'addons/base/data/res_country_data.xml')).getroot()
-    for country in root.find('data').findall('record[@model="res.country"]'):
-        name = country.find('field[@name="name"]').text
-        code = country.find('field[@name="code"]').text
+    data_path = os.path.join(orbex.tools.config.root_path, 'addons/base/data/res_country_data.json')
+    with open(data_path, encoding='utf-8') as country_file:
+        country_data = json.load(country_file)
+    for country in country_data.get('records', []):
+        if country.get('model') != 'res.country':
+            continue
+        values = country.get('values', {})
+        name = values.get('name')
+        code = values.get('code')
+        if not name or not code:
+            continue
         list_countries.append([code, name])
     return sorted(list_countries, key=lambda c: c[1])
 

@@ -1,0 +1,82 @@
+{
+  "records": [
+    {
+      "id": "paperformat_euro",
+      "model": "report.paperformat",
+      "values": {
+        "name": "A4",
+        "default": {
+          "eval": "True"
+        },
+        "format": "A4",
+        "page_height": "0",
+        "page_width": "0",
+        "orientation": "Portrait",
+        "margin_top": "52",
+        "margin_bottom": "32",
+        "margin_left": "0",
+        "margin_right": "0",
+        "header_line": {
+          "eval": "False"
+        },
+        "header_spacing": "52",
+        "dpi": "90",
+        "css_margins": {
+          "eval": "True"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "paperformat_us",
+      "model": "report.paperformat",
+      "values": {
+        "name": "US Letter",
+        "default": {
+          "eval": "True"
+        },
+        "format": "Letter",
+        "page_height": "0",
+        "page_width": "0",
+        "orientation": "Portrait",
+        "margin_top": "52",
+        "margin_bottom": "32",
+        "margin_left": "0",
+        "margin_right": "0",
+        "header_line": {
+          "eval": "False"
+        },
+        "header_spacing": "52",
+        "dpi": "90",
+        "css_margins": {
+          "eval": "True"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "paperformat_batch_deposit",
+      "model": "report.paperformat",
+      "values": {
+        "name": "US Batch Deposit",
+        "default": {
+          "eval": "False"
+        },
+        "format": "Letter",
+        "page_height": "0",
+        "page_width": "0",
+        "orientation": "Portrait",
+        "margin_top": "15",
+        "margin_bottom": "30",
+        "margin_left": "10",
+        "margin_right": "10",
+        "header_line": {
+          "eval": "False"
+        },
+        "header_spacing": "15",
+        "dpi": "90"
+      },
+      "noupdate": true
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "id": "report_ir_model_overview",
+      "model": "ir.actions.report",
+      "values": {
+        "name": "Model Overview",
+        "model": "ir.model",
+        "report_type": "qweb-pdf",
+        "report_name": "base.report_irmodeloverview",
+        "report_file": "base.report_irmodeloverview",
+        "binding_model_id": {
+          "ref": "model_ir_model"
+        },
+        "binding_type": "report"
+      }
+    }
+  ]
+}

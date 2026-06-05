@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "id": "gc_delete_overdue_activities_year_threshold",
+      "model": "ir.config_parameter",
+      "values": {
+        "key": "mail.activity.gc.delete_overdue_years",
+        "value": "3"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "restrict_template_rendering",
+      "model": "ir.config_parameter",
+      "values": {
+        "key": "mail.restrict.template.rendering",
+        "value": "1"
+      },
+      "noupdate": true
+    }
+  ]
+}

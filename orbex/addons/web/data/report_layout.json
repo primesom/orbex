@@ -1,0 +1,95 @@
+{
+  "records": [
+    {
+      "id": "report_layout_striped",
+      "model": "report.layout",
+      "values": {
+        "name": "Striped",
+        "sequence": "5",
+        "view_id": {
+          "ref": "web.external_layout_striped"
+        }
+      }
+    },
+    {
+      "id": "report_layout_standard",
+      "model": "report.layout",
+      "values": {
+        "name": "Light",
+        "sequence": "2",
+        "view_id": {
+          "ref": "web.external_layout_standard"
+        }
+      }
+    },
+    {
+      "id": "report_layout_boxed",
+      "model": "report.layout",
+      "values": {
+        "name": "Boxed",
+        "sequence": "3",
+        "view_id": {
+          "ref": "web.external_layout_boxed"
+        }
+      }
+    },
+    {
+      "id": "report_layout_bold",
+      "model": "report.layout",
+      "values": {
+        "name": "Bold",
+        "sequence": "4",
+        "view_id": {
+          "ref": "web.external_layout_bold"
+        }
+      }
+    },
+    {
+      "id": "report_layout_bubble",
+      "model": "report.layout",
+      "values": {
+        "name": "Bubble",
+        "sequence": "6",
+        "view_id": {
+          "ref": "web.external_layout_bubble"
+        }
+      }
+    },
+    {
+      "id": "report_layout_wave",
+      "model": "report.layout",
+      "values": {
+        "name": "Wave",
+        "sequence": "7",
+        "view_id": {
+          "ref": "web.external_layout_wave"
+        }
+      }
+    },
+    {
+      "id": "report_layout_folder",
+      "model": "report.layout",
+      "values": {
+        "name": "Folder",
+        "sequence": "8",
+        "view_id": {
+          "ref": "web.external_layout_folder"
+        }
+      }
+    },
+    {
+      "id": "asset_styles_company_report",
+      "model": "ir.attachment",
+      "values": {
+        "datas": {
+          "eval": "obj()._get_asset_style_b64()",
+          "model": "res.company"
+        },
+        "mimetype": "text/scss",
+        "name": "res.company.scss",
+        "type": "binary",
+        "url": "web/static/asset_styles_company_report.scss"
+      }
+    }
+  ]
+}

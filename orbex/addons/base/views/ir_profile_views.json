@@ -1,0 +1,58 @@
+{
+  "records": [
+    {
+      "id": "ir_profile_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "IR Profile Search",
+        "model": "ir.profile",
+        "arch": "<search>\n                <field name=\"name\" string=\"Name\"/>\n                <field name=\"session\" string=\"Session\"/>\n                <filter name=\"group_session\" string=\"Session\" context=\"{'group_by':'session'}\"/>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "ir_profile_view_list",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "IR Profile List",
+        "model": "ir.profile",
+        "arch": "<list string=\"Profile Session\" default_order=\"session desc, id desc\" create=\"0\">\n                <header>\n                    <button name=\"action_view_speedscope\" type=\"object\" string=\"View in speedscope\"/>\n                </header>\n                <field name=\"create_date\"/>\n                <field name=\"session\"/>\n                <field name=\"name\"/>\n                <field name=\"entry_count\"/>\n                <field name=\"sql_count\" optional=\"hide\"/>\n                <field name=\"speedscope_url\" widget=\"url\"/>\n                <field name=\"config_url\" widget=\"url\"/>\n                <field name=\"duration\"/>\n                <field name=\"cpu_duration\" optional=\"hide\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "ir_profile_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "IR Profile Form",
+        "model": "ir.profile",
+        "arch": "<form string=\"IR Profile\">\n                <group>\n                    <field name=\"name\"/>\n                    <field name=\"session\"/>\n                    <field name=\"cpu_duration\"/>\n                    <field name=\"entry_count\"/>\n                    <!-- Do not rely on sql field for the invisible attrs to avoid fetching whole trace from server. -->\n                    <field name=\"sql_count\" invisible=\"sql_count == 0\"/>\n                    <field name=\"speedscope_url\" widget=\"url\"/>\n                    <field name=\"config_url\" widget=\"url\"/>\n                </group>\n                <group invisible=\"not qweb\">\n                    <field name=\"qweb\" widget=\"profiling_qweb_view\" nolabel=\"1\"/>\n                </group>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "enable_profiling_wizard",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Enable profiling",
+        "model": "base.enable.profiling.wizard",
+        "arch": "<form string=\"Enable profiling\">\n                <div class=\"alert alert-warning\" role=\"alert\">\n                    <h3>Profiling is currently disabled.</h3>\n                    Profiling is a developer feature that should be used with caution on production database.\n                    It may add some load on the server, and potentially make it less responsive.\n                    Enabling the profiling here allows all users to activate profiling on their session.\n                    Profiling can be disabled at any moment in the settings.\n                </div>\n                <group>\n                    <field name=\"duration\"/>\n                    <field name=\"expiration\"/>\n                </group>\n                <footer>\n                    <button string=\"Cancel\" class=\"btn-secondary\" special=\"cancel\" data-hotkey=\"x\"/>\n                    <button string=\"Enable profiling\" type=\"object\" name=\"submit\" class=\"btn btn-primary\" data-hotkey=\"q\"/>\n                </footer>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "action_menu_ir_profile",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Ir profile",
+        "res_model": "ir.profile",
+        "view_mode": "list,form",
+        "context": "{'search_default_group_session': 1}"
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "menu_ir_profile",
+      "name": "Profiling",
+      "parent": "base.next_id_9",
+      "action": "action_menu_ir_profile"
+    }
+  ]
+}

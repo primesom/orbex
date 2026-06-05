@@ -1,0 +1,110 @@
+{
+  "records": [
+    {
+      "id": "mail_activity_plan_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.activity.plan.view.search",
+        "model": "mail.activity.plan",
+        "arch": "<search string=\"Plan\">\n                    <field name=\"name\"/>\n                    <separator/>\n                    <filter string=\"Archived\" name=\"filter_inactive\" domain=\"[('active', '=', False)]\"/>\n                    <filter string=\"Model\" name=\"group_by_model\" domain=\"[]\" context=\"{'group_by': 'res_model_id'}\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.activity.plan.view.list",
+        "model": "mail.activity.plan",
+        "arch": "<list string=\"Planning\" sample=\"1\">\n                    <field name=\"name\"/>\n                    <field name=\"res_model_id\" optional=\"hide\"/>\n                    <field name=\"steps_count\"/>\n                    <field name=\"company_id\" groups=\"base.group_multi_company\" optional=\"hide\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_tree_detailed",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.activity.plan.view.list.detailed",
+        "model": "mail.activity.plan",
+        "inherit_id": {
+          "ref": "mail.mail_activity_plan_view_tree"
+        },
+        "mode": "primary",
+        "priority": "32",
+        "arch": "<xpath expr=\"//field[@name='res_model_id']\" position=\"attributes\">\n                    <attribute name=\"optional\">show</attribute>\n                </xpath>\n            "
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.activity.plan.view.form",
+        "model": "mail.activity.plan",
+        "priority": "20",
+        "arch": "<form string=\"Planning\">\n                    <field name=\"company_id\" invisible=\"1\"/>\n                    <field name=\"active\" invisible=\"1\"/>\n                    <sheet>\n                        <widget name=\"web_ribbon\" title=\"Archived\" bg_color=\"text-bg-danger\" invisible=\"active\"/>\n                        <div class=\"oe_title\">\n                            <label for=\"name\" string=\"Plan Name\"/>\n                            <h1>\n                                <field name=\"name\" placeholder=\"e.g. Onboarding\" options=\"{'line_breaks': False}\" widget=\"text\"/>\n                            </h1>\n                        </div>\n                        <group name=\"group_plan_fields\">\n                            <group>\n                                <field name=\"res_model\"/>\n                            </group>\n                            <group name=\"company_id\" groups=\"base.group_multi_company\">\n                                <field name=\"company_id\" domain=\"[('id', '=', allowed_company_ids)]\" placeholder=\"Visible to all\"/>\n                            </group>\n                        </group>\n                        <notebook>\n                            <page string=\"Activities To Create\">\n                                <!-- Pass on the model to ensure the correct dynamic selection (in e.g. hr) on unsaved plans -->\n                                <field name=\"template_ids\" nolabel=\"1\" context=\"{'default_res_model': res_model}\">\n                                    <list>\n                                        <field name=\"company_id\" column_invisible=\"1\"/>\n                                        <field name=\"note\" column_invisible=\"1\"/>\n                                        <field name=\"sequence\" widget=\"handle\"/>\n                                        <field name=\"activity_type_id\" options=\"{'no_quick_create': True}\"/>\n                                        <field name=\"summary\" placeholder=\"e.g. Discuss Proposal\"/>\n                                        <field name=\"responsible_type\"/>\n                                        <field name=\"responsible_id\" readonly=\"responsible_type != 'other'\" widget=\"many2one_avatar_user\"/>\n                                        <field name=\"delay_count\"/>\n                                        <field name=\"delay_unit\" string=\"Unit\"/>\n                                        <field name=\"delay_from\"/>\n                                        <field name=\"next_activity_ids\" widget=\"many2many_tags\" invisible=\"not next_activity_ids\" options=\"{                                                 'no_quick_create': True,                                                 'edit_tags': True,                                             }\" optional=\"hide\"/>\n                                    </list>\n                                    <kanban class=\"o_kanban_mobile\">\n                                        <field name=\"icon\"/>\n                                        <templates>\n                                            <t t-name=\"card\">\n                                                <div class=\"fw-bold fs-5\">\n                                                    <i t-if=\"record.icon.value\" t-attf-class=\"fa #{record.icon.value} fa-fw \" role=\"img\" aria-label=\"Activity Type\" title=\"Activity Type\"/>\n                                                    <field name=\"activity_type_id\"/>\n                                                </div>\n                                                <field name=\"summary\"/>\n                                                <div>\n                                                    <field name=\"delay_count\"/> <field name=\"delay_unit\"/>\n                                                    (<field name=\"delay_from\"/>)\n                                                </div>\n                                                <field name=\"next_activity_ids\" widget=\"many2many_tags\" invisible=\"not next_activity_ids\"/>\n                                                <footer class=\"p-0\">\n                                                    <field name=\"responsible_type\"/>\n                                                    <field class=\"ms-auto\" name=\"responsible_id\" widget=\"many2one_avatar_user\" readonly=\"1\"/>\n                                                </footer>\n                                            </t>\n                                        </templates>\n                                    </kanban>\n                                </field>\n                            </page>\n                        </notebook>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_kanban",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.activity.plan.view.kanban",
+        "model": "mail.activity.plan",
+        "arch": "<kanban class=\"o_kanban_mobile\">\n                    <templates>\n                        <t t-name=\"card\">\n                            <field name=\"name\" class=\"fw-bolder\"/>\n                            <field name=\"res_model_id\"/>\n                            <div>\n                                <i class=\"fa fa-cogs fa-fw me-2\" role=\"img\" aria-label=\"Steps count\" title=\"Steps count\"/>\n                                <field name=\"steps_count\"/>\n                            </div>\n                        </t>\n                    </templates>\n                </kanban>\n            "
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_form_fixed_model",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.activity.plan.view.form.fixed.model",
+        "model": "mail.activity.plan",
+        "mode": "primary",
+        "priority": "10",
+        "inherit_id": {
+          "ref": "mail.mail_activity_plan_view_form"
+        },
+        "arch": "<data><xpath expr=\"//list\" position=\"attributes\">\n                    <attribute name=\"editable\">bottom</attribute>\n                </xpath>\n                <xpath expr=\"//field[@name='res_model']\" position=\"attributes\">\n                    <attribute name=\"readonly\">1</attribute>\n                </xpath>\n            </data>"
+      }
+    },
+    {
+      "id": "mail_activity_plan_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Activity Plans",
+        "res_model": "mail.activity.plan",
+        "view_mode": "list,kanban,form",
+        "search_view_id": {
+          "ref": "mail_activity_plan_view_search"
+        },
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n                    Create an Activity Plan\n                </p>\n                <p>\n                    Activity plans are used to assign a list of activities in just a few clicks\n                    (e.g. \"Onboarding\", \"Prospect Follow-up\", \"Project Milestone Meeting\", ...)\n                </p>\n            "
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_tree_action",
+      "model": "ir.actions.act_window.view",
+      "values": {
+        "sequence": "1",
+        "view_mode": "list",
+        "view_id": {
+          "ref": "mail.mail_activity_plan_view_tree_detailed"
+        },
+        "act_window_id": {
+          "ref": "mail.mail_activity_plan_action"
+        }
+      }
+    },
+    {
+      "id": "mail_activity_plan_view_form_action",
+      "model": "ir.actions.act_window.view",
+      "values": {
+        "sequence": "2",
+        "view_mode": "form",
+        "view_id": {
+          "ref": "mail.mail_activity_plan_view_form"
+        },
+        "act_window_id": {
+          "ref": "mail.mail_activity_plan_action"
+        }
+      }
+    }
+  ]
+}

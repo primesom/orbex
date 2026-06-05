@@ -1,0 +1,14 @@
+{
+  "records": [
+    {
+      "id": "USD",
+      "model": "res.currency",
+      "values": {
+        "active": {
+          "eval": "True"
+        }
+      },
+      "noupdate": true
+    }
+  ]
+}

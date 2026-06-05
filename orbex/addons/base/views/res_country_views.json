@@ -1,0 +1,106 @@
+{
+  "records": [
+    {
+      "id": "view_country_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.list",
+        "model": "res.country",
+        "arch": "<list string=\"Country\" create=\"0\" delete=\"0\">\n                    <field name=\"name\"/>\n                    <field name=\"code\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_country_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.form",
+        "model": "res.country",
+        "arch": "<form create=\"0\" delete=\"0\">\n                    <sheet>\n                        <div class=\"oe_button_box\" name=\"button_box\">\n                        </div>\n                        <field name=\"image_url\" widget=\"image_url\" class=\"oe_avatar\" options=\"{'size': [128,128]}\"/>\n                        <group name=\"main_group\">\n                            <group name=\"country_details\">\n                                <field name=\"name\"/>\n                                <field name=\"currency_id\"/>\n                                <field name=\"code\"/>\n                            </group>\n                            <group name=\"phone_vat_settings\">\n                                <field name=\"phone_code\" options=\"{'format': false}\"/>\n                                <field name=\"vat_label\"/>\n                                <field name=\"zip_required\"/>\n                                <field name=\"state_required\"/>\n                            </group>\n                        </group>\n                        <group name=\"advanced_address_formatting\" string=\"Advanced Address Formatting\" groups=\"base.group_no_one\">\n                            <label for=\"address_view_id\"/>\n                            <div class=\"o_row\">\n                                <field name=\"address_view_id\"/>\n                                <div class=\"text-muted ms-2\">Choose a subview of partners that includes only address fields, to change the way users can input addresses.</div>\n                            </div>\n                            <label for=\"address_format\"/>\n                            <div class=\"o_row\">\n                                <field name=\"address_format\" placeholder=\"Address format...\"/>\n                                <div name=\"div_address_format ms-2\" class=\"text-muted\">Change the way addresses are displayed in reports</div>\n                            </div>\n                            <field name=\"name_position\" class=\"oe_inline\"/>\n                        </group>\n                        <label for=\"state_ids\"/>\n                        <field name=\"state_ids\">\n                            <list editable=\"bottom\">\n                                <field name=\"name\"/>\n                                <field name=\"code\"/>\n                            </list>\n                        </field>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_country_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.search",
+        "model": "res.country",
+        "arch": "<search string=\"Countries\">\n                    <field name=\"name\" filter_domain=\"['|', ('name', 'ilike', self), ('code', 'ilike', self)]\"/>\n                    <field name=\"phone_code\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "action_country",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Countries",
+        "res_model": "res.country",
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n                    No Country Found!\n                </p><p>\n                    Manage the list of countries that can be set on your contacts.\n                </p>\n            "
+      }
+    },
+    {
+      "id": "view_country_group_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.group.list",
+        "model": "res.country.group",
+        "arch": "<list string=\"Country Group\">\n                    <field name=\"name\"/>\n                    <field name=\"code\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_country_group_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.group.form",
+        "model": "res.country.group",
+        "arch": "<form string=\"Country Group\">\n                    <sheet>\n                        <div class=\"oe_title\">\n                            <label for=\"name\" string=\"Group Name\"/>\n                            <h1><field name=\"name\" placeholder=\"e.g. Europe\"/></h1>\n                        </div>\n                        <group name=\"country_group\">\n                            <field name=\"code\"/>\n                            <field name=\"country_ids\" widget=\"many2many_tags\" options=\"{'no_open': True, 'no_create': True}\"/>\n                        </group>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "action_country_group",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Country Group",
+        "res_model": "res.country.group",
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n                    Create a Country Group\n                </p><p>\n                    Use groups to organize countries that are frequently selected together (e.g. \"LATAM\", \"BeNeLux\", \"ASEAN\").\n                </p>\n            "
+      }
+    },
+    {
+      "id": "view_country_state_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.state.list",
+        "model": "res.country.state",
+        "arch": "<list string=\"State\" editable=\"bottom\">\n                    <field name=\"name\"/>\n                    <field name=\"code\"/>\n                    <field name=\"country_id\" options=\"{'no_create': True, 'no_open': True}\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_country_state_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.state.form",
+        "model": "res.country.state",
+        "arch": "<form string=\"State\">\n                    <sheet>\n                        <group>\n                            <field name=\"name\"/>\n                            <field name=\"code\"/>\n                            <field name=\"country_id\" options=\"{&quot;no_open&quot;: True, &quot;no_create&quot;: True}\"/>\n                        </group>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_country_state_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.country.state.search",
+        "model": "res.country.state",
+        "arch": "<search string=\"Country\">\n                    <field name=\"name\"/>\n                    <field name=\"country_id\"/>\n                    <group>\n                        <filter name=\"groupby_country\" string=\"Country\" context=\"{'group_by': 'country_id'}\"/>\n                    </group>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "action_country_state",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Fed. States",
+        "res_model": "res.country.state",
+        "view_id": {
+          "ref": "view_country_state_tree"
+        },
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n                    Create a State\n                </p><p>\n                    Federal States belong to countries and are part of your contacts' addresses.\n                </p>\n            "
+      }
+    }
+  ]
+}

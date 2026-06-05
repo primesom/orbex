@@ -1,0 +1,149 @@
+{
+  "records": [
+    {
+      "id": "res_users_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.users.view.search.inherit.auth.totp",
+        "model": "res.users",
+        "type": "search",
+        "arch_type": "json",
+        "inherit_id": {
+          "ref": "base.view_users_search"
+        },
+        "arch_json": {
+          "patches": [
+            {
+              "target": "search:root",
+              "position": "inside",
+              "insert": [
+                {
+                  "type": "separator"
+                },
+                {
+                  "type": "filter",
+                  "name": "totp_enabled",
+                  "label": "Two-factor Authentication Enabled",
+                  "domain": [
+                    ["totp_enabled", "!=", false]
+                  ]
+                },
+                {
+                  "type": "filter",
+                  "name": "totp_disabled",
+                  "label": "Two-factor Authentication Disabled",
+                  "domain": [
+                    ["totp_enabled", "=", false]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "view_totp_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "user form: add totp status",
+        "model": "res.users",
+        "type": "form",
+        "arch_type": "json",
+        "inherit_id": {
+          "ref": "base.view_users_form"
+        },
+        "arch_json": {
+          "patches": [
+            {
+              "target": "region:auth",
+              "position": "after",
+              "insert": {
+                "type": "template",
+                "name": "auth_2fa",
+                "label": "Two-factor Authentication",
+                "help": "Recommended for extra security.",
+                "template": "auth_totp/views/totp_status_admin.html",
+                "fields": [
+                  "totp_enabled"
+                ],
+                "buttons": [
+                  {
+                    "name": "action_totp_enable_wizard",
+                    "label": "Enable 2FA",
+                    "type": "object",
+                    "class": "btn btn-secondary h-100 my-auto",
+                    "visible_if": [
+                      ["totp_enabled", "=", false],
+                      ["id", "=", "uid"]
+                    ]
+                  },
+                  {
+                    "name": "action_totp_disable",
+                    "label": "Disable",
+                    "type": "object",
+                    "class": "btn btn-secondary h-100",
+                    "visible_if": [
+                      ["totp_enabled", "=", true]
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "view_totp_field",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "users preference: totp",
+        "model": "res.users",
+        "type": "form",
+        "arch_type": "json",
+        "inherit_id": {
+          "ref": "base.view_users_form_simple_modif"
+        },
+        "arch_json": {
+          "patches": [
+            {
+              "target": "region:auth",
+              "position": "after",
+              "insert": {
+                "type": "template",
+                "name": "auth_2fa_user",
+                "label": "Two-factor Authentication",
+                "help": "Recommended for extra security.",
+                "template": "auth_totp/views/totp_status_user.html",
+                "fields": [
+                  "totp_enabled"
+                ],
+                "buttons": [
+                  {
+                    "name": "action_totp_enable_wizard",
+                    "label": "Enable 2FA",
+                    "type": "object",
+                    "class": "btn btn-secondary h-100 my-auto",
+                    "visible_if": [
+                      ["totp_enabled", "=", false]
+                    ]
+                  },
+                  {
+                    "name": "action_totp_disable",
+                    "label": "Disable",
+                    "type": "object",
+                    "class": "btn btn-secondary h-100",
+                    "visible_if": [
+                      ["totp_enabled", "=", true]
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "id": "mail.discuss_notification_settings_action",
+      "model": "ir.actions.client",
+      "values": {
+        "name": "Notifications",
+        "tag": "mail.discuss_notification_settings_action",
+        "target": "new",
+        "context": "{\"dialog_size\": \"medium\", \"footer\": false}"
+      }
+    },
+    {
+      "id": "mail.discuss_call_settings_action",
+      "model": "ir.actions.client",
+      "values": {
+        "name": "Voice & Video Settings",
+        "tag": "mail.discuss_call_settings_action",
+        "target": "new",
+        "context": "{'dialog_size': 'medium', 'footer': false}"
+      }
+    }
+  ]
+}

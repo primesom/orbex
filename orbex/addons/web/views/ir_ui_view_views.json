@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "id": "view_view_form_inherit_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.ui.view.form.inherit",
+        "model": "ir.ui.view",
+        "inherit_id": {
+          "ref": "base.view_view_form"
+        },
+        "arch": "<data><xpath expr=\"//sheet/div[hasclass('alert-info')]\" position=\"after\">\n                <div class=\"alert alert-danger\" role=\"alert\" invisible=\"not invalid_locators\">\n                    Please note that your view includes invalid locators.<br/>\n                    These nodes could not be anchored to the parent view and have no effect.<br/>\n                    This issue may have arisen as a result of manual modifications or during the upgrade process.<br/>\n                    For your reference, invalid xpath nodes are highlighted in red.\n                </div>\n                <field name=\"invalid_locators\" invisible=\"1\"/> <!-- required for the alert -->\n            </xpath>\n            <xpath expr=\"//field[@name='arch_base']\" position=\"attributes\">\n                <attribute name=\"widget\">code_ir_ui_view</attribute>\n            </xpath>\n        </data>"
+      }
+    }
+  ]
+}

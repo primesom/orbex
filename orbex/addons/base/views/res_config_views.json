@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "id": "res_config_view_base",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.config.view.base",
+        "model": "res.config",
+        "arch": "<form string=\"Configuration\">\n                    <group name=\"res_config_contents\"/>\n                    <footer>\n                        <button name=\"action_next\" type=\"object\" string=\"Apply\" class=\"btn-primary\" data-hotkey=\"q\"/>\n                        <button name=\"action_skip\" type=\"object\" special=\"cancel\" data-hotkey=\"x\" string=\"Cancel\" class=\"btn-secondary\"/>\n                    </footer>\n                </form>\n            "
+      }
+    }
+  ]
+}

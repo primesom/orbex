@@ -1,0 +1,51 @@
+{
+  "records": [
+    {
+      "id": "ir_default_form_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.default form view",
+        "model": "ir.default",
+        "arch": "<form string=\"User-defined Defaults\">\n            <sheet>\n                <group>\n                    <group name=\"field_value\">\n                        <field name=\"field_id\" options=\"{'no_create': True}\"/>\n                        <field name=\"json_value\"/>\n                        <field name=\"condition\"/>\n                    </group>\n                    <group name=\"user_company_details\">\n                        <field name=\"user_id\"/>\n                        <field name=\"company_id\" groups=\"base.group_multi_company\"/>\n                    </group>\n                </group>\n            </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "ir_default_tree_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.default list view",
+        "model": "ir.default",
+        "arch": "<list string=\"User-defined Defaults\">\n                <field name=\"field_id\"/>\n                <field name=\"json_value\"/>\n                <field name=\"condition\" optional=\"hide\"/>\n                <field name=\"user_id\"/>\n                <field name=\"company_id\" groups=\"base.group_multi_company\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "ir_default_search_view",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "ir.default search view",
+        "model": "ir.default",
+        "arch": "<search string=\"User-defined Defaults\">\n                <field name=\"field_id\"/>\n                <field name=\"user_id\"/>\n                <field name=\"company_id\" groups=\"base.group_multi_company\"/>\n                <group>\n                    <filter string=\"User\" name=\"groupby_user\" domain=\"[]\" context=\"{'group_by':'user_id'}\"/>\n                    <filter string=\"Company\" name=\"groupby_company\" domain=\"[]\" context=\"{'group_by':'company_id'}\"/>\n                </group>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "ir_default_menu_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "User-defined Defaults",
+        "res_model": "ir.default",
+        "view_mode": "list,form",
+        "search_view_id": {
+          "ref": "ir_default_search_view"
+        }
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "ir_default_menu",
+      "name": null,
+      "parent": "next_id_6",
+      "action": "ir_default_menu_action"
+    }
+  ]
+}

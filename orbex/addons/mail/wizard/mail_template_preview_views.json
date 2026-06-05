@@ -1,0 +1,30 @@
+{
+  "records": [
+    {
+      "id": "mail_template_preview_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.template.preview.view.form",
+        "model": "mail.template.preview",
+        "arch": "<form string=\"Email Preview\" class=\"o_mail_template_preview_form_view\">\n                    <sheet>\n                        <div class=\"alert alert-danger\" role=\"alert\" invisible=\"not error_msg\">\n                            <field name=\"error_msg\" widget=\"text\"/>\n                        </div>\n                        <field name=\"mail_template_id\" invisible=\"1\"/>\n                        <field name=\"no_record\" invisible=\"1\"/>\n\n                        <group>\n                            <label for=\"resource_ref\" string=\"Test Record\"/>\n                            <field name=\"resource_ref\" nolabel=\"1\" options=\"{'hide_model': True, 'no_create': True, 'no_open': True}\" readonly=\"False\" invisible=\"no_record\"/>\n                            <b invisible=\"not no_record\" class=\"text-warning\">No record for this model</b>\n\n                            <field name=\"has_several_languages_installed\" invisible=\"1\"/>\n                            <field name=\"lang\" invisible=\"not has_several_languages_installed\" string=\"Force a Language\" placeholder=\"Select a language\"/>\n\n                            <field name=\"subject\"/>\n                            <field name=\"email_from\" invisible=\"not email_from\"/>\n                            <field name=\"partner_ids\" widget=\"many2many_tags\" invisible=\"not partner_ids\"/>\n                            <field name=\"email_to\" invisible=\"not email_to\"/>\n                            <field name=\"email_cc\" invisible=\"not email_cc\"/>\n                            <field name=\"reply_to\" invisible=\"not reply_to\"/>\n                            <field name=\"scheduled_date\" invisible=\"not scheduled_date\"/>\n\n                            <field name=\"body_html\" widget=\"html\" colspan=\"2\" nolabel=\"1\" options=\"{'safe': True}\"/>\n                            <field name=\"has_attachments\" invisible=\"1\"/>\n                            <field name=\"attachment_ids\" invisible=\"not has_attachments\" widget=\"many2many_binary\"/>\n                        </group>\n                    </sheet>\n                    <footer>\n                        <button string=\"Close\" class=\"btn-secondary\" special=\"cancel\" data-hotkey=\"x\"/>\n                    </footer>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "mail_template_preview_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Template Preview",
+        "res_model": "mail.template.preview",
+        "binding_model_id": {
+          "eval": "False"
+        },
+        "view_mode": "form",
+        "view_id": {
+          "ref": "mail_template_preview_view_form"
+        },
+        "target": "new",
+        "context": "{'default_mail_template_id':active_id}"
+      }
+    }
+  ]
+}

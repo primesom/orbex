@@ -1,0 +1,152 @@
+{
+  "records": [
+    {
+      "id": "ir_cron_mail_scheduler_action",
+      "model": "ir.cron",
+      "values": {
+        "name": "Mail: Email Queue Manager",
+        "model_id": {
+          "ref": "model_mail_mail"
+        },
+        "state": "code",
+        "code": "model.process_email_queue(batch_size=1000)",
+        "user_id": {
+          "ref": "base.user_root"
+        },
+        "interval_number": "1",
+        "interval_type": "hours",
+        "priority": "6"
+      },
+      "forcecreate": true,
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_module_update_notification",
+      "model": "ir.cron",
+      "values": {
+        "name": "Publisher: Update Notification",
+        "model_id": {
+          "ref": "model_publisher_warranty_contract"
+        },
+        "state": "code",
+        "code": "model.update_notification(None)",
+        "user_id": {
+          "ref": "base.user_root"
+        },
+        "interval_number": "1",
+        "interval_type": "weeks",
+        "nextcall": {
+          "eval": "(DateTime.now() + timedelta(days=7)).strftime('%Y-%m-%d %H:%M:%S')"
+        },
+        "priority": "1000"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "base.ir_cron_act",
+      "model": "ir.actions.act_window",
+      "values": {
+        "domain": {
+          "eval": "[('id','!=', ref('mail.ir_cron_module_update_notification'))]"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_delete_notification",
+      "model": "ir.cron",
+      "values": {
+        "name": "Notification: Delete Notifications older than 6 Months",
+        "interval_number": "1",
+        "interval_type": "months",
+        "model_id": {
+          "ref": "model_mail_notification"
+        },
+        "code": "model._gc_notifications(max_age_days=180)",
+        "state": "code"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_mail_gateway_action",
+      "model": "ir.cron",
+      "values": {
+        "name": "Mail: Fetchmail Service",
+        "model_id": {
+          "ref": "model_fetchmail_server"
+        },
+        "state": "code",
+        "code": "model._fetch_mails()",
+        "interval_number": "5",
+        "interval_type": "minutes",
+        "active": {
+          "eval": "False"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_post_scheduled_message",
+      "model": "ir.cron",
+      "values": {
+        "name": "Mail: Post scheduled messages",
+        "interval_number": "1",
+        "interval_type": "days",
+        "model_id": {
+          "ref": "model_mail_scheduled_message"
+        },
+        "code": "model._post_messages_cron()",
+        "state": "code"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_send_scheduled_message",
+      "model": "ir.cron",
+      "values": {
+        "name": "Notification: Notify scheduled messages",
+        "interval_number": "1",
+        "interval_type": "hours",
+        "model_id": {
+          "ref": "model_mail_message_schedule"
+        },
+        "code": "model._send_notifications_cron()",
+        "state": "code"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_web_push_notification",
+      "model": "ir.cron",
+      "values": {
+        "name": "Mail: send web push notification",
+        "model_id": {
+          "ref": "model_mail_push"
+        },
+        "state": "code",
+        "code": "model._push_notification_to_endpoint()",
+        "active": {
+          "eval": "True"
+        },
+        "interval_number": "1",
+        "interval_type": "days"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "ir_cron_discuss_channel_member_unmute",
+      "model": "ir.cron",
+      "values": {
+        "name": "Discuss: channel member unmute",
+        "interval_number": "1",
+        "interval_type": "days",
+        "model_id": {
+          "ref": "model_discuss_channel_member"
+        },
+        "code": "model._cleanup_expired_mutes()",
+        "state": "code"
+      },
+      "noupdate": true
+    }
+  ]
+}

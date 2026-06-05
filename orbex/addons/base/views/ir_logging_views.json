@@ -1,0 +1,48 @@
+{
+  "records": [
+    {
+      "id": "ir_logging_form_view",
+      "model": "ir.ui.view",
+      "values": {
+        "model": "ir.logging",
+        "arch": "<form string=\"Log\">\n                <sheet>\n                    <group name=\"creation_details\" string=\"Creation details\">\n                        <field name=\"create_date\"/>\n                        <field name=\"create_uid\"/>\n                        <field name=\"dbname\"/>\n                    </group>\n                    <group name=\"log_details\" string=\"Logging details\">\n                        <field name=\"type\"/>\n                        <field name=\"name\"/>\n                        <field name=\"level\"/>\n                        <field name=\"path\"/>\n                        <field name=\"line\"/>\n                        <field name=\"func\"/>\n                        <field name=\"message\"/>\n                    </group>\n                </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "ir_logging_tree_view",
+      "model": "ir.ui.view",
+      "values": {
+        "model": "ir.logging",
+        "arch": "<list string=\"Logs\">\n                    <field name=\"create_date\"/>\n                    <field name=\"create_uid\"/>\n                    <field name=\"dbname\"/>\n                    <field name=\"type\"/>\n                    <field name=\"name\"/>\n                    <field name=\"level\"/>\n                    <field name=\"path\"/>\n                    <field name=\"line\"/>\n                    <field name=\"func\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "ir_logging_search_view",
+      "model": "ir.ui.view",
+      "values": {
+        "model": "ir.logging",
+        "arch": "<search string=\"Logs\">\n                    <field name=\"dbname\"/>\n                    <field name=\"type\"/>\n                    <field name=\"name\"/>\n                    <field name=\"level\"/>\n                    <field name=\"message\"/>\n                    <group>\n                        <filter string=\"Database\" name=\"database\" domain=\"[]\" context=\"{'group_by': 'dbname'}\"/>\n                        <filter string=\"Level\" name=\"group_by_level\" domain=\"[]\" context=\"{'group_by': 'level'}\"/>\n                        <filter string=\"Type\" name=\"group_by_type\" domain=\"[]\" context=\"{'group_by': 'type'}\"/>\n                        <filter string=\"Creation Date\" name=\"group_by_month\" domain=\"[]\" context=\"{'group_by': 'create_date'}\"/>\n                    </group>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "ir_logging_all_act",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Logging",
+        "res_model": "ir.logging",
+        "view_mode": "list,form",
+        "search_view_id": {
+          "ref": "ir_logging_search_view"
+        }
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "ir_logging_all_menu",
+      "name": null,
+      "parent": "base.next_id_9",
+      "action": "ir_logging_all_act"
+    }
+  ]
+}

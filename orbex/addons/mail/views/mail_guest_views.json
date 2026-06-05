@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "id": "mail_guest_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.guest.list",
+        "model": "mail.guest",
+        "priority": "10",
+        "arch": "<list string=\"Guests\">\n                <field name=\"id\"/>\n                <field name=\"name\"/>\n                <field name=\"country_id\"/>\n                <field name=\"lang\"/>\n                <field name=\"timezone\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "mail_guest_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.guest.form",
+        "model": "mail.guest",
+        "arch": "<form string=\"Guest\">\n                <sheet>\n                    <group>\n                        <group>\n                            <field name=\"name\"/>\n                            <field name=\"country_id\"/>\n                        </group>\n                        <group>\n                            <field name=\"lang\"/>\n                            <field name=\"timezone\"/>\n                            <field name=\"channel_ids\" widget=\"many2many_tags\"/>\n                        </group>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_guest_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Guests",
+        "res_model": "mail.guest",
+        "view_mode": "list,form"
+      }
+    }
+  ]
+}

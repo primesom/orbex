@@ -1,0 +1,82 @@
+{
+  "records": [
+    {
+      "id": "view_res_bank_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.bank.form",
+        "model": "res.bank",
+        "arch": "<form string=\"Bank\">\n                    <sheet>\n                        <widget name=\"web_ribbon\" title=\"Archived\" bg_color=\"text-bg-danger\" invisible=\"active\"/>\n                        <group name=\"bank_details\" col=\"4\">\n                            <field name=\"name\"/>\n                            <field name=\"bic\"/>\n                        </group>\n                        <group>\n                            <group name=\"address_details\">\n                                <label for=\"street\" string=\"Bank Address\"/>\n                                <div class=\"o_address_format\">\n                                    <field name=\"street\" placeholder=\"Street...\" class=\"o_address_street\"/>\n                                    <field name=\"street2\" placeholder=\"Street 2...\" class=\"o_address_street\"/>\n                                    <field name=\"city\" placeholder=\"City\" class=\"o_address_city\"/>\n                                    <field name=\"state\" class=\"o_address_state\" placeholder=\"State\" options=\"{&quot;no_open&quot;: True}\"/>\n                                    <field name=\"zip\" placeholder=\"ZIP\" class=\"o_address_zip\"/>\n                                    <field name=\"country\" placeholder=\"Country\" class=\"o_address_country\" options=\"{&quot;no_open&quot;: True, &quot;no_create&quot;: True}\"/>\n                                </div>\n                            </group>\n                            <group name=\"communication_details\">\n                                <field name=\"phone\" class=\"o_force_ltr\"/>\n                                <field name=\"email\" widget=\"email\"/>\n                            </group>\n                        </group>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_res_bank_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.bank.list",
+        "model": "res.bank",
+        "arch": "<list string=\"Banks\">\n                    <field name=\"name\"/>\n                    <field name=\"bic\"/>\n                    <field name=\"country\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "res_bank_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.bank.view.search",
+        "model": "res.bank",
+        "arch": "<search string=\"Search Bank\">\n                    <field name=\"name\"/>\n                    <separator/>\n                    <filter string=\"Archived\" name=\"inactive\" domain=\"[('active', '=', False)]\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "action_res_bank_form",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Banks",
+        "res_model": "res.bank",
+        "view_mode": "list,form",
+        "search_view_id": {
+          "ref": "res_bank_view_search"
+        },
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n                Create a Bank\n              </p><p>\n                Banks are the financial institutions at which you and your contacts have their accounts.\n              </p>\n            "
+      }
+    },
+    {
+      "id": "view_partner_bank_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.partner.bank.form",
+        "model": "res.partner.bank",
+        "priority": "15",
+        "arch": "<form string=\"Bank account\" name=\"bank_account_form\">\n                <sheet>\n                    <widget name=\"web_ribbon\" title=\"Archived\" bg_color=\"text-bg-danger\" invisible=\"active\"/>\n                    <group>\n                        <group>\n                            <field name=\"acc_number\"/>\n                            <field name=\"clearing_number\"/>\n                            <field name=\"partner_id\"/>\n                            <field name=\"acc_holder_name\"/>\n                            <field name=\"bank_id\"/>\n                        </group>\n                        <group>\n                            <field name=\"allow_out_payment\" widget=\"boolean_toggle\"/>\n                            <field name=\"company_id\" groups=\"base.group_multi_company\" options=\"{'no_create': True}\"/>\n                            <field name=\"currency_id\" groups=\"base.group_multi_currency\" options=\"{'no_create': True}\"/>\n                        </group>\n                    </group>\n                    <notebook>\n                        <page string=\"Note\" name=\"internal_notes\">\n                            <field name=\"note\" nolabel=\"1\" placeholder=\"Internal notes...\"/>\n                        </page>\n                    </notebook>\n                </sheet>\n                <footer replace=\"0\">\n                    <button name=\"action_archive_bank\" type=\"object\" string=\"Archive\" class=\"btn btn-secondary\"/>\n                </footer>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "view_partner_bank_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.partner.bank.list",
+        "model": "res.partner.bank",
+        "arch": "<list string=\"Bank Accounts\" multi_edit=\"1\" decoration-muted=\"(not active)\">\n                    <field name=\"sequence\" widget=\"handle\"/>\n                    <field name=\"acc_number\"/>\n                    <field name=\"partner_id\" optional=\"hide\"/>\n                    <field name=\"bank_name\" string=\"Bank\" optional=\"show\"/>\n                    <field name=\"company_id\" groups=\"base.group_multi_company\" optional=\"hide\"/>\n                    <field name=\"allow_out_payment\" widget=\"boolean_toggle\" optional=\"show\"/>\n                    <field name=\"active\" widget=\"boolean_toggle\" optional=\"hide\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "view_partner_bank_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.partner.bank.search",
+        "model": "res.partner.bank",
+        "arch": "<search string=\"Bank Accounts\">\n                    <field name=\"bank_name\" filter_domain=\"['|', ('bank_name','ilike',self), ('acc_number','ilike',self)]\" string=\"Bank Name\"/>\n                    <field name=\"company_id\" invisible=\"context.get('company_hide', True)\"/>\n                    <field name=\"partner_id\"/>\n                    <separator/>\n                    <filter name=\"inactive\" string=\"Archived\" domain=\"[('active','=',False)]\" help=\"Show inactive bank account\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "action_res_partner_bank_account_form",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Bank Accounts",
+        "res_model": "res.partner.bank",
+        "view_mode": "list,form",
+        "help": "<p class=\"o_view_nocontent_smiling_face\">\n                Create a Bank Account\n              </p><p>\n                From here you can manage all bank accounts linked to you and your contacts.\n              </p>\n            "
+      }
+    }
+  ]
+}

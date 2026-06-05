@@ -1,0 +1,14 @@
+{
+  "records": [
+    {
+      "id": "image_placeholder",
+      "model": "ir.attachment",
+      "values": {
+        "name": "placeholder.png",
+        "type": "url",
+        "url": "/web/static/img/placeholder.png",
+        "public": "True"
+      }
+    }
+  ]
+}

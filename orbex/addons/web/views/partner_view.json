@@ -1,0 +1,20 @@
+{
+  "records": [
+    {
+      "id": "download_contact",
+      "model": "ir.actions.server",
+      "values": {
+        "name": "Download (vCard)",
+        "model_id": {
+          "ref": "model_res_partner"
+        },
+        "binding_model_id": {
+          "ref": "model_res_partner"
+        },
+        "binding_view_types": "form,list,kanban",
+        "state": "code",
+        "code": "\n            action = {\n                'type': 'ir.actions.act_url',\n                'url': '/web/partner/vcard?partner_ids=' + ','.join(map(str, records.ids)),\n                'target': 'download',\n            }\n        "
+      }
+    }
+  ]
+}

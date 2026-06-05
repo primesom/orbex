@@ -1,0 +1,253 @@
+{
+  "records": [
+    {
+      "id": "main_partner",
+      "model": "res.partner",
+      "values": {
+        "name": "My Company",
+        "company_id": {
+          "eval": "None"
+        },
+        "is_company": {
+          "eval": "True"
+        },
+        "street": "",
+        "city": "",
+        "zip": "",
+        "phone": "",
+        "image_1920": {
+          "file": "base/static/img/res_company_logo.png",
+          "type": "base64"
+        }
+      },
+      "context": "{'default_is_company': True}",
+      "noupdate": true
+    },
+    {
+      "id": "base.partner_root",
+      "model": "res.partner",
+      "values": {
+        "name": "System",
+        "company_id": {
+          "ref": "main_company"
+        },
+        "email": "orbexbot@example.com",
+        "active": {
+          "eval": "False"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "base.partner_admin",
+      "model": "res.partner",
+      "values": {
+        "name": "Administrator",
+        "company_id": {
+          "ref": "main_company"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "public_partner",
+      "model": "res.partner",
+      "values": {
+        "name": "Public user",
+        "active": {
+          "eval": "False"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_A",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Agriculture",
+        "full_name": "A - AGRICULTURE, FORESTRY AND FISHING"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_B",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Mining",
+        "full_name": "B - MINING AND QUARRYING"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_C",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Manufacturing",
+        "full_name": "C - MANUFACTURING"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_D",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Energy supply",
+        "full_name": "D - ELECTRICITY, GAS, STEAM AND AIR CONDITIONING SUPPLY"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_E",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Water supply",
+        "full_name": "E - WATER SUPPLY; SEWERAGE, WASTE MANAGEMENT AND REMEDIATION ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_F",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Construction",
+        "full_name": "F - CONSTRUCTION"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_G",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Wholesale/Retail",
+        "full_name": "G - WHOLESALE AND RETAIL TRADE; REPAIR OF MOTOR VEHICLES AND MOTORCYCLES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_H",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Transportation/Logistics",
+        "full_name": "H - TRANSPORTATION AND STORAGE"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_I",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Food/Hospitality",
+        "full_name": "I - ACCOMMODATION AND FOOD SERVICE ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_J",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "IT/Communication",
+        "full_name": "J - INFORMATION AND COMMUNICATION"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_K",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Finance/Insurance",
+        "full_name": "K - FINANCIAL AND INSURANCE ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_L",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Real Estate",
+        "full_name": "L - REAL ESTATE ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_M",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Scientific",
+        "full_name": "M - PROFESSIONAL, SCIENTIFIC AND TECHNICAL ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_N",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Administrative/Utilities",
+        "full_name": "N - ADMINISTRATIVE AND SUPPORT SERVICE ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_O",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Public Administration",
+        "full_name": "O - PUBLIC ADMINISTRATION AND DEFENCE; COMPULSORY SOCIAL SECURITY"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_P",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Education",
+        "full_name": "P - EDUCATION"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_Q",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Health/Social",
+        "full_name": "Q - HUMAN HEALTH AND SOCIAL WORK ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_R",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Entertainment",
+        "full_name": "R - ARTS, ENTERTAINMENT AND RECREATION"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_S",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Other Services",
+        "full_name": "S - OTHER SERVICE ACTIVITIES"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_T",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Households",
+        "full_name": "T - ACTIVITIES OF HOUSEHOLDS AS EMPLOYERS; UNDIFFERENTIATED GOODS- AND SERVICES-PRODUCING ACTIVITIES OF HOUSEHOLDS FOR OWN USE"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "res_partner_industry_U",
+      "model": "res.partner.industry",
+      "values": {
+        "name": "Extraterritorial",
+        "full_name": "U - ACTIVITIES OF EXTRATERRITORIAL ORGANISATIONS AND BODIES"
+      },
+      "noupdate": true
+    }
+  ]
+}

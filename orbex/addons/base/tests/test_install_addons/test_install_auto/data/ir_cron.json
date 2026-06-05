@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "id": "test_install_auto_cron",
+      "model": "ir.cron",
+      "values": {
+        "name": "test_install_auto_cron",
+        "model_id": {
+          "ref": "base.model_res_currency"
+        },
+        "state": "code",
+        "code": "model._test_install_auto_cron()",
+        "active": {
+          "eval": "True"
+        },
+        "user_id": {
+          "ref": "base.user_root"
+        },
+        "interval_number": "12",
+        "interval_type": "hours"
+      }
+    }
+  ]
+}

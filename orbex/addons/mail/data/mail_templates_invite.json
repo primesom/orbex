@@ -1,0 +1,18 @@
+{
+  "templates": [
+    {
+      "id": "mail_notification_invite",
+      "name": "mail_notification_invite",
+      "arch": "<template inherit_id=\"mail.mail_notification_layout\" primary=\"True\">\n            <xpath expr=\"//td[@t-if='subtitles']\" position=\"before\">\n                <t t-if=\"not has_button_access\">\n                    <t t-set=\"subtitles\" t-value=\"False\"/>\n                </t>\n            </xpath>\n            <xpath expr=\"//div[@t-out='message.body']\" position=\"replace\">\n                <div style=\"font-size:13px;\">\n                    <div class=\"o-mail-invite-openingMessage\">\n                        <t t-out=\"message.author_id.name\"/> (<t t-out=\"message.author_id.email\"/>) added you as a follower of this <t t-out=\"model_description\"/>.\n                    </div>\n                    <br t-if=\"len(message.body) &gt; 0\"/>\n                    <div style=\"color:grey;\">\n                        <t t-out=\"message.body\"/>\n                    </div>\n                </div>\n            </xpath>\n            <xpath expr=\"//span[@id='mail_unfollow']\" position=\"replace\"/>\n            <xpath expr=\"//div[@style='margin-top:16px;']/hr\" position=\"before\">\n                <span t-if=\"show_unfollow\" id=\"mail_unfollow\" style=\"font-size: 13px;\">\n                    Not interested by this? <a href=\"/mail/unfollow\" style=\"text-decoration:none; color:#555555;\">Unfollow</a>\n                </span>\n            </xpath>\n        </template>",
+      "primary": true,
+      "inherit_id": "mail.mail_notification_layout"
+    },
+    {
+      "id": "mail_notification_multi_invite",
+      "name": "mail_notification_multi_invite",
+      "arch": "<template inherit_id=\"mail.mail_notification_invite\" primary=\"True\">\n            <xpath expr=\"//div[hasclass('o-mail-invite-openingMessage')]\" position=\"replace\">\n                <div>\n                    <t t-out=\"message.author_id.name\"/> (<t t-out=\"message.author_id.email\"/>) added you as a follower of <t t-out=\"model_description\"/> listed below:\n                </div>\n            </xpath>\n        </template>",
+      "primary": true,
+      "inherit_id": "mail.mail_notification_invite"
+    }
+  ]
+}

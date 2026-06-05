@@ -1,0 +1,31 @@
+{
+  "records": [
+    {
+      "id": "mail_notification_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.notification.view.list",
+        "model": "mail.notification",
+        "arch": "<list string=\"Notifications\">\n                <field name=\"mail_message_id\"/>\n                <field name=\"notification_type\"/>\n                <field name=\"res_partner_id\"/>\n                <field name=\"is_read\"/>\n                <field name=\"failure_type\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "mail_notification_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.notification.view.form",
+        "model": "mail.notification",
+        "arch": "<form string=\"Notification\" duplicate=\"0\">\n                <header>\n                    <field name=\"notification_status\" widget=\"statusbar\" statusbar_visible=\"ready,sent\"/>\n                </header>\n                <sheet>\n                    <group>\n                        <group string=\"Source\">\n                            <field name=\"mail_message_id\"/>\n                            <field name=\"notification_type\"/>\n                            <field name=\"mail_mail_id\"/>\n                            <field name=\"res_partner_id\"/>\n                        </group>\n                        <group string=\"Status\">\n                            <field name=\"is_read\"/>\n                            <field name=\"read_date\"/>\n                            <field name=\"failure_type\"/>\n                            <field name=\"failure_reason\" class=\"o_text_overflow\"/>\n                        </group>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_notification_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Notifications",
+        "res_model": "mail.notification",
+        "view_mode": "list,form"
+      }
+    }
+  ]
+}

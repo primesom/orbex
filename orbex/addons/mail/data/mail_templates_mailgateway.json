@@ -1,0 +1,29 @@
+{
+  "templates": [
+    {
+      "id": "message_notification_limit_email",
+      "name": "message_notification_limit_email",
+      "arch": "<template>\n            <p>Dear Sender,</p>\n            <p>\n                The message below could not be accepted by the address <t t-esc=\"email\"/> because you have\n                contacted it too many times in the last few minutes.\n                <br/>\n                Please try again later.\n            </p>\n            <p>Kind Regards</p>\n        </template>"
+    },
+    {
+      "id": "message_notification_out_of_office",
+      "name": "message_notification_out_of_office",
+      "arch": "<template>\n            <div t-out=\"out_of_office_message\"/>\n            <div class=\"o_mail_reply_container\">\n                <div class=\"o_mail_reply_content\">\n                    <blockquote t-out=\"replied_body\"/>\n                </div>\n            </div>\n        </template>"
+    },
+    {
+      "id": "mail_bounce_catchall",
+      "name": "mail_bounce_catchall",
+      "arch": "<template>\n<div>\n    <p>Hello <t t-esc=\"message['email_from']\"/>,</p>\n    <p>The email sent to <t t-esc=\"message['to']\"/> cannot be processed. This address\n    is used to collect replies and should not be used to directly contact <t t-esc=\"res_company.name\"/>.</p>\n    <p>Please contact us instead using <a t-att-href=\"'mailto:%s' % res_company.email\"><t t-esc=\"res_company.email\"/></a></p>\n    <p>Regards,</p>\n    <p>The <t t-esc=\"res_company.name\"/> team.</p>\n</div>\n<blockquote><t t-esc=\"message['body']\"/></blockquote>\n        </template>"
+    },
+    {
+      "id": "mail_bounce_alias_security",
+      "name": "mail_bounce_alias_security",
+      "arch": "<template>\n<div><t t-out=\"body\"/></div>\n<blockquote><t t-out=\"message['body']\"/></blockquote>\n        </template>"
+    },
+    {
+      "id": "mail_attachment_links",
+      "name": "Attachment links",
+      "arch": "<template name=\"Attachment links\">\n<div style=\"max-width: 900px; width: 100%;\">\n    <hr style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 10px 0px;\"/>\n    <div t-foreach=\"attachments\" t-as=\"attachment\">\n        <a t-attf-href=\"{{attachment.get_base_url()}}/web/content/{{attachment.id}}?download=1&amp;access_token={{attachment.access_token}}\" style=\"font-size: 12px; color: #875A7B; text-decoration:none !important; text-decoration:none; font-weight: 400;\">\n            &amp;#128229; <t t-out=\"attachment.name\"/>\n        </a>\n    </div>\n</div>\n        </template>"
+    }
+  ]
+}

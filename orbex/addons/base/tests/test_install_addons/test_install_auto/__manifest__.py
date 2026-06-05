@@ -5,7 +5,7 @@
     'description': "",
     'depends': ['test_install_base'],
     'data': [
-        'data/ir_cron.xml',
+        'data/ir_cron.json',
     ],
     'installable': True,
     'auto_install': True,

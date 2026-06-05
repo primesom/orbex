@@ -1,0 +1,14 @@
+{
+  "templates": [
+    {
+      "id": "auth_totp_form",
+      "name": "Two-Factor Authentication",
+      "type": "html",
+      "template": "auth_totp_json/templates/auth_totp_form.html",
+      "layout": "web.login_layout",
+      "context": {
+        "disable_footer": true
+      }
+    }
+  ]
+}

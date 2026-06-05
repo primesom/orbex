@@ -1,0 +1,15 @@
+{
+  "records": [
+    {
+      "id": "bank_partner_demo",
+      "model": "res.partner.bank",
+      "values": {
+        "acc_number": "60-16-13 31926819",
+        "partner_id": {
+          "ref": "partner_demo"
+        }
+      },
+      "noupdate": true
+    }
+  ]
+}

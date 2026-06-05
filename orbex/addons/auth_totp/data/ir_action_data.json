@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "id": "action_disable_totp",
+      "model": "ir.actions.server",
+      "values": {
+        "name": "Disable two-factor authentication",
+        "model_id": {
+          "ref": "base.model_res_users"
+        },
+        "binding_model_id": {
+          "ref": "base.model_res_users"
+        },
+        "state": "code",
+        "code": "\n            action = records.action_totp_disable()\n        ",
+        "group_ids": {
+          "eval": "[(4, ref('base.group_erp_manager'))]"
+        }
+      }
+    }
+  ]
+}

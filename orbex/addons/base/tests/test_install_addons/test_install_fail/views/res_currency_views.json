@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "id": "view_currency_form_inherit_bad_module",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "view.currency.form.inherit.bad.module",
+        "model": "res.currency",
+        "inherit_id": {
+          "ref": "base.view_currency_form"
+        },
+        "arch": "<xpath expr=\"//field[@name='ERROR']\" position=\"after\">\n                <h3>to fail</h3>\n            </xpath>\n        "
+      }
+    }
+  ]
+}

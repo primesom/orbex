@@ -1,0 +1,252 @@
+{
+  "records": [
+    {
+      "id": "module_category_hidden",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Technical",
+        "sequence": "70",
+        "visible": {
+          "eval": "0"
+        }
+      }
+    },
+    {
+      "id": "module_category_accounting",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Accounting",
+        "sequence": "20"
+      }
+    },
+    {
+      "id": "module_category_accounting_localizations",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Localization",
+        "sequence": "65",
+        "visible": {
+          "eval": "0"
+        },
+        "parent_id": {
+          "ref": "module_category_accounting"
+        }
+      }
+    },
+    {
+      "id": "module_category_payroll_localization",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Payroll Localization",
+        "visible": {
+          "eval": "0"
+        }
+      }
+    },
+    {
+      "id": "module_category_accounting_localizations_account_charts",
+      "model": "ir.module.category",
+      "values": {
+        "parent_id": {
+          "ref": "module_category_accounting_localizations"
+        },
+        "name": "Account Charts",
+        "visible": {
+          "eval": "0"
+        }
+      }
+    },
+    {
+      "id": "module_category_accounting_accounting",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Invoicing",
+        "sequence": "4"
+      }
+    },
+    {
+      "id": "module_category_sales",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Sales",
+        "sequence": "5"
+      }
+    },
+    {
+      "id": "module_category_human_resources",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Human Resources",
+        "sequence": "45"
+      }
+    },
+    {
+      "id": "module_category_marketing",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Marketing",
+        "sequence": "40"
+      }
+    },
+    {
+      "id": "module_category_supply_chain",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Supply Chain",
+        "sequence": "25"
+      }
+    },
+    {
+      "id": "module_category_shipping_connectors",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Shipping Connectors",
+        "sequence": "50"
+      }
+    },
+    {
+      "id": "module_category_website",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Website",
+        "sequence": "10"
+      }
+    },
+    {
+      "id": "module_category_theme",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Theme",
+        "exclusive": {
+          "eval": "0"
+        },
+        "sequence": "50"
+      }
+    },
+    {
+      "id": "module_category_administration",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Administration",
+        "sequence": "100",
+        "parent_id": {
+          "eval": "False"
+        }
+      }
+    },
+    {
+      "id": "base.module_category_human_resources_referrals",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Referrals",
+        "description": "Helps you manage referrals\n                User : Access to referral, share job, gain points, buy rewards\n                Administrator : edit rewards and more",
+        "sequence": "11"
+      }
+    },
+    {
+      "id": "module_category_human_resources_appraisals",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Appraisals",
+        "description": "A user without any rights on Appraisals will be able to see the application, create and manage appraisals for himself and the people he's manager of.",
+        "sequence": "15"
+      }
+    },
+    {
+      "id": "module_category_sales_sign",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Sign",
+        "description": "Helps you sign and complete your documents easily.",
+        "sequence": "25"
+      }
+    },
+    {
+      "id": "module_category_services",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Services",
+        "sequence": "15"
+      }
+    },
+    {
+      "id": "module_category_services_helpdesk",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Helpdesk",
+        "description": "",
+        "sequence": "14"
+      }
+    },
+    {
+      "id": "module_category_services_appointment",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Appointment",
+        "parent_id": {
+          "ref": "module_category_services"
+        }
+      }
+    },
+    {
+      "id": "module_category_services_field_service",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Field Service",
+        "parent_id": {
+          "ref": "module_category_services"
+        }
+      }
+    },
+    {
+      "id": "module_category_productivity",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Productivity",
+        "sequence": "30"
+      }
+    },
+    {
+      "id": "module_category_esg",
+      "model": "ir.module.category",
+      "values": {
+        "name": "ESG",
+        "sequence": "52"
+      }
+    },
+    {
+      "id": "module_category_customizations",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Customizations",
+        "sequence": "55"
+      }
+    },
+    {
+      "id": "module_category_internet_of_things_(iot)",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Internet of Things (IoT)",
+        "sequence": "60"
+      }
+    },
+    {
+      "id": "module_category_administration_administration",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Administration",
+        "parent_id": {
+          "ref": "module_category_administration"
+        }
+      }
+    },
+    {
+      "id": "module_category_extra",
+      "model": "ir.module.category",
+      "values": {
+        "name": "Other Extra Rights",
+        "sequence": "102"
+      }
+    }
+  ]
+}

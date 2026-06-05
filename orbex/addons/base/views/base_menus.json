@@ -1,0 +1,151 @@
+{
+  "records": [
+    {
+      "id": "base.menu_administration",
+      "model": "ir.ui.menu",
+      "values": {
+        "group_ids": {
+          "eval": "[Command.set([ref('group_system'), ref('group_erp_manager')])]"
+        }
+      }
+    },
+    {
+      "id": "action_client_base_menu",
+      "model": "ir.actions.client",
+      "values": {
+        "name": "Open Settings Menu",
+        "tag": "reload",
+        "params": {
+          "eval": "{'menu_id': ref('base.menu_administration')}"
+        }
+      }
+    },
+    {
+      "id": "open_menu",
+      "model": "ir.actions.todo",
+      "values": {
+        "name": "Open Menu",
+        "action_id": {
+          "ref": "action_client_base_menu"
+        },
+        "sequence": "100",
+        "state": "done"
+      }
+    },
+    {
+      "id": "action_open_website",
+      "model": "ir.actions.act_url",
+      "values": {
+        "name": "Home Menu",
+        "target": "self",
+        "url": "/web"
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "menu_administration",
+      "name": "Settings",
+      "web_icon": "base,static/description/settings.png",
+      "sequence": 550,
+      "groups": [
+        "base.group_erp_manager"
+      ],
+      "children": [
+        {
+          "id": "menu_administration_shortcut",
+          "name": "Custom Shortcuts",
+          "sequence": 50
+        },
+        {
+          "id": "menu_users",
+          "name": "Users & Companies",
+          "sequence": 1
+        },
+        {
+          "id": "menu_translation",
+          "name": "Translations",
+          "sequence": 2,
+          "groups": [
+            "base.group_no_one"
+          ],
+          "children": [
+            {
+              "id": "menu_translation_app",
+              "name": "Application Terms",
+              "sequence": 4,
+              "groups": [
+                "base.group_no_one"
+              ]
+            },
+            {
+              "id": "menu_translation_export",
+              "name": "Import / Export",
+              "sequence": 3,
+              "groups": [
+                "base.group_no_one"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "menu_config",
+          "name": "General Settings",
+          "sequence": 3
+        },
+        {
+          "id": "menu_custom",
+          "name": "Technical",
+          "sequence": 110,
+          "groups": [
+            "base.group_no_one"
+          ],
+          "children": [
+            {
+              "id": "next_id_2",
+              "name": "User Interface"
+            },
+            {
+              "id": "menu_email",
+              "name": "Email",
+              "sequence": 1
+            },
+            {
+              "id": "next_id_9",
+              "name": "Database Structure"
+            },
+            {
+              "id": "menu_automation",
+              "name": "Automation"
+            },
+            {
+              "id": "menu_security",
+              "name": "Security",
+              "sequence": 25
+            },
+            {
+              "id": "menu_ir_property",
+              "name": "Parameters",
+              "sequence": 24
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "menu_management",
+      "name": "Apps",
+      "web_icon": "base,static/description/modules.png",
+      "sequence": 500,
+      "groups": [
+        "base.group_system"
+      ]
+    },
+    {
+      "id": "base.menu_tests",
+      "name": "Tests",
+      "web_icon": "base,static/description/exception.png",
+      "sequence": 1000
+    }
+  ]
+}

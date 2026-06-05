@@ -13,9 +13,9 @@ Shows you a list of applications features to install from.
     """,
     'depends': ['base', 'web'],
     'data': [
-        'data/base_setup_data.xml',
-        'views/res_config_settings_views.xml',
-        'views/res_partner_views.xml',
+        'data/base_setup_data.json',
+        'views/res_config_settings_views.json',
+        'views/res_partner_views.json',
         ],
     'assets': {
         'web.assets_backend': [

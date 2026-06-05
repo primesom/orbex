@@ -13,12 +13,12 @@ When a user logs in with a Passkey, MFA will not be required.
     'depends': ['base_setup', 'web'],
     'auto_install': True,
     'data': [
-        'views/auth_passkey_key_views.xml',
-        'views/auth_passkey_login_templates.xml',
-        'views/res_users_identitycheck_views.xml',
-        'views/res_users_views.xml',
+        'views/auth_passkey_key_views.json',
+        'views/auth_passkey_login_templates.json',
+        'views/res_users_identitycheck_views.json',
+        'views/res_users_views.json',
         'security/ir.model.access.csv',
-        'security/security.xml',
+        'security/security.json',
     ],
     'assets': {
         'web.assets_backend': [

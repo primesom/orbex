@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "id": "mail_template_reset_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.template.reset.view.form",
+        "model": "mail.template.reset",
+        "priority": "1000",
+        "arch": "<form>\n                <div>\n                    Are you sure you want to reset these email templates to their original configuration? Changes and translations will be lost.\n                </div>\n                <footer>\n                    <button string=\"Reset Template\" class=\"btn btn-primary\" type=\"object\" name=\"reset_template\" data-hotkey=\"q\"/>\n                    <button string=\"Discard\" class=\"btn-secondary\" special=\"cancel\" data-hotkey=\"x\"/>\n                </footer>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "mail_template_reset_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Reset Mail Template",
+        "res_model": "mail.template.reset",
+        "binding_model_id": {
+          "ref": "mail.model_mail_template"
+        },
+        "binding_view_types": "list,kanban",
+        "view_mode": "form",
+        "target": "new",
+        "context": "{\n            'default_template_ids': active_ids\n        }",
+        "view_id": {
+          "ref": "mail_template_reset_view_form"
+        }
+      }
+    }
+  ]
+}

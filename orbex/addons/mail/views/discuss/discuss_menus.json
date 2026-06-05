@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "id": "discuss_technical",
+      "model": "ir.ui.menu",
+      "values": {
+        "active": {
+          "eval": "False"
+        }
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "discuss_technical",
+      "name": "Technical",
+      "parent": "mail.menu_root_discuss",
+      "sequence": 10,
+      "groups": [
+        "base.group_no_one"
+      ]
+    }
+  ]
+}

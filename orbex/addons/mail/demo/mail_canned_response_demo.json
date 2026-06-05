@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "id": "mail_canned_response_bye",
+      "model": "mail.canned.response",
+      "values": {
+        "source": "bye",
+        "substitution": "Thanks for your feedback. Goodbye!",
+        "group_ids": {
+          "eval": "[(6, 0, [ref('base.group_user')])]"
+        }
+      },
+      "noupdate": true
+    }
+  ]
+}

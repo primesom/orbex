@@ -1,0 +1,22 @@
+{
+  "records": [
+    {
+      "id": "bank_ing",
+      "model": "res.bank",
+      "values": {
+        "name": "ING",
+        "bic": "BBRUBEBB"
+      },
+      "noupdate": true
+    },
+    {
+      "id": "bank_bnp",
+      "model": "res.bank",
+      "values": {
+        "name": "BNP Paribas",
+        "bic": "GEBABEBB"
+      },
+      "noupdate": true
+    }
+  ]
+}

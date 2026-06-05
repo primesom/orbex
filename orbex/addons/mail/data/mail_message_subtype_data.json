@@ -1,0 +1,55 @@
+{
+  "records": [
+    {
+      "id": "mt_comment",
+      "model": "mail.message.subtype",
+      "values": {
+        "name": "Discussions",
+        "sequence": {
+          "eval": "0"
+        },
+        "track_recipients": {
+          "eval": "True"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "mt_note",
+      "model": "mail.message.subtype",
+      "values": {
+        "name": "Note",
+        "default": {
+          "eval": "False"
+        },
+        "internal": {
+          "eval": "True"
+        },
+        "sequence": {
+          "eval": "100"
+        },
+        "track_recipients": {
+          "eval": "True"
+        }
+      },
+      "noupdate": true
+    },
+    {
+      "id": "mt_activities",
+      "model": "mail.message.subtype",
+      "values": {
+        "name": "Activities",
+        "default": {
+          "eval": "False"
+        },
+        "internal": {
+          "eval": "True"
+        },
+        "sequence": {
+          "eval": "90"
+        }
+      },
+      "noupdate": true
+    }
+  ]
+}

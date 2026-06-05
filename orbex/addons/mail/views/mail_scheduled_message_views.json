@@ -1,0 +1,13 @@
+{
+  "records": [
+    {
+      "id": "mail_scheduled_message_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "mail.scheduled.message.view.form",
+        "model": "mail.scheduled.message",
+        "arch": "<form string=\"Scheduled Message\">\n                    <sheet>\n                        <group>\n                            <field name=\"composition_comment_option\" invisible=\"1\"/>\n                            <label for=\"partner_ids\" string=\"To\" invisible=\"is_note\"/>\n                            <div invisible=\"is_note\" class=\"d-flex gap-3\">\n                                <field name=\"partner_ids\" widget=\"many2many_tags_email\" class=\"w-auto flex-grow-1\" placeholder=\"Add contacts to notify...\" options=\"{'edit_tags': True}\" context=\"{'force_email': True, 'show_email': True, 'form_view_ref': 'base.view_partner_simple_form'}\"/>\n                            </div>\n                            <field name=\"subject\" required=\"True\"/>\n                        </group>\n                        <group col=\"1\">\n                            <field name=\"body\" widget=\"html_composer_message\" force_save=\"1\" nolabel=\"1\" placeholder=\"Write your message here...\"/>\n                            <field name=\"attachment_ids\" widget=\"mail_composer_attachment_list\" nolabel=\"1\"/>\n                        </group>\n                    </sheet>\n                    <footer>\n                        <button string=\"Save\" class=\"btn-primary\" special=\"save\" invisible=\"not scheduled_date\" data-hotkey=\"S\"/>\n                        <button string=\"Send Now\" invisible=\"is_note\" type=\"object\" name=\"post_message\" data-hotkey=\"q\"/>\n                        <button string=\"Log Now\" invisible=\"not is_note\" type=\"object\" name=\"post_message\" data-hotkey=\"q\"/>\n                        <button string=\"Discard\" class=\"btn-secondary\" special=\"cancel\" data-hotkey=\"x\"/>\n                        <field name=\"attachment_ids\" widget=\"mail_composer_attachment_selector\"/>\n                        <field name=\"scheduled_date\" widget=\"datetime_scheduled_date\"/>\n                    </footer>\n                </form>\n            "
+      }
+    }
+  ]
+}

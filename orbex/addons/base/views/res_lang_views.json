@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "id": "res_lang_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.lang.list",
+        "model": "res.lang",
+        "arch": "<list string=\"Languages\" limit=\"200\">\n                    <header>\n                        <button name=\"action_activate_langs\" type=\"object\" string=\"Activate\"/>\n                    </header>\n                    <field name=\"name\"/>\n                    <field name=\"code\" groups=\"base.group_no_one\"/>\n                    <field name=\"iso_code\" groups=\"base.group_no_one\"/>\n                    <field name=\"direction\" groups=\"base.group_no_one\"/>\n                    <field name=\"active\"/>\n                    <button name=\"%(base.action_view_base_language_install)d\" string=\"Activate\" type=\"action\" icon=\"fa-check\" invisible=\"active\"/>\n                    <button name=\"%(base.action_view_base_language_install)d\" string=\"Update\" type=\"action\" icon=\"fa-refresh\" invisible=\"not active\"/>\n                    <button name=\"action_archive\" string=\"Disable\" type=\"object\" icon=\"fa-times\" invisible=\"not active\"/>\n                </list>\n            "
+      }
+    },
+    {
+      "id": "res_lang_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.lang.form",
+        "model": "res.lang",
+        "arch": "<form string=\"Languages\">\n                    <sheet>\n                        <div class=\"oe_button_box\" name=\"button_box\">\n                            <button name=\"%(base.action_view_base_language_install)d\" type=\"action\" class=\"oe_stat_button\" icon=\"fa-refresh\">\n                                <div class=\"o_field_widget o_stat_info\">\n                                    <span class=\"o_stat_text\">Activate and Translate</span>\n                                </div>\n                            </button>\n                        </div>\n                        <field name=\"flag_image\" widget=\"image\" class=\"oe_avatar\"/>\n                        <div class=\"oe_title\">\n                            <label for=\"name\"/>\n                            <h1><field name=\"name\" placeholder=\"e.g. French\"/></h1>\n                        </div>\n                        <group>\n                            <group>\n                                <field name=\"code\"/>\n                                <field name=\"iso_code\"/>\n                                <field name=\"active\" widget=\"boolean_toggle\"/>\n                            </group>\n                            <group>\n                                <field name=\"direction\"/>\n                                <field name=\"grouping\"/>\n                                <field name=\"decimal_point\"/>\n                                <field name=\"thousands_sep\"/>\n                                <field name=\"date_format\"/>\n                                <field name=\"time_format\"/>\n                                <field name=\"week_start\"/>\n                            </group>\n                        </group>\n                    </sheet>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "res_lang_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "res.lang.search",
+        "model": "res.lang",
+        "arch": "<search string=\"Languages\">\n                    <field name=\"name\" filter_domain=\"['|', '|', ('name', 'ilike', self), ('code', 'ilike', self), ('iso_code', 'ilike', self)]\" string=\"Language\"/>\n                    <field name=\"direction\"/>\n                    <separator/>\n                    <filter string=\"Active\" name=\"active\" domain=\"[('active', '=', True)]\"/>\n                </search>\n            "
+      }
+    },
+    {
+      "id": "res_lang_act_window",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Languages",
+        "res_model": "res.lang",
+        "context": "{'active_test': False}",
+        "search_view_id": {
+          "ref": "res_lang_search"
+        }
+      }
+    }
+  ],
+  "menus": [
+    {
+      "id": "menu_res_lang_act_window",
+      "name": null,
+      "parent": "menu_translation",
+      "action": "res_lang_act_window",
+      "sequence": 1
+    }
+  ]
+}

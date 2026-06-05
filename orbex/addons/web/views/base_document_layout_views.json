@@ -1,0 +1,27 @@
+{
+  "records": [
+    {
+      "id": "view_base_document_layout",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "Document Layout",
+        "model": "base.document.layout",
+        "arch": "<form class=\"o_document_layout\">\n                    <group>\n                        <group class=\"o_document_layout_company\">\n                            <field name=\"company_id\" invisible=\"1\"/>\n                            <field name=\"external_report_layout_id\" invisible=\"1\"/>\n                            <field name=\"logo_primary_color\" invisible=\"1\"/>\n                            <field name=\"logo_secondary_color\" invisible=\"1\"/>\n\n                            <field name=\"report_layout_id\" string=\"Layout\" widget=\"selection_badge\" required=\"1\" options=\"{'horizontal': true, 'size': 'sm'}\"/>\n                            <field name=\"layout_background\" string=\"Background\" widget=\"selection\" required=\"1\"/>\n                            <field name=\"layout_background_image\" options=\"{'accepted_file_extensions': 'image/*'}\" invisible=\"layout_background != 'Custom'\" required=\"layout_background == 'Custom'\">Upload your file</field>\n                            <field name=\"font\" string=\"Text\" widget=\"selection\" required=\"1\"/>\n                            <field name=\"logo\" string=\"Logo\" widget=\"image\" options=\"{'size': [0, 50]}\"/>\n\n                            <label for=\"primary_color\" string=\"Colors\"/>\n                            <div class=\"o_document_layout_colors d-flex align-items-end mb-4\">\n                                <field name=\"primary_color\" widget=\"color\" class=\"w-auto m-0 me-1\"/>\n                                <field name=\"secondary_color\" widget=\"color\" class=\"w-auto m-0\"/>\n                                <a class=\"o_custom_colors btn btn-secondary btn-sm position-relative ms-2\" role=\"button\" title=\"Reset to logo colors\" invisible=\"not custom_colors\">\n                                    <i class=\"fa fa-repeat\"/> Reset\n                                    <field name=\"custom_colors\" class=\"position-absolute top-0 start-0 w-100 h-100 opacity-0\" nolabel=\"1\"/>\n                                </a>\n                            </div>\n\n                            <field name=\"company_details\" string=\"Address\" options=\"{'resizable': false}\"/>\n                            <field name=\"report_header\" string=\"Tagline\" placeholder=\"e.g. Global Business Solutions\" options=\"{'resizable': false}\"/>\n                            <field name=\"report_footer\" placeholder=\"Write your phone, email, bank account, tax ID, ...\" string=\"Footer\" options=\"{'resizable': false}\"/>\n                            <field name=\"paperformat_id\" widget=\"selection\" required=\"1\"/>\n                        </group>\n                        <div class=\"o_preview\">\n                            <field name=\"preview\" widget=\"iframe_wrapper\" class=\"preview_document_layout d-flex justify-content-center mb-0\"/>\n                        </div>\n                    </group>\n                    <footer>\n                        <button string=\"Continue\" class=\"btn-primary\" type=\"object\" name=\"document_layout_save\" data-hotkey=\"q\"/>\n                        <button special=\"cancel\" data-hotkey=\"x\" string=\"Discard\"/>\n                    </footer>\n                </form>\n            "
+      }
+    },
+    {
+      "id": "action_base_document_layout_configurator",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "Configure your document layout",
+        "view_mode": "form",
+        "target": "new",
+        "res_model": "base.document.layout",
+        "view_id": {
+          "ref": "web.view_base_document_layout"
+        },
+        "context": "{\"dialog_size\": \"extra-large\"}"
+      }
+    }
+  ]
+}

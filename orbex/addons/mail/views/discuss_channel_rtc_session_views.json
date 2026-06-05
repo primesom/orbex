@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "id": "discuss_channel_rtc_session_view_search",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "discuss.channel.rtc.session.search",
+        "model": "discuss.channel.rtc.session",
+        "arch": "<search string=\"Search RTC session\">\n                <field name=\"channel_member_id\"/>\n                <filter name=\"group_by_channel\" string=\"Channel\" domain=\"[]\" context=\"{'group_by':'channel_id'}\"/>\n            </search>\n        "
+      }
+    },
+    {
+      "id": "discuss_channel_rtc_session_view_tree",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "discuss.channel.rtc.session.list",
+        "model": "discuss.channel.rtc.session",
+        "arch": "<list string=\"RTC Session\">\n                <header>\n                    <button name=\"action_disconnect\" type=\"object\" string=\"Disconnect\"/>\n                </header>\n                <field name=\"id\"/>\n                <field name=\"channel_member_id\"/>\n                <field name=\"channel_id\"/>\n                <field name=\"write_date\"/>\n            </list>\n        "
+      }
+    },
+    {
+      "id": "discuss_channel_rtc_session_view_form",
+      "model": "ir.ui.view",
+      "values": {
+        "name": "discuss.channel.rtc.session.form",
+        "model": "discuss.channel.rtc.session",
+        "arch": "<form string=\"RTC Session\">\n                <sheet>\n                    <div class=\"oe_title\">\n                        <h1><field name=\"channel_member_id\"/></h1>\n                    </div>\n                    <group>\n                        <group string=\"Identity\">\n                            <field name=\"channel_id\"/>\n                            <field name=\"partner_id\"/>\n                            <field name=\"guest_id\"/>\n                        </group>\n                        <group string=\"State\">\n                            <field name=\"is_screen_sharing_on\"/>\n                            <field name=\"is_camera_on\"/>\n                            <field name=\"is_muted\"/>\n                            <field name=\"is_deaf\"/>\n                        </group>\n                    </group>\n                </sheet>\n            </form>\n        "
+      }
+    },
+    {
+      "id": "discuss_channel_rtc_session_action",
+      "model": "ir.actions.act_window",
+      "values": {
+        "name": "RTC sessions",
+        "res_model": "discuss.channel.rtc.session",
+        "context": "{'search_default_group_by_channel': True}",
+        "view_mode": "list,form"
+      }
+    }
+  ]
+}
