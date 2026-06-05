@@ -24,7 +24,7 @@ from orbex.tools.misc import file_open, file_path
 _logger = logging.getLogger(__name__)
 
 ANY_UNIQUE = '_' * 7
-EXTENSIONS = (".js", ".css", ".scss", ".sass", ".less", ".html")
+EXTENSIONS = (".js", ".css", ".scss", ".sass", ".less", ".xml")
 
 class CompileError(RuntimeError): pass
 
@@ -97,8 +97,8 @@ class AssetsBundle(object):
             if js:
                 if extension == 'js':
                     self.javascripts.append(JavascriptAsset(self, **params))
-                elif extension == 'html' and not f['url'].endswith('.qweb.html'):
-                    self.templates.append(TemplateAsset(self, **params))
+                elif extension == 'xml':
+                    self.templates.append(XMLAsset(self, **params))
 
     def get_links(self):
         """
@@ -264,7 +264,7 @@ class AssetsBundle(object):
 
         :return the ir.attachment records for a given bundle.
         """
-        assert extension in ('js', 'min.js', 'js.map', 'css', 'min.css', 'css.map', 'html', 'min.html')
+        assert extension in ('js', 'min.js', 'js.map', 'css', 'min.css', 'css.map', 'xml', 'min.xml')
         ira = self.env['ir.attachment']
 
         # Set user direction in name to store two bundles
@@ -274,7 +274,7 @@ class AssetsBundle(object):
         fname = '%s.%s' % (self.name, extension)
         mimetype = (
             'text/css' if extension in ['css', 'min.css'] else
-            'text/html' if extension in ['html', 'min.html'] else
+            'text/xml' if extension in ['xml', 'min.xml'] else
             'application/json' if extension in ['js.map', 'css.map'] else
             'application/javascript'
         )
@@ -324,7 +324,7 @@ class AssetsBundle(object):
                     *  Templates                               *
                     *******************************************/
 
-                    orbex.define("{self.name}.bundle.html", ["@web/core/templates"], function(require) {{
+                    orbex.define("{self.name}.bundle.xml", ["@web/core/templates"], function(require) {{
                         "use strict";
                         const {{ checkPrimaryTemplateParents, registerTemplate, registerTemplateExtension }} = require("@web/core/templates");
                         /* {self.name} */
@@ -862,7 +862,7 @@ class JavascriptAsset(WebAsset):
         ])
 
 
-class TemplateAsset(WebAsset):
+class XMLAsset(WebAsset):
     def _fetch_content(self):
         try:
             content = super()._fetch_content()
@@ -873,7 +873,7 @@ class TemplateAsset(WebAsset):
         try:
             root = etree.fromstring(content.encode('utf-8'), parser=parser)
         except etree.XMLSyntaxError as e:
-            return self.generate_error(f'Invalid HTML template: {e.msg}')
+            return self.generate_error(f'Invalid XML template: {e.msg}')
         if root.tag in ('templates', 'template'):
             return ''.join(etree.tostring(el, encoding='unicode') for el in root)
         return etree.tostring(root, encoding='unicode')
@@ -909,9 +909,6 @@ class TemplateAsset(WebAsset):
             "<!--  " + "=" * length + "  -->",
             content,
         ])
-
-
-XMLAsset = TemplateAsset
 
 
 class StylesheetAsset(WebAsset):

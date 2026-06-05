@@ -1,7 +1,6 @@
 import { rpcBus } from "@web/core/network/rpc";
 import { registry } from "@web/core/registry";
 import { UPDATE_METHODS } from "@web/core/orm_service";
-import { compileOrbexJsonArch } from "./orbex_json_arch";
 
 /**
  * @typedef {Object} IrFilter
@@ -107,14 +106,8 @@ export const viewService = {
                 views: {},
             };
             for (const viewType in result.views) {
-                const { arch, arch_type, arch_json, toolbar, id, filters, custom_view_id } = result.views[viewType];
-                const viewDescription = {
-                    arch: arch_type === "json" ? compileOrbexJsonArch(arch_json) : arch,
-                    archType: arch_type || "xml",
-                    archJson: arch_json || null,
-                    id,
-                    custom_view_id,
-                };
+                const { arch, toolbar, id, filters, custom_view_id } = result.views[viewType];
+                const viewDescription = { arch, id, custom_view_id };
                 if (toolbar) {
                     viewDescription.actionMenus = toolbar;
                 }

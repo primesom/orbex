@@ -15,25 +15,25 @@ This module provides the core of the Orbex Web Client.
     'auto_install': True,
     'data': [
         'security/ir.model.access.csv',
-        'security/web_security.json',
-        'views/webclient_templates.json',
-        'views/report_templates.json',
-        'views/base_document_layout_views.json',
-        'views/partner_view.json',
-        'views/speedscope_template.json',
-        'views/memory_template.json',
-        'views/speedscope_config_wizard.json',
-        'views/neutralize_views.json',
-        'views/ir_ui_view_views.json',
-        'data/ir_attachment.json',
-        'data/report_layout.json',
+        'security/web_security.xml',
+        'views/webclient_templates.xml',
+        'views/report_templates.xml',
+        'views/base_document_layout_views.xml',
+        'views/partner_view.xml',
+        'views/speedscope_template.xml',
+        'views/memory_template.xml',
+        'views/speedscope_config_wizard.xml',
+        'views/neutralize_views.xml',
+        'views/ir_ui_view_views.xml',
+        'data/ir_attachment.xml',
+        'data/report_layout.xml',
     ],
     'assets': {
         # ---------------------------------------------------------------------
         # MAIN BUNDLES
         # ---------------------------------------------------------------------
         # These are the bundles meant to be called via "t-call-assets" in
-        # regular HTML templates.
+        # regular XML templates.
         #
         # The convention to name bundles is as following:
         # 1) the name of the first module defining the bundle
@@ -116,7 +116,7 @@ This module provides the core of the Orbex Web Client.
             # remove the report code and whitelist only what's needed
             ('remove', 'web/static/src/webclient/actions/reports/**/*'),
             'web/static/src/webclient/actions/reports/*.js',
-            'web/static/src/webclient/actions/reports/*.html',
+            'web/static/src/webclient/actions/reports/*.xml',
 
             'web/static/src/scss/ace.scss',
             'web/static/src/scss/base_document_layout.scss',
@@ -236,7 +236,7 @@ This module provides the core of the Orbex Web Client.
             'web/static/src/core/commands/default_providers.js',
             'web/static/src/core/commands/command_palette.js',
             'web/static/src/public/**/*.js',
-            'web/static/src/public/**/*.html',
+            'web/static/src/public/**/*.xml',
             ('remove', 'web/static/src/public/database_manager.js'),
 
             'web/static/src/legacy/js/public/public_root.js',
@@ -352,7 +352,7 @@ This module provides the core of the Orbex Web Client.
         # SUB BUNDLES
         # ---------------------------------------------------------------------
         # These bundles can be used by main bundles but are not supposed to be
-        # called directly from HTML templates.
+        # called directly from XML templates.
         #
         # Their naming conventions are similar to those of the main bundles,
         # with the addition of a prefixed underscore to reflect the "private"
@@ -456,8 +456,8 @@ This module provides the core of the Orbex Web Client.
 
             'web/static/src/polyfills/set.js',
             'web/static/src/public/**/*.js',
-            'web/static/src/public/**/*.html',
-            'web/static/tests/public/**/*.html',
+            'web/static/src/public/**/*.xml',
+            'web/static/tests/public/**/*.xml',
             ('remove', 'web/static/src/public/database_manager.js'),
             ('remove', 'web/static/src/public/error_notifications.js'),
             'web/static/src/webclient/clickbot/clickbot.js',

@@ -44,13 +44,13 @@ def load_data(env: Environment, idref: IdRef, mode: LoadMode, kind: LoadKind, pa
 
     :returns: Whether a file was loaded
     """
-    keys = ('init_xml', 'data', 'data_json', 'templates_html') if kind == 'data' else ('demo', 'demo_json')
+    keys = ('init_xml', 'data') if kind == 'data' else ('demo',)
 
     files: set[str] = set()
     for k in keys:
-        if k == 'init_xml' and package.manifest.get(k):
+        if k == 'init_xml' and package.manifest[k]:
             _logger.warning("module %s: key 'init_xml' is deprecated in orbex 19.", package.name)
-        for filename in package.manifest.get(k, []):
+        for filename in package.manifest[k]:
             if filename in files:
                 _logger.warning("File %s is imported twice in module %s %s", filename, package.name, kind)
             files.add(filename)

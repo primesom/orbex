@@ -14,8 +14,8 @@ the methods over HTTP, with examples in various programming languages.
     'depends': ['web'],
     'auto_install': True,
     'data': [
-        'security/res_groups.json',
-        'views/docclient.json',
+        'security/res_groups.xml',
+        'views/docclient.xml',
     ],
     'assets': {
         'api_doc.assets': [
@@ -49,7 +49,7 @@ the methods over HTTP, with examples in various programming languages.
             ('include', 'web._assets_bootstrap'),
 
             # Static files
-            'api_doc/static/src/**/*.html',
+            'api_doc/static/src/**/*.xml',
             'api_doc/static/src/**/*.js',
             'api_doc/static/src/doc_client.css',
             ('remove', 'api_doc/static/src/api_action.js'),

@@ -13,7 +13,7 @@ Orbex Web tours.
     'depends': ['web'],
     'data': [
         'security/ir.model.access.csv',
-        'views/tour_views.json',
+        'views/tour_views.xml',
     ],
     'assets': {
         'web.assets_backend': [
@@ -24,7 +24,7 @@ Orbex Web tours.
             'web_tour/static/src/js/tour_service.js',
             'web_tour/static/src/js/tour_recorder/tour_recorder_state.js',
             'web_tour/static/src/tour_utils.js',
-            'web_tour/static/src/js/onboarding_item.html',
+            'web_tour/static/src/js/onboarding_item.xml',
             'web_tour/static/src/views/**/*',
             'web_tour/static/src/widgets/**/*',
         ],
@@ -36,7 +36,7 @@ Orbex Web tours.
             'web_tour/static/src/js/tour_service.js',
             'web_tour/static/src/js/tour_recorder/tour_recorder_state.js',
             'web_tour/static/src/tour_utils.js',
-            'web_tour/static/src/js/onboarding_item.html',
+            'web_tour/static/src/js/onboarding_item.xml',
         ],
         'web.assets_unit_tests': [
             ('include', 'web_tour.recorder'),

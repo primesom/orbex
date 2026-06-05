@@ -161,8 +161,6 @@ class IrUiView(models.Model):
                             help="This field is the same as `arch` field without translations")
     arch_db = fields.Text(string='Arch Blob', translate=xml_translate,
                           help="This field stores the view arch.")
-    arch_type = fields.Selection([('xml', 'XML'), ('json', 'Orbex JSON')], string='Architecture Type', default='xml', required=True)
-    arch_json = fields.Json(string='Orbex JSON Architecture')
     arch_fs = fields.Char(string='Arch Filename', help="""File from where the view originates.
                                                           Useful to (hard) reset broken views or to read arch from file in dev-xml mode.""")
     arch_updated = fields.Boolean(string='Modified Architecture')
@@ -206,7 +204,7 @@ actual arch.
 
     invalid_locators = fields.Json(compute='_compute_invalid_locators')
 
-    @api.depends('arch_db', 'arch_fs', 'arch_updated', 'arch_type', 'arch_json')
+    @api.depends('arch_db', 'arch_fs', 'arch_updated')
     @api.depends_context('read_arch_from_file', 'lang', 'edit_translations', 'check_translations')
     def _compute_arch(self):
         def resolve_external_ids(arch_fs, view_xml_id):
@@ -222,9 +220,6 @@ actual arch.
         env_lang = self.with_context(lang=lang, check_translations=True).env
         field_arch_db = self._fields['arch_db']
         for view in self:
-            if view.arch_type == 'json' and view.arch_json:
-                view.arch = view._json_arch_to_legacy_arch(view.arch_json)
-                continue
             arch_fs = None
             read_file = self.env.context.get('read_arch_from_file') or \
                 ('xml' in config['dev_mode'] and not view.arch_updated)
@@ -251,10 +246,6 @@ actual arch.
 
     def _inverse_arch(self):
         for view in self:
-            if view.arch_type == 'json':
-                view.write({'arch_json': view.arch_json or {}, 'arch_db': False})
-                view.arch = view._json_arch_to_legacy_arch(view.arch_json or {})
-                continue
             self._validate_xml_encoding(view.arch)
             data = dict(arch_db=view.arch)
             if 'install_filename' in self.env.context:
@@ -596,117 +587,10 @@ actual arch.
                 "Remove the encoding declaration."
             ))
 
-    def _json_arch_target_to_xpath(self, target):
-        if target == 'search:root':
-            return '//search'
-        if isinstance(target, str) and target.startswith('region:'):
-            return "//div[@name='%s']" % target.split(':', 1)[1]
-        if isinstance(target, str) and target.startswith('xpath:'):
-            return target.split(':', 1)[1]
-        raise ValidationError(_("Unsupported Orbex JSON view target: %s", target))
-
-    def _json_arch_python_value(self, value):
-        if value == 'uid':
-            return 'uid'
-        if isinstance(value, bool):
-            return 'True' if value else 'False'
-        if value is None:
-            return 'False'
-        return repr(value)
-
-    def _json_arch_condition_to_expr(self, condition):
-        if len(condition) != 3:
-            raise ValidationError(_("Invalid Orbex JSON view condition: %s", condition))
-        field, operator, value = condition
-        if operator == '=':
-            if value is False:
-                return f"not {field}"
-            if value is True:
-                return str(field)
-            return f"{field} == {self._json_arch_python_value(value)}"
-        if operator == '!=':
-            if value is False:
-                return str(field)
-            if value is True:
-                return f"not {field}"
-            return f"{field} != {self._json_arch_python_value(value)}"
-        raise ValidationError(_("Unsupported Orbex JSON view operator: %s", operator))
-
-    def _json_arch_visible_to_invisible(self, visible_if):
-        expr = ' and '.join(self._json_arch_condition_to_expr(condition) for condition in visible_if)
-        return f"not ({expr})"
-
-    def _json_arch_node_to_xml(self, node):
-        node_type = node.get('type')
-        if node_type == 'separator':
-            return E.separator()
-        if node_type == 'filter':
-            attrs = {
-                'name': node['name'],
-                'string': node.get('label') or node['name'],
-            }
-            if 'domain' in node:
-                attrs['domain'] = repr(node['domain'])
-            return E.filter(**attrs)
-        if node_type != 'template':
-            raise ValidationError(_("Unsupported Orbex JSON view node type: %s", node_type))
-
-        container = E.div(
-            name=node.get('name', 'orbex_json_template'),
-            **{
-                'class': node.get('class', 'd-flex mt-3'),
-                'data-orbex-template': node.get('template', ''),
-            },
-        )
-        container.append(E.div(
-            E.label(string=node.get('label', 'Two-factor Authentication'), **{
-                'class': 'o_form_label',
-                'for': node.get('fields', [''])[0],
-            }),
-            E.span(node.get('help', 'Recommended for extra security.'), **{'class': 'text-muted'}),
-            **{'class': 'col-7 col-sm-6 col-lg-3 d-flex flex-column'},
-        ))
-        for field_name in node.get('fields', []):
-            container.append(E.field(name=field_name, invisible='1'))
-        for button in node.get('buttons', []):
-            attrs = {
-                'name': button['name'],
-                'type': button.get('type', 'object'),
-                'class': button.get('class', 'btn btn-secondary'),
-                'string': button.get('label', button['name']),
-            }
-            if button.get('visible_if'):
-                attrs['invisible'] = self._json_arch_visible_to_invisible(button['visible_if'])
-            container.append(E.button(**attrs))
-        return container
-
-    def _json_arch_to_legacy_arch(self, arch_json):
-        patches = arch_json.get('patches', []) if isinstance(arch_json, dict) else []
-        nodes = []
-        for patch in patches:
-            xpath = E.xpath(
-                expr=self._json_arch_target_to_xpath(patch.get('target')),
-                position=patch.get('position', 'inside'),
-            )
-            inserts = patch.get('insert', [])
-            if isinstance(inserts, dict):
-                inserts = [inserts]
-            for node in inserts:
-                xpath.append(self._json_arch_node_to_xml(node))
-            nodes.append(xpath)
-        return ''.join(etree.tostring(node, encoding='unicode') for node in nodes)
-
-    def _json_arch_for_client(self):
-        self.ensure_one()
-        return self.arch_json or {}
-
     @api.model_create_multi
     def create(self, vals_list):
         valid_types = self._fields['type']._selection
         for values in vals_list:
-            if values.get('arch_type') == 'json':
-                values.pop('arch', None)
-                values['arch_db'] = False
             if 'arch_db' in values and not values['arch_db']:
                 # delete empty arch_db to avoid triggering _check_xml before _inverse_arch_base is called
                 del values['arch_db']
@@ -755,9 +639,6 @@ actual arch.
         return result
 
     def write(self, vals):
-        if vals.get('arch_type') == 'json' or (self and all(view.arch_type == 'json' for view in self) and 'arch_json' in vals):
-            vals.pop('arch', None)
-            vals['arch_db'] = False
         # Keep track if view was modified. That will be useful for the --dev mode
         # to prefer modified arch over file arch.
         if 'arch_updated' not in vals and ('arch' in vals or 'arch_base' in vals) and 'install_filename' not in self.env.context:
@@ -3247,9 +3128,6 @@ class Base(models.AbstractModel):
             # Set a frozendict and tuple for the field list to make sure the value in cache cannot be updated.
             'models': frozendict({model: tuple(fields) for model, fields in models.items()}),
         }
-        if view and view.arch_type == 'json':
-            result['arch_type'] = 'json'
-            result['arch_json'] = view._json_arch_for_client()
 
         return frozendict(result)
 

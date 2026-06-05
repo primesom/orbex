@@ -1,9 +1,0 @@
-{
-  "templates": [
-    {
-      "id": "api_doc.docclient",
-      "name": "api_doc.docclient",
-      "arch": "<template>\n        <t t-call=\"web.layout\">\n            <t t-set=\"html_data\" t-value=\"{'style': 'height: 100%;'}\"/>\n            <t t-set=\"title\">Orbex Runtime Doc</t>\n            <t t-set=\"head\">\n                <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\"/>\n                <t t-call-assets=\"api_doc.assets\"/>\n            </t>\n        </t>\n    </template>"
-    }
-  ]
-}
