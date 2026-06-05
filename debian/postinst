@@ -1,0 +1,44 @@
+#!/bin/sh
+
+set -e
+
+orbex_CONFIGURATION_FILE=/etc/orbex/orbex.conf
+orbex_GROUP="orbex"
+orbex_DATA_DIR=/var/lib/orbex
+orbex_LOG_DIR=/var/log/orbex
+orbex_USER="orbex"
+GSFONTS_DIR=/usr/share/fonts/type1/gsfonts
+
+case "${1}" in
+    configure)
+        if ! getent passwd | grep -q "^orbex:"; then
+            adduser --system --home $orbex_DATA_DIR --quiet --group $orbex_USER
+            # Data dir
+            chown $orbex_USER:$orbex_GROUP $orbex_DATA_DIR
+        fi
+        # Register "$orbex_USER" as a postgres user with "Create DB" role attribute
+        su - postgres -c "createuser -d -R -S $orbex_USER" 2> /dev/null || true
+        # Configuration file
+        chown $orbex_USER:$orbex_GROUP $orbex_CONFIGURATION_FILE
+        chmod 0640 $orbex_CONFIGURATION_FILE
+        # Log
+        mkdir -p $orbex_LOG_DIR
+        chown $orbex_USER:$orbex_GROUP $orbex_LOG_DIR
+        chmod 0750 $orbex_LOG_DIR
+        	# work around https://bugs.debian.org/1059326
+
+        if ! [ -e ${GSFONTS_DIR}/n021003l.pfb ] ; then
+            if ! [ -d ${GSFONTS_DIR} ] ; then
+                mkdir ${GSFONTS_DIR}
+                touch ${GSFONTS_DIR}/.created-by-orbex-package
+            fi
+            ln -s /usr/share/fonts/X11/Type1/C059-Roman.pfb ${GSFONTS_DIR}/n021003l.pfb
+        fi
+        ;;
+    *)
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

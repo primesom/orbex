@@ -1,0 +1,44 @@
+2026-02-28 11:43:07,645 56972 INFO ? orbex: orbex version 19.0
+2026-02-28 11:43:07,645 56972 INFO ? orbex: Using configuration file at /Users/hashi/work/orbex19/orbex/conf/orbex.conf
+2026-02-28 11:43:07,645 56972 INFO ? orbex: addons paths: _NamespacePath(['/Users/hashi/work/orbex19/orbex/orbex/addons', '/Users/hashi/work/orbex19/.data/addons/19.0', '/Users/hashi/work/orbex19/orbex/addons', '/Users/hashi/work/orbex19/custom/base', '/Users/hashi/work/orbex19/custom/sale', '/Users/hashi/work/orbex19/custom/pos', '/Users/hashi/work/orbex19/custom/inventory', '/Users/hashi/work/orbex19/custom/accounting', '/Users/hashi/work/orbex19/custom/logistics', '/Users/hashi/work/orbex19/custom/enterprise', '/Users/hashi/work/orbex19/custom/energy', '/Users/hashi/work/orbex19/custom/pms'])
+2026-02-28 11:43:07,645 56972 INFO ? orbex: database: default@default:default
+2026-02-28 11:43:07,926 56972 INFO ? orbex.service.server: HTTP service (werkzeug) running on Mohameds-MacBook-Pro.local:1900
+2026-02-28 11:43:07,966 56972 INFO orbex19 orbex.modules.loading: loading 1 modules...
+2026-02-28 11:43:07,969 56972 INFO orbex19 orbex.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-02-28 11:43:07,985 56972 INFO orbex19 orbex.modules.loading: updating modules list
+2026-02-28 11:43:07,988 56972 INFO orbex19 orbex.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a
+2026-02-28 11:43:10,815 56972 INFO orbex19 orbex.addons.base.models.ir_module: ALLOW access to module.button_upgrade on ['Product Average Cost Precision'] to user __system__ #1 via n/a
+2026-02-28 11:43:10,815 56972 INFO orbex19 orbex.addons.base.models.ir_module: ALLOW access to module.update_list on ['Product Average Cost Precision'] to user __system__ #1 via n/a
+2026-02-28 11:43:13,267 56972 INFO orbex19 orbex.addons.base.models.ir_module: ALLOW access to module.button_install on [] to user __system__ #1 via n/a
+2026-02-28 11:43:13,323 56972 INFO orbex19 orbex.modules.loading: loading 209 modules...
+2026-02-28 11:43:13,986 56972 INFO orbex19 orbex.modules.loading: Loading module product_avg_cost_precision (128/209)
+2026-02-28 11:43:14,189 56972 INFO orbex19 orbex.registry: module product_avg_cost_precision: creating or updating database tables
+2026-02-28 11:43:14,305 56972 INFO orbex19 orbex.modules.loading: loading product_avg_cost_precision/security/ir.model.access.csv
+2026-02-28 11:43:14,315 56972 INFO orbex19 orbex.modules.loading: loading product_avg_cost_precision/wizard/stock_change_standard_price_views.xml
+2026-02-28 11:43:14,343 56972 INFO orbex19 orbex.modules.loading: loading product_avg_cost_precision/views/product_views.xml
+2026-02-28 11:43:14,504 56972 INFO orbex19 orbex.modules.loading: Module product_avg_cost_precision loaded in 0.52s, 210 queries (+210 other)
+2026-02-28 11:43:14,748 56972 INFO orbex19 orbex.modules.loading: 209 modules loaded in 1.43s, 210 queries (+210 extra)
+2026-02-28 11:43:15,276 56972 INFO orbex19 orbex.registry: verifying fields for every extended model
+2026-02-28 11:43:15,709 56972 INFO orbex19 orbex.modules.loading: Modules loaded.
+2026-02-28 11:43:15,728 56972 INFO orbex19 orbex.registry: Registry changed, signaling through the database
+2026-02-28 11:43:15,729 56972 INFO orbex19 orbex.registry: Registry loaded in 7.802s
+2026-02-28 11:44:15,780 56972 INFO orbex19 orbex.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) starting
+2026-02-28 11:44:16,391 56972 INFO orbex19 orbex.addons.api_doc.models.ir_attachment: GC'd 0 /doc cached index
+2026-02-28 11:44:16,398 56972 INFO orbex19 orbex.addons.sms.models.sms_sms: GC'd 0 sms marked for deletion
+2026-02-28 11:44:16,407 56972 INFO orbex19 orbex.addons.base.models.res_users: GC'd 0 user log entries
+2026-02-28 11:44:16,410 56972 INFO orbex19 orbex.addons.base.models.res_device: GC device logs delete 0 entries
+2026-02-28 11:44:16,464 56972 INFO orbex19 orbex.addons.base.models.res_users: GC 'auth_totp.device' delete 0 entries
+2026-02-28 11:44:16,489 56972 INFO orbex19 orbex.addons.base.models.res_device: GC device logs delete 0 entries
+2026-02-28 11:44:16,499 56972 INFO orbex19 orbex.addons.base.models.res_users: GC 'res.users.apikeys' delete 0 entries
+2026-02-28 11:44:16,625 56972 INFO orbex19 orbex.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed
+2026-02-28 11:44:16,645 56972 INFO orbex19 orbex.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) fully done (#loop 1; done 216; remaining 0; duration 0.87s)
+2026-02-28 11:44:16,757 56972 INFO orbex19 orbex.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) starting
+2026-02-28 11:44:17,234 56972 INFO orbex19 orbex.addons.base.models.res_users: GC'd 0 user log entries
+2026-02-28 11:44:17,256 56972 INFO orbex19 orbex.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed
+2026-02-28 11:44:17,270 56972 INFO orbex19 orbex.addons.api_doc.models.ir_attachment: GC'd 0 /doc cached index
+2026-02-28 11:44:17,275 56972 INFO orbex19 orbex.addons.base.models.res_device: GC device logs delete 0 entries
+2026-02-28 11:44:17,281 56972 INFO orbex19 orbex.addons.base.models.res_users: GC 'auth_totp.device' delete 0 entries
+2026-02-28 11:44:17,305 56972 INFO orbex19 orbex.addons.base.models.res_device: GC device logs delete 0 entries
+2026-02-28 11:44:17,314 56972 INFO orbex19 orbex.addons.sms.models.sms_sms: GC'd 0 sms marked for deletion
+2026-02-28 11:44:17,327 56972 INFO orbex19 orbex.addons.base.models.res_users: GC 'res.users.apikeys' delete 0 entries
+2026-02-28 11:44:17,430 56972 INFO orbex19 orbex.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) fully done (#loop 1; done 216; remaining 0; duration 0.67s)

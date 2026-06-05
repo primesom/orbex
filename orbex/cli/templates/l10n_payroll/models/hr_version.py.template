@@ -1,0 +1,9 @@
+# Part of orbex. See LICENSE file for full copyright and licensing details.
+
+from orbex import fields, models
+
+
+class HrVersion(models.Model):
+    _inherit = ['hr.version']
+
+    l10n_{{code}}_field = fields.Char()

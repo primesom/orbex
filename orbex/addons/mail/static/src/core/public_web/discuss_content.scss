@@ -1,0 +1,413 @@
+.o-mail-DiscussContent {
+    .o-mail-Thread {
+        flex-grow: 1;
+    }
+}
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
+        .o_web_client .o-mail-Discuss {
+            background: #1e1e1e;
+
+            .o-mail-DiscussSidebar,
+            .o-mail-DiscussSearch,
+            .o-mail-DiscussContent,
+            .o-mail-DiscussContent-header {
+                border-color: #333333 !important;
+                background: #121212 !important;
+                color: #ffffff;
+            }
+
+            .o_orbex_discuss_header,
+            .o-mail-DiscussContent-headerActions button {
+                color: #ffffff;
+            }
+
+            .o-mail-DiscussSearch-inputContainer,
+            .o-mail-Composer.o-discussApp .o-mail-Composer-inputContainer {
+                border-color: #333333 !important;
+                background: #1e1e1e;
+                color: #ffffff;
+            }
+
+            .o-mail-DiscussContent-core,
+            .o-mail-Thread {
+                background: #1e1e1e;
+            }
+
+            .o-mail-DiscussContent-headerActions button:hover,
+            .o-mail-DiscussContent-headerActions button.o-isActive {
+                background: #2a2a2a !important;
+            }
+
+            .o-mail-DiscussSidebarCategory-toggler,
+            .o-mail-DiscussSidebarChannel,
+            .o-mail-DiscussSidebarChannel-title,
+            .o-mail-DiscussContent-threadName {
+                color: #ffffff !important;
+            }
+
+            .o-mail-DiscussSidebarChannel:hover,
+            .o-mail-DiscussSidebarChannel.o-active {
+                background: #2a2a2a !important;
+                outline-color: #333333;
+            }
+
+            .o-mail-DiscussSidebarChannel-description {
+                color: #b3b3b3;
+            }
+
+            .o-mail-DiscussSidebarChannel-threadIcon {
+                background: #c02b6f !important;
+            }
+
+            .o-mail-Message-body {
+                color: #d8dee7;
+            }
+
+            .o-mail-Message-bubble {
+                background: #2a2a2a !important;
+            }
+
+            .o-mail-Composer.o-discussApp .o-mail-Composer-send.btn-link:not(:disabled) {
+                background-color: #7e6ab0;
+                color: #ffffff;
+            }
+
+            .o-mail-Composer.o-discussApp,
+            .o-mail-Composer.o-discussApp .o-mail-Composer-bg,
+            .o-mail-Composer.o-discussApp button,
+            .o-mail-Composer.o-discussApp .btn,
+            .o-mail-Composer.o-discussApp .btn-link {
+                background: #121212 !important;
+                color: #d8dee7 !important;
+            }
+
+            .o-mail-Composer.o-discussApp .o-mail-Composer-send.btn-link:not(:disabled) {
+                background: #7e6ab0 !important;
+                color: #ffffff !important;
+            }
+        }
+    }
+}
+
+.o-mail-DiscussContent-core {
+    background-color: $body-bg;
+}
+
+.o-mail-DiscussContent-header {
+    background-color: $white;
+}
+
+.o-mail-DiscussContent-headerActions button {
+    --btn-disabled-opacity: 0.25;
+    background-color: transparent !important;
+
+    i {
+        opacity: 65%;
+    }
+
+    &:hover, &.o-isActive {
+        i {
+            opacity: 100%;
+        }
+    }
+    &:not(.o-isActive):hover {
+        background-color: $gray-200 !important;
+    }
+    &.o-isActive {
+        background-color: $gray-200 !important;
+        outline: $border-width solid mix($gray-300, $gray-400);
+        outline-offset: -$border-width;
+        opacity: 100%;
+    }
+    &.o-isActive:hover {
+        background-color: $gray-300 !important;
+    }
+}
+
+.o-mail-DiscussContent-headerActionsGroup {
+    background-color: mix($gray-100, $gray-200, 65%);
+    outline: 1px solid $gray-200;
+    outline-offset: -1px;
+}
+
+.o-mail-DiscussContent-headerCountry {
+    width: 24px;
+}
+
+.o-mail-DiscussContent-headerImStatus {
+    bottom: -2px;
+    right: -2px;
+}
+
+.o-mail-DiscussContent-selfAvatar {
+    height: 30px;
+    width: 30px;
+}
+
+.o-mail-DiscussContent-threadAvatar {
+    img {
+        height: ($btn-font-size * $btn-line-height) + $btn-padding-y;
+        aspect-ratio: 1;
+    }
+
+    a {
+        i {
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
+
+        &:hover {
+            background-color: rgba($black, 0.5);
+            i {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.o-mail-DiscussContent-threadName {
+    max-width: 75%;
+}
+
+@include media-breakpoint-up(md) {
+    .o_web_client .o-mail-Discuss {
+        gap: 10px;
+        padding: 12px 14px;
+        border-top: 0 !important;
+        background: #f3f5f7;
+
+        .o-mail-DiscussSidebar-resizablePanelContainer {
+            flex: 0 0 340px;
+            max-width: 340px;
+            min-width: 320px;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .o-mail-DiscussSidebar {
+            width: 340px !important;
+            max-width: 340px;
+            min-width: 320px;
+            border: 1px solid #dfe5eb !important;
+            border-radius: 8px;
+            background: #ffffff !important;
+            box-shadow: 0 1px 2px rgba(30, 42, 55, .04);
+            min-height: 0;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        .o-mail-DiscussSearch {
+            flex-wrap: wrap;
+            align-items: flex-start !important;
+            min-height: 0;
+            padding: 12px 18px 10px !important;
+            border-bottom: 1px solid #e6eaee;
+            background: #ffffff !important;
+        }
+
+        .o_orbex_discuss_header {
+            display: flex;
+            align-items: center;
+            flex: 0 0 100%;
+            margin-bottom: 16px;
+            color: #1f2933;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+
+        .o-mail-DiscussSearch-inputContainer {
+            flex: 0 0 100%;
+            height: 44px;
+            border-color: #d8dee6 !important;
+            border-radius: 6px !important;
+            background: #ffffff;
+        }
+
+        .o-mail-DiscussSearch .btn-primary {
+            display: none !important;
+        }
+
+        .o-mail-DiscussSearch-inputContainer input::placeholder {
+            color: #6d7480;
+            opacity: 1;
+        }
+
+        .o-mail-DiscussSidebarCategory {
+            margin: 10px 18px 5px !important;
+            padding: 0 !important;
+
+            &:hover,
+            &:active {
+                background: transparent !important;
+                outline: 0 !important;
+            }
+        }
+
+        .o-mail-DiscussSidebarCategory-toggler {
+            color: #1f2933 !important;
+            font-size: .66rem;
+            font-weight: 700;
+            line-height: 1.4 !important;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        .o-mail-DiscussSidebarCategory-title {
+            font-size: .66rem;
+        }
+
+        .o-mail-DiscussSidebarChannel-container {
+            margin: 0 18px 6px !important;
+        }
+
+        .o-mail-DiscussSidebarChannel {
+            min-height: 54px;
+            padding: 6px 8px !important;
+            border-radius: 8px !important;
+            color: #1f2933 !important;
+
+            &:hover,
+            &.o-active {
+                background: #f5f6f8 !important;
+                outline: 1px solid #d9dee7;
+                outline-offset: -1px;
+            }
+        }
+
+        .o-mail-DiscussSidebarChannel [name="threadAvatar"] {
+            width: 36px !important;
+            height: 36px !important;
+            margin-left: 0 !important;
+            border-radius: 10px !important;
+            overflow: hidden;
+
+            img {
+                border-radius: 10px !important;
+            }
+        }
+
+        .o-mail-DiscussSidebarChannel-threadIcon {
+            inset: 0 auto auto 0 !important;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px !important;
+            background: #c02b6f !important;
+            color: #ffffff;
+            font-size: 1.1rem;
+            transform: none !important;
+        }
+
+        .o-mail-DiscussSidebarChannel-title {
+            color: #1f2933;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .o-mail-DiscussSidebarChannel-description {
+            margin-top: 2px;
+            color: #6d7480;
+            font-size: .72rem;
+            font-weight: 400;
+        }
+
+        .o-mail-DiscussContent {
+            border: 1px solid #dfe5eb;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 1px 2px rgba(30, 42, 55, .04);
+            overflow: hidden !important;
+        }
+
+        .o-mail-DiscussContent-header {
+            min-height: 76px;
+            padding: 14px 22px !important;
+            border-bottom: 1px solid #e4e8ee !important;
+            background: #ffffff;
+        }
+
+        .o-mail-DiscussContent-threadName {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .o-mail-DiscussContent-headerActionsGroup {
+            gap: 6px;
+            background: transparent;
+            outline: 0;
+        }
+
+        .o-mail-DiscussContent-headerActions button {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px !important;
+            background: transparent !important;
+            color: #1f2933;
+
+            &:hover,
+            &.o-isActive {
+                background: #e9edf2 !important;
+            }
+        }
+
+        .o-mail-DiscussContent-core,
+        .o-mail-Thread {
+            background: #ffffff;
+        }
+
+        .o-mail-Thread {
+            justify-content: flex-start !important;
+            padding: 28px 28px 12px !important;
+        }
+
+        .o-mail-Thread-empty {
+            justify-content: flex-start !important;
+            padding-top: 240px;
+        }
+
+        .o-mail-Message {
+            font-size: .875rem;
+        }
+
+        .o-mail-Message-bubble {
+            border: 0 !important;
+            border-radius: 6px !important;
+            background: #e9edf2 !important;
+        }
+
+        .o-mail-Message-body {
+            color: #566b83;
+            font-size: .875rem;
+        }
+
+        .o-mail-Message.o-selfAuthored {
+            .o-mail-Message-bubble {
+                background: #2188c9 !important;
+            }
+
+            .o-mail-Message-body,
+            .o-mail-Message-author,
+            .o-mail-Message-date {
+                color: #ffffff !important;
+            }
+        }
+
+        .o-mail-Composer.o-discussApp {
+            margin: 0 28px 18px;
+            padding: 0 !important;
+        }
+
+        .o-mail-Composer.o-discussApp .o-mail-Composer-inputContainer {
+            min-height: 48px;
+            border-color: #d8dee6 !important;
+            border-radius: 10px !important;
+            background: #ffffff;
+        }
+
+        .o-mail-Composer.o-discussApp .o-mail-Composer-send.btn-link:not(:disabled) {
+            background-color: #7660a8;
+        }
+    }
+}

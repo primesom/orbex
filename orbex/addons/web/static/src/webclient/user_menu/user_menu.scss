@@ -1,0 +1,28 @@
+.o_user_menu .dropdown-toggle {
+    --NavBar-entry-padding-left: 4px;
+    --NavBar-entry-padding-right: 0;
+    width: 44px;
+    height: 44px;
+    padding: 0 !important;
+    border-radius: 50%;
+    background: transparent !important;
+
+    .o_user_avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50% !important;
+        object-fit: cover;
+    }
+
+    &:hover,
+    &:focus {
+        background: #eef2f6 !important;
+    }
+}
+
+.o_user_menu .dropdown-menu {
+    min-width: 220px;
+    border: 1px solid #dfe5eb;
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(20, 32, 45, .12);
+}

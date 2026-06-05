@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+    <title id="title">Orbex Icon</title>
+    <rect width="512" height="512" rx="112" fill="#061433"/>
+    <path d="M144 128H234L256 170L278 128H368L303 256L368 384H278L256 342L234 384H144L209 256L144 128Z" fill="#00cfa6"/>
+    <path d="M242 256L187 148H227L256 205L285 148H325L270 256L325 364H285L256 307L227 364H187L242 256Z" fill="#ffffff" opacity="0.18"/>
+</svg>
