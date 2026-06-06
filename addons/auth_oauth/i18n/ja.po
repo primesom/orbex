@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_oauth
 #
@@ -9,7 +9,7 @@
 # "Junko Augias (juau)" <juau@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 15.5alpha1\n"
+"Project-Id-Version: Orbex Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-10-16 02:30+0000\n"
@@ -210,8 +210,8 @@ msgstr "Googleでサインイン"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with orbexsuite.com"
-msgstr "orbexsuite.comでサインイン"
+msgid "Sign in with Orbex Suite"
+msgstr "Orbex.comでサインイン"
 
 #. module: auth_oauth
 #. orbex-python

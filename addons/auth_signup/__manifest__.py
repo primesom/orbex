@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Signup',
@@ -31,6 +31,5 @@ Allow users to sign up and reset their password
             'auth_signup/static/**/*',
         ],
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

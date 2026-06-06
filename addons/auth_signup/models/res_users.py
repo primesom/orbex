@@ -1,4 +1,4 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 import contextlib
 import logging
@@ -106,7 +106,7 @@ class ResUsers(models.Model):
             )
 
     def _create_user_from_template(self, values):
-        template_user_id = literal_eval(self.env['ir.config_parameter'].sudo().get_param('base.template_orbex_user_id', 'False'))
+        template_user_id = literal_eval(self.env['ir.config_parameter'].sudo().get_param('base.template_portal_user_id', 'False'))
         template_user = self.browse(template_user_id)
         if not template_user.exists():
             raise ValueError(_('Signup: invalid template user'))
@@ -163,7 +163,7 @@ class ResUsers(models.Model):
 
         # send email to users with their signup url
         internal_account_created_template = None
-        orbex_account_created_template = None
+        portal_account_created_template = None
         if create_mode:
             if any(user._is_internal() for user in self):
                 internal_account_created_template = self.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
@@ -172,9 +172,9 @@ class ResUsers(models.Model):
                     return
 
             if any(not user._is_internal() for user in self):
-                orbex_account_created_template = self.env.ref('auth_signup.orbex_set_password_email', raise_if_not_found=False)
-                if orbex_account_created_template and orbex_account_created_template._name != 'mail.template':
-                    _logger.error("Wrong set password template %r", orbex_account_created_template)
+                portal_account_created_template = self.env.ref('auth_signup.portal_set_password_email', raise_if_not_found=False)
+                if portal_account_created_template and portal_account_created_template._name != 'mail.template':
+                    _logger.error("Wrong set password template %r", portal_account_created_template)
                     return
 
         email_values = {
@@ -192,7 +192,7 @@ class ResUsers(models.Model):
             email_values['email_to'] = user.email
             with contextlib.closing(self.env.cr.savepoint()):
                 is_internal = user._is_internal()
-                account_created_template = internal_account_created_template if is_internal else orbex_account_created_template
+                account_created_template = internal_account_created_template if is_internal else portal_account_created_template
                 if account_created_template:
                     account_created_template.send_mail(
                         user.id, force_send=True,

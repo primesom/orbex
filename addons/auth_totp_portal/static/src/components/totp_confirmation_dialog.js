@@ -1,5 +1,5 @@
 import { useEffect } from "@orbex/owl";
-import { InputConfirmationDialog } from "@orbex/js/components/input_confirmation_dialog/input_confirmation_dialog";
+import { InputConfirmationDialog } from "@portal/js/components/input_confirmation_dialog/input_confirmation_dialog";
 import { browser } from "@web/core/browser/browser";
 import { _t } from "@web/core/l10n/translation";
 import { usePopover } from "@web/core/popover/popover_hook";
@@ -7,7 +7,7 @@ import { Tooltip } from "@web/core/tooltip/tooltip";
 
 /**
  * This is a quick-and-dirty fix to enable the copy of the TOTP secret in the
- * orbex.
+ * portal.
  */
 export class TotpConfirmationDialog extends InputConfirmationDialog {
     setup() {

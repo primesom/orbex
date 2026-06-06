@@ -2,7 +2,7 @@ import { Interaction } from "@web/public/interaction";
 import { registry } from "@web/core/registry";
 
 import { TotpConfirmationDialog } from "../components/totp_confirmation_dialog";
-import { handleCheckIdentity } from "@orbex/interactions/orbex_security";
+import { handleCheckIdentity } from "@portal/interactions/portal_security";
 import { user } from "@web/core/user";
 import { _t } from "@web/core/l10n/translation";
 
@@ -117,7 +117,7 @@ function fixupViewBody(oldNode, record) {
 }
 
 export class TOTPEnable extends Interaction {
-    static selector = "#auth_totp_orbex_enable";
+    static selector = "#auth_totp_portal_enable";
     dynamicContent = {
         _root: { "t-on-click.prevent": this.onClick },
     };
@@ -188,4 +188,4 @@ export class TOTPEnable extends Interaction {
 
 registry
     .category("public.interactions")
-    .add("auth_totp_orbex.totp_enable", TOTPEnable);
+    .add("auth_totp_portal.totp_enable", TOTPEnable);

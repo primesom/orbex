@@ -1,17 +1,17 @@
-import { handleCheckIdentity } from "@orbex/interactions/orbex_security";
+import { handleCheckIdentity } from "@portal/interactions/portal_security";
 import { Interaction } from "@web/public/interaction";
-import { InputConfirmationDialog } from "@orbex/js/components/input_confirmation_dialog/input_confirmation_dialog";
+import { InputConfirmationDialog } from "@portal/js/components/input_confirmation_dialog/input_confirmation_dialog";
 import { registry } from "@web/core/registry";
 import { renderToMarkup } from "@web/core/utils/render";
 import { _t } from "@web/core/l10n/translation";
 
-export class orbexPasskey extends Interaction {
-    static selector = ".o_passkey_orbex_entry";
+export class PortalPasskey extends Interaction {
+    static selector = ".o_passkey_portal_entry";
     dynamicContent = {
-        ".o_passkey_orbex_rename": {
+        ".o_passkey_portal_rename": {
             "t-on-click": this.onRename,
         },
-        ".o_passkey_orbex_delete": {
+        ".o_passkey_portal_delete": {
             "t-on-click": this.onDelete,
         },
     };
@@ -25,7 +25,7 @@ export class orbexPasskey extends Interaction {
     async onRename() {
         this.services.dialog.add(InputConfirmationDialog, {
             title: _t("Passkeys"),
-            body: renderToMarkup("auth_passkey_orbex.rename", { oldname: this.name }),
+            body: renderToMarkup("auth_passkey_portal.rename", { oldname: this.name }),
             confirmLabel: _t("Rename"),
             confirm: async ({ inputEl }) => {
                 const name = inputEl.value;
@@ -49,4 +49,4 @@ export class orbexPasskey extends Interaction {
     }
 }
 
-registry.category("public.interactions").add("auth_passkey_orbex.passkey", orbexPasskey);
+registry.category("public.interactions").add("auth_passkey_portal.passkey", PortalPasskey);

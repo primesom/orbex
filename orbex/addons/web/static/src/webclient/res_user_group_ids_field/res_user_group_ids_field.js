@@ -24,6 +24,7 @@ class ResUserGroupIdsField extends Component {
         const { groups, privileges, categories } = toRaw(
             this.props.record.data.view_group_hierarchy
         );
+        this.groupDefinitions = groups;
 
         // Generate the "other" category (for privileges that do not belong to any category)
         const privilegesWithoutCategory = Object.values(privileges)
@@ -56,7 +57,7 @@ class ResUserGroupIdsField extends Component {
                 .sort((p1, p2) => p1.name.localeCompare(p2.name)),
         };
 
-        // Generate selection (for privileges) and boolean (for extra right groups) fields
+        // Generate boolean fields for privilege groups and extra right groups.
         this._fields = {};
         const booleanFieldToGroupId = {};
         for (const category of categories) {
@@ -64,20 +65,17 @@ class ResUserGroupIdsField extends Component {
             for (const privilegeId of category.privilege_ids) {
                 const privilege = privileges[privilegeId];
                 category.privileges.push(privilege);
-                const helpLines = privilege.description ? [privilege.description] : [];
+                privilege.groupFieldNames = [];
                 for (const gid of privilege.group_ids) {
-                    if (groups[gid].comment) {
-                        helpLines.push(`- ${groups[gid].name}: ${groups[gid].comment}`);
-                    }
+                    const fieldName = this.getGroupFieldName(gid);
+                    privilege.groupFieldNames.push(fieldName);
+                    this._fields[fieldName] = {
+                        help: [privilege.description, groups[gid].comment].filter(Boolean).join("\n"),
+                        string: groups[gid].name,
+                        type: "boolean",
+                    };
+                    booleanFieldToGroupId[fieldName] = gid;
                 }
-                const selection = privilege.group_ids.map((gId) => [gId, groups[gId].name]);
-                selection.unshift([false, privilege.placeholder || ""]);
-                this._fields[this.getFieldName(privilege)] = {
-                    help: helpLines.join("\n"),
-                    selection,
-                    string: privilege.name,
-                    type: "selection",
-                };
             }
         }
         for (const privilege of this.extraCategory.privileges) {
@@ -173,24 +171,17 @@ class ResUserGroupIdsField extends Component {
             // Generate values for the dynamically generated selection and boolean fields
             this.values = {};
             this.shadowedGroupIds = [];
+            const checkedGroupIds = this.getExplicitAndImpliedGroupIds(selectedIds);
             for (const category of categories) {
                 for (const privilege of category.privileges) {
-                    let groupId =
-                        privilege.group_ids.findLast((gId) => selectedIds.has(gId)) || false;
-                    const fieldName = this.getFieldName(privilege);
-                    const options = this.fields[fieldName].selection;
-                    if (groupId && !options.some((option) => option[0] === groupId)) {
-                        // The option has been removed because a higher level group is implied
-                        // => force the value to false to show the implied group instead
-                        this.shadowedGroupIds.push(groupId);
-                        groupId = false;
+                    for (const groupId of privilege.group_ids) {
+                        this.values[this.getGroupFieldName(groupId)] = checkedGroupIds.has(groupId);
                     }
-                    this.values[fieldName] = groupId;
                 }
             }
             if (this.extraCategory) {
                 for (const privilege of this.extraCategory.privileges) {
-                    this.values[this.getFieldName(privilege)] = selectedIds.has(privilege.groupId);
+                    this.values[this.getFieldName(privilege)] = checkedGroupIds.has(privilege.groupId);
                 }
             }
         });
@@ -222,9 +213,19 @@ class ResUserGroupIdsField extends Component {
         return `field_${privilege.id}`;
     }
 
+    getGroupFieldName(groupId) {
+        return `field_group_${groupId}`;
+    }
+
     getPrivilegeArch(privilege) {
-        const fieldName = this.getFieldName(privilege);
-        return `<field name="${fieldName}" widget="res_user_group_ids_privilege"/>`;
+        const fieldNames = privilege.groupFieldNames || [this.getFieldName(privilege)];
+        const fieldsArch = fieldNames
+            .map((fieldName) => `<field name="${fieldName}" widget="res_user_group_ids_privilege"/>`)
+            .join("");
+        if (!privilege.groupFieldNames || privilege.groupFieldNames.length <= 1) {
+            return fieldsArch;
+        }
+        return `<group string="${privilege.name}" class="o_orbex_access_privilege">${fieldsArch}</group>`;
     }
 
     getCategoryArch(category) {
@@ -236,23 +237,27 @@ class ResUserGroupIdsField extends Component {
 
     onRecordChanged(_, values) {
         let selectedGroupIds = Object.entries(values)
-            .filter(([fieldName, gid]) => this.fields[fieldName].type === "selection" && gid)
-            .map(([_, gid]) => gid);
-        // Keep shadowed groups, except if an higher level group has been set, in which case they
-        // are not shadowed anymore
-        const { groups, privileges } = this.info;
-        const shadowedGroupIds = this.shadowedGroupIds.filter(
-            (gid) => !values[this.getFieldName(privileges[groups[gid].privilege_id])]
-        );
-        selectedGroupIds = selectedGroupIds.concat(shadowedGroupIds);
-        for (const privilege of this.extraCategory.privileges) {
-            if (values[privilege.groupFieldName]) {
-                selectedGroupIds.push(privilege.groupId);
+            .filter(([fieldName, value]) => value && this.info.booleanFieldToGroupId[fieldName])
+            .map(([fieldName]) => this.info.booleanFieldToGroupId[fieldName]);
+        selectedGroupIds = [...this.getExplicitAndImpliedGroupIds(new Set(selectedGroupIds))];
+        return this.props.record.update({
+            [this.props.name]: [x2ManyCommands.set([...new Set(selectedGroupIds)])],
+        });
+    }
+
+    getExplicitAndImpliedGroupIds(selectedIds) {
+        const groupIds = new Set();
+        for (const groupId of selectedIds) {
+            groupIds.add(groupId);
+            const group = this.groupDefinitions[groupId];
+            if (!group) {
+                continue;
+            }
+            for (const impliedGroupId of group.all_implied_ids) {
+                groupIds.add(impliedGroupId);
             }
         }
-        return this.props.record.update({
-            [this.props.name]: [x2ManyCommands.set(selectedGroupIds)],
-        });
+        return groupIds;
     }
 }
 

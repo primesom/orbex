@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * http_routing
 #
@@ -7,7 +7,7 @@
 # "Anastasiia Koroleva (koan)" <koan@orbexsuite.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 17.0\n"
+"Project-Id-Version: Orbex Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-04-24 18:42+0000\n"

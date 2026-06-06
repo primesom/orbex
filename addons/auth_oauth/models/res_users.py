@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 import json
 
@@ -77,7 +77,7 @@ class ResUsers(models.Model):
             for key in [
                 'sub', # standard
                 'id', # google v1 userinfo, facebook opengraph
-                'user_id', # google tokeninfo, orbex (tokeninfo)
+                'user_id', # google tokeninfo, Orbex Suite tokeninfo
             ]
         ]), None)
         if not subject:

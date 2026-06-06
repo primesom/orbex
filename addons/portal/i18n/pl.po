@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -13,7 +13,7 @@
 # Tomasz Leppich <t.leppich@gmail.com>, 2022
 # Maja Stawicka <mjstwck@wp.pl>, 2022
 # Marcin Młynarczyk <mlynarczyk@gmail.com>, 2022
-# Paweł Wodyński <pw@myorbex.pl>, 2022
+# Paweł Wodyński <pw@myodoo.pl>, 2022
 # Judyta Kaźmierczak <judyta.kazmierczak@openglobe.pl>, 2022
 # Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2022
 # Wojciech Warczakowski <w.warczakowski@gmail.com>, 2022
@@ -21,14 +21,14 @@
 # Martin Trigaux, 2022
 # Piotr Szlązak <szlazakpiotr@gmail.com>, 2022
 # Krzysztof Przygoda, 2022
-# Maksym <ms@myorbex.pl>, 2022
+# Maksym <ms@myodoo.pl>, 2022
 # Łukasz Grzenkowicz <lukasz.grzenkowicz@gmail.com>, 2022
 # Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2023
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
 # "Marta (wacm)" <wacm@orbexsuite.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 16.0+e\n"
+"Project-Id-Version: Orbex Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-02-25 14:46+0000\n"
@@ -872,8 +872,8 @@ msgstr "Notatka"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "Logo orbex"
+msgid "Orbex Logo"
+msgstr "Logo Orbex"
 
 #. module: portal
 #. orbex-python

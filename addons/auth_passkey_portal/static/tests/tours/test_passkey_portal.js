@@ -2,16 +2,16 @@ import { registry } from "@web/core/registry";
 import { patch } from "@web/core/utils/patch";
 import * as passkeyLib from "@auth_passkey/../lib/simplewebauthn";
 
-let unpatchPasskeyRegistrationorbex;
+let unpatchPasskeyRegistrationPortal;
 
-registry.category("web_tour.tours").add("passkeys_orbex_create", {
+registry.category("web_tour.tours").add("passkeys_portal_create", {
     url: "/my/security",
     steps: () => [
         {
             content: "Ensure there are no passkeys already",
             trigger: 'button:contains("Add Passkey")',
             run: () => {
-                const amount = document.querySelectorAll(".o_passkey_orbex_entry").length;
+                const amount = document.querySelectorAll(".o_passkey_portal_entry").length;
                 if (amount != 0) {
                     throw Error("Amount of Passkeys must be 0");
                 }
@@ -26,7 +26,7 @@ registry.category("web_tour.tours").add("passkeys_orbex_create", {
         }, {
             content: "Input password",
             trigger: "form input[name=password]",
-            run: "edit passkey_orbex",
+            run: "edit passkey_portal",
         }, {
             content: "Confirm",
             trigger: ".modal-footer button:contains(Confirm Password)",
@@ -42,7 +42,7 @@ registry.category("web_tour.tours").add("passkeys_orbex_create", {
             content: "Override startRegistration",
             trigger: "body",
             run: () => {
-                unpatchPasskeyRegistrationorbex = patch(passkeyLib, {
+                unpatchPasskeyRegistrationPortal = patch(passkeyLib, {
                     async startRegistration() {
                         return {
                             // test-yubikey
@@ -75,15 +75,15 @@ registry.category("web_tour.tours").add("passkeys_orbex_create", {
             content: "Return startRegistration to original state",
             trigger: "body",
             run: () => {
-                if (unpatchPasskeyRegistrationorbex) {
-                    unpatchPasskeyRegistrationorbex();
+                if (unpatchPasskeyRegistrationPortal) {
+                    unpatchPasskeyRegistrationPortal();
                 }
             },
         }, {
             content: "Ensure there is one passkey",
             trigger: ".o_passkey_name",
             run: () => {
-                const amount = document.querySelectorAll(".o_passkey_orbex_entry").length;
+                const amount = document.querySelectorAll(".o_passkey_portal_entry").length;
                 if (amount != 1) {
                     throw Error("Amount of Passkeys must be 1");
                 }
@@ -92,21 +92,21 @@ registry.category("web_tour.tours").add("passkeys_orbex_create", {
     ],
 });
 
-registry.category("web_tour.tours").add("passkeys_orbex_rename", {
+registry.category("web_tour.tours").add("passkeys_portal_rename", {
     url: "/my/security",
     steps: () => [
         {
             content: "Ensure there is one passkey",
             trigger: 'button:contains("Add Passkey")',
             run: () => {
-                const amount = document.querySelectorAll(".o_passkey_orbex_entry").length;
+                const amount = document.querySelectorAll(".o_passkey_portal_entry").length;
                 if (amount != 1) {
                     throw Error("Amount of Passkeys must be 1");
                 }
             },
         }, {
             content: "Click rename",
-            trigger: '.o_passkey_orbex_rename',
+            trigger: '.o_passkey_portal_rename',
             run: "click",
         }, {
             content: "Input passkey name",
@@ -124,21 +124,21 @@ registry.category("web_tour.tours").add("passkeys_orbex_rename", {
     ],
 });
 
-registry.category("web_tour.tours").add("passkeys_orbex_delete", {
+registry.category("web_tour.tours").add("passkeys_portal_delete", {
     url: "/my/security",
     steps: () => [
         {
             content: "Ensure there is one passkey",
             trigger: 'button:contains("Add Passkey")',
             run: () => {
-                const amount = document.querySelectorAll(".o_passkey_orbex_entry").length;
+                const amount = document.querySelectorAll(".o_passkey_portal_entry").length;
                 if (amount != 1) {
                     throw Error("Amount of Passkeys must be 1");
                 }
             },
         }, {
             content: "Click delete",
-            trigger: '.o_passkey_orbex_delete',
+            trigger: '.o_passkey_portal_delete',
             run: "click",
         }, {
             content: "Check that we have to enter enhanced security mode",
@@ -146,7 +146,7 @@ registry.category("web_tour.tours").add("passkeys_orbex_delete", {
         }, {
             content: "Input password",
             trigger: "form input[name=password]",
-            run: "edit passkey_orbex",
+            run: "edit passkey_portal",
         }, {
             content: "Confirm",
             trigger: ".modal-footer button:contains(Confirm Password)",
@@ -156,7 +156,7 @@ registry.category("web_tour.tours").add("passkeys_orbex_delete", {
             content: "Ensure there are no more passkeys",
             trigger: 'button:contains("Add Passkey")',
             run: () => {
-                const amount = document.querySelectorAll(".o_passkey_orbex_entry").length;
+                const amount = document.querySelectorAll(".o_passkey_portal_entry").length;
                 if (amount != 0) {
                     throw Error("Amount of Passkeys must be 0");
                 }

@@ -1,4 +1,4 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 from orbex.http import Request
 from orbex.tests import HttpCase, tagged
@@ -19,7 +19,7 @@ class TestPortalAddresses(BaseCommon, HttpCase):
         cls.portal_user = cls._create_new_portal_user()
         cls.internal_user = cls._create_new_internal_user()
         cls.default_address_values = {
-            'name': 'orbex Farm 3',
+            'name': 'Orbex Farm 3',
             'email': 'o@d.oo',
             'street': 'Rue de Ramillies 1',
             'city': 'Ramillies',
@@ -38,9 +38,9 @@ class TestPortalAddresses(BaseCommon, HttpCase):
         cls.account_a = cls._create_new_portal_user(login='portal_a')
         cls.account_b = cls._create_new_portal_user(login='portal_b')
         cls.company_partner = cls.env['res.partner'].create({
-            'name': 'Test orbex SA',
+            'name': 'Test Orbex SA',
             'is_company': True,
-            'email': 'orbex@orbexsuite.com',
+            'email': 'portal@orbexsuite.com',
             'street': 'Chau. de Namur 40',
             'city': 'Ramillies',
             'zip': '1367',

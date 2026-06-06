@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_passkey
 #
@@ -6,7 +6,7 @@
 # Saara Hakanen <sahak@orbexsuite.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.4\n"
+"Project-Id-Version: Orbex Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-02-17 10:06+0000\n"

@@ -1,6 +1,6 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
-# 	* auth_passkey_orbex
+# 	* auth_passkey_portal
 #
 #
 # Translated by:
@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Orbex Suite Server 1.0\n"
+"Project-Id-Version: Orbex Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-10-08 18:37+0000\n"
@@ -24,79 +24,79 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. module: auth_passkey_orbex
-#: model_terms:ir.ui.view,arch_db:auth_passkey_orbex.passkeys_orbex_hook
+#. module: auth_passkey_portal
+#: model_terms:ir.ui.view,arch_db:auth_passkey_portal.passkeys_portal_hook
 #, fuzzy
 msgid "Add Passkey"
 msgstr "Parolni qo‘shish"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/js/passkeys_orbex_create.js:0
+#: code:addons/auth_passkey_portal/static/src/js/passkeys_portal_create.js:0
 #, fuzzy
 msgid "Create"
 msgstr "Yaratish"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/js/passkeys_orbex_create.js:0
+#: code:addons/auth_passkey_portal/static/src/js/passkeys_portal_create.js:0
 #, fuzzy
 msgid "Create Passkey"
 msgstr "Parol yaratish"
 
-#. module: auth_passkey_orbex
-#: model_terms:ir.ui.view,arch_db:auth_passkey_orbex.passkeys_orbex_hook
+#. module: auth_passkey_portal
+#: model_terms:ir.ui.view,arch_db:auth_passkey_portal.passkeys_portal_hook
 #, fuzzy
 msgid "Created"
 msgstr "Yaratildi"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/js/passkeys_orbex.js:0
-#: code:addons/auth_passkey_orbex/static/src/js/passkeys_orbex_create.js:0
+#: code:addons/auth_passkey_portal/static/src/js/passkeys_portal.js:0
+#: code:addons/auth_passkey_portal/static/src/js/passkeys_portal_create.js:0
 #, fuzzy
 msgid "Discard"
 msgstr "Bekor qilish"
 
-#. module: auth_passkey_orbex
-#: model_terms:ir.ui.view,arch_db:auth_passkey_orbex.passkeys_orbex_hook
+#. module: auth_passkey_portal
+#: model_terms:ir.ui.view,arch_db:auth_passkey_portal.passkeys_portal_hook
 #, fuzzy
 msgid "Last Used"
 msgstr "Oxirgi foydalanilgan"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/xml/passkeys_orbex_popups.xml:0
-#: model_terms:ir.ui.view,arch_db:auth_passkey_orbex.passkeys_orbex_hook
+#: code:addons/auth_passkey_portal/static/src/xml/passkeys_portal_popups.xml:0
+#: model_terms:ir.ui.view,arch_db:auth_passkey_portal.passkeys_portal_hook
 #, fuzzy
 msgid "Name"
 msgstr "Nom"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/xml/passkeys_orbex_popups.xml:0
+#: code:addons/auth_passkey_portal/static/src/xml/passkeys_portal_popups.xml:0
 #, fuzzy
 msgid "Name your key"
 msgstr "Parolingizni nomlang"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/js/passkeys_orbex.js:0
-#: model_terms:ir.ui.view,arch_db:auth_passkey_orbex.passkeys_orbex_hook
+#: code:addons/auth_passkey_portal/static/src/js/passkeys_portal.js:0
+#: model_terms:ir.ui.view,arch_db:auth_passkey_portal.passkeys_portal_hook
 #, fuzzy
 msgid "Passkeys"
 msgstr "Parollar"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/js/passkeys_orbex.js:0
+#: code:addons/auth_passkey_portal/static/src/js/passkeys_portal.js:0
 #, fuzzy
 msgid "Rename"
 msgstr "Qayta nomlash"
 
-#. module: auth_passkey_orbex
+#. module: auth_passkey_portal
 #. orbex-javascript
-#: code:addons/auth_passkey_orbex/static/src/xml/passkeys_orbex_popups.xml:0
+#: code:addons/auth_passkey_portal/static/src/xml/passkeys_portal_popups.xml:0
 #, fuzzy
 msgid "Rename your key"
 msgstr "Parolingizni qayta nomlang"

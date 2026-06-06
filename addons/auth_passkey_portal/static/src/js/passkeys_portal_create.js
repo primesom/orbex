@@ -1,14 +1,14 @@
 import { Interaction } from "@web/public/interaction";
-import { InputConfirmationDialog } from "@orbex/js/components/input_confirmation_dialog/input_confirmation_dialog";
+import { InputConfirmationDialog } from "@portal/js/components/input_confirmation_dialog/input_confirmation_dialog";
 import { registry } from "@web/core/registry";
 import { renderToMarkup } from "@web/core/utils/render";
-import { handleCheckIdentity } from "@orbex/interactions/orbex_security";
+import { handleCheckIdentity } from "@portal/interactions/portal_security";
 import { _t } from "@web/core/l10n/translation";
 import * as passkeyLib from "@auth_passkey/../lib/simplewebauthn";
 import { user } from "@web/core/user";
 
-export class orbexPasskeyCreate extends Interaction {
-    static selector = "#orbex_passkey_add";
+export class PortalPasskeyCreate extends Interaction {
+    static selector = "#portal_passkey_add";
     dynamicContent = {
         _root: { "t-on-click": this.startRegistrationFlow },
     };
@@ -26,7 +26,7 @@ export class orbexPasskeyCreate extends Interaction {
         const serverOptions = create_action.context.registration;
         this.services.dialog.add(InputConfirmationDialog, {
             title: _t("Create Passkey"),
-            body: renderToMarkup("auth_passkey_orbex.create"),
+            body: renderToMarkup("auth_passkey_portal.create"),
             confirmLabel: _t("Create"),
             confirm: async ({ inputEl }) => {
                 const name = inputEl.value;
@@ -56,4 +56,4 @@ export class orbexPasskeyCreate extends Interaction {
     }
 }
 
-registry.category("public.interactions").add("auth_passkey_orbex.create", orbexPasskeyCreate);
+registry.category("public.interactions").add("auth_passkey_portal.create", PortalPasskeyCreate);

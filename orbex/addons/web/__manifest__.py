@@ -25,6 +25,7 @@ This module provides the core of the Orbex Web Client.
         'views/speedscope_config_wizard.xml',
         'views/neutralize_views.xml',
         'views/ir_ui_view_views.xml',
+        'views/tour_views.xml',
         'data/ir_attachment.xml',
         'data/report_layout.xml',
     ],
@@ -126,6 +127,9 @@ This module provides the core of the Orbex Web Client.
 
             # Form style should be computed before
             'web/static/src/views/form/button_box/*.scss',
+
+            ('include', 'web.tour_backend'),
+            'web/static/src/orbex_theme/orbex_lavend.scss',
 
             # Don't include dark mode files in light mode
             ('remove', 'web/static/src/**/*.dark.scss'),
@@ -313,6 +317,8 @@ This module provides the core of the Orbex Web Client.
             'web/static/src/webclient/actions/reports/report_tables.scss',
             'web/static/src/webclient/actions/reports/layout_assets/layout_*.scss',
             'web/static/asset_styles_company_report.scss',
+
+            ('include', 'web.tour_frontend'),
         ],
         'web.report_assets_pdf': [
             'web/static/src/webclient/actions/reports/reset.min.css',
@@ -423,6 +429,8 @@ This module provides the core of the Orbex Web Client.
         # ---------------------------------------------------------------------
 
         'web.assets_tests': [
+            'web/static/src/web_tour/js/tour_automatic/tour_helpers.js',
+            ('include', 'web.tour_automatic'),
             # the bundle "assets_tests" is first called in web.
             'web/static/tests/legacy/helpers/cleanup.js',
             'web/static/tests/legacy/helpers/utils.js',
@@ -469,6 +477,10 @@ This module provides the core of the Orbex Web Client.
         ],
         # Unit test files
         'web.assets_unit_tests': [
+            ('include', 'web.tour_recorder'),
+            ('include', 'web.tour_automatic'),
+            ('include', 'web.tour_interactive'),
+            'web/static/tests/web_tour/*.test.js',
             'web/static/tests/**/*',
 
             ('remove', 'web/static/tests/tours/**/*'),
@@ -537,6 +549,46 @@ This module provides the core of the Orbex Web Client.
         ],
         'web.assets_clickbot': [
             'web/static/src/webclient/clickbot/clickbot.js',
+        ],
+        'web.tour_backend': [
+            'web/static/src/web_tour/scss/**/*',
+            'web/static/src/web_tour/js/tour_pointer/**/*',
+            'web/static/src/web_tour/js/utils/**/*',
+            'web/static/src/web_tour/js/tour_state.js',
+            'web/static/src/web_tour/js/tour_service.js',
+            'web/static/src/web_tour/js/tour_recorder/tour_recorder_state.js',
+            'web/static/src/web_tour/tour_utils.js',
+            'web/static/src/web_tour/js/onboarding_item.xml',
+            'web/static/src/web_tour/views/**/*',
+            'web/static/src/web_tour/widgets/**/*',
+        ],
+        'web.tour_frontend': [
+            'web/static/src/web_tour/scss/**/*',
+            'web/static/src/web_tour/js/tour_pointer/**/*',
+            'web/static/src/web_tour/js/utils/**/*',
+            'web/static/src/web_tour/js/tour_state.js',
+            'web/static/src/web_tour/js/tour_service.js',
+            'web/static/src/web_tour/js/tour_recorder/tour_recorder_state.js',
+            'web/static/src/web_tour/tour_utils.js',
+            'web/static/src/web_tour/js/onboarding_item.xml',
+        ],
+        'web.tour_common': [
+            'web/static/lib/hoot-dom/**/*',
+            'web/static/src/web_tour/js/tour_step.js',
+        ],
+        'web.tour_interactive': [
+            ('include', 'web.tour_common'),
+            'web/static/src/web_tour/js/tour_interactive/**/*',
+        ],
+        'web.tour_automatic': [
+            ('include', 'web.tour_common'),
+            'web/static/src/web_tour/js/tour_automatic/**/*',
+        ],
+        'web.tour_recorder': [
+            ('include', 'web.tour_common'),
+            'web/static/src/web_tour/js/tour_recorder/**/*',
+            'web/static/src/web_tour/views/**/*',
+            'web/static/src/web_tour/widgets/**/*',
         ],
         "web.chartjs_lib" : [
             '/web/static/lib/Chart/Chart.js',

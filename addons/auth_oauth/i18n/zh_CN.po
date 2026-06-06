@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_oauth
 #
@@ -8,7 +8,7 @@
 # "Tiffany Chang (tic)" <tic@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 15.5alpha1\n"
+"Project-Id-Version: Orbex Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-09-16 15:19+0000\n"
@@ -209,8 +209,8 @@ msgstr "Google 登录"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with orbexsuite.com"
-msgstr "登录 orbexsuite.com"
+msgid "Sign in with Orbex Suite"
+msgstr "登录 Orbex.com"
 
 #. module: auth_oauth
 #. orbex-python
@@ -275,8 +275,8 @@ msgstr "例如：1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "谷歌登陆"
 
-#~ msgid "Log in with orbexsuite.com"
-#~ msgstr "orbex官方登陆"
+#~ msgid "Log in with Orbex.com"
+#~ msgstr "Orbex官方登陆"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth  访问令牌"

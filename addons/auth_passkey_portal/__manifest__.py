@@ -1,7 +1,7 @@
 {
-    'name': 'Passkeys orbex',
+    'name': 'Passkeys Portal',
     'version': '1.0',
-    'summary': 'Passkeys for orbex users',
+    'summary': 'Passkeys for portal users',
     'description': """
 The implementation of Passkeys using the webauthn protocol.
 ===========================================================
@@ -10,19 +10,18 @@ Passkeys are a secure alternative to a username and a password.
 When a user logs in with a Passkey, MFA will not be required.
 """,
     'category': 'Hidden/Tools',
-    'depends': ['auth_passkey', 'orbex'],
+    'depends': ['auth_passkey', 'portal'],
     'data': [
         'views/templates.xml',
     ],
     'assets': {
         'web.assets_frontend': [
-            'auth_passkey_orbex/static/src/**',
+            'auth_passkey_portal/static/src/**',
         ],
         'web.assets_tests': [
-            'auth_passkey_orbex/static/tests/tours/*.js',
+            'auth_passkey_portal/static/tests/tours/*.js',
         ],
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
     'auto_install': True,
 }

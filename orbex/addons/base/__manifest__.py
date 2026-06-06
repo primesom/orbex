@@ -69,6 +69,7 @@ The kernel of Orbex, needed for all installation.
         'views/res_country_views.xml',
         'views/res_currency_views.xml',
         'views/res_groups_views.xml',
+        'data/orbex_obsolete_views_cleanup.xml',
         'views/res_users_views.xml',
         'views/res_users_apikeys_views.xml',
         'views/res_device_views.xml',

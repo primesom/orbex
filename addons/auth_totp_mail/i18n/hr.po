@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_totp_mail
 #
@@ -6,7 +6,7 @@
 # Boris Peko <boris.peko@ecodica.eu>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.4\n"
+"Project-Id-Version: Orbex Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-04-11 00:34+0000\n"
@@ -259,11 +259,11 @@ msgstr "Omogući 2FA"
 #: model_terms:ir.ui.view,arch_db:auth_totp_mail.res_config_settings_view_form
 msgid ""
 "Enforce the two-factor authentication by email for employees or for all "
-"users (including orbex users) if they didn't enable any other two-factor "
+"users (including portal users) if they didn't enable any other two-factor "
 "authentication method."
 msgstr ""
 "Nametnite dvofaktorsku autentifikaciju e-poštom za zaposlenike ili za sve "
-"korisnike (uključujući orbexne korisnike) ako nisu omogućili nijednu drugu "
+"korisnike (uključujući portalne korisnike) ako nisu omogućili nijednu drugu "
 "metodu dvofaktorske autentifikacije."
 
 #. module: auth_totp_mail
@@ -280,8 +280,8 @@ msgstr "ID"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your orbex account"
-msgstr "Poziv za aktivaciju dvofaktorske autentifikacije na vašem orbex računu"
+msgid "Invitation to activate two-factor authentication on your Orbex account"
+msgstr "Poziv za aktivaciju dvofaktorske autentifikacije na vašem Orbex računu"
 
 #. module: auth_totp_mail
 #. orbex-python

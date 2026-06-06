@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 from orbex import fields, models
 
@@ -21,4 +21,4 @@ class ResConfigSettings(models.TransientModel):
     auth_signup_template_user_id = fields.Many2one(
         'res.users',
         string='Template user for new users created through signup',
-        config_parameter='base.template_orbex_user_id')
+        config_parameter='base.template_portal_user_id')

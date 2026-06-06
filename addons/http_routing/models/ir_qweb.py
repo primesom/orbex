@@ -1,4 +1,4 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 import logging
 from orbex import models
@@ -12,14 +12,14 @@ http_routing is installed and that all incoming requests SHOULD be
 going through ir.http._match (which sets that attribute),
 there are some rogue requests which do not. This is likely due to a
 @route(auth='none') controller which creates its own registry and attempts
-to render a template (e.g. orbex/orbex#99667).
+to render a template (e.g. upstream#99667).
 
 The following expectations MUST hold:
 
 When:
 * there is an incoming http request (request is truthy)
 * there is a registry loaded (models are in use)
-* http_routing is installed (dependency of both orbex and website)
+* http_routing is installed (dependency of both portal and website)
 
 Then:
 * request.is_frontend is set

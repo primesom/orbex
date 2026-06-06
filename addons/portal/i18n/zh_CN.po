@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -12,7 +12,7 @@
 # "Chloe Wang (chwa)" <chwa@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 16.0+e\n"
+"Project-Id-Version: Orbex Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2025-10-23 07:34+0000\n"
@@ -843,8 +843,8 @@ msgstr "备注"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "orbex 徽标"
+msgid "Orbex Logo"
+msgstr "Orbex 徽标"
 
 #. module: portal
 #. orbex-python

@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_oauth
 #
@@ -8,7 +8,7 @@
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 15.5alpha1\n"
+"Project-Id-Version: Orbex Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-09-16 04:38+0000\n"
@@ -209,8 +209,8 @@ msgstr "Google로 로그인"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with orbexsuite.com"
-msgstr "orbexsuite.com으로 로그인"
+msgid "Sign in with Orbex Suite"
+msgstr "Orbex.com으로 로그인"
 
 #. module: auth_oauth
 #. orbex-python
@@ -275,8 +275,8 @@ msgstr "예: 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Google로 로그인"
 
-#~ msgid "Log in with orbexsuite.com"
-#~ msgstr "orbexsuite.com으로 로그인"
+#~ msgid "Log in with Orbex.com"
+#~ msgstr "Orbex.com으로 로그인"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth 접근 토큰"

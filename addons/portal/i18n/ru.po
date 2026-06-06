@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -8,7 +8,7 @@
 # "Anastasiia Koroleva (koan)" <koan@orbexsuite.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 17.0\n"
+"Project-Id-Version: Orbex Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-04-24 16:29+0000\n"
@@ -853,8 +853,8 @@ msgstr "Заметка"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "Логотип orbex"
+msgid "Orbex Logo"
+msgstr "Логотип Orbex"
 
 #. module: portal
 #. orbex-python
@@ -1657,7 +1657,7 @@ msgstr "данные вашей учетной записи"
 #~ "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 #~ "        Powered by <a target=\"_blank\" href=\"https://www.orbexsuite.com?"
 #~ "utm_source=db&amp;utm_medium=portalinvite\" style=\"color: #875A7B;"
-#~ "\">orbex</a>\n"
+#~ "\">Orbex</a>\n"
 #~ "      </td></tr>\n"
 #~ "    </table>\n"
 #~ "</td></tr>\n"
@@ -1776,7 +1776,7 @@ msgstr "данные вашей учетной записи"
 #~ "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 #~ "        Работает на <a target=\"_blank\" href=\"https://www.orbexsuite.com?"
 #~ "utm_source=db&amp;utm_medium=portalinvite\" style=\"color: #875A7B;"
-#~ "\">orbex</a>\n"
+#~ "\">Orbex</a>\n"
 #~ "      </td></tr>\n"
 #~ "    </table>\n"
 #~ "</td></tr>\n"

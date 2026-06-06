@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -24,11 +24,11 @@
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 # DeepL <noreply-mt-deepl@weblate.org>, 2025.
-# orbex Turkish Import <dyki+tr@orbexsuite.com>, 2025.
+# Orbex Turkish Import <dyki+tr@orbexsuite.com>, 2025.
 # "Malaz Siddig Elsayed Abuidris (msea)" <msea@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 16.0+e\n"
+"Project-Id-Version: Orbex Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2025-11-28 12:49+0000\n"
@@ -872,8 +872,8 @@ msgstr "Not"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "orbex Logo"
+msgid "Orbex Logo"
+msgstr "Orbex Logo"
 
 #. module: portal
 #. orbex-python

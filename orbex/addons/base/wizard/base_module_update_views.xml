@@ -40,9 +40,12 @@
             name="Update Apps List"
             action="action_view_base_module_update"
             id="menu_view_base_module_update"
-            groups="base.group_no_one"
+            groups="base.group_system"
             parent="menu_management"
             sequence="40"/>
+        <record id="menu_view_base_module_update" model="ir.ui.menu">
+            <field name="group_ids" eval="[Command.set([ref('base.group_system')])]"/>
+        </record>
 
     </data>
 </orbex>

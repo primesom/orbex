@@ -5,7 +5,7 @@
         <record id="set_password_email" model="mail.template">
             <field name="name">Settings: New User Invite</field>
             <field name="model_id" ref="base.model_res_users"/>
-            <field name="subject">{{ object.create_uid.name }} from {{ object.company_id.name }} invites you to connect to orbex</field>
+            <field name="subject">{{ object.create_uid.name }} from {{ object.company_id.name }} invites you to connect to Orbex</field>
             <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
             <field name="partner_to" eval="False"/>
             <field name="use_default_to" eval="True"/>
@@ -19,7 +19,7 @@
         <td align="center" style="min-width: 590px;">
             <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
                 <tr><td valign="middle">
-                    <span style="font-size: 10px;">Welcome to orbex</span><br/>
+                    <span style="font-size: 10px;">Welcome to Orbex</span><br/>
                     <span style="font-size: 20px; font-weight: bold;">
                         <t t-out="object.name or ''">Marc Demo</t>
                     </span>
@@ -39,7 +39,7 @@
                 <tr><td valign="top" style="font-size: 13px;">
                     <div>
                         Dear <t t-out="object.name or ''">Marc Demo</t>,<br /><br />
-                        You have been invited by <t t-out="object.create_uid.name or ''">orbexBot</t> of <t t-out="object.company_id.name or ''">YourCompany</t> to connect on orbex.
+                        You have been invited by <t t-out="object.create_uid.name or ''">OrbexBot</t> of <t t-out="object.company_id.name or ''">YourCompany</t> to connect on Orbex.
                         <div style="margin: 16px 0px 16px 0px;">
                             <a t-att-href="object.partner_id._get_signup_url()"
                                 t-attf-style="background-color: {{object.company_id.email_secondary_color or '#875A7B'}}; padding: 8px 16px 8px 16px; text-decoration: none; color: {{object.company_id.email_primary_color or '#FFFFFF'}}; border-radius: 5px; font-size:13px;">
@@ -48,13 +48,13 @@
                         </div>
                         <b>  This link will remain valid during <t t-out="int(int(object.env['ir.config_parameter'].sudo().get_param('auth_signup.signup.validity.hours',144))/24)"></t> days </b> <br/>
                         <t t-set="website_url" t-value="object.get_base_url()"></t>
-                        Your orbex domain is: <b><a t-att-href='website_url' t-out="website_url or ''">http://yourcompany.orbexsuite.com</a></b><br />
+                        Your Orbex domain is: <b><a t-att-href='website_url' t-out="website_url or ''">https://yourcompany.orbexsuite.com</a></b><br />
                         Your sign in email is: <b><a t-attf-href="/web/login?login={{ object.email }}" target="_blank" t-out="object.email or ''">mark.brown23@example.com</a></b><br /><br />
-                        Never heard of orbex? It’s an all-in-one business software loved by 12+ million users. It will considerably improve your experience at work and increase your productivity.
+                        Never heard of Orbex? It’s an all-in-one business software loved by 12+ million users. It will considerably improve your experience at work and increase your productivity.
                         <br /><br />
-                        Have a look at the <a href="https://www.orbexsuite.com/page/tour?utm_source=db&amp;utm_medium=auth" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">orbex Tour</a> to discover the tool.
+                        Have a look at the <a href="https://www.orbexsuite.com/page/tour?utm_source=db&amp;utm_medium=auth" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">Orbex Tour</a> to discover the tool.
                         <br /><br />
-                        Enjoy orbex!<br />
+                        Enjoy Orbex!<br />
                         --<br/>The <t t-out="object.company_id.name or ''">YourCompany</t> Team
                     </div>
                 </td></tr>
@@ -90,7 +90,7 @@
 <tr><td align="center" style="min-width: 590px;">
     <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
       <tr><td style="text-align: center; font-size: 13px;">
-        Powered by <a target="_blank" href="https://www.orbexsuite.com?utm_source=db&amp;utm_medium=auth" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">orbex</a>
+        Powered by <a target="_blank" href="https://www.orbexsuite.com?utm_source=db&amp;utm_medium=auth" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">Orbex</a>
       </td></tr>
     </table>
 </td></tr>
@@ -153,13 +153,13 @@
 
         <!-- Email template for new users that used a signup token -->
         <record id="mail_template_user_signup_account_created" model="mail.template">
-            <field name="name">Settings: New orbex Sign Up</field>
+            <field name="name">Settings: New Portal Sign Up</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="subject">Welcome to {{ object.company_id.name }}!</field>
             <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
             <field name="partner_to" eval="False"/>
             <field name="use_default_to" eval="True"/>
-            <field name="description">Sent to orbex user who registered themselves</field>
+            <field name="description">Sent to portal user who registered themselves</field>
             <field name="body_html" type="html">
 <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #FFFFFF; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;"><tr><td align="center">
 <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: #FFFFFF; color: #454748; border-collapse:separate;">
@@ -237,7 +237,7 @@
 <tr><td align="center" style="min-width: 590px;">
     <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
       <tr><td style="text-align: center; font-size: 13px;">
-        Powered by <a target="_blank" href="https://www.orbexsuite.com?utm_source=db&amp;utm_medium=auth" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">orbex</a>
+        Powered by <a target="_blank" href="https://www.orbexsuite.com?utm_source=db&amp;utm_medium=auth" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">Orbex</a>
       </td></tr>
     </table>
 </td></tr>
@@ -246,14 +246,14 @@
             <field name="auto_delete" eval="True"/>
         </record>
 
-        <!-- Email template for new orbex users -->
-        <record id="orbex_set_password_email" model="mail.template">
-            <field name="name">Settings: New orbex User Invite</field>
+        <!-- Email template for new portal users -->
+        <record id="portal_set_password_email" model="mail.template">
+            <field name="name">Settings: New Portal User Invite</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="subject">Your account at {{ object.company_id.name }}</field>
             <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
             <field name="email_to">{{ object.email_formatted }}</field>
-            <field name="description">Sent to new orbex user after you invited them</field>
+            <field name="description">Sent to new portal user after you invited them</field>
             <field name="body_html" type="html">
 <table border="0" cellpadding="0" cellspacing="0"
     style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
@@ -290,7 +290,7 @@
                             <tr><td valign="top" style="font-size: 13px;">
                                 <div>
                                     Dear <t t-out="object.name or ''">Marc Demo</t>,<br/> <br/>
-                                    Welcome to <t t-out="object.company_id.name">YourCompany</t>'s orbex!<br/><br/>
+                                    Welcome to <t t-out="object.company_id.name">YourCompany</t>'s Portal!<br/><br/>
                                     An account has been created for you with the following login: <t t-out="object.login">demo</t><br/><br/>
                                     Click on the button below to pick a password and activate your account.
                                     <div style="margin: 16px 0px 16px 0px; text-align: center;">
@@ -299,7 +299,7 @@
                                             <strong>Activate Account</strong>
                                         </a>
                                     </div>
-                                    <t t-out="ctx.get('welcome_message') or ''">Welcome to our company's orbex.</t>
+                                    <t t-out="ctx.get('welcome_message') or ''">Welcome to our company's portal.</t>
                                 </div>
                             </td></tr>
                             <tr><td style="text-align:center;">
@@ -336,7 +336,7 @@
         <table border="0" cellpadding="0" cellspacing="0" width="590"
             style="min-width: 590px; background-color: #F1F1F1; color: #454748; padding: 8px; border-collapse:separate;">
             <tr><td style="text-align: center; font-size: 13px;">
-                Powered by <a target="_blank" t-attf-href="https://www.orbexsuite.com?utm_source=db&amp;utm_medium={{ ctx.get('medium', 'auth') }}" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">orbex</a>
+                Powered by <a target="_blank" t-attf-href="https://www.orbexsuite.com?utm_source=db&amp;utm_medium={{ ctx.get('medium', 'auth') }}" t-attf-style="color: {{object.company_id.email_secondary_color or '#875A7B'}};">Orbex</a>
             </td></tr>
         </table>
     </td></tr>

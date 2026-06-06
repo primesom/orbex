@@ -4,17 +4,17 @@
         <field name="name">Passkeys: Users can only access own Passkeys</field>
         <field name="model_id" ref="model_auth_passkey_key"/>
         <field name="groups" eval="[
-            (4, ref('base.group_orbex')),
+            (4, ref('base.group_portal')),
             (4, ref('base.group_user')),
         ]"/>
         <field name="domain_force">[('create_uid', '=', user.id)]</field>
     </record>
 
-    <record model="ir.rule" id="rule_auth_passkey_key_create_orbex">
+    <record model="ir.rule" id="rule_auth_passkey_key_create_portal">
         <field name="name">Passkeys: Users can only modify their own Passkey creation requests</field>
         <field name="model_id" ref="auth_passkey.model_auth_passkey_key_create"/>
         <field name="groups" eval="[
-            (4, ref('base.group_orbex')),
+            (4, ref('base.group_portal')),
             (4, ref('base.group_user')),
         ]"/>
         <field name="domain_force">[('create_uid', '=', user.id)]</field>

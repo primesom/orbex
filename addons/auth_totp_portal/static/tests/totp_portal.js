@@ -1,11 +1,11 @@
 import { registry } from "@web/core/registry";
 import { rpc } from "@web/core/network/rpc";
 
-registry.category("web_tour.tours").add('totorbex_tour_setup', {
+registry.category("web_tour.tours").add('totportal_tour_setup', {
     url: '/my/security',
     steps: () => [{
     content: "Open totp wizard",
-    trigger: 'button#auth_totp_orbex_enable',
+    trigger: 'button#auth_totp_portal_enable',
     run: "click",
 }, {
     content: "Check that we have to enter enhanced security mode",
@@ -13,7 +13,7 @@ registry.category("web_tour.tours").add('totorbex_tour_setup', {
 }, {
     content: "Input password",
     trigger: '[name=password]',
-    run: "edit orbex", // FIXME: better way to do this?
+    run: "edit portal", // FIXME: better way to do this?
 }, {
     content: "Confirm",
     trigger: "button:contains(Confirm Password)",
@@ -44,7 +44,7 @@ registry.category("web_tour.tours").add('totorbex_tour_setup', {
     trigger: 'button:contains(Disable two-factor authentication)',
 }]});
 
-registry.category("web_tour.tours").add('totorbex_login_enabled', {
+registry.category("web_tour.tours").add('totportal_login_enabled', {
     url: '/',
     steps: () => [{
     content: "check that we're on the login page or go to it",
@@ -55,11 +55,11 @@ registry.category("web_tour.tours").add('totorbex_login_enabled', {
 }, {
     content: "input login",
     trigger: 'input#login',
-    run: "edit orbex",
+    run: "edit portal",
 }, {
     content: 'input password',
     trigger: 'input#password',
-    run: "edit orbex",
+    run: "edit portal",
 }, {
     content: "click da button",
     trigger: 'button:contains("Log in")',
@@ -90,7 +90,7 @@ registry.category("web_tour.tours").add('totorbex_login_enabled', {
     expectUnloadPage: true,
 },{
     content: "Open totp wizard",
-    trigger: 'button#auth_totp_orbex_disable',
+    trigger: 'button#auth_totp_portal_disable',
     run: "click",
 }, {
     content: "Check that we have to enter enhanced security mode",
@@ -98,7 +98,7 @@ registry.category("web_tour.tours").add('totorbex_login_enabled', {
 }, {
     content: "Input password",
     trigger: '[name=password]',
-    run: "edit orbex",
+    run: "edit portal",
 }, {
     content: "Confirm",
     trigger: "button:contains(Confirm Password)",
@@ -109,7 +109,7 @@ registry.category("web_tour.tours").add('totorbex_login_enabled', {
     trigger: 'button:contains(Enable two-factor authentication)',
 }]});
 
-registry.category("web_tour.tours").add('totorbex_login_disabled', {
+registry.category("web_tour.tours").add('totportal_login_disabled', {
     url: '/',
     steps: () => [{
     content: "check that we're on the login page or go to it",
@@ -120,11 +120,11 @@ registry.category("web_tour.tours").add('totorbex_login_disabled', {
 }, {
     content: "input login",
     trigger: 'input#login',
-    run: "edit orbex",
+    run: "edit portal",
 }, {
     content: 'input password',
     trigger: 'input#password',
-    run: "edit orbex",
+    run: "edit portal",
 }, {
     content: "click da button",
     trigger: 'button:contains("Log in")',

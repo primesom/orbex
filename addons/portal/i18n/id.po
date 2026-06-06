@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -11,7 +11,7 @@
 # "Nurul Aini Akrima Sabila (nuaas)" <nuaas@orbexsuite.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 16.0+e\n"
+"Project-Id-Version: Orbex Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-05-23 09:34+0000\n"
@@ -855,8 +855,8 @@ msgstr "Catatan"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "Logo orbex"
+msgid "Orbex Logo"
+msgstr "Logo Orbex"
 
 #. module: portal
 #. orbex-python

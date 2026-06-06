@@ -34,6 +34,5 @@ When a user logs in with a Passkey, MFA will not be required.
             'auth_passkey/static/tests/*.js',
         ],
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

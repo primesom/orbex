@@ -1,11 +1,11 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_totp_mail
 #
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.4\n"
+"Project-Id-Version: Orbex Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-11-16 15:20+0000\n"
@@ -185,7 +185,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:auth_totp_mail.res_config_settings_view_form
 msgid ""
 "Enforce the two-factor authentication by email for employees or for all "
-"users (including orbex users) if they didn't enable any other two-factor "
+"users (including portal users) if they didn't enable any other two-factor "
 "authentication method."
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr "आईडी"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your orbex account"
+msgid "Invitation to activate two-factor authentication on your Orbex account"
 msgstr ""
 
 #. module: auth_totp_mail

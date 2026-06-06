@@ -9,4 +9,16 @@
         --o-input-border-color: unset;
         --o-caret-color: unset;
     }
+
+    .o_orbex_access_privilege {
+        margin-bottom: map-get($spacers, 2);
+    }
+
+    .o_is_implied {
+        color: $text-muted;
+
+        .form-check-input:checked {
+            opacity: .65;
+        }
+    }
 }

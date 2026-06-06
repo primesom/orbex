@@ -1,13 +1,13 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
-from orbex.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserorbex
+from orbex.addons.base.tests.common import HttpCaseWithUserDemo, HttpCaseWithUserPortal
 
 from orbex import http
 from orbex.tests.common import tagged
 
 
 @tagged('post_install', '-at_install')
-class TestAuthSignupFlowWith2faEnforced(HttpCaseWithUserorbex, HttpCaseWithUserDemo):
+class TestAuthSignupFlowWith2faEnforced(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
 
     def setUp(self):
         super().setUp()

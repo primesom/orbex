@@ -81,7 +81,7 @@ a, .btn-link {
     }
 }
 
-// orbex options classes
+// Orbex options classes
 .jumbotron {
     margin-bottom: 0;
 }
@@ -107,7 +107,7 @@ li > p {
 #wrap {
     .container, .container-fluid {
         // BS3 used to do this on all containers so that margins and floats are
-        // cleared inside containers. As lots of current orbex layouts may rely
+        // cleared inside containers. As lots of current Orbex layouts may rely
         // on this for some alignments, this is restored (at least for a while)
         // here only for main containers of the frontend.
         &::before, &::after {

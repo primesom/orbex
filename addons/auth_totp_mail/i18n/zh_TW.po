@@ -1,9 +1,9 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_totp_mail
 #
 # Translators:
-# Wil orbex, 2025
+# Wil Orbex, 2025
 # Tony Ng, 2025
 #
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
@@ -11,7 +11,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.3\n"
+"Project-Id-Version: Orbex Server saas~18.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-11-16 15:03+0000\n"
@@ -258,7 +258,7 @@ msgstr "啟用 2FA"
 #: model_terms:ir.ui.view,arch_db:auth_totp_mail.res_config_settings_view_form
 msgid ""
 "Enforce the two-factor authentication by email for employees or for all "
-"users (including orbex users) if they didn't enable any other two-factor "
+"users (including portal users) if they didn't enable any other two-factor "
 "authentication method."
 msgstr ""
 "如果員工或所有用戶（包括門戶用戶）未啟用任何其他雙因素身份驗證方法，則通過電"
@@ -278,8 +278,8 @@ msgstr "識別號"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your orbex account"
-msgstr "邀請你為你的 orbex 帳戶啟用雙重要素身份驗證"
+msgid "Invitation to activate two-factor authentication on your Orbex account"
+msgstr "邀請你為你的 Orbex 帳戶啟用雙重要素身份驗證"
 
 #. module: auth_totp_mail
 #. orbex-python

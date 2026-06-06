@@ -1,7 +1,7 @@
 {
-    'name': "TOTorbex",
+    'name': "TOTPortal",
     'category': 'Hidden',
-    'depends': ['orbex', 'auth_totp'],
+    'depends': ['portal', 'auth_totp'],
     'auto_install': True,
     'data': [
         'security/security.xml',
@@ -9,12 +9,11 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'auth_totp_orbex/static/src/**/*',
+            'auth_totp_portal/static/src/**/*',
         ],
         'web.assets_tests': [
-            'auth_totp_orbex/static/tests/**/*',
+            'auth_totp_portal/static/tests/**/*',
         ],
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

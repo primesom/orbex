@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_oauth
 #
@@ -10,7 +10,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 15.5alpha1\n"
+"Project-Id-Version: Orbex Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-11-25 06:03+0000\n"
@@ -212,8 +212,8 @@ msgstr "Loghează-te cu Google"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with orbexsuite.com"
-msgstr "Loghează-te cu orbexsuite.com"
+msgid "Sign in with Orbex Suite"
+msgstr "Loghează-te cu Orbex.com"
 
 #. module: auth_oauth
 #. orbex-python
@@ -279,8 +279,8 @@ msgstr "e.g. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Autentificare cu Google"
 
-#~ msgid "Log in with orbexsuite.com"
-#~ msgstr "Autentificare cu orbexsuite.com"
+#~ msgid "Log in with Orbex.com"
+#~ msgstr "Autentificare cu Orbex.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "Simbol de Acces OAuth"

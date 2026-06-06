@@ -1,4 +1,4 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Authentication via LDAP',
@@ -16,6 +16,5 @@
             'python-ldap': 'python3-ldap',
         },
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

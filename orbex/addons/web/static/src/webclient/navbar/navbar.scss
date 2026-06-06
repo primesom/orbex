@@ -441,50 +441,6 @@
             margin-left: auto;
         }
 
-        .o_orbex_discuss_top_search {
-            display: inline-flex;
-            align-items: center;
-            flex: 0 1 520px;
-            width: 38vw;
-            max-width: 520px;
-            height: 32px;
-            margin-left: auto;
-            margin-right: 16px;
-            padding: 0 12px;
-            border: 1px solid rgba(255, 255, 255, .24);
-            border-radius: 2px;
-            background: #f2f5fb;
-            color: #526171;
-            cursor: pointer;
-
-            i {
-                flex: 0 0 auto;
-                margin-right: 10px;
-                font-size: 1rem;
-            }
-
-            input {
-                width: 100%;
-                min-width: 0;
-                height: 30px;
-                border: 0;
-                outline: 0;
-                background: transparent;
-                color: #1f2933;
-                font-size: .86rem;
-                cursor: pointer;
-
-                &::placeholder {
-                    color: #8a94a1;
-                    opacity: 1;
-                }
-            }
-        }
-
-        &:has(.o_orbex_discuss_top_search) .o_orbex_nav_tools {
-            margin-left: 0;
-        }
-
         .o_orbex_nav_tool {
             display: inline-flex;
             align-items: center;
@@ -649,20 +605,6 @@ html[data-orbex-theme="dark"] {
         .o_orbex_nav_tool:focus {
             background: #2a2a2a;
             color: #ffffff;
-        }
-
-        .o_orbex_discuss_top_search {
-            border-color: #333333;
-            background: #121212;
-            color: #b3b3b3;
-
-            input {
-                color: #ffffff;
-
-                &::placeholder {
-                    color: #b3b3b3;
-                }
-            }
         }
 
     }

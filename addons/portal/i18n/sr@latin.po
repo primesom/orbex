@@ -1,16 +1,16 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
 # Translators:
-# Bojan Borovnjak <bojan.borovnjak@morbexlar.com>, 2022
+# Bojan Borovnjak <bojan.borovnjak@modoolar.com>, 2022
 # Martin Trigaux, 2022
 # Dragan Vukosavljevic <dragan.vukosavljevic@gmail.com>, 2022, 2026.
 # "Tiffany Chang (tic)" <tic@orbexsuite.com>, 2025.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 16.0\n"
+"Project-Id-Version: Orbex Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-05-23 09:33+0000\n"
@@ -828,8 +828,8 @@ msgstr "Napomena"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "orbex Logo"
+msgid "Orbex Logo"
+msgstr "Orbex Logo"
 
 #. module: portal
 #. orbex-python

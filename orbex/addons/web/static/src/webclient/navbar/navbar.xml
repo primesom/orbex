@@ -11,8 +11,8 @@
         data-command-category="disabled"
       >
         <div t-if="!this.ui.isSmall and !isScopedApp" class="o_orbex_topbar_brand">
-          <a href="/orbex/chat" class="o_orbex_brand_link">
-            <span>Orbex Suite</span>
+          <a href="/orbex/chat" class="o_orbex_brand_link" aria-label="Orbex Suite">
+            <img src="/web/static/img/logo.png" alt="Orbex Suite"/>
           </a>
           <button type="button" class="o_orbex_sidebar_toggle" t-att-title="state.isAppSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'" t-on-click="toggleAppSidebar">
             <i class="fa fa-bars" aria-hidden="true"/>
@@ -22,6 +22,12 @@
         <t t-call="web.NavBar.AppsMenu">
           <t t-set="apps" t-value="menuService.getApps()" />
         </t>
+
+        <div t-if="!this.ui.isSmall and currentAppSections.length" class="o_orbex_top_sections d-print-none">
+          <t t-call="web.NavBar.SectionsMenu">
+            <t t-set="sections" t-value="currentAppSections" />
+          </t>
+        </div>
 
         <!-- App Brand -->
         <DropdownItem
@@ -33,11 +39,6 @@
         />
 
         <div class="o_navbar_breadcrumbs d-contents"/>
-
-        <div t-if="!this.ui.isSmall and isDiscussApp" class="o_orbex_discuss_top_search d-print-none" role="search" t-on-click="openDiscussSearch">
-          <i class="oi oi-search" aria-hidden="true"/>
-          <input type="text" readonly="readonly" placeholder="Search conversations..." aria-label="Search conversations"/>
-        </div>
 
         <div t-if="!this.ui.isSmall" class="o_orbex_nav_tools d-flex align-items-center gap-2 ms-auto">
           <button type="button" class="o_orbex_nav_tool" t-att-title="state.colorScheme === 'dark' ? 'Light theme' : 'Dark theme'" t-on-click="() => this.toggleColorScheme()">
@@ -59,25 +60,26 @@
           </t>
         </div>
       </nav>
-      <div t-if="!this.ui.isSmall and currentAppSections.length" class="o_orbex_subnav d-print-none">
-        <t t-call="web.NavBar.SectionsMenu">
-          <t t-set="sections" t-value="currentAppSections" />
-        </t>
-      </div>
     </header>
   </t>
 
   <t t-name="web.NavBar.AppSidebar">
     <aside class="o_orbex_app_sidebar d-print-none" t-att-class="{ 'o-collapsed': state.isAppSidebarCollapsed }">
       <div class="o_orbex_sidebar_brand">
-        <a href="/orbex/chat" class="o_orbex_brand_link">
-          <span>Orbex Suite</span>
+        <a href="/orbex/chat" class="o_orbex_brand_link" aria-label="Orbex Suite">
+          <img src="/web/static/img/logo_sidebar.png" alt="Orbex Suite"/>
         </a>
-        <button type="button" class="o_orbex_sidebar_toggle" t-att-title="state.isAppSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'" t-on-click="toggleAppSidebar">
+        <button type="button" class="o_orbex_sidebar_toggle o_orbex_sidebar_toggle_collapsed" t-att-title="state.isAppSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'" t-on-click="toggleAppSidebar">
           <i class="fa fa-bars" aria-hidden="true"/>
         </button>
       </div>
       <nav class="o_orbex_app_list" aria-label="Modules">
+        <div class="o_orbex_sidebar_section_label">
+          <span>Apps</span>
+          <button type="button" class="o_orbex_sidebar_toggle" t-att-title="state.isAppSidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'" t-on-click="toggleAppSidebar">
+            <i class="fa fa-bars" aria-hidden="true"/>
+          </button>
+        </div>
         <a
           t-foreach="apps"
           t-as="app"
@@ -136,20 +138,77 @@
     </t>
     <t t-else="">
       <div t-if="!isScopedApp" class="o_navbar_apps_menu">
-        <Dropdown>
-          <button data-hotkey="h" title="Home Menu">
+        <Dropdown menuClass="'o_orbex_apps_dropdown_menu'" position="'bottom-start'">
+          <button class="o_orbex_apps_toggle" data-hotkey="h" title="Apps and workspace">
             <i class="oi oi-apps" />
           </button>
           <t t-set-slot="content">
-            <DropdownItem
-              t-foreach="apps"
-              t-as="app"
-              t-key="app.id"
-              class="{ 'o_app': true, focus: menuService.getCurrentApp() === app }"
-              onSelected="() => this.onNavBarDropdownItemSelection(app)"
-              t-esc="app.name"
-              attrs="{ href: getMenuItemHref(app), 'data-menu-xmlid': app.xmlid, 'data-section': app.id }"
-            />
+            <div class="o_orbex_launcher" t-on-click.stop="() => {}">
+              <div class="o_orbex_launcher_header">
+                <div class="o_orbex_launcher_tabs">
+                  <span class="active">Apps</span>
+                  <span>Workspace</span>
+                </div>
+                <div class="o_orbex_launcher_tools">
+                  <button type="button" title="Search menus" t-on-click="openMainMenuSearch">
+                    <i class="oi oi-search" aria-hidden="true"/>
+                  </button>
+                  <button type="button" title="Toggle theme" t-on-click="() => this.toggleColorScheme()">
+                    <i class="fa fa-adjust" aria-hidden="true"/>
+                  </button>
+                </div>
+              </div>
+              <div class="o_orbex_launcher_section">
+                <div class="o_orbex_launcher_section_title">
+                  <span>Pinned</span>
+                  <button type="button" t-on-click="openMainMenuSearch">All Apps <i class="fa fa-arrow-right" aria-hidden="true"/></button>
+                </div>
+                <div class="o_orbex_launcher_grid">
+                  <button
+                    t-foreach="pinnedApps"
+                    t-as="app"
+                    t-key="app.id"
+                    type="button"
+                    class="o_orbex_launcher_app"
+                    t-att-class="{ active: menuService.getCurrentApp() === app }"
+                    t-att-title="app.name"
+                    t-on-click="() => this.onNavBarDropdownItemSelection(app)"
+                  >
+                    <img t-att-src="getAppIconSrc(app)" t-att-alt="app.name"/>
+                    <span t-esc="app.name"/>
+                  </button>
+                </div>
+              </div>
+              <div t-if="workspaceSections.length" class="o_orbex_launcher_section o_orbex_launcher_workspace">
+                <div class="o_orbex_launcher_section_title">
+                  <span>Workspace</span>
+                </div>
+                <div class="o_orbex_workspace_cards">
+                  <div
+                    t-foreach="workspaceSections.slice(0, 8)"
+                    t-as="section"
+                    t-key="section.id"
+                    class="o_orbex_workspace_card"
+                  >
+                    <button type="button" class="o_orbex_workspace_card_title" t-on-click="() => this.onNavBarDropdownItemSelection(section)">
+                      <span t-esc="section.name"/>
+                      <i class="fa fa-minus-circle" aria-hidden="true"/>
+                    </button>
+                    <ul t-if="section.childrenTree.length">
+                      <li t-foreach="section.childrenTree.slice(0, 8)" t-as="child" t-key="child.id">
+                        <button type="button" t-on-click="() => this.onNavBarDropdownItemSelection(child)">
+                          <span t-esc="child.name"/>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="o_orbex_launcher_search" t-on-click="openMainMenuSearch">
+                <span>Search...</span>
+                <i class="oi oi-search" aria-hidden="true"/>
+              </button>
+            </div>
           </t>
         </Dropdown>
       </div>

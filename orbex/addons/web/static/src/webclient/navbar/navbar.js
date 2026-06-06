@@ -106,6 +106,14 @@ export class NavBar extends Component {
         );
     }
 
+    get pinnedApps() {
+        return this.menuService.getApps().slice(0, 24);
+    }
+
+    get workspaceSections() {
+        return this.currentAppSections.filter((section) => section.name !== this.currentApp?.name);
+    }
+
     // This dummy setter is only here to prevent conflicts between the
     // Enterprise NavBar extension and the Website NavBar patch.
     set currentAppSections(_) {}
@@ -229,6 +237,19 @@ export class NavBar extends Component {
         return `/orbex/${payload.actionPath || "action-" + payload.actionID}`;
     }
 
+    getAppIconSrc(app) {
+        if (!app?.webIconData) {
+            return "/web/static/img/default_icon_app.png";
+        }
+        if (app.webIconData.startsWith("data:image") || app.webIconData.startsWith("/")) {
+            return app.webIconData;
+        }
+        const prefix = app.webIconData.startsWith("P")
+            ? "data:image/svg+xml;base64,"
+            : "data:image/png;base64,";
+        return prefix + app.webIconData.replace(/\s/g, "");
+    }
+
     _closeAppMenuSidebar() {
         this.state.isAllAppsMenuOpened = false;
         this.state.isAppMenuSidebarOpened = false;
@@ -254,6 +275,9 @@ export class NavBar extends Component {
     }
     openDiscussSearch() {
         this.command.openMainPalette({ searchValue: "@" });
+    }
+    openMainMenuSearch() {
+        this.command.openMainPalette({ searchValue: "/" });
     }
     async toggleFullscreen() {
         if (document.fullscreenElement) {

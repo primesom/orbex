@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_signup
 #
@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 16.0beta\n"
+"Project-Id-Version: Orbex Server 16.0beta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-10 18:38+0000\n"
 "PO-Revision-Date: 2025-11-16 15:03+0000\n"
@@ -106,7 +106,7 @@ msgid ""
 msgstr ""
 
 #. module: auth_signup
-#: model:mail.template,body_html:auth_signup.orbex_set_password_email
+#: model:mail.template,body_html:auth_signup.portal_set_password_email
 msgid ""
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"padding-top: "
 "16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; "
@@ -157,7 +157,7 @@ msgid ""
 "                                    Dear <t t-out=\"object.name or ''\">Marc "
 "Demo</t>,<br/> <br/>\n"
 "                                    Welcome to <t t-"
-"out=\"object.company_id.name\">YourCompany</t>'s orbex!<br/><br/>\n"
+"out=\"object.company_id.name\">YourCompany</t>'s Portal!<br/><br/>\n"
 "                                    An account has been created for you with "
 "the following login: <t t-out=\"object.login\">demo</t><br/><br/>\n"
 "                                    Click on the button below to pick a "
@@ -175,7 +175,7 @@ msgid ""
 "                                        </a>\n"
 "                                    </div>\n"
 "                                    <t t-out=\"ctx.get('welcome_message') or "
-"''\">Welcome to our company's orbex.</t>\n"
+"''\">Welcome to our company's portal.</t>\n"
 "                                </div>\n"
 "                            </td></tr>\n"
 "                            <tr><td style=\"text-align:center;\">\n"
@@ -228,7 +228,7 @@ msgid ""
 "                Powered by <a target=\"_blank\" t-attf-href=\"https://"
 "www.orbexsuite.com?utm_source=db&amp;utm_medium={{ ctx.get('medium', 'auth') }}\" "
 "t-attf-style=\"color: {{object.company_id.email_secondary_color or "
-"'#875A7B'}};\">orbex</a>\n"
+"'#875A7B'}};\">Orbex</a>\n"
 "            </td></tr>\n"
 "        </table>\n"
 "    </td></tr>\n"
@@ -254,7 +254,7 @@ msgid ""
 "width=\"590\" style=\"min-width: 590px; background-color: white; padding: "
 "0px 8px 0px 8px; border-collapse:separate;\">\n"
 "                <tr><td valign=\"middle\">\n"
-"                    <span style=\"font-size: 10px;\">Welcome to orbex</"
+"                    <span style=\"font-size: 10px;\">Welcome to Orbex</"
 "span><br/>\n"
 "                    <span style=\"font-size: 20px; font-weight: bold;\">\n"
 "                        <t t-out=\"object.name or ''\">Marc Demo</t>\n"
@@ -284,8 +284,8 @@ msgid ""
 "                        Dear <t t-out=\"object.name or ''\">Marc Demo</t>,"
 "<br/><br/>\n"
 "                        You have been invited by <t t-"
-"out=\"object.create_uid.name or ''\">orbexBot</t> of <t t-"
-"out=\"object.company_id.name or ''\">YourCompany</t> to connect on orbex.\n"
+"out=\"object.create_uid.name or ''\">OrbexBot</t> of <t t-"
+"out=\"object.company_id.name or ''\">YourCompany</t> to connect on Orbex.\n"
 "                        <div style=\"margin: 16px 0px 16px 0px;\">\n"
 "                            <a t-att-"
 "href=\"object.partner_id._get_signup_url()\" t-attf-style=\"background-"
@@ -301,22 +301,22 @@ msgid ""
 "24)\"/> days </b> <br/>\n"
 "                        <t t-set=\"website_url\" t-"
 "value=\"object.get_base_url()\"/>\n"
-"                        Your orbex domain is: <b><a t-att-"
+"                        Your Orbex domain is: <b><a t-att-"
 "href=\"website_url\" t-out=\"website_url or ''\">http://"
 "yourcompany.orbexsuite.com</a></b><br/>\n"
 "                        Your sign in email is: <b><a t-attf-href=\"/web/"
 "login?login={{ object.email }}\" target=\"_blank\" t-out=\"object.email or "
 "''\">mark.brown23@example.com</a></b><br/><br/>\n"
-"                        Never heard of orbex? It’s an all-in-one business "
+"                        Never heard of Orbex? It’s an all-in-one business "
 "software loved by 12+ million users. It will considerably improve your "
 "experience at work and increase your productivity.\n"
 "                        <br/><br/>\n"
 "                        Have a look at the <a href=\"https://www.orbexsuite.com/"
 "page/tour?utm_source=db&amp;utm_medium=auth\" t-attf-style=\"color: "
-"{{object.company_id.email_secondary_color or '#875A7B'}};\">orbex Tour</a> to "
+"{{object.company_id.email_secondary_color or '#875A7B'}};\">Orbex Tour</a> to "
 "discover the tool.\n"
 "                        <br/><br/>\n"
-"                        Enjoy orbex!<br/>\n"
+"                        Enjoy Orbex!<br/>\n"
 "                        --<br/>The <t t-out=\"object.company_id.name or "
 "''\">YourCompany</t> Team\n"
 "                    </div>\n"
@@ -368,7 +368,7 @@ msgid ""
 "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 "        Powered by <a target=\"_blank\" href=\"https://www.orbexsuite.com?"
 "utm_source=db&amp;utm_medium=auth\" t-attf-style=\"color: "
-"{{object.company_id.email_secondary_color or '#875A7B'}};\">orbex</a>\n"
+"{{object.company_id.email_secondary_color or '#875A7B'}};\">Orbex</a>\n"
 "      </td></tr>\n"
 "    </table>\n"
 "</td></tr>\n"
@@ -494,7 +494,7 @@ msgid ""
 "      <tr><td style=\"text-align: center; font-size: 13px;\">\n"
 "        Powered by <a target=\"_blank\" href=\"https://www.orbexsuite.com?"
 "utm_source=db&amp;utm_medium=auth\" t-attf-style=\"color: "
-"{{object.company_id.email_secondary_color or '#875A7B'}};\">orbex</a>\n"
+"{{object.company_id.email_secondary_color or '#875A7B'}};\">Orbex</a>\n"
 "      </td></tr>\n"
 "    </table>\n"
 "</td></tr>\n"
@@ -701,8 +701,8 @@ msgstr ""
 
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.reset_password_email
-msgid "orbex"
-msgstr "orbex"
+msgid "Orbex"
+msgstr "Orbex"
 
 #. module: auth_signup
 #: model:ir.model.fields.selection,name:auth_signup.selection__res_config_settings__auth_signup_uninvited__b2b
@@ -782,8 +782,8 @@ msgid ""
 msgstr ""
 
 #. module: auth_signup
-#: model:mail.template,description:auth_signup.orbex_set_password_email
-msgid "Sent to new orbex user after you invited them"
+#: model:mail.template,description:auth_signup.portal_set_password_email
+msgid "Sent to new portal user after you invited them"
 msgstr ""
 
 #. module: auth_signup
@@ -793,17 +793,17 @@ msgstr ""
 
 #. module: auth_signup
 #: model:mail.template,description:auth_signup.mail_template_user_signup_account_created
-msgid "Sent to orbex user who registered themselves"
+msgid "Sent to portal user who registered themselves"
 msgstr ""
 
 #. module: auth_signup
 #: model:mail.template,name:auth_signup.mail_template_user_signup_account_created
-msgid "Settings: New orbex Sign Up"
+msgid "Settings: New Portal Sign Up"
 msgstr ""
 
 #. module: auth_signup
-#: model:mail.template,name:auth_signup.orbex_set_password_email
-msgid "Settings: New orbex User Invite"
+#: model:mail.template,name:auth_signup.portal_set_password_email
+msgid "Settings: New Portal User Invite"
 msgstr ""
 
 #. module: auth_signup
@@ -891,7 +891,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_config_settings_view_form
 msgid ""
 "To send invitations in B2B mode, open a contact or select several ones in "
-"list view and click on 'orbex Access Management' option in the dropdown "
+"list view and click on 'Portal Access Management' option in the dropdown "
 "menu *Action*."
 msgstr ""
 
@@ -917,7 +917,7 @@ msgid "You cannot perform this action on an archived user."
 msgstr ""
 
 #. module: auth_signup
-#: model:mail.template,subject:auth_signup.orbex_set_password_email
+#: model:mail.template,subject:auth_signup.portal_set_password_email
 msgid "Your account at {{ object.company_id.name }}"
 msgstr ""
 
@@ -956,7 +956,7 @@ msgstr ""
 #: model:mail.template,subject:auth_signup.set_password_email
 msgid ""
 "{{ object.create_uid.name }} from {{ object.company_id.name }} invites you "
-"to connect to orbex"
+"to connect to Orbex"
 msgstr ""
 
 #~ msgid ""

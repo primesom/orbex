@@ -1,0 +1,1082 @@
+// Orbex desktop workspace theme inspired by modern backend shells.
+// Keep this file as a late-loaded visual layer; do not put controller behavior here.
+
+$orbex-shell-bg: #f4f6fa;
+$orbex-surface: #ffffff;
+$orbex-border: #dfe5ee;
+$orbex-muted: #738093;
+$orbex-text: #1f2937;
+$orbex-nav-bg: #101827;
+$orbex-nav-panel: #172336;
+$orbex-nav-hover: #223149;
+$orbex-accent: #7a4a70;
+$orbex-accent-strong: #5d3656;
+$orbex-info: #0b8aa0;
+$orbex-cyan: #10a7b5;
+
+@include media-breakpoint-up(md) {
+    .o_web_client {
+        --orbex-sidebar-expanded-width: 220px;
+        --orbex-sidebar-collapsed-width: 68px;
+        --orbex-topbar-height: 48px;
+        --orbex-subnav-height: 44px;
+        --orbex-topbar-bg: #{$orbex-nav-bg};
+
+        background: $orbex-shell-bg;
+        color: $orbex-text;
+        font-size: .86rem;
+    }
+
+    .o_web_client > .o_action_manager {
+        background: $orbex-shell-bg;
+    }
+
+    .o_orbex_app_sidebar {
+        inset: 0 auto 0 0;
+        background: linear-gradient(180deg, #061431 0%, #081737 100%);
+        color: #afbacb;
+        border-radius: 0;
+        box-shadow: 1px 0 0 rgba(255, 255, 255, .06), 10px 0 28px rgba(16, 24, 39, .12);
+    }
+
+    .o_orbex_sidebar_brand {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex: 0 0 var(--orbex-topbar-height);
+        min-height: var(--orbex-topbar-height);
+        padding: 0 12px 0 14px;
+        border-bottom: 1px solid rgba(255, 255, 255, .07);
+    }
+
+    .o_orbex_topbar_brand {
+        display: none !important;
+    }
+
+    .o_orbex_brand_link {
+        gap: 10px;
+        color: #f8fafc;
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0;
+    }
+
+    .o_orbex_sidebar_toggle {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        color: #c8d2e0;
+        font-size: 1rem;
+
+        &:hover,
+        &:focus {
+            background: rgba(255, 255, 255, .10);
+            color: #ffffff;
+        }
+    }
+
+    .o_orbex_sidebar_tools {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        padding: 12px 14px 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+
+        .o_orbex_app_sidebar.o-collapsed & {
+            grid-template-columns: 1fr;
+            gap: 7px;
+            padding: 10px 13px;
+        }
+    }
+
+    .o_orbex_sidebar_tool {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 30px;
+        border: 1px solid rgba(255, 255, 255, .10);
+        border-radius: 5px;
+        background: rgba(255, 255, 255, .04);
+        color: #c6d1e1;
+
+        &:hover,
+        &:focus {
+            border-color: rgba($orbex-cyan, .55);
+            background: rgba($orbex-cyan, .14);
+            color: #ffffff;
+        }
+    }
+
+    .o_orbex_app_list {
+        padding: 12px 10px 14px;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, .18) transparent;
+    }
+
+    .o_orbex_sidebar_section_label {
+        display: flex;
+        align-items: center;
+        height: 22px;
+        margin: 8px 8px 6px;
+        color: #7f8da3;
+        font-size: .68rem;
+        font-weight: 800;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+
+        .o_orbex_app_sidebar.o-collapsed & {
+            display: none;
+        }
+    }
+
+    .o_orbex_app_entry {
+        min-height: 38px;
+        margin: 3px 0;
+        padding: 7px 9px;
+        border-radius: 6px;
+        color: #c9d3e2;
+        font-size: .8rem;
+        font-weight: 650;
+
+        &:hover,
+        &:focus {
+            background: $orbex-nav-hover;
+            color: #ffffff;
+        }
+
+        &.active {
+            background: rgba(255, 255, 255, .10);
+            color: #ffffff;
+            box-shadow: inset 3px 0 0 $orbex-cyan;
+        }
+
+        .o_orbex_app_sidebar.o-collapsed & {
+            min-height: 38px;
+            padding: 6px;
+            border-radius: 7px;
+            box-shadow: none;
+        }
+    }
+
+    .o_orbex_app_icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 6px;
+        padding: 2px;
+        background: rgba(0, 0, 0, .20);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, .10);
+
+        .o_orbex_app_sidebar.o-collapsed & {
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+    .o_main_navbar {
+        height: var(--orbex-topbar-height);
+        padding: 0 16px 0 calc(var(--orbex-sidebar-width) + 16px);
+        border-bottom: 1px solid rgba(255, 255, 255, .08);
+        background: $orbex-nav-bg;
+        box-shadow: none;
+    }
+
+    .o_main_navbar .o_navbar_apps_menu {
+        display: block !important;
+        flex: 0 0 auto;
+        margin-right: 10px;
+    }
+
+    .o_main_navbar .o_navbar_apps_menu .dropdown-toggle,
+    .o_main_navbar .o_orbex_apps_toggle,
+    .o_main_navbar .o_orbex_back_button {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        min-width: 32px;
+        height: 32px;
+        min-height: 32px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: #c6cfdd;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+            background: rgba(255, 255, 255, .10);
+            color: #ffffff;
+        }
+    }
+
+    .o_main_navbar .o_orbex_back_button {
+        margin-right: 8px;
+    }
+
+    .o_main_navbar .o_orbex_nav_tool,
+    .o_main_navbar .o_menu_systray,
+    .o_main_navbar .o_menu_systray .dropdown-toggle,
+    .o_main_navbar .o_menu_systray .o_debug_manager,
+    .o_main_navbar .o_menu_systray button {
+        min-height: 30px !important;
+        height: 30px !important;
+        color: #c6cfdd;
+    }
+
+    .o_main_navbar .o_orbex_nav_tool {
+        width: 30px;
+        border-radius: 5px;
+        font-size: .92rem;
+    }
+
+    .o_orbex_subnav {
+        height: var(--orbex-subnav-height);
+        padding: 0 14px;
+        border-bottom: 1px solid $orbex-border;
+        background: $orbex-surface;
+        box-shadow: 0 1px 2px rgba(16, 24, 39, .04);
+    }
+
+    .o_orbex_subnav .o_menu_sections {
+        gap: 4px;
+    }
+
+    .o_orbex_subnav .o_nav_entry,
+    .o_orbex_subnav .dropdown-toggle {
+        height: 30px;
+        min-height: 30px;
+        padding: 0 9px !important;
+        border-radius: 5px;
+        color: #3f4a5a;
+        font-size: .78rem;
+        font-weight: 650;
+
+        &:hover,
+        &:focus,
+        &.active {
+            background: #eef2f7;
+            color: $orbex-accent-strong;
+        }
+    }
+
+    .o_orbex_apps_dropdown_menu {
+        width: 720px;
+        max-width: calc(100vw - var(--orbex-sidebar-width) - 36px);
+        max-height: calc(100vh - var(--orbex-topbar-height) - 24px);
+        margin-top: 8px !important;
+        padding: 0 !important;
+        border: 1px solid $orbex-border;
+        border-radius: 8px;
+        overflow: hidden;
+        background: $orbex-surface;
+        box-shadow: 0 16px 42px rgba(15, 23, 42, .18);
+    }
+
+    .o_orbex_launcher {
+        display: flex;
+        flex-direction: column;
+        max-height: inherit;
+        color: $orbex-text;
+        background: $orbex-surface;
+    }
+
+    .o_orbex_launcher_header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 44px;
+        padding: 7px 12px;
+        border-bottom: 1px solid $orbex-border;
+    }
+
+    .o_orbex_launcher_tabs {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        span {
+            display: inline-flex;
+            align-items: center;
+            height: 30px;
+            padding: 0 10px;
+            border-radius: 6px;
+            color: #647084;
+            font-size: .8rem;
+            font-weight: 800;
+
+            &.active {
+                background: #eef3f8;
+                color: #1f2937;
+            }
+        }
+    }
+
+    .o_orbex_launcher_tools {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border: 0;
+            border-radius: 6px;
+            background: transparent;
+            color: #5d6878;
+
+            &:hover,
+            &:focus {
+                background: #eef3f8;
+                color: $orbex-info;
+            }
+        }
+    }
+
+    .o_orbex_launcher_section {
+        padding: 12px;
+        overflow: auto;
+    }
+
+    .o_orbex_launcher_section + .o_orbex_launcher_section {
+        border-top: 1px solid #edf1f6;
+    }
+
+    .o_orbex_launcher_section_title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        color: $orbex-info;
+        font-size: .74rem;
+        font-weight: 900;
+        text-transform: uppercase;
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            height: 28px;
+            padding: 0 9px;
+            border: 0;
+            border-radius: 6px;
+            background: #f1f5f9;
+            color: #526171;
+            font-size: .74rem;
+            font-weight: 800;
+
+            &:hover,
+            &:focus {
+                color: $orbex-info;
+            }
+        }
+    }
+
+    .o_orbex_launcher_grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(74px, 1fr));
+        gap: 12px 10px;
+    }
+
+    .o_orbex_launcher_app {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        min-width: 0;
+        min-height: 82px;
+        padding: 10px 6px 8px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: transparent;
+        color: #526171;
+        font-size: .76rem;
+        font-weight: 700;
+        text-align: center;
+
+        img {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            padding: 3px;
+            background: #f7f9fc;
+            box-shadow: 0 1px 5px rgba(15, 23, 42, .10);
+            object-fit: cover;
+        }
+
+        span {
+            width: 100%;
+            @include o-text-overflow;
+        }
+
+        &:hover,
+        &:focus,
+        &.active {
+            border-color: #d9e4ef;
+            background: #f7fafc;
+            color: $orbex-info;
+        }
+    }
+
+    .o_orbex_workspace_cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .o_orbex_workspace_card {
+        min-width: 0;
+        border: 1px solid #dfe6ef;
+        border-radius: 7px;
+        background: #fbfdff;
+    }
+
+    .o_orbex_workspace_card_title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 34px;
+        padding: 0 10px;
+        border: 0;
+        border-bottom: 1px solid #edf1f6;
+        background: transparent;
+        color: $orbex-info;
+        font-size: .74rem;
+        font-weight: 900;
+        text-align: left;
+        text-transform: uppercase;
+
+        span {
+            @include o-text-overflow;
+        }
+    }
+
+    .o_orbex_workspace_card ul {
+        max-height: 220px;
+        margin: 0;
+        padding: 8px 10px 10px 18px;
+        overflow: auto;
+    }
+
+    .o_orbex_workspace_card li {
+        color: #d38a87;
+        padding: 2px 0;
+    }
+
+    .o_orbex_workspace_card li button {
+        width: 100%;
+        min-width: 0;
+        padding: 3px 0;
+        border: 0;
+        background: transparent;
+        color: #526171;
+        font-size: .78rem;
+        font-weight: 650;
+        text-align: left;
+
+        span {
+            display: block;
+            @include o-text-overflow;
+        }
+
+        &:hover,
+        &:focus {
+            color: $orbex-info;
+        }
+    }
+
+    .o_orbex_launcher_search {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 38px;
+        margin: 0 12px 12px;
+        padding: 0 11px;
+        border: 1px solid $orbex-border;
+        border-radius: 6px;
+        background: #ffffff;
+        color: #8b96a6;
+        font-weight: 650;
+        text-align: left;
+
+        &:hover,
+        &:focus {
+            border-color: rgba($orbex-info, .5);
+            color: $orbex-info;
+        }
+    }
+
+    .o_control_panel {
+        border-bottom: 1px solid $orbex-border;
+        background: $orbex-shell-bg;
+    }
+
+    .o_web_client .o_control_panel {
+        padding: 8px 10px !important;
+        background: $orbex-shell-bg;
+    }
+
+    .o_web_client .o_control_panel .o_control_panel_main {
+        min-height: 34px;
+    }
+
+    .o_web_client .o_control_panel .o_control_panel_main_buttons .btn,
+    .o_web_client .o_control_panel .o_control_panel_navigation .btn,
+    .o_web_client .o_control_panel .o_control_panel_actions .btn {
+        min-height: 30px;
+        border-radius: 4px;
+        font-size: .8rem;
+        font-weight: 650;
+    }
+
+    .o_web_client .o_control_panel .btn-primary,
+    .o_web_client .o_control_panel .btn-outline-primary {
+        border-color: $orbex-accent;
+        background: $orbex-accent;
+        color: #ffffff;
+
+        &:hover,
+        &:focus {
+            border-color: $orbex-accent-strong;
+            background: $orbex-accent-strong;
+            color: #ffffff;
+        }
+    }
+
+    .o_web_client .o_control_panel .o_searchview {
+        min-height: 30px;
+        border: 1px solid $orbex-border;
+        border-radius: 5px;
+        background: $orbex-surface;
+        box-shadow: 0 1px 4px rgba(16, 24, 39, .04);
+    }
+
+    .o_content,
+    .o_view_controller,
+    .o_list_view,
+    .o_kanban_view,
+    .o_form_view {
+        background: #edf3f8;
+    }
+
+    .o_action_manager {
+        background:
+            radial-gradient(circle at 20% -10%, rgba(16, 167, 181, .10), transparent 34rem),
+            radial-gradient(circle at 85% 8%, rgba(122, 74, 112, .10), transparent 30rem),
+            #edf3f8;
+    }
+
+    .o_list_renderer {
+        padding: 10px;
+    }
+
+    .o_list_renderer .o_list_table {
+        overflow: hidden;
+        border: 1px solid $orbex-border;
+        border-radius: 7px;
+        background: $orbex-surface;
+        box-shadow: 0 1px 3px rgba(16, 24, 39, .04);
+    }
+
+    .o_list_renderer .o_list_table thead th {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid $orbex-border;
+        background: #eef2f7;
+        color: #455064;
+        font-size: .74rem;
+        font-weight: 800;
+        text-transform: none;
+    }
+
+    .o_list_renderer .o_list_table tbody > tr {
+        border-color: #e8edf4;
+
+        &:nth-child(even):not(.o_data_row_selected) {
+            background: #fafbfd;
+        }
+
+        &:hover {
+            background: #eef7fb;
+        }
+    }
+
+    .o_list_renderer .o_list_table tbody > tr > td {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .o_kanban_renderer {
+        --Kanban-background: #{$orbex-shell-bg};
+        --Kanban-gap: 10px;
+        --Kanban-padding: 10px;
+    }
+
+    .o_kanban_renderer .o_kanban_group {
+        border: 1px solid $orbex-border;
+        border-radius: 8px;
+        background: #eef2f7;
+    }
+
+    .o_kanban_renderer .o_kanban_group:not(.o_column_folded) .o_kanban_header {
+        border-bottom: 1px solid rgba(16, 24, 39, .06);
+    }
+
+    .o_kanban_renderer .o_kanban_record:not(.o_kanban_ghost),
+    .o_kanban_renderer .o_kanban_quick_create {
+        border: 1px solid $orbex-border;
+        border-radius: 8px;
+        background: $orbex-surface;
+        box-shadow: 0 1px 3px rgba(16, 24, 39, .05);
+    }
+
+    .o_form_view .o_form_renderer {
+        max-width: none;
+    }
+
+    .o_form_view .o_form_sheet_bg {
+        max-width: none;
+        padding: 12px;
+        background: $orbex-shell-bg;
+    }
+
+    .o_form_view .o_form_sheet {
+        border: 1px solid $orbex-border;
+        border-radius: 8px;
+        background: $orbex-surface;
+        box-shadow: 0 1px 3px rgba(16, 24, 39, .05);
+    }
+
+    .o_form_view .o_notebook .nav-tabs {
+        border-bottom-color: $orbex-border;
+    }
+
+    .o_form_view .o_notebook .nav-link {
+        border-radius: 5px 5px 0 0;
+        color: #3f4a5a;
+        font-weight: 650;
+
+        &.active {
+            color: $orbex-accent-strong;
+        }
+    }
+
+    .o_form_view .o_form_statusbar {
+        background: $orbex-shell-bg;
+    }
+
+    .o-mail-Form-chatter.o-aside {
+        border-left: 1px solid $orbex-border;
+        background: #f8fafc;
+    }
+
+    .o_web_client {
+        --orbex-sidebar-expanded-width: 220px;
+        --orbex-sidebar-collapsed-width: 64px;
+        --orbex-topbar-height: 50px;
+        --orbex-subnav-height: 0px;
+        background: #eef3f8;
+        font-family: "SF Pro Text", "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: 0;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    .o_web_client :where(button, input, textarea, select),
+    .dropdown-menu,
+    .o-dropdown--menu {
+        font-family: "SF Pro Text", "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: 0;
+    }
+
+    .o_web_client > .o_action_manager {
+        margin-left: var(--orbex-sidebar-width);
+        background: #eef3f8;
+    }
+
+    .o_navbar {
+        flex: 0 0 var(--orbex-topbar-height);
+    }
+
+    .o_orbex_app_sidebar {
+        width: var(--orbex-sidebar-width);
+        background:
+            radial-gradient(circle at 22% 4%, rgba(30, 211, 177, .16), transparent 28%),
+            linear-gradient(180deg, #081a3c 0%, #071735 46%, #050f28 100%);
+        box-shadow: inset -1px 0 0 rgba(255, 255, 255, .08);
+    }
+
+    .o_orbex_sidebar_brand {
+        min-height: 68px;
+        flex-basis: 68px;
+        justify-content: flex-start;
+        padding: 0 18px;
+        border-bottom-color: rgba(255, 255, 255, .10);
+    }
+
+    .o_orbex_brand_link {
+        display: inline-flex;
+        align-items: center;
+        min-width: 0;
+
+        img {
+            display: block;
+            width: calc(var(--orbex-sidebar-width) - 60px);
+            max-width: 154px;
+            max-height: 68px;
+            object-fit: contain;
+        }
+    }
+
+    .o_orbex_sidebar_toggle {
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        color: #c9d3e5;
+        flex: 0 0 auto;
+    }
+
+    .o_orbex_sidebar_toggle_collapsed {
+        display: none;
+    }
+
+    .o_orbex_app_sidebar.o-collapsed {
+        .o_orbex_sidebar_brand {
+            justify-content: center;
+            padding: 0;
+        }
+
+        .o_orbex_brand_link {
+            display: none !important;
+        }
+
+        .o_orbex_sidebar_toggle_collapsed {
+            display: inline-flex;
+        }
+    }
+
+    .o_orbex_sidebar_tools {
+        display: none !important;
+    }
+
+    .o_orbex_sidebar_tool {
+        height: 30px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, .04);
+        color: #d7deeb;
+    }
+
+    .o_orbex_app_list {
+        padding: 0 18px 18px;
+    }
+
+    .o_orbex_sidebar_section_label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 44px;
+        margin: 8px 0 12px;
+        color: #b6c3d7;
+        font-size: .76rem;
+        font-weight: 800;
+        letter-spacing: .055em;
+        text-transform: uppercase;
+
+        .o_orbex_app_sidebar.o-collapsed & {
+            display: none !important;
+        }
+    }
+
+    .o_orbex_app_entry {
+        min-height: 42px;
+        margin: 4px 0;
+        padding: 7px 8px;
+        border-radius: 7px;
+        color: #dce5f4;
+        font-size: .86rem;
+        font-weight: 650;
+
+        &:hover,
+        &:focus {
+            background: rgba(255, 255, 255, .085);
+            color: #ffffff;
+        }
+
+        &.active {
+            background: rgba(255, 255, 255, .14);
+            box-shadow: inset 3px 0 0 $orbex-cyan;
+            color: #ffffff;
+        }
+    }
+
+    .o_orbex_app_icon {
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        padding: 1px;
+        background: rgba(255, 255, 255, .06);
+    }
+
+    .o_main_navbar {
+        height: var(--orbex-topbar-height);
+        padding: 0 22px 0 calc(var(--orbex-sidebar-width) + 16px);
+        border-bottom: 1px solid #e2e8f0;
+        background: #ffffff;
+        color: #556174;
+        box-shadow: none;
+    }
+
+    .o_main_navbar .o_navbar_apps_menu {
+        margin-right: 14px;
+    }
+
+    .o_main_navbar .o_navbar_apps_menu .dropdown-toggle,
+    .o_main_navbar .o_orbex_apps_toggle,
+    .o_main_navbar .o_orbex_back_button,
+    .o_main_navbar .o_orbex_nav_tool,
+    .o_main_navbar .o_menu_systray,
+    .o_main_navbar .o_menu_systray .dropdown-toggle,
+    .o_main_navbar .o_menu_systray .o_debug_manager,
+    .o_main_navbar .o_menu_systray button {
+        color: #556174 !important;
+    }
+
+    .o_main_navbar .o_navbar_apps_menu .dropdown-toggle:hover,
+    .o_main_navbar .o_orbex_apps_toggle:hover,
+    .o_main_navbar .o_orbex_back_button:hover,
+    .o_main_navbar .o_orbex_nav_tool:hover,
+    .o_main_navbar .o_navbar_apps_menu .dropdown-toggle:focus,
+    .o_main_navbar .o_orbex_apps_toggle:focus,
+    .o_main_navbar .o_orbex_back_button:focus,
+    .o_main_navbar .o_orbex_nav_tool:focus {
+        background: #eef3f8;
+        color: $orbex-info !important;
+    }
+
+    .o_orbex_top_sections {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        flex: 1 1 auto;
+        height: 100%;
+    }
+
+    .o_orbex_top_sections .o_menu_sections {
+        display: flex !important;
+        align-items: center;
+        gap: 22px;
+        min-width: 0;
+        width: auto !important;
+        height: 100%;
+    }
+
+    .o_orbex_top_sections .o_nav_entry,
+    .o_orbex_top_sections .dropdown-toggle {
+        display: inline-flex !important;
+        align-items: center;
+        height: 100%;
+        min-height: 100%;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0;
+        background: transparent !important;
+        color: #5d6878;
+        font-size: .86rem;
+        font-weight: 750;
+
+        &:hover,
+        &:focus,
+        &.active {
+            color: $orbex-info;
+        }
+    }
+
+    .o_orbex_subnav {
+        display: none !important;
+    }
+
+    .o_control_panel,
+    .o_web_client .o_control_panel {
+        background: #eef3f8;
+        border-bottom: 1px solid #dfe7f0;
+        padding: 10px 14px !important;
+    }
+
+    .o_web_client .o_control_panel .btn-primary,
+    .o_web_client .o_control_panel .btn-outline-primary {
+        border-color: #058ca0;
+        background: #058ca0;
+    }
+
+    .o_content,
+    .o_view_controller,
+    .o_list_view,
+    .o_kanban_view,
+    .o_form_view,
+    .o_action_manager {
+        background: #eef3f8;
+    }
+
+    .o_kanban_renderer {
+        --Kanban-background: #eef3f8;
+        padding: 12px;
+    }
+
+    .o_kanban_renderer .o_kanban_record:not(.o_kanban_ghost),
+    .o_kanban_renderer .o_kanban_quick_create,
+    .o_list_renderer .o_list_table,
+    .o_form_view .o_form_sheet {
+        border-color: #dbe4ee;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+    }
+
+    .o_orbex_apps_dropdown_menu {
+        margin-top: 6px !important;
+        border-radius: 5px;
+        box-shadow: 0 14px 32px rgba(15, 23, 42, .16);
+    }
+}
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
+        .o_web_client,
+        .o_web_client > .o_action_manager,
+        .o_action_manager,
+        .o_content,
+        .o_view_controller,
+        .o_list_view,
+        .o_kanban_view,
+        .o_form_view,
+        .o_form_view .o_form_sheet_bg,
+        .o_form_view .o_form_renderer {
+            background: #101722 !important;
+            color: #d8dee9;
+        }
+
+        .o_orbex_app_sidebar {
+            background: linear-gradient(180deg, #050b18 0%, #071120 100%);
+        }
+
+        .o_main_navbar {
+            background: #0b1220;
+            border-color: #253044;
+        }
+
+        .o_orbex_subnav {
+            border-color: #253044;
+            background: #111827;
+
+            .o_nav_entry,
+            .dropdown-toggle {
+                color: #cbd5e1;
+
+                &:hover,
+                &:focus,
+                &.active {
+                    background: #1f2937;
+                    color: #ffffff;
+                }
+            }
+        }
+
+        .o_control_panel,
+        .o_web_client .o_control_panel {
+            border-color: #253044;
+            background: #111827;
+            color: #d8dee9;
+        }
+
+        .o_list_renderer .o_list_table,
+        .o_kanban_renderer .o_kanban_record:not(.o_kanban_ghost),
+        .o_form_view .o_form_sheet,
+        .o_web_client .o_control_panel .o_searchview,
+        .o_orbex_apps_dropdown_menu,
+        .o_orbex_launcher,
+        .o_orbex_workspace_card,
+        .o_orbex_launcher_search {
+            border-color: #253044;
+            background: #172033;
+            color: #e5e7eb;
+        }
+
+        .o_list_renderer .o_list_table thead th {
+            border-color: #253044;
+            background: #1f2937;
+            color: #cbd5e1;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr {
+            border-color: #253044;
+            background: #172033;
+            color: #e5e7eb;
+
+            &:nth-child(even):not(.o_data_row_selected) {
+                background: #1b2638;
+            }
+
+            &:hover {
+                background: #223149;
+            }
+        }
+
+        .o_list_renderer .o_list_table tbody > tr > td,
+        .o_list_renderer .o_list_table tbody > tr > th {
+            color: #e5e7eb;
+        }
+
+        .o_form_view .o_group,
+        .o_form_view .o_inner_group,
+        .o_form_view .o_notebook,
+        .o_form_view .o_notebook_content,
+        .o_form_view .o_field_widget,
+        .o_form_view .o_field_widget input,
+        .o_form_view .o_field_widget textarea,
+        .o_form_view .o_input,
+        .o_web_client .o_control_panel .o_searchview,
+        .o_web_client .o_control_panel .o_searchview input,
+        .dropdown-menu,
+        .o-dropdown--menu {
+            border-color: #253044;
+            background-color: #172033;
+            color: #e5e7eb;
+        }
+
+        .o_form_view .o_notebook .nav-tabs {
+            border-color: #253044;
+        }
+
+        .o_form_view .o_notebook .nav-link {
+            border-color: #253044;
+            color: #cbd5e1;
+
+            &.active {
+                background: #172033;
+                color: #ffffff;
+            }
+        }
+
+        .o-mail-Form-chatter.o-aside {
+            border-color: #253044;
+            background: #111827;
+        }
+
+        .o_orbex_launcher_header,
+        .o_orbex_launcher_section + .o_orbex_launcher_section,
+        .o_orbex_workspace_card_title {
+            border-color: #253044;
+        }
+
+        .o_orbex_launcher_tabs span.active,
+        .o_orbex_launcher_section_title button,
+        .o_orbex_launcher_app:hover,
+        .o_orbex_launcher_app:focus,
+        .o_orbex_launcher_app.active {
+            background: #1f2a3d;
+        }
+    }
+}

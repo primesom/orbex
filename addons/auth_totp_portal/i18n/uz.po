@@ -1,6 +1,6 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
-# 	* auth_totp_orbex
+# 	* auth_totp_portal
 #
 #
 # Translated by:
@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Orbex Suite Server 1.0\n"
+"Project-Id-Version: Orbex Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-13 18:37+0000\n"
 "PO-Revision-Date: 2025-10-08 18:37+0000\n"
@@ -24,21 +24,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. module: auth_totp_orbex
+#. module: auth_totp_portal
 #. orbex-javascript
-#: code:addons/auth_totp_orbex/static/src/interactions/totp_enable.js:0
+#: code:addons/auth_totp_portal/static/src/interactions/totp_enable.js:0
 #, fuzzy
 msgid " Copy"
 msgstr "Nusxalash"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid "(Disable two-factor authentication)"
 msgstr "(Ikki bosqichli autentifikatsiyani o‘chirish)"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid ""
 "<i class=\"fa fa-warning\"/>\n"
@@ -46,16 +46,16 @@ msgid ""
 msgstr ""
 "<i class=\"fa fa-warning\"/> Ikki bosqichli autentifikatsiya yoqilmagan"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid ""
 "<i title=\"Documentation\" class=\"fa fa-fw o_button_icon fa-info-circle\"/>"
 msgstr ""
 "<i title=\"Documentation\" class=\"fa fa-fw o_button_icon fa-info-circle\"/>"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid ""
 "<span class=\"text-success\">\n"
@@ -66,71 +66,71 @@ msgstr ""
 "<span class=\"text-success\"> <i class=\"fa fa-check-circle\"/> Ikki "
 "bosqichli autentifikatsiya yoqilgan </span>"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid "<strong>Added On</strong>"
 msgstr "<strong>Qo‘shilgan sana</strong>"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid "<strong>Trusted Device</strong>"
 msgstr "<strong>Ishonchli qurilma</strong>"
 
-#. module: auth_totp_orbex
+#. module: auth_totp_portal
 #. orbex-javascript
-#: code:addons/auth_totp_orbex/static/src/interactions/totp_enable.js:0
+#: code:addons/auth_totp_portal/static/src/interactions/totp_enable.js:0
 #, fuzzy
 msgid "Activate"
 msgstr "Faollashtirish"
 
-#. module: auth_totp_orbex
+#. module: auth_totp_portal
 #. orbex-javascript
-#: code:addons/auth_totp_orbex/static/src/components/totp_confirmation_dialog.js:0
+#: code:addons/auth_totp_portal/static/src/components/totp_confirmation_dialog.js:0
 #, fuzzy
 msgid "Copied!"
 msgstr "Nusxalandi!"
 
-#. module: auth_totp_orbex
-#: model:ir.model.fields,field_description:auth_totp_orbex.field_res_users__display_name
+#. module: auth_totp_portal
+#: model:ir.model.fields,field_description:auth_totp_portal.field_res_users__display_name
 #, fuzzy
 msgid "Display Name"
 msgstr "Ko‘rsatiladigan nom"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid "Enable two-factor authentication"
 msgstr "Ikki bosqichli autentifikatsiyani yoqish"
 
-#. module: auth_totp_orbex
-#: model:ir.model.fields,field_description:auth_totp_orbex.field_res_users__id
+#. module: auth_totp_portal
+#: model:ir.model.fields,field_description:auth_totp_portal.field_res_users__id
 #, fuzzy
 msgid "ID"
 msgstr "ID"
 
-#. module: auth_totp_orbex
+#. module: auth_totp_portal
 #. orbex-javascript
-#: code:addons/auth_totp_orbex/static/src/interactions/totp_enable.js:0
+#: code:addons/auth_totp_portal/static/src/interactions/totp_enable.js:0
 #, fuzzy
 msgid "Operation failed for unknown reason."
 msgstr "Operatsiya noma'lum sabablarga ko‘ra amalga oshmadi."
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid "Revoke All"
 msgstr "Barchasini bekor qilish"
 
-#. module: auth_totp_orbex
-#: model_terms:ir.ui.view,arch_db:auth_totp_orbex.totp_orbex_hook
+#. module: auth_totp_portal
+#: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 #, fuzzy
 msgid "Two-factor authentication"
 msgstr "Ikki bosqichli autentifikatsiya"
 
-#. module: auth_totp_orbex
-#: model:ir.model,name:auth_totp_orbex.model_res_users
+#. module: auth_totp_portal
+#: model:ir.model,name:auth_totp_portal.model_res_users
 #, fuzzy
 msgid "User"
 msgstr "Foydalanuvchi"

@@ -19,6 +19,5 @@
             "auth_timeout/static/tests/tours/**/*",
         ],
     },
-    "author": "orbex S.A.",
-    "license": "LGPL-3",
+    "license": 'OSPL-1',
 }

@@ -18,6 +18,5 @@
             'auth_password_policy/static/src/password_policy.js',
         ],
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

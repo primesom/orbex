@@ -1,4 +1,4 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 {
     'name': 'Web Routing',
@@ -15,6 +15,5 @@ base modules simple.
     ],
     'post_init_hook': '_post_init_hook',
     'depends': ['web'],
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # 	* auth_totp_mail
 #
@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Orbex Suite Server 1.0\n"
+"Project-Id-Version: Orbex Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-10-08 18:37+0000\n"
@@ -252,10 +252,10 @@ msgstr "Ikki bosqichli tasdiqlashni yoqish"
 #, fuzzy
 msgid ""
 "Enforce the two-factor authentication by email for employees or for all "
-"users (including orbex users) if they didn't enable any other two-factor "
+"users (including portal users) if they didn't enable any other two-factor "
 "authentication method."
 msgstr ""
-"Xodimlar yoki barcha foydalanuvchilar (orbex foydalanuvchilari ham) uchun, "
+"Xodimlar yoki barcha foydalanuvchilar (portal foydalanuvchilari ham) uchun, "
 "agar ular boshqa ikki bosqichli tasdiqlash usulini yoqmagan bo‘lsalar, "
 "elektron pochta orqali ikki bosqichli tasdiqlashni majburiy qilish."
 
@@ -276,9 +276,9 @@ msgstr "ID"
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
 #, fuzzy
-msgid "Invitation to activate two-factor authentication on your orbex account"
+msgid "Invitation to activate two-factor authentication on your Orbex account"
 msgstr ""
-"orbex hisobingizda ikki bosqichli tasdiqlashni faollashtirish uchun taklif"
+"Orbex hisobingizda ikki bosqichli tasdiqlashni faollashtirish uchun taklif"
 
 #. module: auth_totp_mail
 #. orbex-python

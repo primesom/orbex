@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # 	* auth_oauth
 #
@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Orbex Suite Server 1.0\n"
+"Project-Id-Version: Orbex Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-10-08 18:37+0000\n"
@@ -247,8 +247,8 @@ msgstr "Google orqali kirish"
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
 #, fuzzy
-msgid "Sign in with orbexsuite.com"
-msgstr "orbexsuite.com orqali kirish"
+msgid "Sign in with Orbex Suite"
+msgstr "Orbex.com orqali kirish"
 
 #. module: auth_oauth
 #. orbex-python

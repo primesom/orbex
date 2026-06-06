@@ -1,18 +1,18 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
-# 	* auth_password_policy_orbex
+# 	* auth_password_policy_portal
 #
 # Translators:
-# Wil orbex, 2025
+# Wil Orbex, 2025
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.2\n"
+"Project-Id-Version: Orbex Server saas~18.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-05-06 12:03+0000\n"
-"Last-Translator: Wil orbex, 2025\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/orbex/teams/41243/"
+"Last-Translator: Wil Orbex, 2025\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/orbexsuite/teams/41243/"
 "zh_TW/)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#. module: auth_password_policy_orbex
-#: model:ir.model.fields,field_description:auth_password_policy_orbex.field_ir_http__display_name
+#. module: auth_password_policy_portal
+#: model:ir.model.fields,field_description:auth_password_policy_portal.field_ir_http__display_name
 msgid "Display Name"
 msgstr "顯示名稱"
 
-#. module: auth_password_policy_orbex
-#: model:ir.model,name:auth_password_policy_orbex.model_ir_http
+#. module: auth_password_policy_portal
+#: model:ir.model,name:auth_password_policy_portal.model_ir_http
 msgid "HTTP Routing"
 msgstr "HTTP 路由"
 
-#. module: auth_password_policy_orbex
-#: model:ir.model.fields,field_description:auth_password_policy_orbex.field_ir_http__id
+#. module: auth_password_policy_portal
+#: model:ir.model.fields,field_description:auth_password_policy_portal.field_ir_http__id
 msgid "ID"
 msgstr "識別號"

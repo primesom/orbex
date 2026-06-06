@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 from contextlib import contextmanager
 from unittest.mock import patch
 
 import orbex
 from orbex import http
-from orbex.addons.base.tests.common import HttpCaseWithUserorbex, HttpCaseWithUserDemo
+from orbex.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
 from orbex.exceptions import AccessError, UserError
 
 from datetime import datetime, timedelta
 
-class TestAuthSignupFlow(HttpCaseWithUserorbex, HttpCaseWithUserDemo):
+class TestAuthSignupFlow(HttpCaseWithUserPortal, HttpCaseWithUserDemo):
 
     def setUp(self):
         super(TestAuthSignupFlow, self).setUp()
@@ -70,7 +70,7 @@ class TestAuthSignupFlow(HttpCaseWithUserorbex, HttpCaseWithUserDemo):
         user = self.user_demo
         user.group_ids -= self.env.ref('base.group_partner_manager')
 
-        partner = self.partner_orbex
+        partner = self.partner_portal
         partner.signup_prepare()
 
         with self.assertRaises(AccessError):

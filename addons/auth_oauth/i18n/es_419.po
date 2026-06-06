@@ -1,11 +1,11 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_oauth
 #
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.4\n"
+"Project-Id-Version: Orbex Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-09-17 07:45+0000\n"
@@ -206,8 +206,8 @@ msgstr "Iniciar sesión con Google"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with orbexsuite.com"
-msgstr "Iniciar sesión con orbexsuite.com"
+msgid "Sign in with Orbex Suite"
+msgstr "Iniciar sesión con Orbex.com"
 
 #. module: auth_oauth
 #. orbex-python

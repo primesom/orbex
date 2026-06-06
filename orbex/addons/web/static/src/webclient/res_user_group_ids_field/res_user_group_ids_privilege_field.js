@@ -64,11 +64,11 @@ class ResUserGroupIdsPrivilegeField extends Component {
     }
 
     get isImplied() {
-        return !this.isSet && !!this.impliedGroup;
+        return !this.group && !!this.impliedGroup;
     }
 
     get isSet() {
-        return !!this.props.record.data[this.props.name];
+        return !!this.group;
     }
 
     get type() {

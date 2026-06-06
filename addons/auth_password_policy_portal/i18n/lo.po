@@ -1,10 +1,10 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
-# 	* auth_password_policy_orbex
+# 	* auth_password_policy_portal
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Orbex Suite Server 1.0\n"
+"Project-Id-Version: Orbex Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-01-25 18:36+0000\n"
@@ -15,17 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#. module: auth_password_policy_orbex
-#: model:ir.model.fields,field_description:auth_password_policy_orbex.field_ir_http__display_name
+#. module: auth_password_policy_portal
+#: model:ir.model.fields,field_description:auth_password_policy_portal.field_ir_http__display_name
 msgid "Display Name"
 msgstr ""
 
-#. module: auth_password_policy_orbex
-#: model:ir.model,name:auth_password_policy_orbex.model_ir_http
+#. module: auth_password_policy_portal
+#: model:ir.model,name:auth_password_policy_portal.model_ir_http
 msgid "HTTP Routing"
 msgstr ""
 
-#. module: auth_password_policy_orbex
-#: model:ir.model.fields,field_description:auth_password_policy_orbex.field_ir_http__id
+#. module: auth_password_policy_portal
+#: model:ir.model.fields,field_description:auth_password_policy_portal.field_ir_http__id
 msgid "ID"
 msgstr ""

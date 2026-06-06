@@ -1,14 +1,14 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_ldap
 #
 # Translators:
-# Wil orbex, 2025
+# Wil Orbex, 2025
 #
 # "Tony Ng (ngto)" <ngto@orbexsuite.com>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.2\n"
+"Project-Id-Version: Orbex Server saas~18.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-20 10:02+0000\n"
 "PO-Revision-Date: 2026-02-06 09:13+0000\n"

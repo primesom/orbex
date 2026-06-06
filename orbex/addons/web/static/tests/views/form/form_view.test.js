@@ -309,6 +309,8 @@ test(`button box rendering on small screen`, async () => {
         arch: `<form><sheet><div name="button_box"><button id="btn1">MyButton</button><button id="btn2">MyButton2</button><button id="btn3">MyButton3</button><button id="btn4">MyButton4</button></div></sheet></form>`,
         resId: 2,
     });
+    expect(`.o_control_panel .o-form-buttonbox`).toHaveCount(1);
+    expect(`.o_form_sheet .o-form-buttonbox`).toHaveCount(0);
     expect(`.o-form-buttonbox > button`).toHaveCount(0);
     expect(`.oe_stat_button .o_button_more`).toHaveCount(1);
 
@@ -345,6 +347,8 @@ test(`button box rendering on big screen`, async () => {
         arch: `<form><sheet><div name="button_box">${btnString}</div></sheet></form>`,
         resId: 2,
     });
+    expect(`.o_control_panel .o-form-buttonbox`).toHaveCount(1);
+    expect(`.o_form_sheet .o-form-buttonbox`).toHaveCount(0);
     expect(`.o-form-buttonbox > button`).toHaveCount(7);
     expect(`.o-form-buttonbox > .oe_stat_button .o-dropdown`).toHaveCount(1);
 

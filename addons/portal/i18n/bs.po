@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -9,7 +9,7 @@
 # Zvonimir Galić <zvonimir.galic@viavista.ba>, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~11.5\n"
+"Project-Id-Version: Orbex Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2026-04-15 22:03+0000\n"
@@ -851,8 +851,8 @@ msgstr "Zabilješka"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "orbex Logo"
+msgid "Orbex Logo"
+msgstr "Orbex Logo"
 
 #. module: portal
 #. orbex-python

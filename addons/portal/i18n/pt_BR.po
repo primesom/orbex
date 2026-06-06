@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -6,7 +6,7 @@
 # "Maitê Dietze (madi)" <madi@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 17.0+e\n"
+"Project-Id-Version: Orbex Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2025-12-29 11:15+0000\n"
@@ -846,8 +846,8 @@ msgstr "Nota"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "Logo da orbex"
+msgid "Orbex Logo"
+msgstr "Logo da Orbex"
 
 #. module: portal
 #. orbex-python

@@ -1,11 +1,11 @@
 import { Interaction } from "@web/public/interaction";
 import { registry } from "@web/core/registry";
 
-import { handleCheckIdentity } from "@orbex/interactions/orbex_security";
+import { handleCheckIdentity } from "@portal/interactions/portal_security";
 import { user } from "@web/core/user";
 
 export class RevokeAllTrustedDevices extends Interaction {
-    static selector = "#auth_totp_orbex_revoke_all_devices";
+    static selector = "#auth_totp_portal_revoke_all_devices";
     dynamicContent = {
         _root: { "t-on-click.prevent": this.onClick },
     };
@@ -22,4 +22,4 @@ export class RevokeAllTrustedDevices extends Interaction {
 
 registry
     .category("public.interactions")
-    .add("auth_totp_orbex.revoke_all_trusted_devices", RevokeAllTrustedDevices);
+    .add("auth_totp_portal.revoke_all_trusted_devices", RevokeAllTrustedDevices);

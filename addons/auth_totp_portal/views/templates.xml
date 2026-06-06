@@ -1,8 +1,8 @@
 <orbex>
-    <template id="totp_orbex_hook" name="TOTP orbex hook" inherit_id="orbex.orbex_my_security">
-        <xpath expr="//section[@name='orbex_change_password']" position="after">
+    <template id="totp_portal_hook" name="TOTP Portal hook" inherit_id="portal.portal_my_security">
+        <xpath expr="//section[@name='portal_change_password']" position="after">
             <!--
-                orbex users don't have access to non-qweb views anymore, so
+                portal users don't have access to non-qweb views anymore, so
                 embed the target view as a *data island* of sorts, a JSON embed
                 of the fields_view_get could have been nice but at 14k it'd be a
                 bit ridiculous
@@ -22,7 +22,7 @@
                         <i class="fa fa-warning"/>
                         Two-factor authentication not enabled
                     </div>
-                    <button type="button" class="btn btn-light" id="auth_totp_orbex_enable">
+                    <button type="button" class="btn btn-light" id="auth_totp_portal_enable">
                         Enable two-factor authentication
                     </button>
                 </t>
@@ -31,7 +31,7 @@
                         <i class="fa fa-check-circle"/>
                         Two-factor authentication enabled
                     </span>
-                    <button type="button" class="btn btn-link" id="auth_totp_orbex_disable">
+                    <button type="button" class="btn btn-link" id="auth_totp_portal_disable">
                         (Disable two-factor authentication)
                     </button>
                     <t t-if="len(user_id.totp_trusted_device_ids)">
@@ -56,7 +56,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <button class="btn btn-primary" type="button" id="auth_totp_orbex_revoke_all_devices">
+                        <button class="btn btn-primary" type="button" id="auth_totp_portal_revoke_all_devices">
                             Revoke All
                         </button>
                     </t>

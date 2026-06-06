@@ -6,7 +6,7 @@
 Allow the users to invite another user to use Two-Factor authentication
 by sending an email to the target user. This email redirects them to:
 - the users security settings if the user is internal.
-- the orbex security settings page if the user is not internal.
+- the portal security settings page if the user is not internal.
     """,
     'depends': ['auth_totp', 'mail'],
     'category': 'Extra Tools',
@@ -24,6 +24,5 @@ by sending an email to the target user. This email redirects them to:
             'auth_totp_mail/static/tests/**/*',
         ],
     },
-    'author': 'orbex S.A.',
-    'license': 'LGPL-3',
+    'license': 'OSPL-1',
 }

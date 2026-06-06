@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * portal
 #
@@ -12,7 +12,7 @@
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~11.5\n"
+"Project-Id-Version: Orbex Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:37+0000\n"
 "PO-Revision-Date: 2025-11-19 13:23+0000\n"
@@ -802,8 +802,8 @@ msgstr "Σημείωση"
 
 #. module: portal
 #: model_terms:ir.ui.view,arch_db:portal.portal_record_sidebar
-msgid "orbex Logo"
-msgstr "Λογότυπο orbex"
+msgid "Orbex Logo"
+msgstr "Λογότυπο Orbex"
 
 #. module: portal
 #. orbex-python

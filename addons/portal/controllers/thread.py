@@ -1,4 +1,4 @@
-# Part of orbex. See LICENSE file for full copyright and licensing details.
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
 
 from orbex.http import request
 from orbex.addons.mail.controllers.thread import ThreadController

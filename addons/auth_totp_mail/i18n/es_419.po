@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_totp_mail
 #
@@ -6,7 +6,7 @@
 # "Fernanda Alvarez (mfar)" <mfar@orbexsuite.com>, 2025, 2026.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server saas~18.4\n"
+"Project-Id-Version: Orbex Server saas~18.4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2026-02-11 17:43+0000\n"
@@ -260,11 +260,11 @@ msgstr "Habilitar la A2F"
 #: model_terms:ir.ui.view,arch_db:auth_totp_mail.res_config_settings_view_form
 msgid ""
 "Enforce the two-factor authentication by email for employees or for all "
-"users (including orbex users) if they didn't enable any other two-factor "
+"users (including portal users) if they didn't enable any other two-factor "
 "authentication method."
 msgstr ""
 "Activa la autenticación de dos factores por correo para los empleados o para "
-"todos los usuarios (incluidos los del orbex) si no han activado este método."
+"todos los usuarios (incluidos los del portal) si no han activado este método."
 
 #. module: auth_totp_mail
 #: model:ir.model.fields,field_description:auth_totp_mail.field_res_config_settings__auth_totp_enforce
@@ -280,9 +280,9 @@ msgstr "ID"
 
 #. module: auth_totp_mail
 #: model:mail.template,subject:auth_totp_mail.mail_template_totp_invite
-msgid "Invitation to activate two-factor authentication on your orbex account"
+msgid "Invitation to activate two-factor authentication on your Orbex account"
 msgstr ""
-"Invitación para activar la autenticación de dos factores en tu cuenta de orbex"
+"Invitación para activar la autenticación de dos factores en tu cuenta de Orbex"
 
 #. module: auth_totp_mail
 #. orbex-python

@@ -1,4 +1,4 @@
-# Translation of orbex Server.
+# Translation of Orbex Server.
 # This file contains the translation of the following modules:
 # * auth_oauth
 #
@@ -16,14 +16,14 @@
 # Halil, 2022
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
 # DeepL <noreply-mt-deepl@weblate.org>, 2025.
-# orbex Turkish Import <dyki+tr@orbexsuite.com>, 2025.
+# Orbex Turkish Import <dyki+tr@orbexsuite.com>, 2025.
 msgid ""
 msgstr ""
-"Project-Id-Version: orbex Server 15.5alpha1\n"
+"Project-Id-Version: Orbex Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-11-21 14:44+0000\n"
-"Last-Translator: orbex Turkish Import <dyki+tr@orbexsuite.com>\n"
+"Last-Translator: Orbex Turkish Import <dyki+tr@orbexsuite.com>\n"
 "Language-Team: Turkish <https://translate.orbexsuite.com/projects/orbex-19/"
 "auth_oauth/tr/>\n"
 "Language: tr\n"
@@ -220,8 +220,8 @@ msgstr "Google ile oturum açın"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with orbexsuite.com"
-msgstr "orbexsuite.com ile oturum açın"
+msgid "Sign in with Orbex Suite"
+msgstr "Orbex.com ile oturum açın"
 
 #. module: auth_oauth
 #. orbex-python
@@ -286,8 +286,8 @@ msgstr "örn. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Google ile giriş yap"
 
-#~ msgid "Log in with orbexsuite.com"
-#~ msgstr "orbexsuite.com ile giriş yapın"
+#~ msgid "Log in with Orbex.com"
+#~ msgstr "Orbex.com ile giriş yapın"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth Erişim Jetonu"
