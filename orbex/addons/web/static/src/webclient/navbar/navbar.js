@@ -79,8 +79,7 @@ export class NavBar extends Component {
             isFullscreen: Boolean(document.fullscreenElement),
             colorScheme: cookie.get("color_scheme") || "bright",
         });
-        document.documentElement.dataset.orbexTheme =
-            this.state.colorScheme === "dark" ? "dark" : "bright";
+        this.applyShellState();
         this.ui = useState(useService("ui"));
         useExternalListener(document, "fullscreenchange", () => {
             this.state.isFullscreen = Boolean(document.fullscreenElement);
@@ -266,12 +265,21 @@ export class NavBar extends Component {
             "orbex_sidebar_collapsed",
             this.state.isAppSidebarCollapsed ? "1" : "0"
         );
+        this.applyShellState();
     }
     toggleColorScheme() {
         const nextScheme = this.state.colorScheme === "dark" ? "bright" : "dark";
         this.state.colorScheme = nextScheme;
         cookie.set("color_scheme", nextScheme);
-        document.documentElement.dataset.orbexTheme = nextScheme;
+        this.applyShellState();
+    }
+    applyShellState() {
+        document.documentElement.dataset.orbexTheme =
+            this.state.colorScheme === "dark" ? "dark" : "bright";
+        document.documentElement.classList.toggle(
+            "o-orbex-sidebar-collapsed",
+            this.state.isAppSidebarCollapsed
+        );
     }
     openDiscussSearch() {
         this.command.openMainPalette({ searchValue: "@" });

@@ -1,11 +1,12 @@
 import { AttachmentView } from "@mail/core/common/attachment_view";
 import { Chatter } from "@mail/chatter/web_portal/chatter";
 
-import { onMounted, onWillUnmount, useState } from "@orbex/owl";
+import { onMounted, onWillStart, onWillUnmount, useState } from "@orbex/owl";
 
 import { browser } from "@web/core/browser/browser";
 import { router } from "@web/core/browser/router";
 import { SIZES } from "@web/core/ui/ui_service";
+import { user } from "@web/core/user";
 import { useService } from "@web/core/utils/hooks";
 import { patch } from "@web/core/utils/patch";
 import { useDebounced } from "@web/core/utils/timing";
@@ -26,10 +27,26 @@ patch(FormRenderer.prototype, {
         if (this.env.services["mail.store"]) {
             this.mailStore = useService("mail.store");
         }
+        this.orm = useService("orm");
         this.uiService = useService("ui");
         this.mailPopoutService = useService("mail.popout");
+        this.orbexChatter = useState({
+            position: user.settings.orbex_chatter_position || "side",
+        });
 
         this.onResize = useDebounced(this.render, 200);
+        onWillStart(async () => {
+            if (!user.settings.id) {
+                return;
+            }
+            const [settings] = await this.orm.read("res.users.settings", [user.settings.id], [
+                "orbex_chatter_position",
+            ]);
+            if (settings?.orbex_chatter_position) {
+                this.orbexChatter.position = settings.orbex_chatter_position;
+                user.updateUserSettings("orbex_chatter_position", settings.orbex_chatter_position);
+            }
+        });
         onMounted(() => browser.addEventListener("resize", this.onResize));
         onWillUnmount(() => browser.removeEventListener("resize", this.onResize));
     },
@@ -47,7 +64,9 @@ patch(FormRenderer.prototype, {
         return this.messagingState.thread.attachmentsInWebClientView.length > 0;
     },
     mailLayout(hasAttachmentContainer) {
-        const xxl = this.uiService.size >= SIZES.XXL;
+        const forceBottomChatter =
+            this.orbexChatter.position === "bottom" || browser.innerWidth <= 1440;
+        const xxl = !forceBottomChatter && this.uiService.size >= SIZES.XXL;
         const hasFile = this.hasFile();
         const hasChatter = !!this.mailStore;
         const hasExternalWindow = !!this.mailPopoutService.externalWindow;

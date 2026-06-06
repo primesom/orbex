@@ -137,9 +137,9 @@
       </a>
     </t>
     <t t-else="">
-      <div t-if="!isScopedApp" class="o_navbar_apps_menu">
+      <div t-if="!isScopedApp &amp;&amp; state.isAppSidebarCollapsed" class="o_navbar_apps_menu">
         <Dropdown menuClass="'o_orbex_apps_dropdown_menu'" position="'bottom-start'">
-          <button class="o_orbex_apps_toggle" data-hotkey="h" title="Apps and workspace">
+          <button class="o_orbex_apps_toggle" data-hotkey="h" title="Apps">
             <i class="oi oi-apps" />
           </button>
           <t t-set-slot="content">
@@ -147,15 +147,6 @@
               <div class="o_orbex_launcher_header">
                 <div class="o_orbex_launcher_tabs">
                   <span class="active">Apps</span>
-                  <span>Workspace</span>
-                </div>
-                <div class="o_orbex_launcher_tools">
-                  <button type="button" title="Search menus" t-on-click="openMainMenuSearch">
-                    <i class="oi oi-search" aria-hidden="true"/>
-                  </button>
-                  <button type="button" title="Toggle theme" t-on-click="() => this.toggleColorScheme()">
-                    <i class="fa fa-adjust" aria-hidden="true"/>
-                  </button>
                 </div>
               </div>
               <div class="o_orbex_launcher_section">
@@ -177,31 +168,6 @@
                     <img t-att-src="getAppIconSrc(app)" t-att-alt="app.name"/>
                     <span t-esc="app.name"/>
                   </button>
-                </div>
-              </div>
-              <div t-if="workspaceSections.length" class="o_orbex_launcher_section o_orbex_launcher_workspace">
-                <div class="o_orbex_launcher_section_title">
-                  <span>Workspace</span>
-                </div>
-                <div class="o_orbex_workspace_cards">
-                  <div
-                    t-foreach="workspaceSections.slice(0, 8)"
-                    t-as="section"
-                    t-key="section.id"
-                    class="o_orbex_workspace_card"
-                  >
-                    <button type="button" class="o_orbex_workspace_card_title" t-on-click="() => this.onNavBarDropdownItemSelection(section)">
-                      <span t-esc="section.name"/>
-                      <i class="fa fa-minus-circle" aria-hidden="true"/>
-                    </button>
-                    <ul t-if="section.childrenTree.length">
-                      <li t-foreach="section.childrenTree.slice(0, 8)" t-as="child" t-key="child.id">
-                        <button type="button" t-on-click="() => this.onNavBarDropdownItemSelection(child)">
-                          <span t-esc="child.name"/>
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
               </div>
               <button type="button" class="o_orbex_launcher_search" t-on-click="openMainMenuSearch">
@@ -259,7 +225,6 @@
         <t t-if="!this.ui.isSmall">
             <DropdownGroup>
                 <t t-foreach="sections" t-as="section" t-key="section.id">
-                  <t t-if="section.name !== currentApp.name">
                     <t
                         t-set="sectionsVisibleCount"
                         t-value="(sections.length - currentAppSectionsExtra.length)"
@@ -298,7 +263,6 @@
                             </t>
                         </Dropdown>
                     </t>
-                  </t>
                 </t>
 
                 <t t-if="currentAppSectionsExtra.length" t-call="web.NavBar.SectionsMenu.MoreDropdown">

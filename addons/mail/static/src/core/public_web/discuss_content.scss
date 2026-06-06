@@ -411,3 +411,133 @@ html[data-orbex-theme="dark"] {
         }
     }
 }
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
+        .o_web_client:has(.o-mail-Discuss),
+        .o_web_client .o-mail-Discuss,
+        .o_web_client .o-mail-DiscussSidebar,
+        .o_web_client .o-mail-ActionPanel,
+        .o_web_client .o-mail-ActionPanel-header,
+        .o_web_client .o-mail-ActionPanel-content,
+        .o_web_client .o-mail-Discuss .o-mail-ActionPanel,
+        .o_web_client .o-mail-Discuss .o-mail-ActionPanel-header,
+        .o_web_client .o-mail-Discuss .o-mail-ActionPanel-content,
+        .o_web_client .o-mail-DiscussSearch,
+        .o_web_client .o-mail-DiscussContent,
+        .o_web_client .o-mail-DiscussContent-core,
+        .o_web_client .o-mail-DiscussContent-header,
+        .o_web_client .o-mail-Thread {
+            border-color: #3a4150 !important;
+            background: #1f2430 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_web_client .o-mail-Discuss {
+            gap: 0;
+            padding: 0;
+        }
+
+        .o_web_client .o-mail-DiscussSidebar,
+        .o_web_client .o-mail-DiscussContent,
+        .o_web_client .o-mail-ActionPanel {
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .o_web_client .o-mail-DiscussSidebar {
+            border-right: 1px solid #3a4150 !important;
+        }
+
+        .o_web_client .o-mail-DiscussSearch,
+        .o_web_client .o-mail-DiscussContent-header,
+        .o_web_client .o-mail-ActionPanel-header {
+            border-bottom: 1px solid #3a4150 !important;
+        }
+
+        .o_web_client .o-mail-ActionPanel {
+            border-left: 1px solid #3a4150 !important;
+        }
+
+        .o_web_client .o-mail-DiscussSearch-inputContainer,
+        .o_web_client .o-mail-Composer.o-discussApp .o-mail-Composer-inputContainer,
+        .o_web_client .o-mail-Composer.o-discussApp .o-mail-Composer-bg,
+        .o_web_client .o-mail-Composer.o-discussApp input,
+        .o_web_client .o-mail-Composer.o-discussApp textarea {
+            border-color: #3a4150 !important;
+            background: #1b1e28 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_web_client .o-mail-DiscussSearch-inputContainer input::placeholder,
+        .o_web_client .o-mail-Composer.o-discussApp input::placeholder,
+        .o_web_client .o-mail-Composer.o-discussApp textarea::placeholder {
+            color: #9aa4b2 !important;
+            opacity: 1 !important;
+        }
+
+        .o_web_client .o-mail-DiscussSidebarCategory-toggler,
+        .o_web_client .o-mail-DiscussSidebarCategory-title,
+        .o_web_client .o-mail-DiscussSidebarChannel,
+        .o_web_client .o-mail-DiscussSidebarChannel-title,
+        .o_web_client .o-mail-DiscussContent-threadName,
+        .o_web_client .o-mail-DiscussContent-headerActions button,
+        .o_web_client .o-mail-ActionPanel,
+        .o_web_client .o-mail-ActionPanel *,
+        .o_web_client .o-mail-ActionPanel-header,
+        .o_web_client .o-mail-ActionPanel-content {
+            color: #f4f6fb !important;
+        }
+
+        .o_web_client .o-mail-DiscussSidebarChannel-description,
+        .o_web_client .o-mail-ActionPanel .text-muted,
+        .o_web_client .o-mail-Thread-empty,
+        .o_web_client .o-mail-Message-date {
+            color: #9aa4b2 !important;
+        }
+
+        .o_web_client .o-mail-DiscussSidebarChannel:hover,
+        .o_web_client .o-mail-DiscussSidebarChannel.o-active,
+        .o_web_client .o-mail-DiscussContent-headerActions button:hover,
+        .o_web_client .o-mail-DiscussContent-headerActions button.o-isActive {
+            background: #303746 !important;
+            outline-color: #475166 !important;
+        }
+
+        .o_web_client .o-mail-Message,
+        .o_web_client .o-mail-Message-body,
+        .o_web_client .o-mail-Message-content,
+        .o_web_client .o-mail-Message-textContent {
+            background: transparent !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_web_client .o-mail-Message-bubble {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_web_client .o-mail-ActionPanel .bg-white,
+        .o_web_client .o-mail-ActionPanel .bg-view,
+        .o_web_client .o-mail-ActionPanel .card,
+        .o_web_client .o-mail-ActionPanel .btn:not(.btn-success),
+        .o_web_client .o-mail-ActionPanel button:not(.btn-success),
+        .o_web_client .o-mail-ActionPanel input,
+        .o_web_client .o-mail-ActionPanel textarea,
+        .o_web_client .o-mail-ActionPanel .form-control {
+            border-color: #3a4150 !important;
+            background: #303746 !important;
+            background-color: #303746 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_web_client .o-mail-DiscussSidebarChannel [name="threadAvatar"] img,
+        .o_web_client .o-mail-DiscussContent-threadAvatar img,
+        .o_web_client .o-mail-DiscussContent-selfAvatar,
+        .o_web_client .o-mail-Message-avatar {
+            opacity: 1 !important;
+            filter: none !important;
+        }
+    }
+}

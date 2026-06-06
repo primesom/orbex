@@ -2,8 +2,8 @@
 <templates xml:space="preserve">
 
     <t t-name="web.SearchBarMenu">
-        <Dropdown menuClass="'o_search_bar_menu d-flex flex-wrap flex-lg-nowrap w-100 w-md-auto mx-md-auto mt-1 py-2'"
-                  position="'bottom-middle'"
+        <Dropdown menuClass="'o_search_bar_menu d-flex flex-wrap flex-lg-nowrap w-100 w-md-auto mt-1 py-2'"
+                  position="'bottom-end'"
                   state="this.props.dropdownState"
                   t-if="this.env.searchModel.searchMenuTypes.size"
                   bottomSheet="false">

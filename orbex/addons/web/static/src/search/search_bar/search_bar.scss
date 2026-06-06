@@ -147,10 +147,19 @@
         > .o-dropdown > button {
             min-height: 32px;
             height: 32px;
-            border-color: rgba(255, 255, 255, .24) !important;
+            border-color: #d1d7e0 !important;
             border-radius: 0 2px 2px 0 !important;
-            background: #f2f5fb !important;
-            color: #303a46 !important;
+            background: #ffffff !important;
+            color: #111827 !important;
+            box-shadow: none !important;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.show {
+                background: #ffffff !important;
+                color: #111827 !important;
+            }
         }
 
         .o_searchview_input_container {

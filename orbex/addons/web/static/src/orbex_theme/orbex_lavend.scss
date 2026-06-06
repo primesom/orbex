@@ -674,6 +674,104 @@ $orbex-cyan: #10a7b5;
         background: #f8fafc;
     }
 
+    .o_form_status_indicator_buttons {
+        gap: 4px;
+
+        .o_form_button_save,
+        .o_form_button_cancel {
+            min-height: 28px;
+            border: 1px solid #d5dce6 !important;
+            border-radius: 5px;
+            background: #ffffff;
+            color: #162033;
+            font-weight: 650;
+            font-size: .82rem;
+
+            &:hover,
+            &:focus {
+                background: #f2f6fb;
+                color: #071735;
+            }
+        }
+    }
+
+    .o_form_view {
+        .o_field_radio {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 18px;
+            color: #111827;
+
+            .form-check,
+            .o_radio_item {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin: 0;
+                white-space: nowrap;
+            }
+
+            label,
+            .form-check-label {
+                margin: 0;
+                color: #111827;
+                font-weight: 550;
+                line-height: 1.2;
+            }
+
+            input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                margin: 0;
+                border-color: #b7c3d4;
+                accent-color: #071735;
+            }
+        }
+
+        .o_field_selection select,
+        select.o_input,
+        .o_input_dropdown input,
+        .o_field_many2one_selection input {
+            min-height: 32px;
+            color: #111827;
+            line-height: 1.25;
+        }
+
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) .o_input,
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) input,
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) textarea,
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) select {
+            border-color: #c6d1df !important;
+            background-color: rgba(248, 250, 252, .86);
+            color: #1f2937;
+        }
+
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) .o_input:not(:focus),
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) input:not(:focus),
+        .o_form_editable .o_field_widget:not(.o_readonly_modifier) textarea:not(:focus) {
+            box-shadow: inset 0 -1px 0 #c6d1df;
+        }
+
+        .o_form_editable .o_field_widget.o_required_modifier.o_field_empty .o_input,
+        .o_form_editable .o_field_widget.o_required_modifier.o_field_empty input,
+        .o_form_editable .o_field_widget.o_required_modifier.o_field_empty textarea,
+        .o_form_editable .o_field_widget.o_field_invalid .o_input,
+        .o_form_editable .o_field_widget.o_field_invalid input,
+        .o_form_editable .o_field_widget.o_field_invalid textarea {
+            border-color: #e35d6a !important;
+            background-color: #fff2f4;
+            box-shadow: inset 0 -1px 0 #e35d6a;
+        }
+
+        .o_input::placeholder,
+        input::placeholder,
+        textarea::placeholder {
+            color: #8793a4;
+            opacity: 1;
+        }
+    }
+
     .o_web_client {
         --orbex-sidebar-expanded-width: 220px;
         --orbex-sidebar-collapsed-width: 64px;
@@ -944,6 +1042,302 @@ $orbex-cyan: #10a7b5;
 
 html[data-orbex-theme="dark"] {
     @include media-breakpoint-up(md) {
+        .o_control_panel .breadcrumb,
+        .o_control_panel .o_breadcrumb,
+        .o_control_panel .o_breadcrumb_item,
+        .o_control_panel .o_last_breadcrumb_item,
+        .o_control_panel .o_control_panel_breadcrumbs,
+        .o_control_panel .o_cp_breadcrumbs {
+            background: transparent !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o-mail-Form-chatter,
+        .o-mail-Chatter,
+        .o-mail-Chatter-top,
+        .o-mail-Chatter-topbar,
+        .o-mail-Chatter-content,
+        .o-mail-Thread,
+        .o-mail-Message,
+        .o-mail-Message-content,
+        .o-mail-Message-body,
+        .o-mail-Message-textContent {
+            background-color: #1f2430 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o-mail-Form-chatter:not(.o-aside),
+        .o_form_renderer:has(> .o-mail-Form-chatter:not(.o-aside)) > .o-mail-Form-chatter {
+            border-top: 1px solid #3a4150 !important;
+            background: #1f2430 !important;
+        }
+
+        .o-mail-Form-chatter .o-mail-Chatter-top,
+        .o-mail-Form-chatter .o-mail-Chatter-topbar {
+            border-color: #3a4150 !important;
+            background: #1f2430 !important;
+        }
+
+        .o-mail-Form-chatter .o-mail-Chatter-content {
+            background: #1f2430 !important;
+        }
+
+        .o-mail-Form-chatter .bg-view,
+        .o-mail-Form-chatter .bg-white,
+        .o-mail-Form-chatter .card,
+        .o-mail-Form-chatter .o-mail-Composer,
+        .o-mail-Form-chatter .o-mail-Composer-coreMain,
+        .o-mail-Form-chatter .o-mail-Composer-input,
+        .o-mail-Form-chatter input,
+        .o-mail-Form-chatter textarea,
+        .o-mail-Form-chatter .form-control {
+            border-color: #3a4150 !important;
+            background-color: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o-mail-Form-chatter .o-mail-Chatter-topbar,
+        .o-mail-Form-chatter .o-mail-Chatter-topbarGrow {
+            background: #1f2430 !important;
+        }
+
+        .o-mail-Form-chatter .btn-secondary,
+        .o-mail-Form-chatter .btn:not(.btn-primary):not(.btn-link) {
+            border-color: #3a4150 !important;
+            background: #303746 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o-mail-Form-chatter .btn-primary,
+        .o-mail-Form-chatter .btn-primary.active,
+        .o-mail-Form-chatter .o-mail-Chatter-sendMessage.active {
+            border-color: #7a4a70 !important;
+            background: #7a4a70 !important;
+            color: #ffffff !important;
+        }
+
+        .o-mail-Form-chatter .btn-link,
+        .o-mail-Form-chatter .text-action,
+        .o-mail-Form-chatter .o-mail-Chatter-attachFiles,
+        .o-mail-Form-chatter .o-mail-Followers-button,
+        .o-mail-Form-chatter .o-mail-Chatter-search {
+            border-color: transparent !important;
+            background: transparent !important;
+            color: #cbd5e1 !important;
+        }
+
+        .o-mail-Form-chatter hr,
+        .o-mail-Form-chatter .border,
+        .o-mail-Form-chatter .border-top,
+        .o-mail-Form-chatter .border-bottom {
+            border-color: #3a4150 !important;
+        }
+
+        .o-mail-Form-chatter .text-muted,
+        .o-mail-Message-date,
+        .o-mail-Message-trackingOld,
+        .o-mail-Message-trackingField,
+        .o-mail-Thread-empty,
+        .o-mail-Thread-empty .text-muted {
+            color: #9aa4b2 !important;
+        }
+    }
+}
+
+// Final Orbex theme normalization. Keep this block last so it can correct
+// earlier experimental shell styling without changing view behavior.
+@include media-breakpoint-up(md) {
+    .o_web_client {
+        font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: .875rem;
+        line-height: 1.45;
+    }
+
+    .o_list_renderer .o_list_table {
+        font-size: .875rem;
+    }
+
+    .o_list_renderer .o_list_table thead th,
+    .o_list_renderer .o_list_table tbody > tr > td,
+    .o_list_renderer .o_list_table tbody > tr > th {
+        height: 38px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        font-size: .875rem;
+    }
+
+    .o_list_renderer .o_list_record_selector {
+        width: 42px !important;
+        min-width: 42px !important;
+        max-width: 42px !important;
+        padding-left: 12px !important;
+        padding-right: 8px !important;
+    }
+
+    .o_list_renderer .o_list_record_selector input[type="checkbox"],
+    .o_list_renderer .o_list_record_selector .form-check-input {
+        width: 16px !important;
+        height: 16px !important;
+        min-width: 16px !important;
+        margin: 0 !important;
+        border-width: 2px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    .o_list_renderer .o_data_cell img,
+    .o_list_renderer .o_data_cell .o_avatar,
+    .o_list_renderer .o_data_cell .o_m2o_avatar img,
+    .o_list_renderer .o_data_cell .o_field_image img {
+        opacity: 1 !important;
+        filter: none !important;
+        background: #ffffff !important;
+        box-shadow: 0 0 0 1px rgba(15, 23, 42, .12);
+    }
+}
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
+        .o_web_client,
+        .o_web_client > .o_action_manager,
+        .o_action_manager,
+        .o_content,
+        .o_view_controller,
+        .o_list_view,
+        .o_form_view,
+        .o_kanban_view {
+            background: #1f2430 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_control_panel,
+        .o_cp_top,
+        .o_cp_bottom,
+        .o_breadcrumb,
+        .breadcrumb,
+        .o_search_panel,
+        .o_view_nocontent {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_list_renderer {
+            background: #1f2430 !important;
+        }
+
+        .o_list_renderer .o_list_table,
+        .o_list_renderer .o_list_table table {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_list_renderer .o_list_table thead,
+        .o_list_renderer .o_list_table thead tr,
+        .o_list_renderer .o_list_table thead th {
+            border-color: #3a4150 !important;
+            background: #1b1e28 !important;
+            color: #f4f6fb !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr,
+        .o_list_renderer .o_list_table tbody > tr > th,
+        .o_list_renderer .o_list_table tbody > tr > td {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e8edf5 !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr:nth-child(even):not(.o_data_row_selected),
+        .o_list_renderer .o_list_table tbody > tr:nth-child(even):not(.o_data_row_selected) > th,
+        .o_list_renderer .o_list_table tbody > tr:nth-child(even):not(.o_data_row_selected) > td {
+            background: #252a36 !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr:hover,
+        .o_list_renderer .o_list_table tbody > tr:hover > th,
+        .o_list_renderer .o_list_table tbody > tr:hover > td {
+            background: #303746 !important;
+            color: #ffffff !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr.o_data_row_selected,
+        .o_list_renderer .o_list_table tbody > tr.o_data_row_selected > th,
+        .o_list_renderer .o_list_table tbody > tr.o_data_row_selected > td,
+        .o_list_renderer .o_list_table tbody > tr.table-info,
+        .o_list_renderer .o_list_table tbody > tr.table-info > th,
+        .o_list_renderer .o_list_table tbody > tr.table-info > td {
+            background: #213c50 !important;
+            color: #ffffff !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr.o_data_row_selected a,
+        .o_list_renderer .o_list_table tbody > tr.table-info a,
+        .o_list_renderer .o_list_table tbody > tr.o_data_row_selected .o_data_cell,
+        .o_list_renderer .o_list_table tbody > tr.table-info .o_data_cell {
+            color: #ffffff !important;
+        }
+
+        .o_list_renderer .o_list_record_selector input[type="checkbox"],
+        .o_list_renderer .o_list_record_selector .form-check-input {
+            appearance: none;
+            border-color: #4b5568 !important;
+            background: transparent !important;
+
+            &:checked {
+                border-color: #14b8a6 !important;
+                background-color: #14b8a6 !important;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23000000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.25' d='m3.5 8.5 3 3 6-7'/%3e%3c/svg%3e") !important;
+                background-repeat: no-repeat !important;
+                background-position: center !important;
+                background-size: 12px 12px !important;
+                box-shadow: none !important;
+            }
+        }
+
+        .o_list_renderer .o_data_cell img,
+        .o_list_renderer .o_data_cell .o_avatar,
+        .o_list_renderer .o_data_cell .o_m2o_avatar img,
+        .o_list_renderer .o_data_cell .o_field_image img {
+            opacity: 1 !important;
+            filter: none !important;
+            background: #ffffff !important;
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, .10);
+        }
+
+        .o_form_view .o_horizontal_separator,
+        .o_form_view .o_inner_group > tbody > tr > td.o_td_label,
+        .o_form_view .o_group .o_td_label,
+        .o_form_view .o_form_label,
+        .o_form_view label,
+        .o_form_view th,
+        .o_form_view legend,
+        .o_form_view .o_notebook_headers,
+        .o_form_view .o_notebook .nav-tabs,
+        .o_form_view .o_notebook .nav-link,
+        .o_form_view .o_field_widget,
+        .o_form_view .o_field_widget span,
+        .o_form_view .o_field_widget div {
+            color: #e8edf5 !important;
+        }
+
+        .o_form_view .o_group,
+        .o_form_view .o_inner_group,
+        .o_form_view .o_notebook_content,
+        .o_form_view .tab-content,
+        .o_form_view .tab-pane,
+        .o_form_view .o_field_x2many,
+        .o_form_view .o_field_x2many_list,
+        .o_form_view .o_list_table {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+        }
+    }
+}
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
         .o_web_client,
         .o_web_client > .o_action_manager,
         .o_action_manager,
@@ -1065,6 +1459,52 @@ html[data-orbex-theme="dark"] {
             background: #111827;
         }
 
+        .o_form_view {
+            .o_notebook_headers,
+            .o_notebook .nav-tabs,
+            .o_notebook .nav-link:not(.active),
+            .o_notebook_content,
+            .tab-content,
+            .tab-pane {
+                border-color: #253044;
+                background: #111827;
+                color: #e5e7eb;
+            }
+
+            .o_notebook .nav-link:not(.active) {
+                color: #cbd5e1;
+
+                &:hover,
+                &:focus {
+                    background: #172033;
+                    color: #ffffff;
+                }
+            }
+
+            .o_field_radio {
+                color: #e5e7eb;
+
+                label,
+                .form-check-label {
+                    color: #e5e7eb;
+                }
+
+                input[type="radio"] {
+                    border-color: #94a3b8;
+                    accent-color: #7dd3fc;
+                }
+            }
+
+            .o_field_selection select,
+            select.o_input,
+            .o_input_dropdown input,
+            .o_field_many2one_selection input {
+                color: #e5e7eb;
+                background-color: #111827;
+                border-color: #334155;
+            }
+        }
+
         .o_orbex_launcher_header,
         .o_orbex_launcher_section + .o_orbex_launcher_section,
         .o_orbex_workspace_card_title {
@@ -1077,6 +1517,914 @@ html[data-orbex-theme="dark"] {
         .o_orbex_launcher_app:focus,
         .o_orbex_launcher_app.active {
             background: #1f2a3d;
+        }
+    }
+}
+
+// Final Orbex shell corrections. Keep these late so they win over the base
+// navbar/view styles without changing controllers.
+@include media-breakpoint-up(md) {
+    .o_main_navbar .o_navbar_apps_menu {
+        display: none !important;
+    }
+
+    html.o-orbex-sidebar-collapsed .o_main_navbar .o_navbar_apps_menu {
+        display: block !important;
+    }
+
+    .o_orbex_top_sections .o_nav_entry,
+    .o_orbex_top_sections .dropdown-toggle,
+    .o_orbex_top_sections .dropdown-toggle span {
+        color: #344054 !important;
+        opacity: 1 !important;
+    }
+
+    .o_orbex_top_sections .o_nav_entry:hover,
+    .o_orbex_top_sections .o_nav_entry:focus,
+    .o_orbex_top_sections .dropdown-toggle:hover,
+    .o_orbex_top_sections .dropdown-toggle:focus,
+    .o_orbex_top_sections .dropdown-toggle.show {
+        color: $orbex-info !important;
+    }
+
+    .o_orbex_apps_dropdown_menu {
+        width: unquote("min(560px, calc(100vw - var(--orbex-sidebar-width) - 32px))");
+    }
+
+    .o_orbex_launcher_grid {
+        grid-template-columns: repeat(auto-fit, minmax(76px, 1fr));
+    }
+
+    .o_search_bar_menu {
+        min-width: 0;
+        width: unquote("min(620px, calc(100vw - var(--orbex-sidebar-width) - 48px))");
+    }
+
+    .o_web_client .o_cp_searchview .o_search_bar_menu button,
+    .o_web_client .o_cp_searchview > .o-dropdown > button,
+    .o_web_client .o_cp_searchview .o_search_bar_menu button.show,
+    .o_web_client .o_cp_searchview > .o-dropdown.show > button,
+    .o_web_client .o_cp_searchview > .o-dropdown > button.show,
+    .o_web_client .o_cp_searchview > .o-dropdown > button:active {
+        border-color: #d1d7e0 !important;
+        background: #ffffff !important;
+        color: #111827 !important;
+    }
+
+    .o_form_view .o_field_radio {
+        gap: 8px 20px;
+
+        .form-check,
+        .o_radio_item {
+            gap: 10px;
+            min-height: 28px;
+        }
+
+        input[type="radio"] {
+            position: relative;
+            flex: 0 0 18px;
+            width: 18px !important;
+            height: 18px !important;
+            margin: 0 !important;
+            border: 2px solid #c7d2e1 !important;
+            border-radius: 50%;
+            appearance: none;
+            background: #ffffff !important;
+            box-shadow: inset 0 0 0 3px #ffffff, 0 1px 2px rgba(15, 23, 42, .10);
+            cursor: pointer;
+            transition: border-color .12s ease, background-color .12s ease, box-shadow .12s ease;
+
+            &:hover,
+            &:focus {
+                border-color: #6b7a90 !important;
+                box-shadow: inset 0 0 0 3px #ffffff, 0 0 0 3px rgba(11, 138, 160, .14);
+            }
+
+            &:checked {
+                border-color: #071735 !important;
+                background: #071735 !important;
+                box-shadow: inset 0 0 0 4px #ffffff, 0 1px 2px rgba(15, 23, 42, .12);
+            }
+
+            &:disabled {
+                border-color: #d8dee8 !important;
+                background: #f4f6f9 !important;
+                box-shadow: inset 0 0 0 4px #f4f6f9;
+                cursor: not-allowed;
+            }
+        }
+
+        label,
+        .form-check-label {
+            color: #111827 !important;
+            font-size: .95rem;
+            font-weight: 650;
+            line-height: 1.2;
+        }
+    }
+
+    .modal .o_form_view {
+        .o_form_renderer {
+            background: transparent !important;
+        }
+
+        .o_form_sheet_bg {
+            padding: 18px 20px 0 !important;
+            background: transparent !important;
+        }
+
+        .o_form_sheet {
+            max-width: none;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .o_notebook {
+            margin-top: 18px;
+        }
+    }
+
+    .modal .modal-body:not(.p-0) {
+        padding: 0 !important;
+    }
+
+    .modal .modal-footer {
+        padding: 14px 20px 16px !important;
+    }
+
+    .o_web_client,
+    .o_web_client > .o_action_manager,
+    .o_action_manager,
+    .o_content,
+    .o_view_controller,
+    .o_list_view,
+    .o_kanban_view,
+    .o_form_view,
+    .o_form_view .o_form_sheet_bg,
+    .o_form_view .o_form_renderer {
+        background: #f5f8fc !important;
+    }
+
+    .o_form_view .o_form_sheet,
+    .o_list_renderer .o_list_table,
+    .o_kanban_renderer .o_kanban_record:not(.o_kanban_ghost),
+    .o_kanban_renderer .o_kanban_quick_create {
+        border-color: #d6dfeb !important;
+        background: #ffffff !important;
+        box-shadow: 0 1px 3px rgba(16, 24, 39, .05);
+    }
+
+    .o_form_view .o_notebook_headers,
+    .o_form_view .o_notebook .nav-tabs {
+        border-bottom: 1px solid #cfd8e5 !important;
+        background: #ffffff !important;
+    }
+
+    .o_form_view .o_notebook .nav-link {
+        margin-bottom: -1px;
+        border: 1px solid #d6dfeb !important;
+        border-bottom-color: #cfd8e5 !important;
+        border-radius: 5px 5px 0 0;
+        background: #f8fafd !important;
+        color: #354154 !important;
+        font-weight: 650;
+
+        &.active {
+            border-top: 3px solid #7a4a70 !important;
+            border-bottom-color: #ffffff !important;
+            background: #ffffff !important;
+            color: #5d3656 !important;
+        }
+    }
+
+    .o_form_view .o_notebook_content,
+    .o_form_view .tab-content,
+    .o_form_view .tab-pane {
+        border-color: #d6dfeb !important;
+        background: #ffffff !important;
+    }
+
+    .o_list_renderer {
+        .o_list_record_selector {
+            width: 54px !important;
+            min-width: 54px !important;
+            max-width: 54px !important;
+            padding-left: 14px !important;
+            padding-right: 10px !important;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .o_list_record_selector .form-check,
+        .o_list_record_selector .form-check-input {
+            margin: 0 !important;
+        }
+
+        .o_list_record_selector .form-check,
+        .o_list_record_selector .o-checkbox {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .o_list_record_selector input[type="checkbox"],
+        .o_list_record_selector .form-check-input {
+            appearance: none;
+            width: 17px !important;
+            height: 17px !important;
+            min-width: 17px !important;
+            border: 2px solid #c9d3e1 !important;
+            border-radius: 1px !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            cursor: pointer;
+
+            &:checked {
+                border-color: #0b8a9b !important;
+                background: #0b8a9b !important;
+                box-shadow: inset 0 0 0 3px #ffffff !important;
+            }
+
+            &:focus-visible {
+                outline: 2px solid rgba(11, 138, 155, .24);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .o_form_view {
+        .o_field_radio {
+            gap: 10px 20px;
+
+            .form-check,
+            .o_radio_item {
+                gap: 9px;
+            }
+
+            label,
+            .form-check-label {
+                color: #111827 !important;
+                font-weight: 650;
+            }
+
+            input[type="radio"] {
+                appearance: none;
+                display: inline-grid;
+                place-content: center;
+                width: 19px;
+                height: 19px;
+                min-width: 19px;
+                margin: 0;
+                border: 2px solid #c6d1df !important;
+                border-radius: 50%;
+                background: #ffffff !important;
+                box-shadow: inset 0 0 0 3px #ffffff;
+
+                &::before {
+                    content: "";
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    transform: scale(0);
+                    transition: transform .12s ease-in-out;
+                    background: #071735;
+                }
+
+                &:checked {
+                    border-color: #071735 !important;
+                    background: #ffffff !important;
+
+                    &::before {
+                        transform: scale(1);
+                    }
+                }
+
+                &:focus-visible {
+                    outline: 3px solid rgba(16, 167, 181, .22);
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .o_form_editable .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) .o_input,
+        .o_form_editable .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) input,
+        .o_form_editable .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) textarea {
+            border-color: #c6d1df !important;
+            background-color: rgba(248, 250, 252, .86) !important;
+            box-shadow: inset 0 -1px 0 #c6d1df !important;
+        }
+
+        .o_form_editable .o_field_widget.o_required_modifier.o_field_empty .o_input,
+        .o_form_editable .o_field_widget.o_required_modifier.o_field_empty input,
+        .o_form_editable .o_field_widget.o_required_modifier.o_field_empty textarea,
+        .o_form_editable .o_field_widget.o_field_invalid .o_input,
+        .o_form_editable .o_field_widget.o_field_invalid input,
+        .o_form_editable .o_field_widget.o_field_invalid textarea {
+            border-color: #e35d6a !important;
+            background-color: #fff2f4 !important;
+            box-shadow: inset 0 -1px 0 #e35d6a !important;
+        }
+
+        .o_row .btn.fa.fa-globe,
+        .o_row button[name*="base_language_install"].fa-globe {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            min-width: 30px;
+            margin-left: 8px;
+            padding: 0 !important;
+            border: 0 !important;
+            background: transparent !important;
+            color: #0b8a9b !important;
+            font-size: 1rem;
+            line-height: 1;
+            text-decoration: none !important;
+
+            &::before {
+                margin: 0;
+            }
+
+            &:hover,
+            &:focus {
+                background: rgba(11, 138, 155, .08) !important;
+                color: #067080 !important;
+            }
+        }
+    }
+
+    .modal .modal-content {
+        overflow: hidden;
+        border-color: #d2dbe8 !important;
+        background: #ffffff !important;
+    }
+
+    .modal .modal-body,
+    .modal .o_form_view,
+    .modal .o_form_view .o_form_renderer,
+    .modal .o_form_view .o_form_sheet_bg {
+        background: #f5f8fc !important;
+    }
+
+    .modal .o_form_view .o_form_sheet {
+        background: transparent !important;
+    }
+
+    .modal .o_form_view .o_notebook_headers,
+    .modal .o_form_view .o_notebook .nav-tabs {
+        background: #ffffff !important;
+    }
+
+    .modal .modal-footer {
+        border-top-color: #d6dfeb !important;
+        background: #ffffff !important;
+    }
+}
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
+        .o_web_client,
+        .o_web_client > .o_action_manager,
+        .o_action_manager,
+        .o_content,
+        .o_view_controller,
+        .o_list_view,
+        .o_kanban_view,
+        .o_form_view,
+        .o_form_view .o_form_sheet_bg,
+        .o_form_view .o_form_renderer {
+            background: #1f2430 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_main_navbar,
+        .o_control_panel,
+        .o_web_client .o_control_panel {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_orbex_top_sections .o_nav_entry,
+        .o_orbex_top_sections .dropdown-toggle,
+        .o_orbex_top_sections .dropdown-toggle span,
+        .o_main_navbar .o_navbar_apps_menu .dropdown-toggle,
+        .o_main_navbar .o_orbex_apps_toggle,
+        .o_main_navbar .o_orbex_nav_tool,
+        .o_main_navbar .o_menu_systray,
+        .o_main_navbar .o_menu_systray .dropdown-toggle,
+        .o_main_navbar .o_menu_systray button {
+            color: #dce2ea !important;
+        }
+
+        .o_orbex_top_sections .o_nav_entry:hover,
+        .o_orbex_top_sections .o_nav_entry:focus,
+        .o_orbex_top_sections .dropdown-toggle:hover,
+        .o_orbex_top_sections .dropdown-toggle:focus,
+        .o_orbex_top_sections .dropdown-toggle.show {
+            color: #21c2cf !important;
+        }
+
+        .o_list_renderer {
+            background: #1f2430 !important;
+        }
+
+        .o_list_renderer .o_list_table,
+        .o_list_renderer .o_list_table table {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_list_renderer .o_list_table thead,
+        .o_list_renderer .o_list_table thead tr,
+        .o_list_renderer .o_list_table thead th {
+            border-color: #3a4150 !important;
+            background: #232936 !important;
+            color: #f3f5f8 !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr,
+        .o_list_renderer .o_list_table tbody > tr > th,
+        .o_list_renderer .o_list_table tbody > tr > td {
+            border-color: #3a4150 !important;
+            background: #272d3a !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr:nth-child(even):not(.o_data_row_selected),
+        .o_list_renderer .o_list_table tbody > tr:nth-child(even):not(.o_data_row_selected) > th,
+        .o_list_renderer .o_list_table tbody > tr:nth-child(even):not(.o_data_row_selected) > td {
+            background: #242a36 !important;
+        }
+
+        .o_list_renderer .o_list_table tbody > tr:hover,
+        .o_list_renderer .o_list_table tbody > tr:hover > th,
+        .o_list_renderer .o_list_table tbody > tr:hover > td {
+            background: #303746 !important;
+            color: #ffffff !important;
+        }
+
+        .o_list_renderer .o_list_table a,
+        .o_list_renderer .o_data_cell,
+        .o_list_renderer .o_list_record_selector {
+            color: #e7eaf0 !important;
+        }
+
+        .o_list_renderer {
+            .o_list_record_selector input[type="checkbox"],
+            .o_list_record_selector .form-check-input {
+                border-color: #4b5568 !important;
+                background: transparent !important;
+                box-shadow: none !important;
+
+                &:checked {
+                    border-color: #21c2cf !important;
+                    background: #21c2cf !important;
+                    box-shadow: inset 0 0 0 3px #252a36 !important;
+                }
+            }
+        }
+
+        .o_kanban_renderer {
+            --Kanban-background: #1f2430;
+            background: #1f2430 !important;
+        }
+
+        .o_kanban_renderer .o_kanban_record:not(.o_kanban_ghost),
+        .o_kanban_renderer .o_kanban_quick_create,
+        .o_form_view .o_form_sheet,
+        .o_form_view .o_form_sheet_bg,
+        .o_form_view .o_group,
+        .o_form_view .o_inner_group,
+        .o_form_view .o_notebook_content,
+        .o_form_view .tab-content,
+        .o_form_view .tab-pane,
+        .o-mail-Form-chatter {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_form_view .o_notebook_headers,
+        .o_form_view .o_notebook .nav-tabs,
+        .o_form_view .o_notebook .nav-link {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #dce2ea !important;
+        }
+
+        .o_form_view .o_notebook .nav-link.active {
+            border-color: #586174 !important;
+            background: #303746 !important;
+            color: #ffffff !important;
+        }
+
+        .o_form_view label,
+        .o_form_view .o_form_label,
+        .o_field_radio label,
+        .o_field_radio .form-check-label,
+        .o_field_selection,
+        .o_field_selection select,
+        .o_field_widget,
+        .o_field_widget input,
+        .o_field_widget textarea,
+        .o_input,
+        .form-control,
+        .dropdown-menu,
+        .o-dropdown--menu {
+            border-color: #3a4150 !important;
+            background-color: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_input::placeholder,
+        .form-control::placeholder,
+        input::placeholder,
+        textarea::placeholder {
+            color: #9aa4b2 !important;
+            opacity: 1 !important;
+        }
+
+        .dropdown-menu .dropdown-item,
+        .dropdown-menu .o-dropdown-item,
+        .o-dropdown--menu .dropdown-item,
+        .o-dropdown--menu .o-dropdown-item,
+        .o_search_bar_menu .o_menu_item,
+        .o_search_bar_menu .o_item_option {
+            color: #e7eaf0 !important;
+        }
+
+        .dropdown-menu .dropdown-item:hover,
+        .dropdown-menu .dropdown-item:focus,
+        .dropdown-menu .o-dropdown-item:hover,
+        .dropdown-menu .o-dropdown-item:focus,
+        .o-dropdown--menu .dropdown-item:hover,
+        .o-dropdown--menu .dropdown-item:focus,
+        .o-dropdown--menu .o-dropdown-item:hover,
+        .o-dropdown--menu .o-dropdown-item:focus {
+            background: #303746 !important;
+            color: #ffffff !important;
+        }
+
+        .o_web_client .o_cp_searchview .o_searchview,
+        .o_web_client .o_cp_searchview .o_search_bar_menu button,
+        .o_web_client .o_cp_searchview > .o-dropdown > button,
+        .o_web_client .o_cp_searchview .o_search_bar_menu button.show,
+        .o_web_client .o_cp_searchview > .o-dropdown.show > button,
+        .o_web_client .o_cp_searchview > .o-dropdown > button.show,
+        .o_web_client .o_cp_searchview > .o-dropdown > button:active {
+            border-color: #586174 !important;
+            background: #151922 !important;
+            color: #f3f5f8 !important;
+        }
+
+        .o_form_view .o_field_radio {
+            input[type="radio"] {
+                border-color: #697589 !important;
+                background: #252a36 !important;
+                box-shadow: inset 0 0 0 3px #252a36;
+
+                &:hover,
+                &:focus {
+                    border-color: #9ca8ba !important;
+                    box-shadow: inset 0 0 0 3px #252a36, 0 0 0 3px rgba(33, 194, 207, .18);
+                }
+
+                &:checked {
+                    border-color: #21c2cf !important;
+                    background: #21c2cf !important;
+                    box-shadow: inset 0 0 0 4px #252a36;
+                }
+
+                &:disabled {
+                    border-color: #4a5363 !important;
+                    background: #1f2430 !important;
+                    box-shadow: inset 0 0 0 4px #1f2430;
+                }
+            }
+
+            label,
+            .form-check-label {
+                color: #e7eaf0 !important;
+            }
+        }
+
+        .o_form_view {
+            .o_form_editable .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) .o_input,
+            .o_form_editable .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) input,
+            .o_form_editable .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) textarea {
+                border-color: #3a4150 !important;
+                background-color: #252a36 !important;
+                box-shadow: inset 0 -1px 0 #586174 !important;
+            }
+
+            .o_form_editable .o_field_widget.o_required_modifier.o_field_empty .o_input,
+            .o_form_editable .o_field_widget.o_required_modifier.o_field_empty input,
+            .o_form_editable .o_field_widget.o_required_modifier.o_field_empty textarea,
+            .o_form_editable .o_field_widget.o_field_invalid .o_input,
+            .o_form_editable .o_field_widget.o_field_invalid input,
+            .o_form_editable .o_field_widget.o_field_invalid textarea {
+                border-color: #ef6f85 !important;
+                background-color: rgba(239, 111, 133, .14) !important;
+                box-shadow: inset 0 -1px 0 #ef6f85 !important;
+            }
+
+            .o_row .btn.fa.fa-globe,
+            .o_row button[name*="base_language_install"].fa-globe {
+                border: 0 !important;
+                background: transparent !important;
+                color: #21c2cf !important;
+            }
+        }
+
+        .modal .modal-content,
+        .modal .modal-header,
+        .modal .modal-footer,
+        .modal .o_form_view .o_form_renderer,
+        .modal .o_form_view .o_form_sheet_bg,
+        .modal .o_form_view .o_form_sheet {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+    }
+}
+
+// Final field-area cleanup: transparent editable fields, underline state only.
+.o_form_view .o_form_editable {
+    .o_field_widget:not(.o_readonly_modifier) .o_input,
+    .o_field_widget:not(.o_readonly_modifier) input,
+    .o_field_widget:not(.o_readonly_modifier) textarea,
+    .o_field_widget:not(.o_readonly_modifier) select,
+    .o_field_widget:not(.o_readonly_modifier) .o-autocomplete,
+    .o_field_widget:not(.o_readonly_modifier) .o-autocomplete--input,
+    .o_field_widget:not(.o_readonly_modifier) .o_field_many2one_selection {
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -1px 0 #c8d3e1 !important;
+    }
+
+    .o_field_widget:not(.o_readonly_modifier) .o_input:focus,
+    .o_field_widget:not(.o_readonly_modifier) input:focus,
+    .o_field_widget:not(.o_readonly_modifier) textarea:focus,
+    .o_field_widget:not(.o_readonly_modifier) select:focus,
+    .o_field_widget:not(.o_readonly_modifier) .o-autocomplete:focus-within,
+    .o_field_widget:not(.o_readonly_modifier) .o_field_many2one_selection:focus-within {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -2px 0 #008a96 !important;
+    }
+
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) .o_input,
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) input,
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) textarea,
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) select {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -1px 0 #c8d3e1 !important;
+    }
+
+    .o_field_widget.o_required_modifier.o_field_empty .o_input,
+    .o_field_widget.o_required_modifier.o_field_empty input,
+    .o_field_widget.o_required_modifier.o_field_empty textarea,
+    .o_field_widget.o_required_modifier.o_field_empty select,
+    .o_field_widget.o_field_invalid .o_input,
+    .o_field_widget.o_field_invalid input,
+    .o_field_widget.o_field_invalid textarea,
+    .o_field_widget.o_field_invalid select {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -2px 0 #e35d6a !important;
+    }
+}
+
+html[data-orbex-theme="dark"] .o_form_view .o_form_editable {
+    .o_field_widget:not(.o_readonly_modifier) .o_input,
+    .o_field_widget:not(.o_readonly_modifier) input,
+    .o_field_widget:not(.o_readonly_modifier) textarea,
+    .o_field_widget:not(.o_readonly_modifier) select,
+    .o_field_widget:not(.o_readonly_modifier) .o-autocomplete,
+    .o_field_widget:not(.o_readonly_modifier) .o-autocomplete--input,
+    .o_field_widget:not(.o_readonly_modifier) .o_field_many2one_selection {
+        background: transparent !important;
+        background-color: transparent !important;
+        color: #e7eaf0 !important;
+        box-shadow: inset 0 -1px 0 #697589 !important;
+    }
+
+    .o_field_widget:not(.o_readonly_modifier) .o_input:focus,
+    .o_field_widget:not(.o_readonly_modifier) input:focus,
+    .o_field_widget:not(.o_readonly_modifier) textarea:focus,
+    .o_field_widget:not(.o_readonly_modifier) select:focus,
+    .o_field_widget:not(.o_readonly_modifier) .o-autocomplete:focus-within,
+    .o_field_widget:not(.o_readonly_modifier) .o_field_many2one_selection:focus-within {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -2px 0 #21c2cf !important;
+    }
+
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) .o_input,
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) input,
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) textarea,
+    .o_field_widget.o_required_modifier:not(.o_field_empty):not(.o_field_invalid) select {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -1px 0 #697589 !important;
+    }
+
+    .o_field_widget.o_required_modifier.o_field_empty .o_input,
+    .o_field_widget.o_required_modifier.o_field_empty input,
+    .o_field_widget.o_required_modifier.o_field_empty textarea,
+    .o_field_widget.o_required_modifier.o_field_empty select,
+    .o_field_widget.o_field_invalid .o_input,
+    .o_field_widget.o_field_invalid input,
+    .o_field_widget.o_field_invalid textarea,
+    .o_field_widget.o_field_invalid select {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: inset 0 -2px 0 #ef6f85 !important;
+    }
+}
+
+// Final page-surface and form-control normalization.
+@include media-breakpoint-up(md) {
+    .o_web_client,
+    .o_action_manager,
+    .o_content,
+    .o_view_controller,
+    .o_control_panel,
+    .o_cp_top,
+    .o_cp_bottom,
+    .o_control_panel_breadcrumbs,
+    .o_form_statusbar,
+    .o_form_view .o_form_statusbar,
+    .o_form_view,
+    .o_form_view .o_form_renderer,
+    .o_form_view .o_form_sheet_bg,
+    .o_form_view .o_notebook_content,
+    .o_form_view .tab-content,
+    .o_form_view .tab-pane,
+    .o_form_view .o_field_x2many,
+    .o_form_view .o_field_x2many_list,
+    .o_form_view .o_field_x2many .o_list_renderer,
+    .o_form_view .o_field_x2many .o_list_table,
+    .o_form_view .o_field_x2many .o_kanban_renderer {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+    }
+
+    .o_form_view .o_form_sheet {
+        border-color: #d8e1ee !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        box-shadow: none !important;
+    }
+
+    .o_form_view .o_notebook_headers,
+    .o_form_view .o_notebook .nav-tabs {
+        border-bottom-color: #cbd6e4 !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+    }
+
+    .o_form_view .o_notebook .nav-link {
+        border-color: #cbd6e4 !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        color: #354154 !important;
+
+        &.active {
+            border-top-color: #7a4a70 !important;
+            border-bottom-color: #ffffff !important;
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            color: #5d3656 !important;
+        }
+    }
+
+    .o_form_view .o_field_radio {
+        .form-check,
+        .o_radio_item {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="radio"] {
+            appearance: none;
+            display: inline-grid;
+            place-content: center;
+            flex: 0 0 18px;
+            width: 18px !important;
+            height: 18px !important;
+            min-width: 18px !important;
+            margin: 0 !important;
+            border: 2px solid #b9c6d8 !important;
+            border-radius: 50% !important;
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            box-shadow: none !important;
+
+            &::before {
+                content: "";
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                transform: scale(0);
+                background: #071735;
+            }
+
+            &:checked {
+                border-color: #071735 !important;
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+
+                &::before {
+                    transform: scale(1);
+                }
+            }
+
+            &:focus-visible {
+                outline: 3px solid rgba(11, 138, 155, .22);
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+html[data-orbex-theme="dark"] {
+    @include media-breakpoint-up(md) {
+        .o_web_client,
+        .o_action_manager,
+        .o_content,
+        .o_view_controller,
+        .o_control_panel,
+        .o_cp_top,
+        .o_cp_bottom,
+        .o_control_panel_breadcrumbs,
+        .o_form_statusbar,
+        .o_form_view .o_form_statusbar,
+        .o_form_view,
+        .o_form_view .o_form_renderer,
+        .o_form_view .o_form_sheet_bg,
+        .o_form_view .o_form_sheet,
+        .o_form_view .o_group,
+        .o_form_view .o_inner_group,
+        .o_form_view .o_notebook_content,
+        .o_form_view .tab-content,
+        .o_form_view .tab-pane,
+        .o_form_view .o_field_x2many,
+        .o_form_view .o_field_x2many_list,
+        .o_form_view .o_field_x2many .o_list_renderer,
+        .o_form_view .o_field_x2many .o_list_table,
+        .o_form_view .o_field_x2many .o_kanban_renderer {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            background-color: #252a36 !important;
+            color: #e7eaf0 !important;
+        }
+
+        .o_form_view .o_notebook_headers,
+        .o_form_view .o_notebook .nav-tabs,
+        .o_form_view .o_notebook .nav-link {
+            border-color: #3a4150 !important;
+            background: #252a36 !important;
+            background-color: #252a36 !important;
+            color: #dce2ea !important;
+        }
+
+        .o_form_view .o_notebook .nav-link.active {
+            border-color: #586174 !important;
+            background: #303746 !important;
+            background-color: #303746 !important;
+            color: #ffffff !important;
+        }
+
+        .o_form_view .o_field_radio {
+            input[type="radio"] {
+                border-color: #7b8798 !important;
+                background: #252a36 !important;
+                background-color: #252a36 !important;
+                box-shadow: none !important;
+
+                &::before {
+                    background: #21c2cf;
+                }
+
+                &:checked {
+                    border-color: #21c2cf !important;
+                    background: #252a36 !important;
+                    background-color: #252a36 !important;
+                }
+            }
         }
     }
 }

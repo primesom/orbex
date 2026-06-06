@@ -6,7 +6,7 @@ $o-search-bar-menu-max-width: calc(100vw - #{map-get($spacers, 3) * 2 });
     max-width: $o-search-bar-menu-max-width;
     min-width: 500px;
     padding-inline: map-get($spacers, 2) !important;
-    justify-content: center;
+    justify-content: flex-start;
 
     .o_dropdown_container {
         border-color: $dropdown-divider-bg !important;

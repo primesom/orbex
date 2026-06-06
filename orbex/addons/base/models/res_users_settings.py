@@ -10,6 +10,15 @@ class ResUsersSettings(models.Model):
     _rec_name = 'user_id'
 
     user_id = fields.Many2one("res.users", string="User", required=True, index=False, ondelete="cascade", domain=[("res_users_settings_id", "=", False)])
+    orbex_chatter_position = fields.Selection(
+        selection=[
+            ('side', 'Side'),
+            ('bottom', 'Bottom'),
+        ],
+        string="Chatter Position",
+        default='side',
+        required=True,
+    )
 
     _unique_user_id = models.Constraint(
         'UNIQUE(user_id)',

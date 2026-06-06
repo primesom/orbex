@@ -694,11 +694,13 @@ export class FormController extends Component {
     get className() {
         const result = {};
         const { size } = this.ui;
+        const preferBottomChatter = user.settings?.orbex_chatter_position === "bottom";
         if (size <= SIZES.XS) {
             result.o_xxs_form_view = true;
-        } else if (!this.env.inDialog && size === SIZES.XXL) {
+        } else if (!this.env.inDialog && size === SIZES.XXL && !preferBottomChatter) {
             result["o_xxl_form_view h-100"] = true;
         }
+        result.o_orbex_chatter_bottom = preferBottomChatter;
         if (this.props.className) {
             result[this.props.className] = true;
         }
