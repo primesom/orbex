@@ -7071,7 +7071,7 @@ msgid ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -7102,7 +7102,7 @@ msgstr ""
 "Jos lokalisaatiosi tarvitsee tätä logiikkaa, tulee tämä moduuli lisätä "
 "riippuvuutena ja lokalisaatiomoduulissa laajentaa:\n"
 "\n"
-"* laajenna yrityksen _localization_use_documents-menetelmää.\n"
+"* laajenna yrityksen _localization_use_documents() -menetelmää.\n"
 "* luoda tiedot asiakirjatyypeistä, jotka ovat olemassa tietylle maalle. "
 "Asiakirjatyypissä on maakenttä\n"
 "\n"
@@ -37856,6 +37856,11 @@ msgstr ""
 "\n"
 
 #. module: base
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
+msgid "Orbex Enterprise Edition License v1.0"
+msgstr "Orbex Enterprise Edition -lisenssi v1.0"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Orbex Yritys -moduuli"
@@ -38780,8 +38785,8 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
-msgid "OS Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+msgid "Orbex Proprietary License v1.0"
 msgstr "Orbex omistusoikeudellinen lisenssi v1.0"
 
 #. module: base
@@ -52393,8 +52398,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_users.py:0
-msgid "You can ony call user.has_groupwith your current user."
-msgstr "Voit kutsua user.has_groupvain nykyisellä käyttäjälläsi."
+msgid "You can ony call user.has_group() with your current user."
+msgstr "Voit kutsua user.has_group() vain nykyisellä käyttäjälläsi."
 
 #. module: base
 #. orbex-python
@@ -53157,8 +53162,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_lang.py:0
-msgid "formatmust be given exactly one %char format specifier"
-msgstr "formattulee antaa tasan %char formaatin mukaisesti"
+msgid "format() must be given exactly one %char format specifier"
+msgstr "format() tulee antaa tasan %char formaatin mukaisesti"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__base_language_export__state__get
@@ -54274,7 +54279,7 @@ msgstr "\"%(attribute)s\" arvon on oltava kokonaisluku (%(value)s)"
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -54305,7 +54310,7 @@ msgstr "\"%(attribute)s\" arvon on oltava kokonaisluku (%(value)s)"
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"

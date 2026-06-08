@@ -420,8 +420,8 @@ def _load_manifest(module: str, manifest_content: dict) -> dict:
     manifest.update(manifest_content)
 
     if not manifest.get('license'):
-        manifest['license'] = 'LGPL-3'
-        _logger.warning("Missing `license` key in manifest for %r, defaulting to LGPL-3", module)
+        manifest['license'] = 'OSPL-1'
+        _logger.warning("Missing `license` key in manifest for %r, defaulting to OSPL-1", module)
 
     if module == 'base':
         manifest['depends'] = []

@@ -1,8 +1,10 @@
 """
-This code is what let us use ES6-style modules in orbex.
-Classic orbex modules are composed of a top-level :samp:`orbex.define({name},{dependencies},{body_function})` call.
-This processor will take files starting with an `@orbex-module` annotation (in a comment) and convert them to classic modules.
-If any file has the ``/** orbex-module */`` on top of it, it will get processed by this class.
+This code is what let us use ES6-style modules in Orbex.
+Classic modules are composed of a top-level :samp:`orbex.define({name},{dependencies},{body_function})` call.
+This processor will take files starting with an `@orbex-module` or `@orbex-module` annotation
+(in a comment) and convert them to classic modules.
+If any file has the ``/** @orbex-module */`` or ``/** @orbex-module */`` on top of it, it will
+get processed by this class.
 It performs several operations to get from ES6 syntax to the usual orbex one with minimal changes.
 This is done on the fly, this not a pre-processing tool.
 
@@ -108,7 +110,7 @@ def wrap_with_qunit_module(url, content):
 
 def wrap_with_orbex_define(module_path, dependencies, content):
     """
-    Wraps the current content (source code) with the orbex.define call.
+    Wraps the current content (source code) with the module loader define call.
     It adds as a second argument the list of dependencies.
     Should logically be called once all other operations have been performed.
     """
@@ -699,11 +701,11 @@ def relative_path_to_module_path(url, path_rel):
     return url_to_module_path(result)
 
 
-orbex_MODULE_RE = re.compile(r"""
+MODULE_RE = re.compile(r"""
     \s*                                # starting white space
     \/(\*|\/)                          # /* or //
     .*                                 # any comment in between (optional)
-    @orbex-module                       # '@orbex-module' statement
+    @orbex-module                      # module statement
     (?P<ignore>\s+ignore)?             # module in src | tests which should not be transpiled (optional)
     (\s+alias=(?P<alias>[^\s*]+))?     # alias (e.g. alias=web.Widget, alias=@web/../tests/utils) (optional)
     (\s+default=(?P<default>[\w$]+))?  # no implicit default export (e.g. default=false) (optional)
@@ -712,14 +714,14 @@ orbex_MODULE_RE = re.compile(r"""
 
 def is_orbex_module(url, content):
     """
-    Detect if the file is a native orbex module.
-    We look for a comment containing @orbex-module.
+    Detect if the file is a native module.
+    We look for a comment containing @orbex-module or @orbex-module.
 
     :param url:
     :param content: source code
     :return: is this a orbex module that need transpilation ?
     """
-    result = orbex_MODULE_RE.match(content)
+    result = MODULE_RE.match(content)
     if result and result['ignore']:
         return False
     addon = url.split('/')[1]
@@ -735,7 +737,7 @@ def get_aliased_orbex_define_content(module_path, content):
     new modules.
 
     Example:
-    If we have a require call somewhere in the orbex source base being:
+    If we have a require call somewhere in the source base being:
     > vat AbstractAction require("web.AbstractAction")
     we have a problem when we will have converted to module to ES6: its new name will be more like
     "web/chrome/abstract_action". So the require would fail !
@@ -765,7 +767,7 @@ def get_aliased_orbex_define_content(module_path, content):
 
     :return: the alias content to append to the source code.
     """
-    matchobj = orbex_MODULE_RE.match(content)
+    matchobj = MODULE_RE.match(content)
     if matchobj:
         alias = matchobj['alias']
         if alias:

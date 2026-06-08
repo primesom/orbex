@@ -4,7 +4,7 @@
 from contextlib import contextmanager
 from unittest.mock import patch
 
-import orbex
+import orbex as orbex
 from orbex import http
 from orbex.addons.base.tests.common import HttpCaseWithUserPortal, HttpCaseWithUserDemo
 from orbex.exceptions import AccessError, UserError

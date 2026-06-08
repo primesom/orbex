@@ -1,6 +1,6 @@
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
-import orbex
+import orbex as orbex
 from orbex.addons.mail.tests.common_controllers import MailControllerAttachmentCommon
 from orbex.tools.misc import file_open
 

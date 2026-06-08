@@ -1,5 +1,7 @@
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
+import orbex as orbex
+
 import orbex.tests
 from orbex import Command
 from orbex.addons.base.tests.common import HttpCaseWithUserDemo, new_test_user

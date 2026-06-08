@@ -391,7 +391,7 @@ class ResUsers(models.Model):
     def _init_store_data(self, store: Store):
         """Initialize the store of the user."""
         xmlid_to_res_id = self.env["ir.model.data"]._xmlid_to_res_id
-        # sudo: res.partner - exposing orbexbot data is considered acceptable
+        # sudo: res.partner - exposing OrbexBot data is considered acceptable
         orbexbot = self.env.ref("base.partner_root").sudo()
         if not self.env.user._is_public():
             orbexbot = orbexbot.with_prefetch((orbexbot + self.env.user.partner_id).ids)

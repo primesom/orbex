@@ -1,6 +1,8 @@
 
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
+import orbex as orbex
+
 import orbex.tests
 from orbex.tests.common import HttpCase
 from orbex.tools.json import scriptsafe as json_safe

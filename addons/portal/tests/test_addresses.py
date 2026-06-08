@@ -40,7 +40,7 @@ class TestPortalAddresses(BaseCommon, HttpCase):
         cls.company_partner = cls.env['res.partner'].create({
             'name': 'Test Orbex SA',
             'is_company': True,
-            'email': 'portal@orbexsuite.com',
+            'email': 'orbex@orbexsuite.com',
             'street': 'Chau. de Namur 40',
             'city': 'Ramillies',
             'zip': '1367',

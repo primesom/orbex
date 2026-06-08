@@ -5,23 +5,13 @@
         padding-left: 1px;
         padding-right: 1px;
 
-    }
-
-    .o-mail-ImStatus-botMark {
-        color: #00a889;
-        font-size: .72em;
-        font-weight: 800;
-        line-height: 1;
+        &.fa-heart {
+            transform: scale(.8); // Deviation: handle icon inconsistent size
+        }
     }
 
     &.o-sm i {
         width: 0.65rem; // matches .o-xsmaller
         height: 0.65rem;
-    }
-
-    &.o-sm .o-mail-ImStatus-botMark {
-        width: 0.65rem;
-        height: 0.65rem;
-        text-align: center;
     }
 }

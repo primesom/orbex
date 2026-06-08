@@ -19,5 +19,5 @@
             "auth_timeout/static/tests/tours/**/*",
         ],
     },
-    "license": 'OSPL-1',
+    'license': 'OSPL-1',
 }

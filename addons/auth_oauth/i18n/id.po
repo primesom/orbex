@@ -209,7 +209,7 @@ msgstr "Sign in dengan Google"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with Orbex Suite"
+msgid "Sign in with Orbex.com"
 msgstr "Sign in dengan Orbex.com"
 
 #. module: auth_oauth

@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from unittest.mock import call, patch
 
-import orbex
+import orbex as orbex
 from orbex.tests import TransactionCase
 from orbex.tools import file_open, file_open_temporary_directory, file_path
 from orbex.tools.config import configmanager

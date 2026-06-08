@@ -24,7 +24,6 @@
                 <data>
                     <xpath expr="//group[@name='other_preferences']" position="inside">
                         <field name="notification_type" widget="radio" readonly="0" options="{'horizontal': true}"/>
-                        <field name="orbex_chatter_position" readonly="0" widget="radio" options="{'horizontal': true}" invisible="not id"/>
                         <field name="outgoing_mail_server_id" invisible="1"/> <!-- Used by the mail_server_configurator_selection widget -->
                         <span class="o_form_label fw-bold" invisible="not has_external_mail_server">Outgoing Mail Server</span>
                         <field name="outgoing_mail_server_type"
@@ -57,7 +56,6 @@
                 <data>
                     <xpath expr="//group[@name='other_preferences']" position="inside">
                         <field name="notification_type" widget="radio" invisible="share" options="{'horizontal': true}"/>
-                        <field name="orbex_chatter_position" widget="radio" options="{'horizontal': true}" invisible="share or not id"/>
                         <field name="outgoing_mail_server_id" invisible="1"/> <!-- Used by the mail_server_configurator_selection widget -->
                         <span class="o_form_label fw-bold" invisible="not has_external_mail_server">Outgoing Mail Server</span>
                         <field name="outgoing_mail_server_type"

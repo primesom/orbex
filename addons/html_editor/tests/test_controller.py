@@ -4,6 +4,8 @@
 import binascii
 import json
 
+import orbex as orbex
+
 import orbex.tests
 from orbex.tests.common import HttpCase, new_test_user
 from orbex.tools.json import scriptsafe as json_safe

@@ -7087,7 +7087,7 @@ msgid ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -7120,7 +7120,7 @@ msgstr ""
 "Als je lokalisatie deze logica nodig heeft, moet je deze module toevoegen "
 "als afhankelijkheid en in je lokalisatiemodule uitbreiden:\n"
 "\n"
-"* de methode _localization_use_documentsvan het bedrijf uitbreiden.\n"
+"* de methode _localization_use_documents() van het bedrijf uitbreiden.\n"
 "* maak de gegevens aan van de documenttypes die bestaan voor het specifieke "
 "land. Het documenttype heeft een landveld\n"
 "\n"
@@ -37922,6 +37922,11 @@ msgstr ""
 "\n"
 
 #. module: base
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
+msgid "Orbex Enterprise Edition License v1.0"
+msgstr "Orbex enterprise licentie editie v1.0"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Orbex Enterprise module"
@@ -38799,8 +38804,8 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
-msgid "OS Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+msgid "Orbex Proprietary License v1.0"
 msgstr "Orbex Proprietary Licentie v1.0"
 
 #. module: base
@@ -52375,8 +52380,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_users.py:0
-msgid "You can ony call user.has_groupwith your current user."
-msgstr "Je kunt alleen user.has_groupoproepen met je huidige gebruiker."
+msgid "You can ony call user.has_group() with your current user."
+msgstr "Je kunt alleen user.has_group() oproepen met je huidige gebruiker."
 
 #. module: base
 #. orbex-python
@@ -53147,8 +53152,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_lang.py:0
-msgid "formatmust be given exactly one %char format specifier"
-msgstr "formatmoet worden ingevoerd met exact 1 %char formaat specifier"
+msgid "format() must be given exactly one %char format specifier"
+msgstr "format() moet worden ingevoerd met exact 1 %char formaat specifier"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__base_language_export__state__get
@@ -54604,7 +54609,7 @@ msgstr "“%(attribute)s” moet een integer zijn (%(value)s)"
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -54636,7 +54641,7 @@ msgstr "“%(attribute)s” moet een integer zijn (%(value)s)"
 #~ "Als je lokalisatie deze logica nodig heeft, moet je deze module als "
 #~ "afhankelijkheid toevoegen en in je lokalisatiemodule uitbreiden:\n"
 #~ "\n"
-#~ "* breid de _localization_use_documents -methode van het bedrijf uit.\n"
+#~ "* breid de _localization_use_documents () -methode van het bedrijf uit.\n"
 #~ "* maak de gegevens van de documenttypes die voor het specifieke land "
 #~ "bestaan. Het documenttype heeft een landveld\n"
 #~ "\n"

@@ -6521,7 +6521,7 @@ msgid ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -36552,6 +36552,11 @@ msgstr ""
 "\n"
 
 #. module: base
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
+msgid "Orbex Enterprise Edition License v1.0"
+msgstr "Licence Orbex Enterprise Edition v1.0"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Orbex Enterprise Modul"
@@ -37338,8 +37343,8 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
-msgid "OS Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+msgid "Orbex Proprietary License v1.0"
 msgstr "Orbex Proprietární licence v1.0"
 
 #. module: base
@@ -50778,8 +50783,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_users.py:0
-msgid "You can ony call user.has_groupwith your current user."
-msgstr "Můžete volat user.has_grouppouze pro aktuálního uživatele."
+msgid "You can ony call user.has_group() with your current user."
+msgstr "Můžete volat user.has_group() pouze pro aktuálního uživatele."
 
 #. module: base
 #. orbex-python
@@ -51532,8 +51537,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_lang.py:0
-msgid "formatmust be given exactly one %char format specifier"
-msgstr "formatmust be given exactly one %char format specifier"
+msgid "format() must be given exactly one %char format specifier"
+msgstr "format() must be given exactly one %char format specifier"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__base_language_export__state__get
@@ -52925,7 +52930,7 @@ msgstr "“%(attribute)s” hodnota musí být celé číslo (%(value)s)"
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -52956,7 +52961,7 @@ msgstr "“%(attribute)s” hodnota musí být celé číslo (%(value)s)"
 #~ "Pokud vaše lokalizace potřebuje tuto logiku, budete muset přidat tento "
 #~ "modul jako závislost a ve vašem lokalizačním modulu rozšířit:\n"
 #~ "\n"
-#~ "* rozšířit metodu _localization_use_documentsspolečnosti.\n"
+#~ "* rozšířit metodu _localization_use_documents() společnosti.\n"
 #~ "* vytvářet data typů dokumentů, které existují pro konkrétní zemi. Typ "
 #~ "dokumentu obsahuje pole země\n"
 #~ "\n"

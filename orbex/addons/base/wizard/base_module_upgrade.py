@@ -1,6 +1,6 @@
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
-import orbex
+import orbex as orbex
 from orbex import api, fields, models
 from orbex.exceptions import UserError
 

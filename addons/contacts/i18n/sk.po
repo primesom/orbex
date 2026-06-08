@@ -4,7 +4,7 @@
 #
 # Translators:
 # Martin Trigaux, 2022
-# SAKodoo <sak@orbexsuite.com>, 2022
+# SAKorbex <sak@orbexsuite.com>, 2022
 # Tomáš Píšek <Tomas.Pisek@seznam.cz>, 2026.
 msgid ""
 msgstr ""

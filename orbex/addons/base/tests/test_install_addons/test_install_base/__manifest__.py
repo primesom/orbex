@@ -5,5 +5,6 @@
     'description': "",
     'depends': ['base'],
     'installable': True,
-    'license': 'OSPL-1',
+    'author': 'Orbex S.A.',
+    'license': 'LGPL-3',
 }

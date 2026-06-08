@@ -183,7 +183,6 @@ class ResUsers(models.Model):
             'tz_offset', 'group_ids', 'partner_id', 'write_date', 'action_id',
             'avatar_1920', 'avatar_1024', 'avatar_512', 'avatar_256', 'avatar_128',
             'share', 'device_ids', 'api_key_ids', 'phone', 'display_name',
-            'orbex_chatter_position',
         ]
 
     @property
@@ -191,7 +190,7 @@ class ResUsers(models.Model):
         """ The list of fields a user can write on their own user record.
         In order to add fields, please override this property on model extensions.
         """
-        return ['signature', 'action_id', 'company_id', 'email', 'name', 'image_1920', 'lang', 'tz', 'api_key_ids', 'phone', 'orbex_chatter_position']
+        return ['signature', 'action_id', 'company_id', 'email', 'name', 'image_1920', 'lang', 'tz', 'api_key_ids', 'phone']
 
     @api.model
     @tools.ormcache(cache='stable')
@@ -239,11 +238,6 @@ class ResUsers(models.Model):
     res_users_settings_ids = fields.One2many('res.users.settings', 'user_id')
     # Provide a target for relateds that is not a x2Many field.
     res_users_settings_id = fields.Many2one('res.users.settings', string="Settings", compute='_compute_res_users_settings_id', search='_search_res_users_settings_id')
-    orbex_chatter_position = fields.Selection(
-        related='res_users_settings_id.orbex_chatter_position',
-        readonly=False,
-        string="Chatter Position",
-    )
 
     # Special behavior for this field: res.company.search() will only return the companies
     # available to the current user (should be the user's companies?), when the user_preference

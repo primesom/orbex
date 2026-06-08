@@ -3,7 +3,7 @@ import collections
 import datetime
 import time
 
-import orbex
+import orbex as orbex
 import orbex.tools
 from orbex.exceptions import AccessDenied, AccessError
 from orbex.http import _request_stack

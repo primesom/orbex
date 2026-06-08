@@ -5,7 +5,8 @@ import logging
 from base64 import b64decode
 from unittest import skipIf
 
-import orbex
+import orbex as orbex
+import orbex as orbex
 import orbex.tests
 from orbex import tools
 from orbex.exceptions import UserError

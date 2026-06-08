@@ -5143,7 +5143,7 @@ msgid ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -32531,6 +32531,11 @@ msgid ""
 msgstr ""
 
 #. module: base
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
+msgid "Orbex Enterprise Edition License v1.0"
+msgstr "Llicència Orbex Edició Enterprise v1.0"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Mòdul Orbex Enterprise"
@@ -33089,8 +33094,8 @@ msgid ""
 msgstr ""
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
-msgid "OS Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+msgid "Orbex Proprietary License v1.0"
 msgstr "Llicència Propietària Orbex v1.0"
 
 #. module: base
@@ -45973,7 +45978,7 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_users.py:0
-msgid "You can ony call user.has_groupwith your current user."
+msgid "You can ony call user.has_group() with your current user."
 msgstr ""
 
 #. module: base
@@ -46718,8 +46723,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_lang.py:0
-msgid "formatmust be given exactly one %char format specifier"
-msgstr "formats'ha de donar exactament un especificador de format %char"
+msgid "format() must be given exactly one %char format specifier"
+msgstr "format() s'ha de donar exactament un especificador de format %char"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__base_language_export__state__get
@@ -48091,7 +48096,7 @@ msgstr ""
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -48123,7 +48128,7 @@ msgstr ""
 #~ "aquest mòdul com a dependència i estendreu al vostre mòdul de "
 #~ "localització:\n"
 #~ "\n"
-#~ "* esteneu company's _localization_use_documentsmètode.\n"
+#~ "* esteneu company's _localization_use_documents() mètode.\n"
 #~ "* crear les dades dels tipus de document que existeixen per al país "
 #~ "concret. El tipus de document té un camp de país\n"
 #~ "\n"

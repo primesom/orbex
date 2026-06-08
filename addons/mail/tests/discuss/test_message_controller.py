@@ -2,7 +2,7 @@
 
 import json
 
-import orbex
+import orbex as orbex
 from orbex.tests import tagged, users
 from orbex.tools import mute_logger
 from orbex.addons.base.tests.common import HttpCase, HttpCaseWithUserDemo

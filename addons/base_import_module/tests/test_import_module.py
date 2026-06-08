@@ -6,6 +6,8 @@ import os
 from io import BytesIO
 from zipfile import ZipFile
 
+import orbex as orbex
+
 import orbex.tests
 from orbex.tests import new_test_user
 

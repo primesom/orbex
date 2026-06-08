@@ -32,9 +32,13 @@
                     <filter name="not_installed" string="Not Installed" domain="[('state', 'in', ['uninstalled', 'uninstallable', 'to install'])]"/>
                     <field name="category_id"/>
                     <group>
+                        <filter string="Author" name="author" domain="[]" context="{'group_by':'author'}"/>
                         <filter string="Category" name="category" domain="[]" context="{'group_by':'category_id'}"/>
                         <filter string="Status" name="state" domain="[]" context="{'group_by':'state'}"/>
                     </group>
+                    <searchpanel>
+                        <field name="category_id" string="Categories" enable_counters="1"/>
+                    </searchpanel>
                </search>
             </field>
         </record>
@@ -54,6 +58,7 @@
                             <field class="fs-2 text-muted" name="summary" invisible="not summary"/>
                         </h1>
                         <h4 class="text-muted d-flex flex-column">
+                            <div>By <field name="author" class="oe_inline" placeholder="Author Name"/> </div>
                             <small><field name="website" widget="url" invisible="not website"/></small>
                         </h4>
 
@@ -67,6 +72,7 @@
                             <button invisible="state != 'to upgrade'" class="btn btn-secondary me-1" groups="base.group_system" disabled="1">Upgrading</button>
                             <button invisible="state != 'to install'" class="btn btn-secondary me-1" groups="base.group_system" disabled="1">Installing</button>
                         </div>
+                        <h6 class="text-muted mt-2" invisible="not has_iap">Contains In-App Purchases</h6>
                     </div>
                     <div class="clearfix"/>
                     <notebook groups="base.group_no_one">
@@ -129,8 +135,8 @@
                         <button name="button_immediate_upgrade" type="object" string="Upgrade" groups="base.group_system"/>
                     </header>
                     <field name="shortdesc"/>
-                    <field name="category_id"/>
                     <field name="name" groups="base.group_no_one"/>
+                    <field name="author"/>
                     <field name="website"/>
                     <field name="installed_version"/>
                     <field name="state" widget="badge"
@@ -191,7 +197,7 @@
             <field name="path">apps</field>
             <field name="res_model">ir.module.module</field>
             <field name="view_mode">kanban,list,form</field>
-            <field name="context">{}</field>
+            <field name="context">{'search_default_app':1}</field>
             <field name="search_view_id" ref="view_module_filter"/>
             <field name="help" type="html">
               <p class="o_view_nocontent_empty_folder">

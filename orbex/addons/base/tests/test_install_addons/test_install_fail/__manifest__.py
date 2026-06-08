@@ -8,5 +8,6 @@
         'views/res_currency_views.xml',
     ],
     'installable': True,
-    'license': 'OSPL-1',
+    'author': 'Orbex S.A.',
+    'license': 'LGPL-3',
 }

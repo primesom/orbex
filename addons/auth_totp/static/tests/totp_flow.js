@@ -1,7 +1,7 @@
 import { WORKER_STATE } from "@bus/workers/websocket_worker";
 import { rpc } from "@web/core/network/rpc";
 import { registry } from "@web/core/registry";
-import { stepUtils } from "@web/web_tour/tour_utils";
+import { stepUtils } from "@web_tour/tour_utils";
 import { whenReady } from "@orbex/owl";
 
 function openRoot() {

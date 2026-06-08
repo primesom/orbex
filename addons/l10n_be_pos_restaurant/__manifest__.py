@@ -1,0 +1,11 @@
+# Part of Orbex. See LICENSE file for full copyright and licensing details.
+{
+    'name': 'Belgian POS Restaurant Localization',
+    'version': '1.0',
+    'category': 'Sales/Point of Sale',
+    'depends': ['pos_restaurant', 'l10n_be'],
+    'auto_install': True,
+    'installable': True,
+    'license': 'OSPL-1',
+    'post_init_hook': 'post_init_hook',
+}

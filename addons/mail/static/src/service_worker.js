@@ -129,7 +129,7 @@ async function storeLogs(logs, { download = false } = {}) {
  * @param {Client | ServiceWorker | MessagePort} [source] if set, will not open the channel on the source
  */
 async function openDiscussChannel(channelId, { action, joinCall = false, source } = {}) {
-    const discussURLRegexes = [new RegExp("/orbex/chat"), new RegExp("/orbex/discuss")];
+    const discussURLRegexes = [new RegExp("/orbex/discuss")];
     if (action) {
         discussURLRegexes.push(
             new RegExp(`/orbex/\\d+/action-${action}`),

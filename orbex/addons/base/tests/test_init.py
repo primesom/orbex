@@ -34,6 +34,7 @@ class TestInit(BaseCase):
         )
 
     def orbex_modules_to_test(self):
+        import orbex as orbex
         import orbex.cli  # noqa: PLC0415
         for path in (*orbex.__path__, *orbex.cli.__path__):
             parent = Path(path)

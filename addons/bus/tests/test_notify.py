@@ -4,7 +4,7 @@ import json
 import selectors
 import threading
 
-import orbex
+import orbex as orbex
 from orbex.tests import TransactionCase
 
 from ..models.bus import json_dump, get_notify_payloads, NOTIFY_PAYLOAD_MAX_LENGTH, ORBEX_NOTIFY_FUNCTION

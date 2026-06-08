@@ -6,7 +6,7 @@ from datetime import datetime
 import psycopg2
 import psycopg2.errors
 
-import orbex
+import orbex as orbex
 from orbex.exceptions import UserError
 from orbex.modules.registry import Registry
 from orbex.tests import common

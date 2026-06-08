@@ -13,8 +13,8 @@
         <t t-if="category.open">
             <DiscussSidebarChannel t-foreach="filteredThreads(category.threads)" t-as="thread" t-key="thread.localId" thread="thread"/>
         </t>
-        <DiscussSidebarChannel t-elif="category.id !== 'chats' and store.discuss.thread?.in(category.threads)" thread="store.discuss.thread"/>
-        <DiscussSidebarChannel t-elif="category.id !== 'chats' and store.discuss.thread?.parent_channel_id?.in(category.threads)" thread="store.discuss.thread.parent_channel_id" />
+        <DiscussSidebarChannel t-elif="store.discuss.thread?.in(category.threads)" thread="store.discuss.thread"/>
+        <DiscussSidebarChannel t-elif="store.discuss.thread?.parent_channel_id?.in(category.threads)" thread="store.discuss.thread.parent_channel_id" />
     </t>
 
     <t t-name="mail.DiscussSidebarCategory">
@@ -44,7 +44,7 @@
                     <span t-if="store.channels.status === 'fetching'" class="o-visible-short-delay"><i class="o-mail-DiscussSidebarCategory-icon o-xxsmaller fa fa-fw fa-circle-o-notch fa-spin opacity-50 o-mt-0_5"/></span>
                     <i t-else="" class="o-mail-DiscussSidebarCategory-icon o-xsmaller fa-fw position-absolute ms-n3 align-self-center o-mt-0_5" t-att-class="category.open ? 'oi oi-chevron-down' : 'oi oi-chevron-right'"/>
                     <span class="o-mail-DiscussSidebarCategory-title text-break smaller d-flex align-items-center" t-att-class="{ 'fs-bold': category.open }">
-                        <t name="titleText" t-esc="category.name.toLowerCase() === 'direct messages' ? 'People' : category.name"/>
+                        <t name="titleText" t-esc="category.name"/>
                     </span>
                 </t>
             </button>
@@ -156,12 +156,7 @@
                     <ThreadIcon t-if="thread.channel_type?.includes('chat') or (thread.channel_type === 'channel' and !thread.group_public_id)" thread="thread" size="'small'" className="'o-mail-DiscussSidebarChannel-threadIcon position-absolute top-100 start-100 translate-middle mt-n1 ms-n1 d-flex align-items-center justify-content-center rounded-circle bg-inherit'"/>
                 </div>
                 <span t-if="!store.discuss.isSidebarCompact" class="o-mail-DiscussSidebarChannel-itemName mx-2 text-truncate text-start lh-sm opacity-trigger-hove flex-grow-1" t-att-class="itemNameAttClass">
-                    <span class="o-mail-DiscussSidebarChannel-title d-block text-truncate">
-                        <t t-esc="thread.displayName"/>
-                    </span>
-                    <span t-if="thread.description" class="o-mail-DiscussSidebarChannel-description d-block text-truncate">
-                        <t t-esc="thread.description"/>
-                    </span>
+                    <t t-esc="thread.displayName"/>
                 </span>
             </div>
             <div t-if="indicators.length" class="position-absolute rounded-circle p-0 smaller o-mail-DiscussSidebarChannel-indicatorCompact lh-1 bg-inherit" name="indicator-compact">

@@ -8,8 +8,5 @@
             groups="base.group_no_one"
             sequence="10"
         />
-        <record id="discuss_technical" model="ir.ui.menu">
-            <field name="active" eval="False"/>
-        </record>
     </data>
 </orbex>

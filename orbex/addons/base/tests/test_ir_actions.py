@@ -8,7 +8,7 @@ from psycopg2 import IntegrityError, ProgrammingError
 import requests
 from unittest.mock import patch
 
-import orbex
+import orbex as orbex
 from orbex.exceptions import UserError, ValidationError, AccessError
 from orbex.tools import mute_logger
 from orbex.tests import common, tagged

@@ -15,7 +15,7 @@ from docutils.writers.html4css1 import Writer as HtmlWriter
 from werkzeug.exceptions import NotFound
 from werkzeug.http import is_resource_modified, parse_cache_control_header
 
-import orbex
+import orbex as orbex
 from orbex import http, models
 from orbex.api import Self
 from orbex.exceptions import AccessError

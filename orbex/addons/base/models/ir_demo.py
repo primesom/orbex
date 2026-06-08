@@ -10,6 +10,7 @@ class IrDemo(models.TransientModel):
 
     @assert_log_admin_access
     def install_demo(self):
+        import orbex as orbex
         import orbex.modules.loading  # noqa: PLC0415
         orbex.modules.loading.force_demo(self.env)
         return {

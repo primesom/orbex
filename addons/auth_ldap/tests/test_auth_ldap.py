@@ -1,7 +1,7 @@
 import re
 from unittest.mock import patch
 
-import orbex
+import orbex as orbex
 from orbex.tests.common import HttpCase, tagged
 
 
@@ -16,10 +16,10 @@ class TestAuthLDAP(HttpCase):
                     "company": (1, "YourCompany"),
                     "ldap_server": "127.0.0.1",
                     "ldap_server_port": 389,
-                    "ldap_binddn": "cn=admin,dc=orbexsuite,dc=com",
+                    "ldap_binddn": "cn=admin,dc=orbex,dc=com",
                     "ldap_password": "admin",
                     "ldap_filter": "cn=%s",
-                    "ldap_base": "dc=orbexsuite,dc=com",
+                    "ldap_base": "dc=orbex,dc=com",
                     "user": (6, "Marc Demo"),
                     "create_user": True,
                     "ldap_tls": False,
@@ -28,7 +28,7 @@ class TestAuthLDAP(HttpCase):
 
         def _authenticate(*args, **kwargs):
             return (
-                "cn=test_ldap_user,dc=orbexsuite,dc=com",
+                "cn=test_ldap_user,dc=orbex,dc=com",
                 {
                     "sn": [b"test_ldap_user"],
                     "cn": [b"test_ldap_user"],

@@ -4,6 +4,8 @@ from unittest.mock import MagicMock, Mock, patch
 from werkzeug.exceptions import NotFound
 from werkzeug.test import EnvironBuilder
 
+import orbex as orbex
+
 import orbex.http
 from orbex.tests import HOST, HttpCase
 from orbex.tools import DotDict, config, frozendict

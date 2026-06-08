@@ -12,7 +12,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Orbex Suite Server 1.0\n"
+"Project-Id-Version: Orbex Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-08 17:35+0000\n"
 "PO-Revision-Date: 2025-10-08 18:37+0000\n"
@@ -9457,7 +9457,7 @@ msgstr ""
 #: code:addons/mail/static/src/discuss/call/public_web/discuss_sidebar_call_indicator.xml:0
 #, fuzzy
 msgid "Ongoing call"
-msgstr "Davom eorbextgan qo‘ng‘iroq"
+msgstr "Davom etayotgan qo‘ng‘iroq"
 
 #. module: mail
 #. orbex-javascript

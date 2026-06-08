@@ -7,6 +7,8 @@ from datetime import date, datetime
 
 from markupsafe import Markup
 
+import orbex as orbex
+
 import orbex.exceptions
 from orbex.fields import Command, Date, Datetime
 from orbex.http import Controller, Response, dispatch_rpc, request, route

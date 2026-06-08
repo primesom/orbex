@@ -60,10 +60,10 @@ class MessageDropdown extends Dropdown {
  * @extends {Component<Props, Env>}
  */
 export class Message extends Component {
-    // This is a darker accessible variant of the Orbex navy brand color.
-    static SHADOW_LINK_COLOR = "#0a214f";
+    // This is the darken version of #71639e
+    static SHADOW_LINK_COLOR = "#66598f";
     static SHADOW_HIGHLIGHT_COLOR = "#e99d00bf";
-    static SHADOW_LINK_HOVER_COLOR = "#061433";
+    static SHADOW_LINK_HOVER_COLOR = "#564b79";
     static components = {
         ActionList,
         ActionSwiper,

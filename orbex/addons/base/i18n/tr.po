@@ -6923,7 +6923,7 @@ msgid ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -6954,7 +6954,7 @@ msgstr ""
 "Yerelleştirmenizin bu mantığa ihtiyacı varsa, bu modülü bağımlılık olarak "
 "eklemeniz ve yerelleştirme modülünüzü genişletmeniz gerekecektir:\n"
 "\n"
-"* company'nin _localization_use_documentsyöntemini genişletin.\n"
+"* company'nin _localization_use_documents() yöntemini genişletin.\n"
 "* Belirli bir ülke için var olan belge türlerinin verilerini oluşturun. "
 "Belge türünde bir ülke alanı vardır\n"
 "\n"
@@ -37455,6 +37455,11 @@ msgstr ""
 "\n"
 
 #. module: base
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
+msgid "Orbex Enterprise Edition License v1.0"
+msgstr "Orbex Kurumsal Sürüm Lisansı v1.0"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Orbex Enterprise Modül"
@@ -38265,8 +38270,8 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
-msgid "OS Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+msgid "Orbex Proprietary License v1.0"
 msgstr "Orbex Tescilli Lisansı v1.0"
 
 #. module: base
@@ -51804,7 +51809,7 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_users.py:0
-msgid "You can ony call user.has_groupwith your current user."
+msgid "You can ony call user.has_group() with your current user."
 msgstr "user.has_group(), sadece mevcut kullanıcıyla çağrılabilir."
 
 #. module: base
@@ -52558,8 +52563,8 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_lang.py:0
-msgid "formatmust be given exactly one %char format specifier"
-msgstr "formattam olarak bir %cformat belirleyici verilmelidir"
+msgid "format() must be given exactly one %char format specifier"
+msgstr "format() tam olarak bir %cformat belirleyici verilmelidir"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__base_language_export__state__get
@@ -53992,7 +53997,7 @@ msgstr "“%(attribute)s” değeri bir tamsayı olmalı (%(value)s)"
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -54024,7 +54029,7 @@ msgstr "“%(attribute)s” değeri bir tamsayı olmalı (%(value)s)"
 #~ "bağımlılık olarak eklemeniz ve yerelleştirme modülünüzde genişletmeniz "
 #~ "gerekecektir:\n"
 #~ "\n"
-#~ "* şirketin _yerelleştirme_kullanım_belgeleriyöntemini genişletin.\n"
+#~ "* şirketin _yerelleştirme_kullanım_belgeleri() yöntemini genişletin.\n"
 #~ "* belirli bir ülke için mevcut olan belge türlerinin verilerini "
 #~ "oluşturun. Belge türü bir ülke alanına sahiptir\n"
 #~ "\n"

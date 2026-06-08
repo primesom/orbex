@@ -67,8 +67,8 @@
             <field name="model">ir.module.module</field>
             <field name="inherit_id" ref="base.view_module_filter"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='category_id']" position="after">
-                    <field name="module_type" string="Module Type"/>
+                <xpath expr="//searchpanel/field[@name='category_id']" position="before">
+                    <field name="module_type" string="Apps" expand="1"/>
                 </xpath>
             </field>
         </record>

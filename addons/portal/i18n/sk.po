@@ -3,7 +3,7 @@
 # * portal
 #
 # Translators:
-# SAKodoo <sak@orbexsuite.com>, 2022
+# SAKorbex <sak@orbexsuite.com>, 2022
 # Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2022
 # Rastislav Brencic <rastislav.brencic@azet.sk>, 2022
 # Jan Prokop, 2022

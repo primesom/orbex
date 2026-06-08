@@ -218,7 +218,7 @@ msgstr "כניסה באמצעות גוגל"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with Orbex Suite"
+msgid "Sign in with Orbex.com"
 msgstr "כניסה באמצעות Orbex"
 
 #. module: auth_oauth

@@ -13,7 +13,7 @@ msgstr ""
 "POT-Creation-Date: 2026-01-25 18:36+0000\n"
 "PO-Revision-Date: 2025-05-06 12:03+0000\n"
 "Last-Translator: Tony Ng, 2025\n"
-"Language-Team: Chinese (Taiwan) (https://app.transifex.com/orbexsuite/teams/41243/"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/orbex/teams/41243/"
 "zh_TW/)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
@@ -208,7 +208,7 @@ msgstr "使用 Google 登入"
 
 #. module: auth_oauth
 #: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with Orbex Suite"
+msgid "Sign in with Orbex.com"
 msgstr "使用 Orbex.com 登入"
 
 #. module: auth_oauth

@@ -168,7 +168,7 @@ test("Chat is pinned on other tabs when joined", async () => {
 });
 
 test("Auto-open OrbexBot chat when opening discuss for the first time", async () => {
-    // orbexbot chat has onboarding for using Discuss app.
+    // Orbexbot chat has onboarding for using Discuss app.
     // We assume pinned orbexbot chat without any message seen means user just started using Discuss app.
     const pyEnv = await startServer();
     pyEnv["discuss.channel"].create({

@@ -5,7 +5,7 @@ import { markup } from "@orbex/owl";
 import { delay } from "@web/core/utils/concurrency";
 
 registry.category("web_tour.tours").add("discuss_channel_tour", {
-    url: "/orbex?tour=discuss_channel_tour",
+    url: "/orbex",
     steps: () => [
         {
             isActive: ["enterprise"],

@@ -1,0 +1,12 @@
+[Unit]
+Description=Orbex LED Status Indicator: makes LEDs blink based on Orbex status
+
+[Service]
+Type=simple
+User=root
+ExecStart=/home/pi/orbex/addons/iot_box_image/configuration/led_manager.sh
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

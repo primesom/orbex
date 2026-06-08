@@ -6801,7 +6801,7 @@ msgid ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -6830,7 +6830,7 @@ msgstr ""
 "If your localization needs this logic will then need to add this module as "
 "dependency and in your localization module extend:\n"
 "\n"
-"* extend company's _localization_use_documentsmethod.\n"
+"* extend company's _localization_use_documents() method.\n"
 "* create the data of the document types that exists for the specific "
 "country. The document type has a country field\n"
 "\n"
@@ -36838,6 +36838,11 @@ msgstr ""
 "\n"
 
 #. module: base
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__oeel-1
+msgid "Orbex Enterprise Edition License v1.0"
+msgstr "Orbex 유료버전 판 라이센스 v1.0"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__to_buy
 msgid "Orbex Enterprise Module"
 msgstr "Orbex 유료버전 모듈"
@@ -37714,8 +37719,8 @@ msgstr ""
 "\n"
 
 #. module: base
-#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__ospl-1
-msgid "OS Proprietary License v1.0"
+#: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__opl-1
+msgid "Orbex Proprietary License v1.0"
 msgstr "Orbex 독점 라이센스 v1.0"
 
 #. module: base
@@ -51078,7 +51083,7 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_users.py:0
-msgid "You can ony call user.has_groupwith your current user."
+msgid "You can ony call user.has_group() with your current user."
 msgstr "현재 사용자로 user.has_group()을 호출할 수 있습니다."
 
 #. module: base
@@ -51825,7 +51830,7 @@ msgstr ""
 #. module: base
 #. orbex-python
 #: code:addons/base/models/res_lang.py:0
-msgid "formatmust be given exactly one %char format specifier"
+msgid "format() must be given exactly one %char format specifier"
 msgstr "format()에는  정확하게 하나의 %char 형식 지정자를 지정해야 합니다"
 
 #. module: base
@@ -53185,7 +53190,7 @@ msgstr "“%(attribute)s” 값은 정수(%(value)s)여야 합니다."
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -53215,7 +53220,7 @@ msgstr "“%(attribute)s” 값은 정수(%(value)s)여야 합니다."
 #~ "If your localization needs this logic will then need to add this module "
 #~ "as dependency and in your localization module extend:\n"
 #~ "\n"
-#~ "* extend company's _localization_use_documentsmethod.\n"
+#~ "* extend company's _localization_use_documents() method.\n"
 #~ "* create the data of the document types that exists for the specific "
 #~ "country. The document type has a country field\n"
 #~ "\n"
@@ -57064,7 +57069,7 @@ msgstr "“%(attribute)s” 값은 정수(%(value)s)여야 합니다."
 #~ msgstr ""
 #~ "\n"
 #~ "웹사이트에 게시된 양식에서 프로젝트의 작업 생성. 이 모듈은 *양식 생성기* "
-#~ "모듈(Orbex 에서만 사용 가능)을 사용하여 양식을 작성해야 "
+#~ "모듈(Orbex Enterprise Edition에서만 사용 가능)을 사용하여 양식을 작성해야 "
 #~ "합니다.\n"
 #~ "    "
 

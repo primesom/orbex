@@ -10,7 +10,7 @@ import werkzeug.urls
 import urllib.parse
 from werkzeug.exceptions import HTTPException, NotFound
 
-import orbex
+import orbex as orbex
 from orbex import api, models, exceptions, tools, http
 from orbex.addons.base.models import ir_http
 from orbex.addons.base.models.ir_http import RequestUID

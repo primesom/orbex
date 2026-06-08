@@ -6,7 +6,7 @@ from datetime import date, datetime
 from functools import wraps
 from markupsafe import Markup
 
-import orbex
+import orbex as orbex
 from orbex import models
 from orbex.exceptions import MissingError
 from orbex.http import request

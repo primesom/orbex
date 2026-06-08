@@ -12,7 +12,7 @@ http_routing is installed and that all incoming requests SHOULD be
 going through ir.http._match (which sets that attribute),
 there are some rogue requests which do not. This is likely due to a
 @route(auth='none') controller which creates its own registry and attempts
-to render a template (e.g. upstream#99667).
+to render a template (e.g. orbex/orbex#99667).
 
 The following expectations MUST hold:
 

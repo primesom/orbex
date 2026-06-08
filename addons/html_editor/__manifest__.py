@@ -8,6 +8,7 @@ Html Editor
 ==========================
 This addon provides an extensible, maintainable editor.
     """,
+
     'website': "https://www.orbexsuite.com",
     'version': '1.0',
     'category': 'Hidden',
@@ -118,5 +119,5 @@ This addon provides an extensible, maintainable editor.
             'web/static/lib/prismjs/themes/okaida.css',
         ]
     },
-    'license': 'OSPL-1'
+    'license': 'OSPL-1',
 }

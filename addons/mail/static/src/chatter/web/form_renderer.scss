@@ -11,10 +11,9 @@
         }
 
         flex-shrink: 0;
-        flex-grow: 0;
+        flex-grow: 1;
         padding: map-get($spacers, 0);
-        width: calc(min(360px, 24vw) + var(--Chatter-asideExtraWidth));
-        max-width: calc(360px + var(--Chatter-asideExtraWidth));
+        width: calc(#{$o-mail-Chatter-minWidth} + var(--Chatter-asideExtraWidth));
     }
 
     &.o-isInFormSheetBg {
@@ -49,27 +48,4 @@
     margin: 0 auto;
     padding-bottom: map-get($spacers, 5);
     width: 100%;
-}
-
-.o_form_view.o_orbex_chatter_bottom,
-.o_form_view.o_xxl_form_view:has(.o-mail-Form-chatter:not(.o-aside)),
-.o_form_renderer:has(> .o-mail-Form-chatter:not(.o-aside)) {
-    flex-flow: column nowrap !important;
-
-    > .o_form_view_container {
-        width: auto;
-        flex: 0 0 auto;
-    }
-
-    > .o_form_sheet_bg {
-        width: 100%;
-        flex: 0 0 auto;
-    }
-
-    > .o-mail-Form-chatter:not(.o-aside) {
-        flex: 0 0 auto;
-        max-width: none;
-        margin-top: 0 !important;
-        border-top: 1px solid $border-color;
-    }
 }

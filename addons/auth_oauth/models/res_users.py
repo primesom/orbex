@@ -77,7 +77,7 @@ class ResUsers(models.Model):
             for key in [
                 'sub', # standard
                 'id', # google v1 userinfo, facebook opengraph
-                'user_id', # google tokeninfo, Orbex Suite tokeninfo
+                'user_id', # google tokeninfo, orbex (tokeninfo)
             ]
         ]), None)
         if not subject:

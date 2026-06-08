@@ -2,13 +2,13 @@
 <orbex>
     <data noupdate="1">
         <record id="provider_openerp" model="auth.oauth.provider">
-            <field name="name">Orbex Suite Accounts</field>
+            <field name="name">Orbex.com Accounts</field>
             <field name="auth_endpoint">https://accounts.orbexsuite.com/oauth2/auth</field>
             <field name="scope">userinfo</field>
             <field name="validation_endpoint">https://accounts.orbexsuite.com/oauth2/tokeninfo</field>
             <field name="css_class">o_auth_oauth_provider_icon o_orbex_provider</field>
-            <field name="body">Sign in with Orbex Suite</field>
-            <field name="enabled" eval="False"/>
+            <field name="body">Sign in with Orbex.com</field>
+            <field name="enabled" eval="True"/>
         </record>
         <record id="provider_facebook" model="auth.oauth.provider">
             <field name="name">Facebook Graph</field>
@@ -28,7 +28,7 @@
             <field name="body">Sign in with Google</field>
         </record>
 
-        <!-- Use database uuid as client_id for the Orbex Suite OAuth provider. -->
+        <!-- Use database uuid as client_id for OpenERP oauth provider -->
         <function model="auth.oauth.provider" name="write">
             <value eval="[ref('auth_oauth.provider_openerp')]"/>
             <value model="ir.config_parameter" eval="{

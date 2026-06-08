@@ -17,7 +17,7 @@ from markupsafe import Markup
 import lxml.html
 import psycopg2
 
-import orbex
+import orbex as orbex
 from orbex import api, fields, models, modules, tools, _
 from orbex.addons.base.models.ir_model import MODULE_UNINSTALL_FLAG
 from orbex.exceptions import AccessDenied, UserError, ValidationError
@@ -276,6 +276,7 @@ class IrModuleModule(models.Model):
     summary = fields.Char('Summary', readonly=True, translate=True)
     description = fields.Text('Description', readonly=True, translate=True)
     description_html = fields.Html('Description HTML', compute='_get_desc')
+    author = fields.Char("Author", readonly=True)
     maintainer = fields.Char('Maintainer', readonly=True)
     contributors = fields.Text('Contributors', readonly=True)
     website = fields.Char("Website", readonly=True)
@@ -308,8 +309,10 @@ class IrModuleModule(models.Model):
         ('GPL-3 or any later version', 'GPL-3 or later version'),
         ('AGPL-3', 'Affero GPL-3'),
         ('LGPL-3', 'LGPL Version 3'),
+        ('OSPL-1', 'Orbex Suite Public License v1.0'),
         ('Other OSI approved licence', 'Other OSI Approved License'),
-        ('OSPL-1', 'OS Proprietary License v1.0'),
+        ('OEEL-1', 'Orbex Enterprise Edition License v1.0'),
+        ('OPL-1', 'Orbex Proprietary License v1.0'),
         ('Other proprietary', 'Other Proprietary')
     ], string='License', default='OSPL-1', readonly=True)
     menus_by_module = fields.Text(string='Menus', compute='_get_views', store=True)
@@ -320,11 +323,16 @@ class IrModuleModule(models.Model):
     icon_image = fields.Binary(string='Icon', compute='_get_icon_image')
     icon_flag = fields.Char(string='Flag', compute='_get_icon_image')
     to_buy = fields.Boolean('Orbex Enterprise Module', default=False)
+    has_iap = fields.Boolean(compute='_compute_has_iap')
 
     _name_uniq = models.Constraint(
         'UNIQUE (name)',
         "The name of the module must be unique!",
     )
+
+    def _compute_has_iap(self):
+        for module in self:
+            module.has_iap = bool(module.id) and 'iap' in module.upstream_dependencies(exclude_states=('',)).mapped('name')
 
     @api.ondelete(at_uninstall=False)
     def _unlink_except_installed(self):
@@ -742,6 +750,7 @@ class IrModuleModule(models.Model):
         return {
             'description': dedent(terp.get('description', '')),
             'shortdesc': terp.get('name', ''),
+            'author': terp.get('author', 'Unknown'),
             'maintainer': terp.get('maintainer', False),
             'contributors': ', '.join(terp.get('contributors', [])) or False,
             'website': terp.get('website', ''),

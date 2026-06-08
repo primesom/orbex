@@ -42,12 +42,13 @@ these accounts will be automatically downloaded into your Orbex system. All
 POP3/IMAP-compatible servers are supported, included those that require an
 encrypted SSL/TLS connection.
 This can be used to easily create email-based workflows for many email-enabled Orbex documents, such as:
-----------------------------------------------------------------------------------------------------------
+
     * CRM Leads/Opportunities
     * CRM Claims
     * Project Issues
     * Project Tasks
     * Human Resource Recruitment (Applicants)
+
 Just install the relevant application, and you can assign any of these document
 types (Leads, Project Issues) to your incoming email accounts. New emails will
 automatically spawn new documents of the chosen type, so it's a snap to create a
@@ -59,7 +60,7 @@ For more specific needs, you may also assign custom-defined actions
 (technically: Server Actions) to be triggered for each incoming mail.
     """,
     'website': 'https://www.orbexsuite.com/app/discuss',
-    'depends': ['base', 'base_setup', 'bus', 'html_editor'],
+    'depends': ['base', 'base_setup', 'bus', 'web_tour', 'html_editor'],
     'data': [
         'data/mail_groups.xml',
         'wizard/mail_activity_schedule_views.xml',
@@ -134,8 +135,7 @@ For more specific needs, you may also assign custom-defined actions
         "demo/mail_canned_response_demo.xml",
     ],
     'installable': True,
-    'application': False,
-    'auto_install': True,
+    'application': True,
     'post_init_hook': '_mail_post_init',
     'assets': {
         'web._assets_primary_variables': [
@@ -182,8 +182,8 @@ For more specific needs, you may also assign custom-defined actions
         ],
         'mail.assets_discuss_public_test_tours': [
             'web/static/lib/hoot-dom/**/*',
-            'web/static/src/web_tour/js/**/*',
-            'web/static/src/web_tour/tour_utils.js',
+            'web_tour/static/src/js/**/*',
+            'web_tour/static/src/tour_utils.js',
             'web/static/tests/legacy/helpers/cleanup.js',
             'web/static/tests/legacy/helpers/utils.js',
             'web/static/tests/legacy/utils.js',

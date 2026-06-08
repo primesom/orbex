@@ -6,7 +6,7 @@
 # Martin Trigaux, 2022
 # Jolien De Paepe, 2023
 # Dylan Kiss, 2023
-# Erwin van der Ploeg <erwin@odooexperts.nl>, 2023
+# Erwin van der Ploeg <erwin@orbexexperts.nl>, 2023
 # "Dylan Kiss (dyki)" <dyki@orbexsuite.com>, 2025.
 # Bren Driesen <brdri@orbexsuite.com>, 2025, 2026.
 msgid ""

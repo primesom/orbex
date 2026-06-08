@@ -3,7 +3,7 @@
 # * portal
 #
 # Translators:
-# Bojan Borovnjak <bojan.borovnjak@modoolar.com>, 2022
+# Bojan Borovnjak <bojan.borovnjak@morbexlar.com>, 2022
 # Martin Trigaux, 2022
 # Dragan Vukosavljevic <dragan.vukosavljevic@gmail.com>, 2022, 2026.
 # "Tiffany Chang (tic)" <tic@orbexsuite.com>, 2025.

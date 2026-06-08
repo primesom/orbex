@@ -17,6 +17,7 @@ from orbex.http import request
 from orbex.tools.image import image_process, image_data_uri, binary_to_image, get_webp_size
 from orbex.tools.mimetypes import guess_mimetype
 from orbex.tools.misc import file_open
+from orbex.addons.iap.tools import iap_tools
 from orbex.addons.mail.tools import link_preview
 from lxml import html, etree
 
@@ -645,11 +646,11 @@ class HTML_Editor(http.Controller):
             IrConfigParameter = request.env['ir.config_parameter'].sudo()
             olg_api_endpoint = IrConfigParameter.get_param('html_editor.olg_api_endpoint', DEFAULT_OLG_ENDPOINT)
             database_id = IrConfigParameter.get_param('database.uuid')
-            response = requests.post(olg_api_endpoint + "/api/olg/1/chat", json={
+            response = iap_tools.iap_jsonrpc(olg_api_endpoint + "/api/olg/1/chat", params={
                 'prompt': prompt,
                 'conversation_history': conversation_history or [],
                 'database_id': database_id,
-            }, timeout=30).json()
+            }, timeout=30)
             if response['status'] == 'success':
                 return response['content']
             elif response['status'] == 'error_prompt_too_long':

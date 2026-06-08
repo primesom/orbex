@@ -28,7 +28,7 @@ try:
 except ImportError:
     slugify_lib = None
 
-import orbex
+import orbex as orbex
 from orbex import api, http, models, tools
 from orbex.api import SUPERUSER_ID
 from orbex.exceptions import AccessDenied

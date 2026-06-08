@@ -11,7 +11,7 @@ import time
 from psycopg2 import InterfaceError
 from psycopg2.pool import PoolError
 
-import orbex
+import orbex as orbex
 from ..tools import orjson
 from orbex import api, fields, models
 from orbex.service.server import CommonServer

@@ -24,7 +24,7 @@ from werkzeug.local import LocalStack
 from werkzeug.datastructures import ImmutableMultiDict, MultiDict
 from werkzeug.exceptions import BadRequest, HTTPException, ServiceUnavailable
 
-import orbex
+import orbex as orbex
 from orbex import api, modules
 from .models.bus import dispatch
 from .tools import orjson
