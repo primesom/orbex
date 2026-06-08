@@ -31,6 +31,9 @@ export class EnterpriseNavBar extends NavBar {
             this.state.isAppMenuSidebarOpened = true;
         }
     }
+    _toggleAppSidebar() {
+        this.env.bus.trigger("ORBEX-APP-SIDEBAR:TOGGLE");
+    }
     _updateMenuAppsIcon() {
         const menuAppsEl = this.menuAppsRef.el;
         menuAppsEl.classList.toggle("o_hidden", !this.isInApp && !this.hasBackgroundAction);

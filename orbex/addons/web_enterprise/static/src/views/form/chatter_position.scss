@@ -1,0 +1,44 @@
+.o_form_view.o_orbex_bottom_chatter_form {
+    flex-flow: column nowrap !important;
+    height: auto !important;
+
+    > .o_form_view_container {
+        width: 100% !important;
+        flex: 0 0 auto;
+    }
+
+    .o_form_renderer {
+        flex-flow: column nowrap !important;
+        height: auto !important;
+        min-height: 0;
+    }
+
+    .o_form_sheet_bg {
+        flex: 0 0 auto;
+        width: 100%;
+        overflow: visible;
+    }
+
+    > .o-mail-Form-chatter,
+    .o_form_renderer > .o-mail-Form-chatter,
+    .o_form_sheet_bg > .o-mail-Form-chatter {
+        width: 100% !important;
+        max-width: none;
+        flex: 0 0 auto;
+        margin: 0;
+        border-left: 0;
+        border-top: $border-width solid $border-color;
+
+        &.o-aside {
+            width: 100% !important;
+            flex-grow: 0;
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .o_form_view.o_orbex_bottom_chatter_form {
+        flex-flow: row nowrap !important;
+        height: 100% !important;
+    }
+}

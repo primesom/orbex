@@ -126,6 +126,9 @@ export class HomeMenu extends Component {
             if (!hasTouch()) {
                 this._focusInput();
             }
+            if (this._shouldAutoOpenFirstApp()) {
+                this._openMenu(this.displayedApps[0]);
+            }
         });
 
         onPatched(() => {
@@ -176,6 +179,15 @@ export class HomeMenu extends Component {
      */
     _openMenu(menu) {
         return this.menus.selectMenu(menu);
+    }
+
+    _shouldAutoOpenFirstApp() {
+        return (
+            !this.env.isSmall &&
+            !this.homeMenuService.hasBackgroundAction &&
+            this.displayedApps.length > 0 &&
+            window.matchMedia("(min-width: 1024px) and (min-height: 600px)").matches
+        );
     }
 
     /**

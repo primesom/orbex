@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="web_enterprise.AppSidebar">
+    <aside class="o_orbex_app_sidebar d-print-none" t-att-class="{ 'o_collapsed': props.collapsed }">
+        <div class="o_orbex_app_sidebar_logo_header">
+            <img class="o_orbex_app_sidebar_logo" src="/web/static/img/logo_sidebar.png" alt="Orbex Suite"/>
+        </div>
+
+        <div class="o_orbex_app_sidebar_header">
+            <span class="o_orbex_app_sidebar_title">Apps</span>
+            <button
+                type="button"
+                class="btn o_orbex_app_sidebar_toggle"
+                title="Hide or show apps"
+                aria-label="Hide or show apps"
+                t-on-click="props.onToggle"
+            >
+                <i class="fa fa-bars"/>
+            </button>
+        </div>
+
+        <nav class="o_orbex_app_sidebar_nav" aria-label="Applications">
+            <button
+                t-foreach="props.apps"
+                t-as="app"
+                t-key="app.id"
+                type="button"
+                class="o_orbex_app_sidebar_item"
+                t-att-class="{ 'o_active': isActive(app) }"
+                t-att-title="app.name"
+                t-on-click="() => props.onSelect(app)"
+            >
+                <img
+                    t-if="app.webIconData"
+                    class="o_orbex_app_sidebar_icon"
+                    t-att-src="app.webIconData"
+                    t-att-alt="app.name"
+                />
+                <span t-else="" class="o_orbex_app_sidebar_icon o_orbex_app_sidebar_icon_fallback">
+                    <i t-att-class="app.webIcon?.iconClass || 'oi oi-apps'"/>
+                </span>
+                <span class="o_orbex_app_sidebar_label" t-esc="app.name"/>
+            </button>
+        </nav>
+    </aside>
+</t>
+
+</templates>

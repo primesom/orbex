@@ -14,3 +14,9 @@ class ResUsersSettings(models.Model):
         required=True,
         string="Color Scheme",
     )
+    chatter_position = fields.Selection(
+        [("side", "Side"), ("bottom", "Bottom")],
+        default="side",
+        required=True,
+        string="Chatter Position",
+    )

@@ -9,6 +9,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='other_preferences']" position="inside">
                     <field name="color_scheme" widget="radio" string="Theme" options="{'horizontal': true}"/>
+                    <field name="chatter_position" widget="radio" string="Chatter Position" options="{'horizontal': true}"/>
                 </xpath>
             </field>
         </record>
@@ -20,9 +21,9 @@
             <field name="arch" type="xml">
                 <xpath expr="//group[@name='other_preferences']" position="inside">
                     <field name="color_scheme" widget="radio" string="Theme" options="{'horizontal': true}"/>
+                    <field name="chatter_position" widget="radio" string="Chatter Position" options="{'horizontal': true}"/>
                 </xpath>
             </field>
         </record>
     </data>
 </orbex>
-

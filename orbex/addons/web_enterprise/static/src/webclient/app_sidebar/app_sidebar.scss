@@ -1,0 +1,176 @@
+.o_orbex_webclient_shell {
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+
+    > .o_orbex_webclient_main {
+        display: flex;
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 0;
+        flex-direction: column;
+    }
+
+    > .o_orbex_webclient_main > .o_action_manager {
+        flex: 1 1 auto;
+        min-width: 0;
+        min-height: 0;
+    }
+}
+
+.o_orbex_app_sidebar {
+    display: none;
+}
+
+@media (min-width: 1024px) and (min-height: 600px) {
+    .o_orbex_app_sidebar {
+        display: flex;
+        flex: 0 0 200px;
+        width: 200px;
+        min-width: 0;
+        flex-direction: column;
+        background: linear-gradient(180deg, #262a36 0%, #1b1d26 100%);
+        color: #e7e9ef;
+        border-right: $border-width solid rgba(#ffffff, .10);
+        overflow: hidden;
+        transition: flex-basis .18s ease, width .18s ease;
+    }
+
+    .o_orbex_app_sidebar_logo_header {
+        min-height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: map-get($spacers, 2);
+        border-bottom: $border-width solid rgba(#ffffff, .10);
+    }
+
+    .o_orbex_app_sidebar_logo {
+        max-width: 150px;
+        max-height: 52px;
+        object-fit: contain;
+    }
+
+    .o_orbex_app_sidebar_header {
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: map-get($spacers, 1);
+        padding: map-get($spacers, 2);
+        border-bottom: $border-width solid rgba(#ffffff, .10);
+    }
+
+    .o_orbex_app_sidebar_title {
+        color: rgba(#e7e9ef, .72);
+        font-size: $font-size-sm;
+        font-weight: $font-weight-bold;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+    }
+
+    .o_orbex_app_sidebar_toggle {
+        min-width: 32px;
+        min-height: 32px;
+        padding: 0;
+        color: #e7e9ef;
+        border: $border-width solid rgba(#ffffff, .16);
+        background: transparent;
+
+        &:hover,
+        &:focus {
+            color: #ffffff;
+            background: rgba(#ffffff, .08);
+        }
+    }
+
+    .o_orbex_app_sidebar_nav {
+        display: flex;
+        flex: 1 1 auto;
+        min-height: 0;
+        flex-direction: column;
+        gap: map-get($spacers, 1);
+        padding: map-get($spacers, 2);
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .o_orbex_app_sidebar_item {
+        display: flex;
+        min-height: 42px;
+        align-items: center;
+        gap: map-get($spacers, 2);
+        padding: map-get($spacers, 1) map-get($spacers, 2);
+        color: inherit;
+        text-align: start;
+        border: 0;
+        border-radius: $border-radius;
+        background: transparent;
+
+        &:hover,
+        &:focus {
+            background: rgba(#ffffff, .06);
+        }
+
+        &.o_active {
+            color: #ffffff;
+            background: #3c3e4b;
+            box-shadow: inset 3px 0 0 #00c7c7;
+        }
+    }
+
+    .o_orbex_app_sidebar_icon {
+        width: 30px;
+        height: 30px;
+        flex: 0 0 30px;
+        border-radius: $border-radius;
+        object-fit: cover;
+    }
+
+    .o_orbex_app_sidebar_icon_fallback {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(#ffffff, .08);
+    }
+
+    .o_orbex_app_sidebar_label {
+        min-width: 0;
+        overflow: hidden;
+        font-weight: $font-weight-semibold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .o_orbex_app_sidebar.o_collapsed {
+        flex-basis: 60px;
+        width: 60px;
+
+        .o_orbex_app_sidebar_logo_header {
+            min-height: 68px;
+            padding-left: map-get($spacers, 1);
+            padding-right: map-get($spacers, 1);
+        }
+
+        .o_orbex_app_sidebar_logo {
+            max-width: 42px;
+        }
+
+        .o_orbex_app_sidebar_header {
+            justify-content: center;
+            padding-left: map-get($spacers, 2);
+            padding-right: map-get($spacers, 2);
+        }
+
+        .o_orbex_app_sidebar_title,
+        .o_orbex_app_sidebar_label {
+            display: none;
+        }
+
+        .o_orbex_app_sidebar_item {
+            justify-content: center;
+        }
+    }
+}
