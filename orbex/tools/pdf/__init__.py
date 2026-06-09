@@ -689,3 +689,7 @@ class orbexPdfFileWriter(PdfFileWriter):
         if attachment.get('description'):
             filespec_object.update({NameObject("/Desc"): createStringObject(attachment['description'])})
         return self._addObject(filespec_object)
+
+
+OrbexPdfFileReader = orbexPdfFileReader
+OrbexPdfFileWriter = orbexPdfFileWriter

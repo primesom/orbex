@@ -149,19 +149,22 @@
         width: 60px;
 
         .o_orbex_app_sidebar_logo_header {
-            min-height: 68px;
-            padding-left: map-get($spacers, 1);
-            padding-right: map-get($spacers, 1);
-        }
-
-        .o_orbex_app_sidebar_logo {
-            max-width: 42px;
+            display: none;
         }
 
         .o_orbex_app_sidebar_header {
+            min-height: 60px;
             justify-content: center;
             padding-left: map-get($spacers, 2);
             padding-right: map-get($spacers, 2);
+        }
+
+        .o_orbex_app_sidebar_toggle {
+            width: 42px;
+            min-width: 42px;
+            height: 42px;
+            min-height: 42px;
+            border-radius: $border-radius-lg;
         }
 
         .o_orbex_app_sidebar_title,

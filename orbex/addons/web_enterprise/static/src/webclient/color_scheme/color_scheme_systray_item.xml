@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="web_enterprise.ColorSchemeSystrayItem">
+        <div class="o_orbex_color_scheme_systray d-none d-md-block">
+            <button
+                class="o_nav_entry o_orbex_color_scheme_toggle"
+                t-att-class="{ 'o_orbex_color_scheme_toggle_dark': activeScheme === 'dark' }"
+                t-att-title="title"
+                aria-label="Toggle color scheme"
+                t-on-click.prevent="toggleColorScheme"
+            >
+                <i class="fa fa-lightbulb-o" role="img"/>
+            </button>
+        </div>
+    </t>
+
+</templates>

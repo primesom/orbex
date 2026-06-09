@@ -14,9 +14,17 @@
     }
 }
 
+@media (min-width: 1024px) and (min-height: 600px) {
+    .o_main_navbar {
+        .o_menu_toggle.o_menu_toggle_back {
+            display: none !important;
+            pointer-events: none;
+        }
+    }
+}
+
 // Ensuring SuperUser Design menu is not compressed in Enterprise
 // ============================================================================
 body.o_is_superuser .o_menu_systray {
     border-image-outset: map-get($border-widths, 5);
 }
-

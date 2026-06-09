@@ -1,0 +1,11 @@
+.o_orbex_color_scheme_systray {
+    .o_nav_entry {
+        width: 32px;
+        min-width: 32px;
+        justify-content: center;
+    }
+
+    .o_orbex_color_scheme_toggle_dark {
+        color: var(--o-enterprise-color, #875a7b);
+    }
+}
