@@ -32,7 +32,6 @@
                     <filter name="not_installed" string="Not Installed" domain="[('state', 'in', ['uninstalled', 'uninstallable', 'to install'])]"/>
                     <field name="category_id"/>
                     <group>
-                        <filter string="Author" name="author" domain="[]" context="{'group_by':'author'}"/>
                         <filter string="Category" name="category" domain="[]" context="{'group_by':'category_id'}"/>
                         <filter string="Status" name="state" domain="[]" context="{'group_by':'state'}"/>
                     </group>
@@ -136,7 +135,6 @@
                     </header>
                     <field name="shortdesc"/>
                     <field name="name" groups="base.group_no_one"/>
-                    <field name="author"/>
                     <field name="website"/>
                     <field name="installed_version"/>
                     <field name="state" widget="badge"
