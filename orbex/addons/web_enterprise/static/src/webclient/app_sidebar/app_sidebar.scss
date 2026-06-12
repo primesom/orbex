@@ -81,9 +81,9 @@
         height: 100dvh;
         min-width: 0;
         flex-direction: column;
-        background: linear-gradient(180deg, #262a36 0%, #1b1d26 100%);
-        color: #e7e9ef;
-        border-right: $border-width solid rgba(#ffffff, .10);
+        background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 100%);
+        color: #172033;
+        border-right: $border-width solid #d8dde3;
         overflow: hidden;
         transition: flex-basis .18s ease, width .18s ease;
     }
@@ -94,7 +94,7 @@
         align-items: center;
         justify-content: center;
         padding: 4px map-get($spacers, 2);
-        border-bottom: $border-width solid rgba(#ffffff, .10);
+        border-bottom: $border-width solid #d8dde3;
     }
 
     .o_orbex_app_sidebar_logo {
@@ -104,6 +104,10 @@
         object-fit: contain;
     }
 
+    .o_orbex_app_sidebar_logo_dark {
+        display: none;
+    }
+
     .o_orbex_app_sidebar_header {
         min-height: 56px;
         display: flex;
@@ -111,11 +115,11 @@
         justify-content: space-between;
         gap: map-get($spacers, 1);
         padding: map-get($spacers, 2);
-        border-bottom: $border-width solid rgba(#ffffff, .10);
+        border-bottom: $border-width solid #d8dde3;
     }
 
     .o_orbex_app_sidebar_title {
-        color: rgba(#e7e9ef, .72);
+        color: #667085;
         font-size: $font-size-sm;
         font-weight: $font-weight-bold;
         letter-spacing: .04em;
@@ -126,14 +130,14 @@
         min-width: 32px;
         min-height: 32px;
         padding: 0;
-        color: #e7e9ef;
-        border: $border-width solid rgba(#ffffff, .16);
+        color: #172033;
+        border: $border-width solid #d8dde3;
         background: transparent;
 
         &:hover,
         &:focus {
-            color: #ffffff;
-            background: rgba(#ffffff, .08);
+            color: #007d73;
+            background: rgba(#0a9788, .08);
         }
     }
 
@@ -162,13 +166,13 @@
 
         &:hover,
         &:focus {
-            background: rgba(#ffffff, .06);
+            background: rgba(#0a9788, .08);
         }
 
         &.o_active {
-            color: #ffffff;
-            background: #3c3e4b;
-            box-shadow: inset 3px 0 0 #00c7c7;
+            color: #005f59;
+            background: #e7f6f4;
+            box-shadow: inset 3px 0 0 #00a98f;
         }
     }
 
@@ -184,7 +188,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: rgba(#ffffff, .08);
+        background: rgba(#0a9788, .08);
     }
 
     .o_orbex_app_sidebar_label {
