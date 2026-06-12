@@ -40,6 +40,68 @@
                 z-index: 0;
             }
         }
+
+        @include media-breakpoint-up(md) {
+            .o_control_panel_breadcrumbs {
+                flex-wrap: wrap;
+                min-width: 0;
+            }
+
+            .o_control_panel_main_buttons {
+                flex: 0 0 auto;
+            }
+
+            .o_breadcrumb {
+                flex: 0 0 100%;
+                min-width: 0;
+                order: 10;
+                padding-top: map-get($spacers, 1);
+            }
+
+            .o_control_panel_breadcrumbs_actions {
+                flex: 0 0 auto;
+            }
+        }
+
+        &.o_form_control_panel {
+            .o_control_panel_main {
+                align-items: center !important;
+            }
+
+            .o_control_panel_breadcrumbs {
+                flex: 0 0 100%;
+                max-width: none;
+            }
+
+            .o_breadcrumb:not(:has(.breadcrumb)) {
+                flex-direction: column;
+                justify-content: center;
+                line-height: 1.15;
+
+                .o_last_breadcrumb_item {
+                    align-items: flex-start !important;
+                    flex-direction: column;
+                    gap: 0 !important;
+                    min-width: 0;
+                }
+            }
+
+            .o_control_panel_breadcrumbs_actions {
+                flex: 0 0 auto;
+            }
+
+            .o_form_status_indicator {
+                flex: 0 0 auto;
+                margin-left: map-get($spacers, 1);
+            }
+
+            .o_control_panel_actions {
+                flex: 1 1 auto;
+                min-width: 0;
+                overflow-x: auto;
+                scrollbar-width: thin;
+            }
+        }
     }
 
     // ------------------------------------------------------------------

@@ -172,6 +172,7 @@ export class FormController extends Component {
         this.duplicateId = false;
 
         this.display = { ...this.props.display };
+        this.display.formView = true;
         if (this.env.inDialog) {
             this.display.controlPanel = false;
         }
