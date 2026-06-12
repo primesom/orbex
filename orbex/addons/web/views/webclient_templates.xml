@@ -249,7 +249,11 @@
                 <div t-attf-class="card border-0 mx-auto {{login_card_classes}} o_database_list o_orbex_login_card">
                     <div class="card-body">
                         <div class="o_orbex_login_brand" aria-label="Orbex Suite">
-                            <img src="/web/static/img/logo.png?v=2" alt="Orbex Suite"/>
+                            <img t-if="res_company and not res_company.uses_default_logo"
+                                t-attf-src="/web/binary/company_logo?company=#{res_company.id}"
+                                t-att-alt="res_company.name or 'Company logo'"
+                                onerror="this.onerror=null; this.src='/web/static/img/logo.png?v=2'; this.alt='Orbex Suite';"/>
+                            <img t-else="" src="/web/static/img/logo.png?v=2" alt="Orbex Suite"/>
                         </div>
                         <t t-out="0"/>
                         <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">

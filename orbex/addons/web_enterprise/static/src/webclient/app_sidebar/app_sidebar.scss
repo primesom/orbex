@@ -60,6 +60,12 @@
             height: 100%;
         }
 
+        > .o_orbex_webclient_main > .o_action_manager > .o_action.o_orbex_bottom_chatter_form {
+            height: 100% !important;
+            min-height: 0 !important;
+            flex: 1 1 auto !important;
+        }
+
         &.o_orbex_sidebar_collapsed {
             padding-left: 60px;
         }
