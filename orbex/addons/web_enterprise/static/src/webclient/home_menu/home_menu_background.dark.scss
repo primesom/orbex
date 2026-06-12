@@ -3,6 +3,25 @@
 // No CSS hacks, variables overrides only
 
 .o_home_menu_background {
-    --homeMenu-bg-color: #000511;
-    --homeMenu-bg-image: url("/web_enterprise/static/img/background-dark.jpg");
+    --homeMenu-bg-color: #050816;
+    --homeMenu-bg-image:
+        radial-gradient(circle 520px at 30% 10%, rgba(18, 77, 88, .62) 0 22%, transparent 48%),
+        radial-gradient(circle 480px at 72% 46%, rgba(43, 32, 74, .42) 0 18%, transparent 52%),
+        linear-gradient(115deg, #06131e 0%, #0d2630 34%, #11152a 68%, #090716 100%);
+    background-color: var(--homeMenu-bg-color);
+    background-image: var(--homeMenu-bg-image);
+}
+
+@media (max-width: 767.98px) {
+    .o_home_menu_background,
+    .o_web_client.o_home_menu_background {
+        --homeMenu-bg-color: #050816;
+        --homeMenu-bg-image:
+            radial-gradient(circle 300px at 22% 6%, rgba(18, 77, 88, .66) 0 24%, transparent 56%),
+            radial-gradient(circle 320px at 74% 36%, rgba(43, 32, 74, .42) 0 20%, transparent 58%),
+            linear-gradient(125deg, #06131e 0%, #0d2630 36%, #11152a 68%, #090716 100%);
+        background-attachment: scroll;
+        background-color: var(--homeMenu-bg-color) !important;
+        background-image: var(--homeMenu-bg-image) !important;
+    }
 }

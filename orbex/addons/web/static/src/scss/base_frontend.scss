@@ -1,0 +1,178 @@
+// Frontend general
+html, body {
+    width: 100%;
+    height: 100%;
+}
+#wrapwrap {
+    // The z-index is useful to prevent that children with a negative z-index
+    // go behind the wrapwrap (we create a new stacking context).
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    min-height: 100%;
+
+    > * {
+        flex: 0 0 auto;
+    }
+    > main {
+        flex: 1 0 auto;
+    }
+}
+
+body.o_orbex_login_page {
+    background:
+        radial-gradient(circle 360px at 50% 52%, transparent 0 42%, rgba(132, 202, 214, .24) 42% 58%, transparent 58%),
+        radial-gradient(circle 520px at 50% 52%, transparent 0 44%, rgba(132, 202, 214, .12) 44% 62%, transparent 62%),
+        #f7f8fb !important;
+}
+
+.o_orbex_login_container {
+    min-height: 100vh;
+    padding: clamp(1.5rem, 5vh, 3.5rem) 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.o_orbex_login_card {
+    width: 100%;
+    max-width: 348px !important;
+    background: #fff !important;
+    border-radius: 6px;
+    box-shadow: 0 20px 44px rgba(5, 18, 45, 0.16);
+
+    .card-body {
+        padding: clamp(1.25rem, 2.4vw, 1.75rem);
+    }
+
+    .o_orbex_login_brand {
+        padding: 0 0 1.15rem;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid #d7dbe2;
+        text-align: center;
+
+        img {
+            display: block;
+            width: 100%;
+            max-width: 190px;
+            height: auto;
+            margin: 0 auto;
+        }
+    }
+
+    .form-label,
+    .col-form-label {
+        margin-bottom: .5rem;
+        color: #050505;
+        font-size: .98rem;
+        font-weight: 500;
+    }
+
+    .form-control {
+        min-height: 2.9rem;
+        padding: .62rem 1rem;
+        border-color: #d8dde3;
+        border-radius: 8px;
+        color: #111827;
+        font-size: .95rem;
+        box-shadow: none;
+
+        &::placeholder {
+            color: #60666f;
+        }
+
+        &:focus {
+            border-color: #00a98f;
+            box-shadow: 0 0 0 .2rem rgba(0, 169, 143, .2);
+        }
+    }
+
+    .input-group {
+        .form-control {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .btn {
+            min-width: 2.8rem;
+            border-color: #d8dde3 !important;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background: #fff;
+            color: #050505;
+        }
+    }
+
+    .btn-primary {
+        min-height: 2.9rem;
+        border: 0;
+        border-radius: 8px;
+        background: #00a98f;
+        font-size: 1rem;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            background: #008a7c;
+        }
+    }
+
+    .btn-link,
+    a {
+        color: #007d73;
+        text-decoration: none;
+
+        &:hover {
+            color: #005f59;
+            text-decoration: underline;
+        }
+    }
+
+    .o_login_auth {
+        em {
+            margin: 1.35rem 0 1rem !important;
+            color: #4f4f52 !important;
+            font-size: 1rem;
+        }
+
+        .list-group-item {
+            min-height: 2.9rem;
+            border-color: #d8dde3;
+            border-radius: 8px;
+            color: #050505;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    }
+}
+
+@media (max-width: 575.98px) {
+    body.o_orbex_login_page {
+        background: linear-gradient(180deg, #f8fbfc 0%, #eef7f8 100%) !important;
+    }
+
+    .o_orbex_login_container {
+        padding: 1rem;
+        align-items: flex-start;
+    }
+
+    .o_orbex_login_card {
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .o_orbex_login_brand {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control,
+        .btn-primary,
+        .o_login_auth .list-group-item {
+            min-height: 3rem;
+            font-size: .95rem;
+        }
+    }
+}

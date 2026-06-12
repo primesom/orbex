@@ -83,17 +83,18 @@
     }
 
     .o_orbex_app_sidebar_logo_header {
-        min-height: 68px;
+        min-height: 48px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: map-get($spacers, 2);
+        padding: 4px map-get($spacers, 2);
         border-bottom: $border-width solid rgba(#ffffff, .10);
     }
 
     .o_orbex_app_sidebar_logo {
-        max-width: 150px;
-        max-height: 52px;
+        width: 164px;
+        max-width: 164px;
+        max-height: 34px;
         object-fit: contain;
     }
 

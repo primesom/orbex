@@ -19,9 +19,9 @@ $o-gray-700: #B1B3BC !default;
 $o-gray-800: #D1D1D1 !default;
 $o-gray-900: #E4E4E4 !default;
 
-$o-enterprise-color: #6b3e66 !default;
+$o-enterprise-color: #00a98f !default;
 $o-brand-primary: $o-enterprise-color !default;
-$o-enterprise-action-color: #02c7b5 !default;
+$o-enterprise-action-color: #007d73 !default;
 
 $o-success: #1dc959 !default;
 $o-info: #6AB5FB !default;
@@ -42,7 +42,7 @@ $o-main-code-color: #c58bc8 !default;
 
 // = Fine-tune contextual text colors.
 $o-theme-text-colors: (
-    "primary": #b972a6,
+    "primary": #00cfa6,
     "success": #1dc959,
     "info": #6AB5FB,
     "warning": #FBB56A,

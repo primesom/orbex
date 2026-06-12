@@ -3,7 +3,21 @@
     background: {
         size: cover;
         attachment: fixed;
-        color: var(--homeMenu-bg-color, #{$o-gray-200});
-        image: var(--homeMenu-bg-image, url("/web_enterprise/static/img/background-light.svg"));  
+        color: var(--homeMenu-bg-color, #f4fafb);
+        image: var(--homeMenu-bg-image, none);
+    }
+
+    --homeMenu-bg-color: #f4fafb;
+    --homeMenu-bg-image:
+        radial-gradient(circle 360px at 50% 52%, transparent 0 42%, rgba(132, 202, 214, .2) 42% 58%, transparent 59%),
+        radial-gradient(circle 520px at 50% 52%, transparent 0 44%, rgba(132, 202, 214, .12) 44% 62%, transparent 63%),
+        linear-gradient(180deg, #f8fbfc 0%, #eef7f8 100%);
+}
+
+@media (max-width: 767.98px) {
+    .o_home_menu_background, .o_web_client.o_home_menu_background {
+        background-attachment: scroll;
+
+        --homeMenu-bg-image: linear-gradient(180deg, #f8fbfc 0%, #eef7f8 100%);
     }
 }

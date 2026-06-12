@@ -4,7 +4,7 @@
 <t t-name="web_enterprise.AppSidebar">
     <aside class="o_orbex_app_sidebar d-print-none" t-att-class="{ 'o_collapsed': props.collapsed }">
         <div class="o_orbex_app_sidebar_logo_header">
-            <img class="o_orbex_app_sidebar_logo" src="/web/static/img/logo_sidebar.png" alt="Orbex Suite"/>
+            <img class="o_orbex_app_sidebar_logo" src="/web/static/img/logo_sidebar.png?v=2" alt="Orbex Suite"/>
         </div>
 
         <div class="o_orbex_app_sidebar_header">

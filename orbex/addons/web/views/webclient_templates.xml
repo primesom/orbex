@@ -110,15 +110,146 @@
     <template id="web.login_layout" name="Login Layout">
         <t t-call="web.frontend_layout">
             <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
-            <t t-set="body_classname" t-value="'bg-100'"/>
+            <t t-set="body_classname" t-value="'bg-100 o_orbex_login_page'"/>
             <t t-set="no_header" t-value="True"/>
             <t t-set="no_footer" t-value="True"/>
 
-            <div class="container py-5">
-                <div t-attf-class="card border-0 mx-auto bg-100 {{login_card_classes}} o_database_list" style="max-width: 300px;">
+            <style>
+                body:has(.o_orbex_login_card) {
+                    background:
+                        radial-gradient(circle 360px at 50% 52%, transparent 0 42%, rgba(132, 202, 214, .24) 42% 58%, transparent 58%),
+                        radial-gradient(circle 520px at 50% 52%, transparent 0 44%, rgba(132, 202, 214, .12) 44% 62%, transparent 62%),
+                        #f7f8fb !important;
+                }
+                .o_orbex_login_container {
+                    min-height: 100vh;
+                    padding: clamp(1.5rem, 5vh, 3.5rem) 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .o_orbex_login_card {
+                    width: 100%;
+                    max-width: 348px !important;
+                    background: #fff !important;
+                    border-radius: 6px !important;
+                    box-shadow: 0 20px 44px rgba(5, 18, 45, 0.16) !important;
+                }
+                .o_orbex_login_card .card-body {
+                    padding: clamp(1.25rem, 2.4vw, 1.75rem);
+                }
+                .o_orbex_login_brand {
+                    padding: 0 0 1.15rem;
+                    margin-bottom: 1.2rem;
+                    border-bottom: 1px solid #d7dbe2;
+                    text-align: center;
+                }
+                .o_orbex_login_brand img {
+                    display: block;
+                    width: 100%;
+                    max-width: 190px;
+                    height: auto;
+                    margin: 0 auto;
+                }
+                .o_orbex_login_card .form-label,
+                .o_orbex_login_card .col-form-label {
+                    margin-bottom: .5rem;
+                    color: #050505;
+                    font-size: .98rem;
+                    font-weight: 500;
+                }
+                .o_orbex_login_card .form-control {
+                    min-height: 2.9rem;
+                    padding: .62rem 1rem;
+                    border-color: #d8dde3;
+                    border-radius: 8px;
+                    color: #111827;
+                    font-size: .95rem;
+                    box-shadow: none;
+                }
+                .o_orbex_login_card .form-control::placeholder {
+                    color: #60666f;
+                }
+                .o_orbex_login_card .form-control:focus {
+                    border-color: #00a98f;
+                    box-shadow: 0 0 0 .2rem rgba(0, 169, 143, .2);
+                }
+                .o_orbex_login_card .input-group .form-control {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+                .o_orbex_login_card .input-group .btn {
+                    min-width: 2.8rem;
+                    border-color: #d8dde3 !important;
+                    border-top-right-radius: 8px;
+                    border-bottom-right-radius: 8px;
+                    background: #fff;
+                    color: #050505;
+                }
+                .o_orbex_login_card .btn-primary {
+                    min-height: 2.9rem;
+                    border: 0;
+                    border-radius: 8px;
+                    background: #00a98f;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+                .o_orbex_login_card .btn-primary:hover,
+                .o_orbex_login_card .btn-primary:focus {
+                    background: #008a7c;
+                }
+                .o_orbex_login_card .btn-link,
+                .o_orbex_login_card a {
+                    color: #007d73;
+                    text-decoration: none;
+                }
+                .o_orbex_login_card .btn-link:hover,
+                .o_orbex_login_card a:hover {
+                    color: #005f59;
+                    text-decoration: underline;
+                }
+                .o_orbex_login_card .o_login_auth em {
+                    margin: 1.35rem 0 1rem !important;
+                    color: #4f4f52 !important;
+                    font-size: 1rem;
+                }
+                .o_orbex_login_card .o_login_auth .list-group-item {
+                    min-height: 2.9rem;
+                    border-color: #d8dde3;
+                    border-radius: 8px;
+                    color: #050505;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+                @media (max-width: 575.98px) {
+                    body:has(.o_orbex_login_card) {
+                        background: linear-gradient(180deg, #f8fbfc 0%, #eef7f8 100%) !important;
+                    }
+                    .o_orbex_login_container {
+                        padding: 1rem;
+                        align-items: flex-start;
+                    }
+                    .o_orbex_login_card .card-body {
+                        padding: 1.5rem;
+                    }
+                    .o_orbex_login_brand {
+                        padding-bottom: 1.5rem;
+                        margin-bottom: 1.5rem;
+                    }
+                    .o_orbex_login_card .form-control,
+                    .o_orbex_login_card .btn-primary,
+                    .o_orbex_login_card .o_login_auth .list-group-item {
+                        min-height: 3rem;
+                        font-size: .95rem;
+                    }
+                }
+            </style>
+
+            <div class="container o_orbex_login_container">
+                <div t-attf-class="card border-0 mx-auto {{login_card_classes}} o_database_list o_orbex_login_card">
                     <div class="card-body">
-                        <div class="text-center pb-3 border-bottom mb-4">
-                            <img src="/web/static/img/orbex_logo.svg" alt="Orbex Suite" style="max-height:120px; max-width: 100%; width:auto"/>
+                        <div class="o_orbex_login_brand" aria-label="Orbex Suite">
+                            <img src="/web/static/img/logo.png?v=2" alt="Orbex Suite"/>
                         </div>
                         <t t-out="0"/>
                         <div class="text-center small mt-4 pt-3 border-top" t-if="not disable_footer">
