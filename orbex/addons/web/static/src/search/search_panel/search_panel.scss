@@ -4,12 +4,26 @@
 .o_controller_with_searchpanel {
     @include media-breakpoint-up(md) {
         display: flex;
+        position: relative;
 
         .o_renderer,
         .o_renderer_with_searchpanel {
             overflow: auto;
             width: 100%;
         }
+    }
+}
+
+.o_control_panel_search_panel_toggle {
+    border-color: $border-color;
+    justify-content: center;
+    min-height: 2rem;
+    min-width: 2.5rem;
+
+    &.active {
+        background-color: rgba($o-brand-primary, 0.12);
+        border-color: rgba($o-brand-primary, 0.35);
+        color: $o-brand-primary;
     }
 }
 
@@ -20,6 +34,7 @@
 
     width: var(--SearchPanel-width, #{$o-search-panel-width});
     font-size: var(--SearchPanel-fontSize, #{$o-search-panel-font-size});
+    transition: width 0.18s ease, min-width 0.18s ease;
 
     @include media-breakpoint-up(md) {
         border-right: $border-width solid $border-color;
@@ -31,6 +46,23 @@
 
     .o_search_panel_counter {
         font-variant-numeric: tabular-nums;
+    }
+
+    .o_search_panel_toggle {
+        border-color: $border-color;
+        color: $body-color;
+    }
+}
+
+.o_search_panel_drawer {
+    @include media-breakpoint-up(md) {
+        position: relative;
+    }
+}
+
+.o_search_panel_resize_container {
+    @include media-breakpoint-up(md) {
+        display: block;
     }
 }
 
@@ -48,9 +80,31 @@
 .o_search_panel_sidebar {
     writing-mode: vertical-rl;
     text-orientation: mixed;
+    flex: 0 0 3rem;
+    min-width: 3rem;
     width: 3rem;
+    transition: width 0.18s ease, min-width 0.18s ease;
+
     @include media-breakpoint-up(md) {
         border-right: $border-width solid $border-color;
+    }
+
+    > .d-flex {
+        min-height: 100%;
+        width: 100%;
+    }
+
+    .o_search_panel_toggle {
+        border-color: $border-color;
+        color: $body-color;
+        writing-mode: horizontal-tb;
+    }
+
+    .o_search_panel_current_selection {
+        color: $body-color;
+        font-weight: 500;
+        max-height: calc(100vh - 9rem);
+        padding: map-get($spacers, 2) 0;
     }
 }
 

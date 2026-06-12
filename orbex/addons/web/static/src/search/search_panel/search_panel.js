@@ -47,7 +47,10 @@ const nameOfCheckedValues = (values) => {
  */
 export class SearchPanel extends Component {
     static template = "web.SearchPanel";
-    static props = {};
+    static props = {
+        searchPanelState: { type: Object, optional: true },
+        toggleSearchPanel: { type: Function, optional: true },
+    };
     static components = {
         Dropdown,
     };
@@ -62,7 +65,7 @@ export class SearchPanel extends Component {
         this.state = useState({
             active: {},
             expanded: {},
-            sidebarExpanded: true,
+            sidebarExpanded: false,
         });
         this.hasImportedState = false;
         this.root = useRef("root");
@@ -123,6 +126,10 @@ export class SearchPanel extends Component {
         return this.env.searchModel.getSections((s) => !s.empty);
     }
 
+    get isSidebarExpanded() {
+        return this.props.searchPanelState?.expanded ?? this.state.sidebarExpanded;
+    }
+
     //---------------------------------------------------------------------
     // Public
     //---------------------------------------------------------------------
@@ -131,7 +138,7 @@ export class SearchPanel extends Component {
         const exported = {
             expanded: this.state.expanded,
             scrollTop: this.root.el?.scrollTop || 0,
-            sidebarExpanded: this.state.sidebarExpanded,
+            sidebarExpanded: this.isSidebarExpanded,
             width: this.width,
         };
         return JSON.stringify(exported);
@@ -317,6 +324,10 @@ export class SearchPanel extends Component {
     }
 
     toggleSidebar() {
+        if (this.props.toggleSearchPanel) {
+            this.props.toggleSearchPanel();
+            return;
+        }
         this.state.sidebarExpanded = !this.state.sidebarExpanded;
         browser.localStorage.setItem(this.keyExpandSidebar, this.state.sidebarExpanded);
     }

@@ -1,4 +1,4 @@
-import { Component, useRef } from "@orbex/owl";
+import { Component, useRef, useState } from "@orbex/owl";
 import { ControlPanel } from "@web/search/control_panel/control_panel";
 import { SearchPanel } from "@web/search/search_panel/search_panel";
 
@@ -27,6 +27,12 @@ export class Layout extends Component {
     setup() {
         this.components = extractLayoutComponents(this.env.config);
         this.contentRef = useRef("content");
+        this.searchPanelState = useState({
+            expanded: false,
+        });
+    }
+    toggleSearchPanel() {
+        this.searchPanelState.expanded = !this.searchPanelState.expanded;
     }
     get controlPanelSlots() {
         const slots = { ...this.props.slots };

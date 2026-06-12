@@ -101,7 +101,10 @@ export class ControlPanel extends Component {
     };
     static props = {
         display: { type: Object, optional: true },
+        hasSearchPanel: { type: Boolean, optional: true },
+        searchPanelState: { type: Object, optional: true },
         slots: { type: Object, optional: true },
+        toggleSearchPanel: { type: Function, optional: true },
     };
 
     setup() {
@@ -306,6 +309,10 @@ export class ControlPanel extends Component {
             layoutActions: true,
             ...this.props.display,
         };
+    }
+
+    toggleSearchPanel() {
+        this.props.toggleSearchPanel?.();
     }
 
     async onClickShowEmbedded() {
