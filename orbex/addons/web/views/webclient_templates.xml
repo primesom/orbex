@@ -85,18 +85,19 @@
     </template>
 
     <template id="brand_promotion_message" name="Brand Promotion Message">
-        <t t-set="orbex_logo">
-            <a target="_blank"
-                t-attf-href="http://www.orbexsuite.com?utm_source=db&amp;utm_medium=#{_utm_medium}"
-                class="badge text-bg-light">
-                <img alt="Orbex"
-                    src="/web/static/img/orbex_logo_tiny.png"
-                    width="62" height="20"
-                    style="width: auto; height: 1em; vertical-align: baseline;"/>
-            </a>
+        <span class="o_brand_powered_label">Powered by</span>
+        <a target="_blank"
+            t-attf-href="http://www.orbexsuite.com?utm_source=db&amp;utm_medium=#{_utm_medium}"
+            class="o_brand_promotion_link">
+            <img class="o_brand_promotion_logo"
+                alt="Orbex Suite"
+                src="/web/static/img/logo.png?v=2"
+                height="24"/>
+        </a>
+        <t t-if="_message">
+            <span class="o_brand_powered_separator">-</span>
+            <span t-out="_message"/>
         </t>
-        <t t-set="final_message">Powered by %s%s</t>
-        <t t-out="final_message % (orbex_logo, _message and ('- ' + _message) or '')"/>
     </template>
     <template id="brand_promotion" name="Brand Promotion">
         <div class="o_brand_promotion">

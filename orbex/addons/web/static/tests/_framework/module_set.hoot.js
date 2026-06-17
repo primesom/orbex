@@ -504,10 +504,6 @@ const AUTO_INCLUDED_ADDONS = {
      * To ensure that this module is loaded, we have to include `orbex` in the dependencies
      */
     spreadsheet: ["orbex"],
-    /**
-     * Add all view types by default
-     */
-    web_enterprise: ["web_gantt", "web_grid", "web_map"],
 };
 const CSRF_TOKEN = orbex.csrf_token;
 const DEFAULT_ADDONS = ["base", "web"];

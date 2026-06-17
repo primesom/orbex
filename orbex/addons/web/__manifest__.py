@@ -17,6 +17,8 @@ This module provides the core of the Orbex Web Client.
         'security/ir.model.access.csv',
         'security/web_security.xml',
         'views/webclient_templates.xml',
+        'views/webclient_templates_enterprise.xml',
+        'views/res_users_views.xml',
         'views/report_templates.xml',
         'views/base_document_layout_views.xml',
         'views/partner_view.xml',
@@ -65,6 +67,9 @@ This module provides the core of the Orbex Web Client.
             'web/static/src/scss/mimetypes.scss',
             'web/static/src/scss/ui.scss',
             'web/static/src/views/fields/translation_dialog.scss',
+            'web/static/src/enterprise/scss/mobile_backend_fixes.scss',
+            'web/static/src/enterprise/webclient/**/*.scss',
+            'web/static/src/enterprise/views/**/*.scss',
 
             'web/static/src/polyfills/**/*.js',
 
@@ -104,10 +109,17 @@ This module provides the core of the Orbex Web Client.
             'web/static/src/core/utils/transitions.scss',
             'web/static/src/model/**/*',
             'web/static/src/search/**/*',
+            'web/static/src/enterprise/core/**/*',
+            'web/static/src/enterprise/webclient/**/*.js',
             'web/static/src/webclient/icons.scss', # variables required in list_controller.scss
             'web/static/src/views/**/*',
             ('remove', 'web/static/src/views/graph/**'),
             ('remove', 'web/static/src/views/pivot/**'),
+            ('after', 'web/static/src/views/list/list_renderer.xml', 'web/static/src/enterprise/views/list/list_renderer_desktop.xml'),
+            'web/static/src/enterprise/webclient/**/*.xml',
+            'web/static/src/enterprise/views/**/*.js',
+            'web/static/src/enterprise/views/**/*.xml',
+            ('remove', 'web/static/src/enterprise/views/pivot/**'),
 
             'web/static/src/webclient/**/*',
             ('remove', 'web/static/src/webclient/clickbot/clickbot.js'), # lazy loaded
@@ -140,9 +152,13 @@ This module provides the core of the Orbex Web Client.
 
             'web/static/src/views/graph/**',
             'web/static/src/views/pivot/**',
+            'web/static/src/enterprise/views/pivot/**',
         ],
         'web.assets_backend_lazy_dark': [
             ('include', 'web.assets_backend_lazy'),
+            ('include', 'web.dark_mode_variables'),
+            ('before', 'web/static/src/enterprise/scss/bootstrap_overridden.scss', 'web/static/src/enterprise/scss/bootstrap_overridden.dark.scss'),
+            ('after', 'web/static/lib/bootstrap/scss/_functions.scss', 'web/static/src/enterprise/scss/bs_functions_overridden.dark.scss'),
         ],
         'web.assets_web': [
             ('include', 'web.assets_backend'),
@@ -181,6 +197,8 @@ This module provides the core of the Orbex Web Client.
 
             'web/static/src/libs/fontawesome/css/font-awesome.css',
             'web/static/lib/orbex_ui_icons/*',
+            'web/static/src/enterprise/webclient/home_menu/home_menu_background.scss',
+            'web/static/src/enterprise/webclient/navbar/navbar.scss',
             'web/static/src/webclient/navbar/navbar.scss',
             'web/static/src/scss/animation.scss',
             'web/static/src/scss/base_frontend.scss',
@@ -345,7 +363,15 @@ This module provides the core of the Orbex Web Client.
         # ---------------------------------------------------------------------
         "web.assets_web_dark": [
             ('include', 'web.assets_web'),
+            ('include', 'web.dark_mode_variables'),
+            ('before', 'web/static/src/enterprise/scss/bootstrap_overridden.scss', 'web/static/src/enterprise/scss/bootstrap_overridden.dark.scss'),
+            ('after', 'web/static/lib/bootstrap/scss/_functions.scss', 'web/static/src/enterprise/scss/bs_functions_overridden.dark.scss'),
             'web/static/src/**/*.dark.scss',
+        ],
+        "web.dark_mode_variables": [
+            'web/static/src/enterprise/scss/primary_variables.dark.scss',
+            'web/static/src/enterprise/**/*.variables.dark.scss',
+            'web/static/src/enterprise/scss/secondary_variables.dark.scss',
         ],
 
         # ---------------------------------------------------------------------
@@ -374,10 +400,12 @@ This module provides the core of the Orbex Web Client.
             ('remove', 'web/static/src/core/emoji_picker/emoji_data.js'), # always lazy-loaded
         ],
         'web._assets_primary_variables': [
+            'web/static/src/enterprise/scss/primary_variables.scss',
             'web/static/src/scss/primary_variables.scss',
             'web/static/src/**/*.variables.scss',
         ],
         'web._assets_secondary_variables': [
+            'web/static/src/enterprise/scss/secondary_variables.scss',
             'web/static/src/scss/secondary_variables.scss',
         ],
         'web._assets_helpers': [
@@ -411,6 +439,7 @@ This module provides the core of the Orbex Web Client.
             'web/static/src/scss/bootstrap_review_frontend.scss',
         ],
         'web._assets_backend_helpers': [
+            'web/static/src/enterprise/scss/bootstrap_overridden.scss',
             'web/static/src/scss/bootstrap_overridden.scss',
             'web/static/src/scss/bs_mixins_overrides_backend.scss',
         ],
@@ -427,7 +456,8 @@ This module provides the core of the Orbex Web Client.
             'web/static/tests/legacy/helpers/cleanup.js',
             'web/static/tests/legacy/helpers/utils.js',
             'web/static/tests/legacy/utils.js',
-            'web/static/tests/tours/**/*'
+            'web/static/tests/tours/**/*',
+            'web/static/tests/enterprise/tours/**/*.js',
         ],
         'web.__assets_tests_call__': [
             'web/static/tests/legacy/ignore_missing_deps_start.js',
@@ -516,6 +546,7 @@ This module provides the core of the Orbex Web Client.
             'web/static/tests/legacy/setup.js',
             'web/static/tests/legacy/utils.js',
             'web/static/src/webclient/clickbot/clickbot.js',
+            'web/static/tests/enterprise/*.js',
         ],
         'web.qunit_suite_tests': [
             'web/static/src/legacy/js/core/class.js',
@@ -530,6 +561,9 @@ This module provides the core of the Orbex Web Client.
             'web/static/tests/legacy/webclient/**/*.js',
             ('remove', 'web/static/tests/legacy/webclient/**/helpers.js'),
             'web/static/tests/legacy/public/**/*.js',
+            'web/static/tests/enterprise/views/**/*.js',
+            'web/static/tests/enterprise/webclient/**/*.js',
+            ('remove', 'web/static/tests/enterprise/**/*.test.js'),
 
             # Legacy
             'web/static/tests/legacy/legacy_tests/**/*.js',

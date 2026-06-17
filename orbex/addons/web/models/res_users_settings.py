@@ -5,6 +5,19 @@ class ResUsersSettings(models.Model):
     _inherit = 'res.users.settings'
 
     embedded_actions_config_ids = fields.One2many('res.users.settings.embedded.action', 'user_setting_id')
+    homemenu_config = fields.Json(string="Home Menu Configuration", readonly=True)
+    color_scheme = fields.Selection(
+        [("system", "System"), ("light", "Light"), ("dark", "Dark")],
+        default="system",
+        required=True,
+        string="Color Scheme",
+    )
+    chatter_position = fields.Selection(
+        [("side", "Side"), ("bottom", "Bottom")],
+        default="side",
+        required=True,
+        string="Chatter Position",
+    )
 
     @api.model
     def _format_settings(self, fields_to_format):

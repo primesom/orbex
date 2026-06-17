@@ -1,6 +1,6 @@
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
-from orbex import api, models
+from orbex import api, fields, models
 from orbex.fields import Domain
 from orbex.http import request
 
@@ -9,6 +9,17 @@ SKIP_CAPTCHA_LOGIN = object()
 
 class ResUsers(models.Model):
     _inherit = "res.users"
+
+    color_scheme = fields.Selection(related="res_users_settings_id.color_scheme", readonly=False)
+    chatter_position = fields.Selection(related="res_users_settings_id.chatter_position", readonly=False)
+
+    @property
+    def SELF_READABLE_FIELDS(self):
+        return super().SELF_READABLE_FIELDS + ["color_scheme", "chatter_position"]
+
+    @property
+    def SELF_WRITEABLE_FIELDS(self):
+        return super().SELF_WRITEABLE_FIELDS + ["color_scheme", "chatter_position"]
 
     @api.model
     def name_search(self, name='', domain=None, operator='ilike', limit=100):

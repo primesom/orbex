@@ -1,5 +1,5 @@
 import { startWebClient } from "./start";
-import { WebClient } from "./webclient/webclient";
+import { WebClientEnterprise } from "./enterprise/webclient/webclient";
 
 /**
  * This file starts the webclient. It is in its own file to allow its replacement
@@ -7,4 +7,4 @@ import { WebClient } from "./webclient/webclient";
  * which is a subclass of the above Webclient.
  */
 
-startWebClient(WebClient);
+startWebClient(WebClientEnterprise);
