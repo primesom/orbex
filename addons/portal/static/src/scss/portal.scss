@@ -496,33 +496,29 @@ img, .media_iframe_video, .o_image {
         vertical-align: middle;
     }
     .o_brand_promotion {
-        align-items: center;
-        color: $gray-700;
+        align-items: baseline;
         display: inline-flex;
-        font-size: .875rem;
-        font-weight: 600;
-        gap: .5rem;
-        line-height: 1.2;
+        gap: .35rem;
+    }
+    .o_brand_powered_label {
+        color: $gray-700;
+        font-size: .9rem;
+        font-weight: 500;
+    }
+    .o_brand_promotion_link {
+        color: #0b132a;
+        font-size: .95rem;
+        font-weight: 800;
+        text-decoration: none;
 
-        .o_brand_promotion_link {
-            align-items: center;
-            display: inline-flex;
+        &:hover {
+            color: #0b132a;
             text-decoration: none;
-
-            &:hover {
-                opacity: .86;
-            }
         }
-
-        .o_brand_promotion_logo {
-            display: block;
-            height: 1.35rem;
-            width: auto;
-        }
-
-        .o_brand_powered_label {
-            color: $gray-700;
-        }
+    }
+    .o_brand_promotion_x {
+        color: #00c7a7;
+        font-style: italic;
     }
     .js_language_selector {
         display: inline-block;

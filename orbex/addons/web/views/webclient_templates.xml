@@ -89,10 +89,7 @@
         <a target="_blank"
             t-attf-href="http://www.orbexsuite.com?utm_source=db&amp;utm_medium=#{_utm_medium}"
             class="o_brand_promotion_link">
-            <img class="o_brand_promotion_logo"
-                alt="Orbex Suite"
-                src="/web/static/img/logo.png?v=2"
-                height="24"/>
+            <span>Orbe</span><span class="o_brand_promotion_x">x</span><span> Suite</span>
         </a>
         <t t-if="_message">
             <span class="o_brand_powered_separator">-</span>
