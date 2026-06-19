@@ -4487,12 +4487,6 @@ msgstr "มุสลิม"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -27352,9 +27346,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "ตัวปรับเปลี่ยน:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "บัญชี Orbex.com ของฉัน"
 
 #~ msgid "NONE"
 #~ msgstr "ไม่มี"

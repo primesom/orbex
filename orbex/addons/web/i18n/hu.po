@@ -4449,12 +4449,6 @@ msgstr "Muszlim"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -27005,9 +26999,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "Módosítók:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Orbex.com fiókom"
 
 #~ msgid "New %s"
 #~ msgstr "Új %s"

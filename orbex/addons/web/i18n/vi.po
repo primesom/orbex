@@ -4542,12 +4542,6 @@ msgstr "Tín đồ đạo Hồi"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -27489,9 +27483,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "Thuộc tính điều chỉnh:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Tài khoản Hệ thống"
 
 #~ msgid "NONE"
 #~ msgstr "KHÔNG CÓ GÌ"

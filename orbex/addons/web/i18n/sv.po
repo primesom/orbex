@@ -4540,12 +4540,6 @@ msgstr "Muslim"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -27427,9 +27421,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "Modifierare:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Mitt Orbex.com-konto"
 
 #~ msgid "NONE"
 #~ msgstr "INGEN"

@@ -4503,12 +4503,6 @@ msgstr "무슬림"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr "내 Orbex.com 계정"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr "내 추가 설정"
 
@@ -27382,9 +27376,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "수정자 :"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "내 Orbex.com 계정"
 
 #~ msgid "NONE"
 #~ msgstr "없음"

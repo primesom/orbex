@@ -4486,12 +4486,6 @@ msgstr "伊斯兰教徒"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr "我的 Orbex.com 账户"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -27379,9 +27373,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "装饰器："
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Orbex.com账户"
 
 #~ msgid "NONE"
 #~ msgstr "无"

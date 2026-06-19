@@ -4473,12 +4473,6 @@ msgstr "穆斯林 / 伊斯蘭教徒"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr "我的 Orbex.com 帳戶"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr "偏好設定"
 

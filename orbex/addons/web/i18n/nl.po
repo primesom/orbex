@@ -4562,12 +4562,6 @@ msgstr "Moslim"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr "Mijn Orbex.com-account"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr "Mijn voorkeuren"
 
@@ -27538,9 +27532,6 @@ msgstr "空"
 
 #~ msgid "Modifiers:"
 #~ msgstr "Modificatoren:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Mijn Orbex.com account"
 
 #~ msgid "NONE"
 #~ msgstr "GEEN"

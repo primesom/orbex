@@ -4425,12 +4425,6 @@ msgstr ""
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -26821,9 +26815,6 @@ msgstr ""
 
 #~ msgid "Manage Filters"
 #~ msgstr "Sefrek imzizdigen"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Amiḍan-iw Orbex"
 
 #~ msgid "Open: "
 #~ msgstr "Lli: "

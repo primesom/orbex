@@ -2835,12 +2835,6 @@ msgstr ""
 
 #. module: web
 #. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
 #: code:addons/web/static/src/legacy/xml/base.xml:0
 msgid "NONE"
 msgstr ""

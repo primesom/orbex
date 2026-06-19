@@ -208,11 +208,6 @@ msgid "Sign in with Google"
 msgstr "Sign in dengan Google"
 
 #. module: auth_oauth
-#: model:auth.oauth.provider,body:auth_oauth.provider_openerp
-msgid "Sign in with Orbex.com"
-msgstr "Sign in dengan Orbex.com"
-
-#. module: auth_oauth
 #. orbex-python
 #: code:addons/auth_oauth/controllers/main.py:0
 msgid "Sign up is not allowed on this database."

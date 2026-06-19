@@ -10,10 +10,9 @@ import werkzeug.urls
 import werkzeug.utils
 from werkzeug.exceptions import BadRequest
 
-from orbex import api, http, SUPERUSER_ID, _
+from orbex import http, SUPERUSER_ID, _
 from orbex.exceptions import AccessDenied
 from orbex.http import request, Response
-from orbex.modules.registry import Registry
 from orbex.tools.misc import clean_context
 
 from orbex.addons.auth_signup.controllers.main import AuthSignupHome as Home
@@ -175,34 +174,3 @@ class OAuthController(http.Controller):
         redirect = request.redirect(url, 303)
         redirect.autocorrect_location_header = False
         return redirect
-
-    @http.route('/auth_oauth/oea', type='http', auth='none', readonly=False)
-    def oea(self, **kw):
-        """login user via Orbex Account provider"""
-        dbname = kw.pop('db', None)
-        if not dbname:
-            dbname = request.db
-        if not dbname:
-            raise BadRequest()
-        if not http.db_filter([dbname]):
-            raise BadRequest()
-
-        registry = Registry(dbname)
-        with registry.cursor() as cr:
-            try:
-                env = api.Environment(cr, SUPERUSER_ID, {})
-                provider = env.ref('auth_oauth.provider_openerp')
-            except ValueError:
-                redirect = request.redirect(f'/web?db={dbname}', 303)
-                redirect.autocorrect_location_header = False
-                return redirect
-            assert provider._name == 'auth.oauth.provider'
-
-        state = {
-            'd': dbname,
-            'p': provider.id,
-            'c': {'no_user_creation': True},
-        }
-
-        kw['state'] = json.dumps(state)
-        return self.signin(**kw)

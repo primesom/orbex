@@ -4539,12 +4539,6 @@ msgstr "イスラム"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr "Orbex.comアカウント"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr "個人設定"
 
@@ -27380,9 +27374,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "修飾："
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Orbex.comアカウント"
 
 #~ msgid "Next page"
 #~ msgstr "次のページ"

@@ -4581,12 +4581,6 @@ msgstr "Muslimi"
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr "Oma Orbex.com -tilini"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr "Omat asetukseni"
 
@@ -27546,9 +27540,6 @@ msgstr "空"
 
 #~ msgid "Modifiers:"
 #~ msgstr "Muuttujat:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Orbex.com-tilini"
 
 #~ msgid "NONE"
 #~ msgstr "EI MITÄÄN"

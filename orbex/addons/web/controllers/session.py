@@ -1,19 +1,13 @@
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
-import json
 import logging
-import operator
 
 from contextlib import ExitStack
 
-from werkzeug.urls import url_encode
-
-import orbex as orbex
 import orbex as orbex
 import orbex.modules.registry
 from orbex import http
-from orbex.modules import module
-from orbex.exceptions import AccessError, UserError, AccessDenied
+from orbex.exceptions import AccessError
 from orbex.http import request
 from orbex.tools.translate import _
 
@@ -70,17 +64,6 @@ class Session(http.Controller):
     @http.route('/web/session/check', type='jsonrpc', auth='user', readonly=True)
     def check(self):
         return  # ir.http@_authenticate does the job
-
-    @http.route('/web/session/account', type='jsonrpc', auth='user', readonly=True)
-    def account(self):
-        ICP = request.env['ir.config_parameter'].sudo()
-        params = {
-            'response_type': 'token',
-            'client_id': ICP.get_param('database.uuid') or '',
-            'state': json.dumps({'d': request.db, 'u': ICP.get_param('web.base.url')}),
-            'scope': 'userinfo',
-        }
-        return 'https://accounts.orbexsuite.com/oauth2/auth?' + url_encode(params)
 
     @http.route('/web/session/destroy', type='jsonrpc', auth='user', readonly=True)
     def destroy(self):

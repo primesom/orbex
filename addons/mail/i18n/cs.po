@@ -5822,7 +5822,7 @@ msgstr "Instalovat"
 #. orbex-javascript
 #: code:addons/mail/static/src/core/web/messaging_menu_patch.js:0
 msgid "Install Orbex"
-msgstr "Instalovat ODoo"
+msgstr "Instalovat Orbex"
 
 #. module: mail
 #: model:ir.ui.menu,name:mail.discuss_channel_integrations_menu

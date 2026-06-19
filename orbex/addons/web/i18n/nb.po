@@ -4446,12 +4446,6 @@ msgstr ""
 #. module: web
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-msgid "My Orbex.com Account"
-msgstr ""
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 msgid "My Preferences"
 msgstr ""
 
@@ -27033,9 +27027,6 @@ msgstr ""
 
 #~ msgid "Modifiers:"
 #~ msgstr "Modifikatorer:"
-
-#~ msgid "My Orbex.com account"
-#~ msgstr "Min konto på orbexsuite.com"
 
 #~ msgid "NONE"
 #~ msgstr "INGEN"

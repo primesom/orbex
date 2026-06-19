@@ -5221,13 +5221,6 @@ msgstr "Musulmon"
 #. orbex-javascript
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
 #, fuzzy
-msgid "My Orbex.com Account"
-msgstr "Mening Orbex.com hisobim"
-
-#. module: web
-#. orbex-javascript
-#: code:addons/web/static/src/webclient/user_menu/user_menu_items.js:0
-#, fuzzy
 msgid "My Preferences"
 msgstr "Mening sozlamalarim"
 
