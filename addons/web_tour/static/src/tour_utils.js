@@ -89,7 +89,7 @@ export const stepUtils = {
                 run: "click",
             },
             {
-                isActive: ["enterprise"],
+                isActive: ["orbex"],
                 trigger: `.o_app[data-menu-xmlid="${dataMenuXmlid}"]`,
                 content: description,
                 tooltipPosition: "bottom",

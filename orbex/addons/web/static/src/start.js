@@ -17,9 +17,9 @@ document.head.appendChild(chromeMetaTag);
 
 /**
  * Function to start a webclient.
- * It is used both in community and enterprise in main.js.
+ * It is used both in community and Orbex in main.js.
  * It's meant to be webclient flexible so we can have a subclass of
- * webclient in enterprise with added features.
+ * webclient in Orbex with added features.
  *
  * @param {Component} Webclient
  */
@@ -28,7 +28,7 @@ export async function startWebClient(Webclient) {
         db: session.db,
         server_version: session.server_version,
         server_version_info: session.server_version_info,
-        isEnterprise: session.server_version_info.slice(-1)[0] === "e",
+        isOrbex: session.server_version_info.slice(-1)[0] === "e",
     };
     orbex.isReady = false;
 

@@ -79,16 +79,16 @@
     }
 
     &.active {
-        --btn-active-color: #{$o-enterprise-action-color};
+        --btn-active-color: #{$o-orbex-action-color};
 
         .o-mail-MessagingMenu-tabIcon {
             background: $o-component-active-bg;
-            color: $o-enterprise-action-color;
+            color: $o-orbex-action-color;
         }
     }
 
     &:focus-visible {
-        outline: $border-width solid $o-enterprise-action-color !important;
+        outline: $border-width solid $o-orbex-action-color !important;
     }
 
     .o-mail-MessagingMenu-tabIcon {

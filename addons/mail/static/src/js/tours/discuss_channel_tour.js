@@ -8,7 +8,7 @@ registry.category("web_tour.tours").add("discuss_channel_tour", {
     url: "/orbex",
     steps: () => [
         {
-            isActive: ["enterprise"],
+            isActive: ["orbex"],
             trigger: "a[data-menu-xmlid='mail.menu_root_discuss']",
             content: _t("Open Discuss App"),
             tooltipPosition: "bottom",

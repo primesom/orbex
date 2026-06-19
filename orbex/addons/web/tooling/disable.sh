@@ -18,19 +18,19 @@ disableInDir () {
     cd - &> /dev/null
 }
 
-read -p "Do you want to delete the tooling installed in enterprise too ? [y, n]" willingToDeleteToolingInEnterprise
-if [[ $willingToDeleteToolingInEnterprise != "n" ]]
+read -p "Do you want to delete the tooling installed in orbex too ? [y, n]" willingToDeleteToolingInOrbex
+if [[ $willingToDeleteToolingInOrbex != "n" ]]
 then
-    read -p "What is the relative path from community to enterprise ? (../enterprise)" pathToEnterprise
-    pathToEnterprise=${pathToEnterprise:-../enterprise}
-    pathToEnterprise=$(realpath "$community/$pathToEnterprise")
+    read -p "What is the relative path from community to orbex ? (../orbex)" pathToOrbex
+    pathToOrbex=${pathToOrbex:-../orbex}
+    pathToOrbex=$(realpath "$community/$pathToOrbex")
 fi
 
 disableInDir "$community"
 
-if [[ $willingToDeleteToolingInEnterprise != "n" ]]
+if [[ $willingToDeleteToolingInOrbex != "n" ]]
 then
-    disableInDir "$pathToEnterprise"
+    disableInDir "$pathToOrbex"
 fi
 
 

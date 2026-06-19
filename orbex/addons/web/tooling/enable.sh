@@ -17,7 +17,7 @@ enableInDir () {
     cp "$tooling/_package.json" package.json
     if [[ $2 == "copy" ]]; then
         # -i is not supported on mac
-        sed "s@addons@$pathFromEnterpriseToCommunity/addons@g" jsconfig.json > tmp.json
+        sed "s@addons@$pathFromOrbexToCommunity/addons@g" jsconfig.json > tmp.json
         mv tmp.json jsconfig.json
         # copy over node_modules and package-lock to avoid double "npm install"
         cp "$community/package-lock.json" package-lock.json
@@ -28,20 +28,20 @@ enableInDir () {
     cd - &> /dev/null
 }
 
-read -p "Do you want the tooling installed in enterprise too ? [y, n]" willingToInstallToolingInEnterprise
-if [[ $willingToInstallToolingInEnterprise != "n" ]]
+read -p "Do you want the tooling installed in orbex too ? [y, n]" willingToInstallToolingInOrbex
+if [[ $willingToInstallToolingInOrbex != "n" ]]
 then
-    read -p "What is the relative path from community to enterprise ? (../enterprise)" pathToEnterprise
-    pathToEnterprise=${pathToEnterprise:-../enterprise}
-    pathToEnterprise=$(realpath "$community/$pathToEnterprise")
-    pathFromEnterpriseToCommunity=$(realpath --relative-to="$pathToEnterprise" "$community")
+    read -p "What is the relative path from community to orbex ? (../orbex)" pathToOrbex
+    pathToOrbex=${pathToOrbex:-../orbex}
+    pathToOrbex=$(realpath "$community/$pathToOrbex")
+    pathFromOrbexToCommunity=$(realpath --relative-to="$pathToOrbex" "$community")
 fi
 
 enableInDir "$community"
 
-if [[ $willingToInstallToolingInEnterprise != "n" ]]
+if [[ $willingToInstallToolingInOrbex != "n" ]]
 then
-    enableInDir "$pathToEnterprise" copy
+    enableInDir "$pathToOrbex" copy
 fi
 
 echo ""

@@ -115,14 +115,14 @@ addons/html_editor/static/lib/diff2html/*.js
 !planning/static/tests
 !planning/static/tests/planning_gantt_tests.js
 
-# project_enterprise
+# project_orbex
 # whitelist new code
-!project_enterprise
-!project_enterprise/static
-!project_enterprise/static/src
-!project_enterprise/static/src/*.js
-!project_enterprise/static/tests
-!project_enterprise/static/tests/*.js
+!project_orbex
+!project_orbex/static
+!project_orbex/static/src
+!project_orbex/static/src/*.js
+!project_orbex/static/tests
+!project_orbex/static/tests/*.js
 
 # web_map
 # whitelist new code
@@ -239,10 +239,10 @@ addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js
 !addons/website_slides/**/*
 !approvals
 !approvals/**/*
-!test_discuss_full_enterprise
-!test_discuss_full_enterprise/**/*
-!test_mail_enterprise
-!test_mail_enterprise/**/*
+!test_discuss_full_orbex
+!test_discuss_full_orbex/**/*
+!test_mail_orbex
+!test_mail_orbex/**/*
 !whatsapp
 !whatsapp/**/*
 
@@ -343,7 +343,7 @@ voip/static/lib/**/*
 !addons/spreadsheet_dashboard_pos_hr
 !addons/spreadsheet_dashboard_pos_hr/**/*
 
-# Whitelist enterprise pos modules
+# Whitelist orbex pos modules
 !l10n_cl_edi_pos
 !l10n_cl_edi_pos/**/*
 !l10n_de_pos_cert
@@ -362,8 +362,8 @@ voip/static/lib/**/*
 !pos_account_reports/**/*
 !pos_blackbox_be
 !pos_blackbox_be/**/*
-!pos_enterprise
-!pos_enterprise/**/*
+!pos_orbex
+!pos_orbex/**/*
 !pos_hr_mobile
 !pos_hr_mobile/**/*
 !pos_iot

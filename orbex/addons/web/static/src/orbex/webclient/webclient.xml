@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="web_orbex.WebClient" t-inherit="web.WebClient" t-inherit-mode="primary">
+    <xpath expr="//t[@t-if='!state.fullscreen']" position="replace"/>
+    <xpath expr="//ActionContainer" position="replace">
+        <t t-if="!state.fullscreen">
+            <div class="o_orbex_webclient_shell" t-att-class="{ 'o_orbex_sidebar_collapsed': appSidebar.collapsed }">
+                <AppSidebar
+                    apps="apps"
+                    currentApp="currentApp"
+                    collapsed="appSidebar.collapsed"
+                    onToggle.bind="toggleAppSidebar"
+                    onSelect.bind="selectSidebarApp"
+                />
+                <div class="o_orbex_webclient_main">
+                    <NavBar/>
+                    <ActionContainer/>
+                </div>
+            </div>
+        </t>
+        <t t-else="">
+            <ActionContainer/>
+        </t>
+    </xpath>
+</t>
+
+</templates>

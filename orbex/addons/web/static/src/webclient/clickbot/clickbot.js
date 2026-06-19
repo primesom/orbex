@@ -18,12 +18,12 @@ const BLACKLISTED_MENUS = [
     "hr_attendance.menu_action_open_form", // same here (tablet mode)
     "hr_attendance.menu_hr_attendance_onboarding", // same here (tablet mode)
     "mrp_workorder.menu_mrp_workorder_root", // same here (tablet mode)
-    "pos_enterprise.menu_point_kitchen_display_root", // conditional menu that may leads to frontend
+    "pos_orbex.menu_point_kitchen_display_root", // conditional menu that may leads to frontend
 ];
 // If you change this selector, adapt Studio test "Studio icon matches the clickbot selector"
 const STUDIO_SYSTRAY_ICON_SELECTOR = ".o_web_studio_navbar_item:not(.o_disabled) i";
 
-let isEnterprise;
+let isOrbex;
 let state;
 let calledRPC;
 let errorRPC;
@@ -50,7 +50,7 @@ function setup(light, currentState) {
     env.bus.addEventListener("ACTION_MANAGER:UI-UPDATED", uiUpdate);
     rpcBus.addEventListener("RPC:REQUEST", onRPCRequest);
     rpcBus.addEventListener("RPC:RESPONSE", onRPCResponse);
-    isEnterprise = orbex.info && orbex.info.isEnterprise;
+    isOrbex = orbex.info && orbex.info.isOrbex;
 
     state = reactive(
         currentState || {
@@ -195,7 +195,7 @@ async function waitForCondition(stopCondition) {
 }
 
 /**
- * Make sure the home menu is open (enterprise only)
+ * Make sure the home menu is open (Orbex only)
  */
 async function ensureHomeMenu() {
     const homeMenu = document.querySelector("div.o_home_menu");
@@ -273,7 +273,7 @@ async function getNextMenu() {
  */
 async function getNextApp() {
     if (!apps || !apps.length) {
-        if (isEnterprise) {
+        if (isOrbex) {
             await ensureHomeMenu();
             apps = document.querySelectorAll(".o_apps .o_app");
         } else {
@@ -453,7 +453,7 @@ async function testApp() {
     let element;
 
     if (!state.testedApps.includes(state.app)) {
-        if (isEnterprise) {
+        if (isOrbex) {
             await ensureHomeMenu();
             element = document.querySelector(`a.o_app.o_menuitem[data-menu-xmlid="${state.app}"]`);
         } else {
@@ -490,7 +490,7 @@ async function testApp() {
 async function _clickEverywhere(xmlId, light, currentState) {
     setup(light, currentState);
     console.log("Starting ClickEverywhere test");
-    console.log(`Orbex flavor: ${isEnterprise ? "Enterprise" : "Community"}`);
+    console.log(`Orbex flavor: ${isOrbex ? "Orbex" : "Community"}`);
     const startTime = performance.now();
     try {
         if (xmlId) {

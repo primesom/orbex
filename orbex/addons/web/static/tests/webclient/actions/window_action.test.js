@@ -1697,7 +1697,7 @@ test("execute action with unknown view type", async () => {
             res_model: "partner",
             views: [
                 [false, "list"],
-                [false, "unknown"], // typically, an enterprise-only view on a community db
+                [false, "unknown"], // typically, an Orbex-only view on a community db
                 [false, "kanban"],
                 [false, "form"],
             ],

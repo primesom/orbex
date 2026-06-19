@@ -12,11 +12,11 @@ export class UpgradeBooleanField extends BooleanField {
     setup() {
         super.setup();
         this.dialogService = useService("dialog");
-        this.isEnterprise = orbex.info && orbex.info.isEnterprise;
+        this.isOrbex = orbex.info && orbex.info.isOrbex;
     }
 
     async onChange(newValue) {
-        if (!this.isEnterprise) {
+        if (!this.isOrbex) {
             this.dialogService.add(
                 UpgradeDialog,
                 {},

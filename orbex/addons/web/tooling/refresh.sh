@@ -16,18 +16,18 @@ refreshInDir () {
     cd - &> /dev/null
 }
 
-read -p "Refresh tooling in enterprise ? [y, n]" doEnterprise
-if [[ $doEnterprise != "n" ]]; then
-    read -p "What is the relative path from community to enterprise ? (../enterprise)" pathToEnterprise
-    pathToEnterprise=${pathToEnterprise:-../enterprise}
-    pathToEnterprise=$(realpath "$community/$pathToEnterprise")
+read -p "Refresh tooling in orbex ? [y, n]" doOrbex
+if [[ $doOrbex != "n" ]]; then
+    read -p "What is the relative path from community to orbex ? (../orbex)" pathToOrbex
+    pathToOrbex=${pathToOrbex:-../orbex}
+    pathToOrbex=$(realpath "$community/$pathToOrbex")
 fi
 
 refreshInDir "$community"
 
-if [[ $doEnterprise != "n" ]]
+if [[ $doOrbex != "n" ]]
 then
-    refreshInDir "$pathToEnterprise" copy
+    refreshInDir "$pathToOrbex" copy
 fi
 
 echo ""

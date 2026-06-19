@@ -59,8 +59,8 @@ test("widget upgrade_boolean in a form view - label", async () => {
     });
 });
 
-test("widget upgrade_boolean in a form view - dialog (enterprise version)", async () => {
-    patchWithCleanup(orbex, { info: { isEnterprise: 1 } });
+test("widget upgrade_boolean in a form view - dialog (Orbex version)", async () => {
+    patchWithCleanup(orbex, { info: { isOrbex: 1 } });
     await mountView({
         type: "form",
         arch: /* xml */ `
@@ -80,8 +80,8 @@ test("widget upgrade_boolean in a form view - dialog (enterprise version)", asyn
     });
 });
 
-test("widget upgrade_boolean in a form view - label (enterprise version)", async () => {
-    patchWithCleanup(orbex, { info: { isEnterprise: 1 } });
+test("widget upgrade_boolean in a form view - label (Orbex version)", async () => {
+    patchWithCleanup(orbex, { info: { isOrbex: 1 } });
     await mountView({
         type: "form",
         arch: /* xml */ `

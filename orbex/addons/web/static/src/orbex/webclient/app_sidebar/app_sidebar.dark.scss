@@ -1,0 +1,51 @@
+.o_orbex_app_sidebar {
+    background: #1b1d26;
+    color: #e7e9ef;
+    border-right-color: rgba(#ffffff, .10);
+}
+
+.o_orbex_app_sidebar_logo_header,
+.o_orbex_app_sidebar_header {
+    background: #1b1d26;
+    border-bottom-color: rgba(#ffffff, .10);
+}
+
+.o_orbex_app_sidebar_logo_light {
+    display: none;
+}
+
+.o_orbex_app_sidebar_logo_dark {
+    display: block;
+}
+
+.o_orbex_app_sidebar_title {
+    color: rgba(#e7e9ef, .72);
+}
+
+.o_orbex_app_sidebar_toggle {
+    color: #e7e9ef;
+    border-color: rgba(#ffffff, .16);
+
+    &:hover,
+    &:focus {
+        color: #ffffff;
+        background: rgba(#ffffff, .08);
+    }
+}
+
+.o_orbex_app_sidebar_item {
+    &:hover,
+    &:focus {
+        background: rgba(#ffffff, .06);
+    }
+
+    &.o_active {
+        color: #ffffff;
+        background: #3c3e4b;
+        box-shadow: inset 3px 0 0 #00c7c7;
+    }
+}
+
+.o_orbex_app_sidebar_icon_fallback {
+    background: rgba(#ffffff, .08);
+}

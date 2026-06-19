@@ -7,9 +7,9 @@ export class FormLabelHighlightText extends FormLabel {
     static components = { HighlightText };
     setup() {
         super.setup();
-        const isEnterprise = orbex.info && orbex.info.isEnterprise;
-        if (this.props.fieldInfo?.field === upgradeBooleanField && !isEnterprise) {
-            this.upgradeEnterprise = true;
+        const isOrbex = orbex.info && orbex.info.isOrbex;
+        if (this.props.fieldInfo?.field === upgradeBooleanField && !isOrbex) {
+            this.upgradeOrbex = true;
         }
     }
 }

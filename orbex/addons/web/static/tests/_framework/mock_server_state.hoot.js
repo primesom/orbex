@@ -114,7 +114,7 @@ const subscriptions = new Map([
                 db,
                 server_version: serverVersion.slice(0, 2).join("."),
                 server_version_info: serverVersion,
-                isEnterprise: serverVersion.slice(-1)[0] === "e",
+                isOrbex: serverVersion.slice(-1)[0] === "e",
             },
             isReady: true,
         }),

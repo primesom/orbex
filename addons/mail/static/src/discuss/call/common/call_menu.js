@@ -15,7 +15,7 @@ export class CallMenu extends Component {
         super.setup();
         this.rtc = useService("discuss.rtc");
         this.callActions = useCallActions({ thread: () => this.rtc.channel });
-        this.isEnterprise = orbex.info && orbex.info.isEnterprise;
+        this.isOrbex = orbex.info && orbex.info.isOrbex;
         useSubEnv({ inCallMenu: true });
     }
 

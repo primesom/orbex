@@ -5,7 +5,7 @@ import { pick } from "@web/core/utils/objects";
 
 /**
  * @typedef TourStep
- * @property {"enterprise"|"community"|"mobile"|"desktop"|HootSelector[][]} isActive Active the step following {@link isActiveStep} filter
+ * @property {"orbex"|"community"|"mobile"|"desktop"|HootSelector[][]} isActive Active the step following {@link isActiveStep} filter
  * @property {string} [id]
  * @property {HootSelector} trigger The node on which the action will be executed.
  * @property {string} [content] Description of the step.
@@ -29,7 +29,7 @@ export class TourStep {
         this.checkHasTour();
         const mode = this.tour.mode;
         const isSmall = utils.isSmall();
-        const standardKeyWords = ["enterprise", "community", "mobile", "desktop", "auto", "manual"];
+        const standardKeyWords = ["orbex", "community", "mobile", "desktop", "auto", "manual"];
         const isActiveArray = Array.isArray(this.isActive) ? this.isActive : [];
         if (isActiveArray.length === 0) {
             return true;
@@ -48,10 +48,10 @@ export class TourStep {
             isActiveArray.includes(mode) ||
             (!isActiveArray.includes("manual") && !isActiveArray.includes("auto"));
         const edition =
-            (session.server_version_info || "").at(-1) === "e" ? "enterprise" : "community";
+            (session.server_version_info || "").at(-1) === "e" ? "orbex" : "community";
         const checkEdition =
             isActiveArray.includes(edition) ||
-            (!isActiveArray.includes("enterprise") && !isActiveArray.includes("community"));
+            (!isActiveArray.includes("orbex") && !isActiveArray.includes("community"));
         const onlyForMobile = isActiveArray.includes("mobile") && isSmall;
         const onlyForDesktop = isActiveArray.includes("desktop") && !isSmall;
         const checkDevice =

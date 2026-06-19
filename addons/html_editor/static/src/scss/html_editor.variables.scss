@@ -118,7 +118,7 @@ $o-base-color-palette: (
 ) !default;
 $o-color-palettes: (
     'base-1': (
-        'o-color-1': $o-enterprise-color,
+        'o-color-1': $o-orbex-color,
         'o-color-2': #F0CDA8,
         'o-color-3': #F6F5F4,
         'o-color-4': #FFFFFF,
@@ -141,8 +141,8 @@ $o-theme-color-palettes: (
     // They should not be used in the code base anymore and ideally they will
     // not generate any classes for >= 13.4 databases.
     'base-1': (
-        'alpha': $o-enterprise-action-color,
-        'beta': $o-enterprise-color,
+        'alpha': $o-orbex-action-color,
+        'beta': $o-orbex-color,
         'gamma': #5C5B80,
         'delta': #5B899E,
         'epsilon': #E46F78,
