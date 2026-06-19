@@ -331,7 +331,7 @@ class IrModuleModule(models.Model):
 
     def _compute_has_iap(self):
         for module in self:
-            module.has_iap = bool(module.id) and 'iap' in module.upstream_dependencies(exclude_states=('',)).mapped('name')
+            module.has_iap = False
 
     @api.ondelete(at_uninstall=False)
     def _unlink_except_installed(self):

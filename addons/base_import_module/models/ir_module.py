@@ -558,8 +558,7 @@ class IrModuleModule(models.Model):
             for module in unavailable_modules:
                 description += "- " + module + "\n"
             description += _(
-                "\nYou may need the Enterprise version to install the data module. Please visit "
-                "https://www.orbexsuite.com/pricing-plan for more information.\n"
+                "\nInstall the missing dependency modules before installing this data module.\n"
                 "If you need Website themes, it can be downloaded from https://github.com/orbex/design-themes.\n"
             )
         else:
@@ -571,7 +570,7 @@ class IrModuleModule(models.Model):
 
     def _get_missing_dependencies_modules(self, zip_data):
         dependencies_to_install = self.env['ir.module.module']
-        known_mods = self.search([('to_buy', '=', False)])
+        known_mods = self.search([])
         installed_mods = [m.name for m in known_mods if m.state == 'installed']
         not_found_modules = set()
         with zipfile.ZipFile(BytesIO(zip_data), "r") as z:
