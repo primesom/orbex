@@ -1584,10 +1584,11 @@ export class SearchModel extends EventBus {
         const { viewType } = this.env.config;
         return {
             controlPanel: "controlPanel" in display ? display.controlPanel : {},
-            searchPanel:
+            searchPanel: Boolean(
                 this.sections.size &&
-                (!viewType || viewTypes.includes(viewType)) &&
-                ("searchPanel" in display ? display.searchPanel : true),
+                    (!viewType || viewTypes.includes(viewType)) &&
+                    ("searchPanel" in display ? display.searchPanel : true)
+            ),
         };
     }
 

@@ -1,7 +1,6 @@
 import { Component, markup } from "@orbex/owl";
 import { isMacOS } from "@web/core/browser/feature_detection";
 import { _t } from "@web/core/l10n/translation";
-import { rpc } from "@web/core/network/rpc";
 import { user } from "@web/core/user";
 import { session } from "@web/session";
 import { browser } from "../../core/browser/browser";
@@ -69,24 +68,6 @@ export function preferencesItem(env) {
     };
 }
 
-export function orbexAccountItem(env) {
-    return {
-        type: "item",
-        id: "account",
-        description: _t("My Orbex.com Account"),
-        callback: () => {
-            rpc("/web/session/account")
-                .then((url) => {
-                    browser.open(url, "_blank");
-                })
-                .catch(() => {
-                    browser.open("https://accounts.orbexsuite.com/account", "_blank");
-                });
-        },
-        sequence: 60,
-    };
-}
-
 function installPWAItem(env) {
     let description = _t("Install App");
     let callback = () => env.services.pwa.show();
@@ -140,6 +121,5 @@ registry
     .add("shortcuts", shortCutsItem)
     .add("separator", separator)
     .add("preferences", preferencesItem)
-    .add("orbex_account", orbexAccountItem)
     .add("install_pwa", installPWAItem)
     .add("log_out", logOutItem);

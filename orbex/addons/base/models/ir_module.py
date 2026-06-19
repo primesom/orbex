@@ -32,13 +32,6 @@ from orbex.modules.module import Manifest, MissingDependency
 T = typing.TypeVar('T')
 _logger = logging.getLogger(__name__)
 
-ACTION_DICT = {
-    'view_mode': 'form',
-    'res_model': 'base.module.upgrade',
-    'target': 'new',
-    'type': 'ir.actions.act_window',
-}
-
 def backup(path, raise_exception=True):
     path = os.path.normpath(path)
     if not os.path.exists(path):
@@ -274,6 +267,7 @@ class IrModuleModule(models.Model):
     category_id = fields.Many2one('ir.module.category', string='Category', readonly=True, index=True)
     shortdesc = fields.Char('Module Name', readonly=True, translate=True)
     summary = fields.Char('Summary', readonly=True, translate=True)
+    summary_preview = fields.Char('Summary Preview', compute='_compute_summary_preview')
     description = fields.Text('Description', readonly=True, translate=True)
     description_html = fields.Html('Description HTML', compute='_get_desc')
     author = fields.Char("Author", readonly=True)
@@ -332,6 +326,12 @@ class IrModuleModule(models.Model):
     def _compute_has_iap(self):
         for module in self:
             module.has_iap = False
+
+    @api.depends('summary')
+    def _compute_summary_preview(self):
+        for module in self:
+            summary = module.summary or ''
+            module.summary_preview = summary if len(summary) <= 120 else f"{summary[:117].rstrip()}..."
 
     @api.ondelete(at_uninstall=False)
     def _unlink_except_installed(self):
@@ -470,7 +470,7 @@ class IrModuleModule(models.Model):
                     ))
                 )
 
-        return dict(ACTION_DICT, name=_('Install'))
+        return True
 
     @assert_log_admin_access
     def button_immediate_install(self):
@@ -673,7 +673,7 @@ class IrModuleModule(models.Model):
             ))
         deps = self.downstream_dependencies()
         (self + deps).write({'state': 'to remove'})
-        return dict(ACTION_DICT, name=_('Uninstall'))
+        return True
 
     @assert_log_admin_access
     def button_uninstall_wizard(self):
@@ -742,7 +742,7 @@ class IrModuleModule(models.Model):
                     to_install += self.search([('name', '=', dep.name)]).ids
 
         self.browse(to_install).button_install()
-        return dict(ACTION_DICT, name=_('Apply Schedule Upgrade'))
+        return True
 
     @staticmethod
     def get_values_from_terp(terp):

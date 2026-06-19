@@ -56,7 +56,6 @@ The kernel of Orbex, needed for all installation.
         'wizard/base_module_update_views.xml',
         'wizard/base_language_install_views.xml',
         'wizard/base_import_language_views.xml',
-        'wizard/base_module_upgrade_views.xml',
         'wizard/base_module_uninstall_views.xml',
         'wizard/base_export_language_views.xml',
         'wizard/base_partner_merge_views.xml',
