@@ -12,7 +12,7 @@
                 <div class="mb-4"><t t-esc="vat"/></div>
                 <div class="mb-3">Dear Sir/Madam,</div>
                 <div class="ps-3 mb-4" style="line-height: 1.5;">
-                    Orbex S.A., (Belgium) is a registered company with the Trade and Companies Register of Nivelles with VAT number BE0477472701, having its registered office at Chaussée de Namur, 40, 1367 Grand-Rosière, Belgium ("Orbex"). Orbex provides Enterprise Resource Planning (ERP) cloud and on-premise applications to customers worldwide, incorporating a browser-based Point-of-Sale (POS) application.
+                    Orbex Suite provides Enterprise Resource Planning (ERP) cloud and on-premise applications to customers worldwide, incorporating a browser-based Point-of-Sale (POS) application.
                 </div>
                 <div class="ps-3 mb-3" style="line-height: 1.5;">
                     Orbex hereby declares that the POS application in the version

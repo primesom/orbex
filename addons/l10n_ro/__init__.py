@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Orbex. See LICENSE file for full copyright and licensing details.
 
-# Copyright (C) 2022 Orbex S.A.
+# Copyright (C) 2022 Orbex Suite
 # @author -  Fekete Mihai <feketemihai@gmail.com>, Tatár Attila <atta@nvm.ro>
 # Copyright (C) 2015 Tatár Attila
 # Copyright (C) 2015 Forest and Biomass Services Romania (http://www.forbiom.eu).

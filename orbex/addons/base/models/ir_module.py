@@ -309,10 +309,9 @@ class IrModuleModule(models.Model):
         ('GPL-3 or any later version', 'GPL-3 or later version'),
         ('AGPL-3', 'Affero GPL-3'),
         ('LGPL-3', 'LGPL Version 3'),
-        ('OSPL-1', 'Orbex Suite Public License v1.0'),
+        ('OSPL-1', 'Orbex Suite Proprietary License v1.0'),
         ('Other OSI approved licence', 'Other OSI Approved License'),
-        ('OEEL-1', 'Orbex Enterprise Edition License v1.0'),
-        ('OPL-1', 'Orbex Proprietary License v1.0'),
+        ('OPL-1', 'Orbex Suite Proprietary License v1.0'),
         ('Other proprietary', 'Other Proprietary')
     ], string='License', default='OSPL-1', readonly=True)
     menus_by_module = fields.Text(string='Menus', compute='_get_views', store=True)
@@ -322,7 +321,7 @@ class IrModuleModule(models.Model):
     icon = fields.Char('Icon URL')
     icon_image = fields.Binary(string='Icon', compute='_get_icon_image')
     icon_flag = fields.Char(string='Flag', compute='_get_icon_image')
-    to_buy = fields.Boolean('Orbex Enterprise Module', default=False)
+    to_buy = fields.Boolean('Orbex Suite Module', default=False)
     has_iap = fields.Boolean(compute='_compute_has_iap')
 
     _name_uniq = models.Constraint(

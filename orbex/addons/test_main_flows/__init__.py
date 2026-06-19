@@ -3,7 +3,7 @@
 from .models import model_multicompany
 
 #
-# Conditional installation of enterprise modules.
+# Conditional installation of optional modules.
 #
 # This module is defined in community but some steps (defined with 'edition: "enterprise"')
 # are only used to test enterprise. As it's not possible to direcly add enterprise

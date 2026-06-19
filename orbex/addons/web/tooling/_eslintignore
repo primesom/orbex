@@ -389,7 +389,7 @@ voip/static/lib/**/*
 !pos_tyro
 !pos_tyro/**/*
 
-# Whitelist misc enterprise modules
+# Whitelist misc optional modules
 !sign
 !sign/**
 

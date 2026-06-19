@@ -905,8 +905,8 @@ class AccountPayment(models.Model):
 
         payments = super().create(vals_list)
 
-        # Outstanding account should be set on the payment in community edition to force the generation of journal entries on the payment
-        # This is required because no reconciliation is possible in community, which would prevent the user to reconcile the bank statement with the invoice
+        # Outstanding account should be set on the payment to force the generation of journal entries.
+        # This is required when reconciliation is not available, otherwise the user cannot reconcile the bank statement with the invoice.
         accounting_installed = self.env['account.move']._get_invoice_in_payment_state() == 'in_payment'
 
         for i, (pay, vals) in enumerate(zip(payments, vals_list)):

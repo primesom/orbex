@@ -14,7 +14,7 @@ from orbex.addons.iot_drivers.iot_handlers.drivers.serial_base_driver import Ser
 
 _logger = logging.getLogger(__name__)
 
-# Only needed to expose scale via hw_proxy (used by Community edition)
+# Only needed to expose scale via hw_proxy.
 ACTIVE_SCALE = None
 new_weight_event = threading.Event()
 
@@ -43,7 +43,7 @@ Toledo8217Protocol = SerialProtocol(
 )
 
 
-# HW Proxy is used by Community edition
+# HW Proxy exposes scale data to local clients.
 class ScaleReadHardwareProxy(http.Controller):
     @http.route('/hw_proxy/scale_read', type='jsonrpc', auth='none', cors='*')
     def scale_read(self):
@@ -69,7 +69,7 @@ class ScaleDriver(SerialDriver):
         ACTIVE_SCALE = self
         proxy_drivers['scale'] = ACTIVE_SCALE
 
-    # Used by the HW Proxy in Community edition
+    # Used by the HW Proxy.
     def get_status(self):
         """Allows `hw_proxy.Proxy` to retrieve the status of the scales"""
 
@@ -137,7 +137,7 @@ class ScaleDriver(SerialDriver):
         else:
             self._read_status(answer)
 
-    # Ensures compatibility with Community edition
+    # Ensures compatibility when the IoT app is not installed.
     def _scale_read_hw_proxy(self):
         """Used when the iot app is not installed"""
         with self._device_lock:

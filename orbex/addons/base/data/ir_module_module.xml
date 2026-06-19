@@ -9,8 +9,8 @@
             <field name="category_id" ref="base.module_category_administration_administration"/>
             <field name="application" eval="True"/>
             <field name="summary">Create and Customize Applications</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/web_studio.png</field>
             <field name="website">https://orbexsuite.com/app/studio?utm_source=db&amp;utm_medium=module</field>
@@ -23,8 +23,8 @@
             <field name="category_id" ref="base.module_category_services_timesheets"/>
             <field name="application" eval="True"/>
             <field name="summary">Track time &amp; costs</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/timesheet_grid.png</field>
             <field name="website">https://www.orbexsuite.com/app/timesheet?utm_source=db&amp;utm_medium=module</field>
@@ -37,8 +37,8 @@
             <field name="category_id" ref="base.module_category_accounting_accounting"/>
             <field name="application" eval="True"/>
             <field name="summary">Accounting, Taxes, Budgets, Assets...</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/account_accountant.png</field>
             <field name="website">https://www.orbexsuite.com/app/accounting?utm_source=db&amp;utm_medium=module</field>
@@ -51,8 +51,8 @@
             <field name="category_id" ref="base.module_category_productivity"/>
             <field name="application" eval="True"/>
             <field name="summary">Centralize, manage, share and grow your knowledge library</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/knowledge.png</field>
             <field name="website">https://www.orbexsuite.com/app/knowledge?utm_source=db&amp;utm_medium=module</field>
@@ -65,8 +65,8 @@
             <field name="category_id" ref="base.module_category_services_field_service"/>
             <field name="application" eval="True"/>
             <field name="summary">Schedule and track onsite operations, time and material</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/industry_fsm.png</field>
             <field name="website">https://www.orbexsuite.com/app/field-service?utm_source=db&amp;utm_medium=module</field>
@@ -79,8 +79,8 @@
             <field name="category_id" ref="base.module_category_services_helpdesk"/>
             <field name="application" eval="True"/>
             <field name="summary">Track support tickets</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/helpdesk.png</field>
             <field name="website">https://www.orbexsuite.com/app/helpdesk?utm_source=db&amp;utm_medium=module</field>
@@ -93,8 +93,8 @@
             <field name="category_id" ref="base.module_category_human_resources_appraisals"/>
             <field name="application" eval="True"/>
             <field name="summary">Assess your employees</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/hr_appraisal.png</field>
             <field name="website">https://www.orbexsuite.com/app/appraisals?utm_source=db&amp;utm_medium=module</field>
@@ -107,8 +107,8 @@
             <field name="category_id" ref="base.module_category_marketing_email_marketing"/>
             <field name="application" eval="True"/>
             <field name="summary">Build automated mailing campaigns</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/marketing_automation.png</field>
             <field name="website">https://www.orbexsuite.com/app/marketing-automation?utm_source=db&amp;utm_medium=module</field>
@@ -121,8 +121,8 @@
             <field name="sequence">155</field>
             <field name="application" eval="True"/>
             <field name="summary">PLM, ECOs, Versions</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/mrp_plm.png</field>
             <field name="website">https://www.orbexsuite.com/app/plm?utm_source=db&amp;utm_medium=module</field>
@@ -135,8 +135,8 @@
             <field name="category_id" ref="base.module_category_supply_chain"/>
             <field name="application" eval="True"/>
             <field name="summary">Quality Alerts, Control Points</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/quality_control.png</field>
             <field name="website">https://www.orbexsuite.com/app/quality?utm_source=db&amp;utm_medium=module</field>
@@ -149,8 +149,8 @@
             <field name="category_id" ref="base.module_category_sales_sales"/>
             <field name="application" eval="True"/>
             <field name="summary">Import Amazon orders and sync deliveries</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/sale_amazon.png</field>
             <field name="website">https://www.orbexsuite.com/app/amazon-connector?utm_source=db&amp;utm_medium=module</field>
@@ -163,8 +163,8 @@
             <field name="category_id" ref="base.module_category_services_project"/>
             <field name="application" eval="True"/>
             <field name="summary">Manage your employees' schedule</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/planning.png</field>
             <field name="website">https://www.orbexsuite.com/app/planning?utm_source=db&amp;utm_medium=module</field>
@@ -177,8 +177,8 @@
             <field name="category_id" ref="base.module_category_sales_sales"/>
             <field name="application" eval="True"/>
             <field name="summary">MRR, Churn, Recurring payments</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/sale_subscription.png</field>
             <field name="website">https://www.orbexsuite.com/app/subscriptions?utm_source=db&amp;utm_medium=module</field>
@@ -191,8 +191,8 @@
             <field name="category_id" ref="base.module_category_sales_sign"/>
             <field name="application" eval="True"/>
             <field name="summary">Send documents to sign online</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/sign.png</field>
             <field name="website">https://www.orbexsuite.com/app/sign?utm_source=db&amp;utm_medium=module</field>
@@ -205,8 +205,8 @@
             <field name="category_id" ref="base.module_category_supply_chain"/>
             <field name="application" eval="True"/>
             <field name="summary">Barcode scanner for warehouses</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/stock_barcode.png</field>
             <field name="website">https://www.orbexsuite.com/app/inventory?utm_source=db&amp;utm_medium=module</field>
@@ -219,8 +219,8 @@
             <field name="category_id" ref="base.module_category_sales_sales"/>
             <field name="application" eval="True"/>
             <field name="summary">Call using VoIP</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/voip.png</field>
             <field name="website">https://www.orbexsuite.com/app/crm?utm_source=db&amp;utm_medium=module</field>
@@ -233,8 +233,8 @@
             <field name="category_id" ref="base.module_category_marketing"/>
             <field name="application" eval="True"/>
             <field name="summary">Online appointments scheduler</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/appointment.png</field>
             <field name="website">https://www.orbexsuite.com/app/appointments?utm_source=db&amp;utm_medium=module</field>
@@ -247,8 +247,8 @@
             <field name="category_id" ref="base.module_category_marketing"/>
             <field name="application" eval="True"/>
             <field name="summary">Manage your social media and website visitors</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/social.png</field>
             <field name="website">https://www.orbexsuite.com/app/social-marketing</field>
@@ -261,8 +261,8 @@
             <field name="category_id" ref="base.module_category_supply_chain"/>
             <field name="application" eval="True"/>
             <field name="summary">Work Orders, Planning, Routing</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/mrp_workorder.png</field>
             <field name="website">https://www.orbexsuite.com/page/manufacturing?utm_source=db&amp;utm_medium=module</field>
@@ -275,8 +275,8 @@
             <field name="category_id" ref="base.module_category_administration_administration"/>
             <field name="application" eval="True"/>
             <field name="summary">Support for Android &amp; iOS Apps</field>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/web_mobile.png</field>
             <field name="website">https://play.google.com/store/apps/details?id=com.orbex.mobile</field>
@@ -287,8 +287,8 @@
             <field name="shortdesc">Sepa Direct Debit Payment Provider</field>
             <field name="summary">Checkout with SEPA Direct Debit</field>
             <field name="category_id" ref="base.module_category_accounting_accounting"/>
-            <field name="license">OEEL-1</field>
-            <field name="author">Orbex S.A.</field>
+            <field name="license">OSPL-1</field>
+            <field name="author">Orbex Suite</field>
             <field name="to_buy" eval="True"/>
             <field name="icon">/base/static/img/icons/payment_sepa_direct_debit.png</field>
         </record>
