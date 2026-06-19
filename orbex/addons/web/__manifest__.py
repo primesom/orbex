@@ -369,9 +369,9 @@ This module provides the core of the Orbex Web Client.
             'web/static/src/**/*.dark.scss',
         ],
         "web.dark_mode_variables": [
-            'web/static/src/orbex/scss/primary_variables.dark.scss',
-            'web/static/src/orbex/**/*.variables.dark.scss',
-            'web/static/src/orbex/scss/secondary_variables.dark.scss',
+            ('before', 'web/static/src/orbex/scss/primary_variables.scss', 'web/static/src/orbex/scss/primary_variables.dark.scss'),
+            ('before', 'web/static/src/orbex/**/*.variables.scss', 'web/static/src/orbex/**/*.variables.dark.scss'),
+            ('before', 'web/static/src/orbex/scss/secondary_variables.scss', 'web/static/src/orbex/scss/secondary_variables.dark.scss'),
         ],
 
         # ---------------------------------------------------------------------

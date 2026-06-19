@@ -104,6 +104,7 @@ class Home(http.Controller):
             response = request.render('web.webclient_bootstrap', qcontext=context)
             response.headers['X-Frame-Options'] = 'DENY'
             response.headers['Cache-Control'] = 'no-store'
+            response.set_cookie('color_scheme', context['color_scheme'])
             return response
         except AccessError:
             return request.redirect('/web/login?error=access')
