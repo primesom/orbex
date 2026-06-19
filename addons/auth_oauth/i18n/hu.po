@@ -278,8 +278,8 @@ msgstr "pl. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Bejelentkezés Google fiókkal"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Bejelentkezés Orbex.com fiókkal"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Bejelentkezés orbexsuite.com fiókkal"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth hozzáférési token"

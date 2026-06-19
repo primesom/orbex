@@ -276,8 +276,8 @@ msgstr "например, 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Войти через Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Войдите в систему с помощью Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Войдите в систему с помощью orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth Access Token"

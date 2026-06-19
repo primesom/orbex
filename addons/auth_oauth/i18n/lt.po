@@ -276,8 +276,8 @@ msgstr "pvz. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "- or -"
 #~ msgstr "- arba -"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Prisijungti su Orbex.com paskyra"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Prisijungti su orbexsuite.com paskyra"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth prieigos raktas"

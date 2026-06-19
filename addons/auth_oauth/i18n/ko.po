@@ -270,8 +270,8 @@ msgstr "예: 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Google로 로그인"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Orbex.com으로 로그인"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "orbexsuite.com으로 로그인"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth 접근 토큰"

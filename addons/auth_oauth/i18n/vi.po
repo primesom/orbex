@@ -272,8 +272,8 @@ msgstr "VD: 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Đăng nhập với Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Đăng nhập với Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Đăng nhập với orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "Token Truy cập OAuth "

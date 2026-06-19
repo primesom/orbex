@@ -273,8 +273,8 @@ msgstr "par ex. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Se connecter avec Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Se connecter avec Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Se connecter avec orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "Jeton d'accès OAuth"

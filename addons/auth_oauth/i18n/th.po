@@ -271,8 +271,8 @@ msgstr "เช่น 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "เข้าสู่ระบบด้วย Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "เข้าสู่ระบบด้วย Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "เข้าสู่ระบบด้วย orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "โทเคนการเข้าถึง OAuth"

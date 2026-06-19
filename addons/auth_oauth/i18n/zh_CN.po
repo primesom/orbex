@@ -270,7 +270,7 @@ msgstr "例如：1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "谷歌登陆"
 
-#~ msgid "Log in with Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
 #~ msgstr "Orbex官方登陆"
 
 #~ msgid "OAuth Access Token"

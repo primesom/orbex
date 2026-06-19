@@ -279,5 +279,5 @@ msgstr "לדוגמא 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "התחברות עם גוגל"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "התחברות עם Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "התחברות עם orbexsuite.com"

@@ -269,8 +269,8 @@ msgstr "napr. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Prihlásiť sa cez Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Prihlásiť sa cez Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Prihlásiť sa cez orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth prístupový token"

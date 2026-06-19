@@ -274,8 +274,8 @@ msgstr "např. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Přihlaste se pomocí Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Přihlaste se pomocí Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Přihlaste se pomocí orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "Přístupový token OAuth"

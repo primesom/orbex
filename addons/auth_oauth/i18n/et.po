@@ -276,8 +276,8 @@ msgstr "nt. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Sisselogimine Google'iga"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Sisselogimine Orbex.com'ga"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Sisselogimine orbexsuite.com'ga"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "OAuth Access Token"

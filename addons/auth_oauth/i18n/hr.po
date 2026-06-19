@@ -274,8 +274,8 @@ msgstr "npr. 1234-xyz.apps.googleusercontent.com"
 #~ msgid "Log in with Google"
 #~ msgstr "Prijava preko Google"
 
-#~ msgid "Log in with Orbex.com"
-#~ msgstr "Prijava preko Orbex.com"
+#~ msgid "Log in with orbexsuite.com"
+#~ msgstr "Prijava preko orbexsuite.com"
 
 #~ msgid "OAuth Access Token"
 #~ msgstr "Token OAuth pristupa"
