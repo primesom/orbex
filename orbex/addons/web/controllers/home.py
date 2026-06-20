@@ -89,7 +89,7 @@ class Home(http.Controller):
             or request.httprequest.path.startswith(f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}/')
         ):
             target = _orbex_redirect_path(request.httprequest.path)
-            return request.redirect(target, code=301)
+            return request.redirect_query(target, query=request.httprequest.args, code=301)
 
         # Ensure we have both a database and a user
         ensure_db()
@@ -102,6 +102,10 @@ class Home(http.Controller):
             raise http.SessionExpiredException("Session expired")
         if not is_user_internal(request.session.uid):
             return request.redirect('/web/login_successful', 303)
+        if 'debug' in request.httprequest.args and not request.session.debug:
+            query = request.httprequest.args.to_dict()
+            query.pop('debug', None)
+            return request.redirect_query(request.httprequest.path, query=query, code=303)
 
         # Side-effect, refresh the session lifetime
         request.session.touch()

@@ -14,6 +14,7 @@ export class RedirectionError extends Error {}
  */
 export function objectToUrlEncodedString(obj) {
     return Object.entries(obj)
+        .filter(([, v]) => v !== undefined && v !== null && v !== "")
         .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v || "")}`)
         .join("&");
 }

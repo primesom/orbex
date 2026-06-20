@@ -175,7 +175,7 @@ function stateToUrl(state) {
     const search = objectToUrlEncodedString(omit(state, ...pathKeysToOmit));
     const start_url = startUrl();
     if (start_url !== "scoped_app") {
-        return `/${cleanAppSlug(state.appSlug) || start_url}`;
+        return `/${cleanAppSlug(state.appSlug) || start_url}${search ? `?${search}` : ""}`;
     }
     return `/${start_url}${path}${search ? `?${search}` : ""}`;
 }

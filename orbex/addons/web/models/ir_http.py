@@ -52,6 +52,18 @@ class IrHttp(models.AbstractModel):
                 else ''
                 for mode in (debug or '').split(',')
             )
+        elif request.session.debug and cls._is_webclient_path(request.httprequest.path):
+            request.session.debug = ''
+
+    @classmethod
+    def _is_webclient_path(cls, path):
+        if path in ('/', '/web', '/app', '/orbex'):
+            return True
+        if path.startswith(('/app/', '/orbex/', '/scoped_app/')):
+            return True
+        if path.startswith('/web/'):
+            return False
+        return not path.startswith(('/api/', '/websocket', '/bus/', '/mail/', '/portal/'))
 
     @classmethod
     def _pre_dispatch(cls, rule, args):

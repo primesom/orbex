@@ -26,6 +26,17 @@
                 csrf_token: "<t t-esc="request.csrf_token(None)"/>",
                 debug: "<t t-esc="debug"/>",
             };
+            Object.defineProperty(window, "odoo", {
+                configurable: true,
+                get() {
+                    return orbex;
+                },
+                set(value) {
+                    if (value &amp;&amp; typeof value === "object") {
+                        Object.assign(orbex, value);
+                    }
+                },
+            });
         </script>
         <t t-out="head or ''"/>
     </head>
