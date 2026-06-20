@@ -10,7 +10,17 @@
                 aria-label="Toggle color scheme"
                 t-on-click.prevent="toggleColorScheme"
             >
-                <i class="fa fa-lightbulb-o" role="img"/>
+                <svg
+                    t-if="activeScheme === 'dark'"
+                    class="o_orbex_color_scheme_icon"
+                    viewBox="0 0 24 24"
+                    role="img"
+                    aria-hidden="true"
+                >
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2.5v3M12 18.5v3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M2.5 12h3M18.5 12h3M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/>
+                </svg>
+                <i t-else="" class="fa fa-moon-o" role="img"/>
             </button>
         </div>
     </t>

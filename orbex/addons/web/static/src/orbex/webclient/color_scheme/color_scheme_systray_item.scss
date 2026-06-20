@@ -5,7 +5,21 @@
         justify-content: center;
     }
 
+    .o_orbex_color_scheme_toggle {
+        color: #526173;
+    }
+
     .o_orbex_color_scheme_toggle_dark {
-        color: var(--o-orbex-color, #875a7b);
+        color: #e8edf5;
+    }
+
+    .o_orbex_color_scheme_icon {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
     }
 }
