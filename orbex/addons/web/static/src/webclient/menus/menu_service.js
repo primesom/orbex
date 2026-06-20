@@ -1,8 +1,17 @@
 import { session } from "@web/session";
 import { browser } from "../../core/browser/browser";
+import { router } from "../../core/browser/router";
 import { registry } from "../../core/registry";
 
 const loadMenusUrl = `/web/webclient/load_menus`;
+
+function cleanMenuSlug(menu) {
+    return (menu.actionPath || menu.name || "")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
 
 export const menuService = {
     dependencies: ["action"],
@@ -59,7 +68,10 @@ export const menuService = {
             if (menu && menu.appID !== currentAppId) {
                 currentAppId = menu.appID;
                 browser.sessionStorage.setItem("menu_id", currentAppId);
+                browser.sessionStorage.setItem("app_slug", cleanMenuSlug(menu));
                 env.bus.trigger("MENUS:APP-CHANGED");
+            } else if (menu) {
+                browser.sessionStorage.setItem("app_slug", cleanMenuSlug(menu));
             }
         }
 
@@ -89,10 +101,12 @@ export const menuService = {
                 if (!menu.actionID) {
                     return;
                 }
+                const appSlug = cleanMenuSlug(menu);
                 await env.services.action.doAction(menu.actionID, {
                     clearBreadcrumbs: true,
                     onActionReady: () => {
                         setCurrentMenu(menu);
+                        router.replaceState({ appSlug }, { sync: true });
                     },
                 });
             },

@@ -44,7 +44,7 @@ const pwaService = {
             isAvailable: false,
             isScopedApp: browser.location.href.includes("/scoped_app"),
             isSupportedOnBrowser: false,
-            startUrl: "/orbex",
+            startUrl: "/app",
             decline,
             getManifest,
             hasScopeBeenInstalled,

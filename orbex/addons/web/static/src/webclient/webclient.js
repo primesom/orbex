@@ -70,6 +70,18 @@ export class WebClient extends Component {
         // the menu_id in the url is only possible if we came from an old url
         let menuId = Number(router.current.menu_id || 0);
         const storedMenuId = Number(browser.sessionStorage.getItem("menu_id"));
+        const currentAppSlug = router.current.appSlug || browser.sessionStorage.getItem("app_slug");
+        if (!menuId && currentAppSlug) {
+            const matchingApp = this.menuService.getApps().find((app) => {
+                const appSlug = (app.actionPath || app.name || "")
+                    .trim()
+                    .toLowerCase()
+                    .replace(/[^a-z0-9_-]+/g, "-")
+                    .replace(/^-+|-+$/g, "");
+                return appSlug === currentAppSlug;
+            });
+            menuId = matchingApp?.id || 0;
+        }
         const firstAction = router.current.actionStack?.[0]?.action;
         if (!menuId && firstAction) {
             // Find all menus that match this action
@@ -170,7 +182,7 @@ export class WebClient extends Component {
     registerServiceWorker() {
         if (navigator.serviceWorker) {
             navigator.serviceWorker
-                .register("/web/service-worker.js", { scope: "/orbex" })
+                .register("/web/service-worker.js", { scope: "/app" })
                 .then((registration) => {
                     if (registration.active && registration.active.state === "activated") {
                         this.serviceWorkerActivatedDeferred.resolve();

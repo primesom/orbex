@@ -23,18 +23,30 @@ from .utils import (
 _lt = LazyTranslate(__name__)
 _logger = logging.getLogger(__name__)
 
-ORBEX_WEB_CLIENT_ROUTE = '/orbex'
+APP_WEB_CLIENT_ROUTE = '/app'
+ORBEX_WEB_CLIENT_ROUTE = APP_WEB_CLIENT_ROUTE
+LEGACY_ORBEX_WEB_CLIENT_ROUTE = '/orbex'
 LEGACY_WEB_CLIENT_ROUTE = '/' + ''.join(('od', 'oo'))
 
 
 def _orbex_redirect_path(path):
-    """Map the legacy web-client route to the Orbex route without changing internals."""
+    """Map legacy web-client routes to the public app route without changing internals."""
+    if path == LEGACY_ORBEX_WEB_CLIENT_ROUTE or path.startswith((
+        f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}?',
+        f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}#',
+    )):
+        return APP_WEB_CLIENT_ROUTE
+    if path.startswith(f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}/'):
+        slug = path.removeprefix(f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}/').strip('/').split('/', 1)[0]
+        if slug and not slug.startswith(('action-', 'm-')) and '.' not in slug:
+            return f'/{slug}'
+        return APP_WEB_CLIENT_ROUTE
     if path == LEGACY_WEB_CLIENT_ROUTE or path.startswith((
         f'{LEGACY_WEB_CLIENT_ROUTE}/',
         f'{LEGACY_WEB_CLIENT_ROUTE}?',
         f'{LEGACY_WEB_CLIENT_ROUTE}#',
     )):
-        return ORBEX_WEB_CLIENT_ROUTE + path.removeprefix(LEGACY_WEB_CLIENT_ROUTE)
+        return APP_WEB_CLIENT_ROUTE
     return path
 
 
@@ -52,7 +64,7 @@ class Home(http.Controller):
     def index(self, s_action=None, db=None, **kw):
         if request.db and request.session.uid and not is_user_internal(request.session.uid):
             return request.redirect_query('/web/login_successful', query=request.params)
-        return request.redirect_query(ORBEX_WEB_CLIENT_ROUTE, query=request.params)
+        return request.redirect(ORBEX_WEB_CLIENT_ROUTE)
 
     def _web_client_readonly(self, rule, args):
         return False
@@ -62,19 +74,27 @@ class Home(http.Controller):
         '/web',
         ORBEX_WEB_CLIENT_ROUTE,
         f'{ORBEX_WEB_CLIENT_ROUTE}/<path:subpath>',
+        LEGACY_ORBEX_WEB_CLIENT_ROUTE,
+        f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}/<path:subpath>',
         LEGACY_WEB_CLIENT_ROUTE,
         f'{LEGACY_WEB_CLIENT_ROUTE}/<path:subpath>',
         '/scoped_app/<path:subpath>',
+        '/<path:subpath>',
     ], type='http', auth="none", readonly=_web_client_readonly)
     def web_client(self, s_action=None, **kw):
-        if request.httprequest.path == LEGACY_WEB_CLIENT_ROUTE or request.httprequest.path.startswith(f'{LEGACY_WEB_CLIENT_ROUTE}/'):
+        if (
+            request.httprequest.path == LEGACY_WEB_CLIENT_ROUTE
+            or request.httprequest.path.startswith(f'{LEGACY_WEB_CLIENT_ROUTE}/')
+            or request.httprequest.path == LEGACY_ORBEX_WEB_CLIENT_ROUTE
+            or request.httprequest.path.startswith(f'{LEGACY_ORBEX_WEB_CLIENT_ROUTE}/')
+        ):
             target = _orbex_redirect_path(request.httprequest.path)
-            return request.redirect_query(target, query=request.params, code=301)
+            return request.redirect(target, code=301)
 
         # Ensure we have both a database and a user
         ensure_db()
         if not request.session.uid:
-            redirect_path = _orbex_redirect_path(request.httprequest.full_path)
+            redirect_path = _orbex_redirect_path(request.httprequest.path)
             return request.redirect_query('/web/login', query={'redirect': redirect_path}, code=303)
         if kw.get('redirect'):
             return request.redirect(kw.get('redirect'), 303)

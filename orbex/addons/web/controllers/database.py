@@ -86,7 +86,7 @@ class Database(http.Controller):
                 request.session.authenticate(env, credential)
                 request._save_session(env)
                 request.session.db = name
-            return request.redirect('/orbex')
+            return request.redirect('/app')
         except Exception as e:
             _logger.exception("Database creation error.")
             error = "Database creation error: %s" % (str(e) or repr(e))

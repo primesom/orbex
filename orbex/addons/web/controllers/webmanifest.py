@@ -30,7 +30,7 @@ class WebManifest(http.Controller):
             if data:
                 shortcuts.append({
                     'name': module.display_name,
-                    'url': '/orbex?menu_id=%s' % data.mapped('res_id')[0],
+                    'url': '/app',
                     'description': module.summary,
                     'icons': [{
                         'sizes': '100x100',
@@ -44,8 +44,8 @@ class WebManifest(http.Controller):
         web_app_name = request.env['ir.config_parameter'].sudo().get_param('web.web_app_name', 'Orbex')
         manifest = {
             'name': web_app_name,
-            'scope': '/orbex',
-            'start_url': '/orbex',
+            'scope': '/app',
+            'start_url': '/app',
             'display': 'standalone',
             'background_color': '#714B67',
             'theme_color': '#714B67',
@@ -76,13 +76,13 @@ class WebManifest(http.Controller):
             self._get_service_worker_content(),
             [
                 ('Content-Type', 'text/javascript'),
-                ('Service-Worker-Allowed', '/orbex'),
+                ('Service-Worker-Allowed', '/app'),
             ]
         )
         return response
 
     def _get_service_worker_content(self):
-        """ Returns a ServiceWorker javascript file scoped for the backend (aka. '/orbex')
+        """ Returns a ServiceWorker javascript file scoped for the backend.
         """
         with file_open('web/static/src/service_worker.js') as f:
             body = f.read()
@@ -91,7 +91,7 @@ class WebManifest(http.Controller):
     def _icon_path(self):
         return 'web/static/img/orbex-icon-192x192.png'
 
-    @http.route('/orbex/offline', type='http', auth='public', methods=['GET'], readonly=True)
+    @http.route(['/app/offline', '/orbex/offline'], type='http', auth='public', methods=['GET'], readonly=True)
     def offline(self):
         """ Returns the offline page delivered by the service worker """
         return request.render('web.webclient_offline', {
@@ -144,7 +144,7 @@ class WebManifest(http.Controller):
     @http.route('/web/manifest.scoped_app_manifest', type='http', auth='public', methods=['GET'])
     def scoped_app_manifest(self, app_id, path, app_name=''):
         """ Returns a WebManifest dedicated to the scope of the given app. A custom scope and start
-            url are set to make sure no other installed PWA can overlap the scope (e.g. /orbex)
+            url are set to make sure no other installed PWA can overlap the scope.
         """
         path = unquote(path)
         app_name = unquote(app_name) if app_name else self._get_scoped_app_name(app_id)

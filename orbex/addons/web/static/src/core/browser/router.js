@@ -8,6 +8,14 @@ import { isNumeric } from "@web/core/utils/strings";
 
 // Keys that are serialized in the URL as path segments instead of query string
 export const PATH_KEYS = ["resId", "action", "active_id", "model"];
+const APP_ROUTE_PREFIX = "app";
+const LEGACY_APP_ROUTE_PREFIX = "orbex";
+const RESERVED_ROUTE_PREFIXES = new Set([
+    APP_ROUTE_PREFIX,
+    LEGACY_APP_ROUTE_PREFIX,
+    "web",
+    "scoped_app",
+]);
 
 export const routerBus = new EventBus();
 
@@ -115,8 +123,19 @@ function pathFromActionState(state) {
     return path.join("/");
 }
 
+function cleanAppSlug(slug) {
+    if (!slug || typeof slug !== "string") {
+        return "";
+    }
+    return slug
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
 export function startUrl() {
-    return isScopedApp() ? "scoped_app" : "orbex";
+    return isScopedApp() ? "scoped_app" : APP_ROUTE_PREFIX;
 }
 
 /**
@@ -155,6 +174,9 @@ function stateToUrl(state) {
     }
     const search = objectToUrlEncodedString(omit(state, ...pathKeysToOmit));
     const start_url = startUrl();
+    if (start_url !== "scoped_app") {
+        return `/${cleanAppSlug(state.appSlug) || start_url}`;
+    }
     return `/${start_url}${path}${search ? `?${search}` : ""}`;
 }
 
@@ -185,7 +207,11 @@ function urlToState(urlObj) {
 
     const [prefix, ...splitPath] = urlObj.pathname.split("/").filter(Boolean);
 
-    if (["orbex", "scoped_app"].includes(prefix)) {
+    if (prefix && !RESERVED_ROUTE_PREFIXES.has(prefix)) {
+        state.appSlug = prefix;
+    }
+
+    if ([APP_ROUTE_PREFIX, LEGACY_APP_ROUTE_PREFIX, "scoped_app"].includes(prefix)) {
         const actionParts = [...splitPath.entries()].filter(
             ([_, part]) => !isNumeric(part) && part !== "new"
         );
@@ -231,7 +257,7 @@ function urlToState(urlObj) {
             state.actionStack = actions;
         }
         if (prefix === "scoped_app" && !isDisplayStandalone()) {
-            // make sure /scoped_app are redirected to /orbex when using the browser instead of the PWA
+            // make sure /scoped_app are redirected to /app when using the browser instead of the PWA
             const url = browser.location.origin + router.stateToUrl(state);
             urlObj.href = url;
         }
@@ -247,13 +273,18 @@ let _hiddenKeysFromUrl = new Set();
 
 export function startRouter() {
     const url = new URL(browser.location);
-    state = router.urlToState(url);
+    state = browser.history.state?.nextState || router.urlToState(url);
     // ** url-retrocompatibility **
-    if (browser.location.pathname === "/web") {
+    if (
+        browser.location.pathname === "/web" ||
+        browser.location.pathname === `/${LEGACY_APP_ROUTE_PREFIX}` ||
+        browser.location.pathname.startsWith(`/${LEGACY_APP_ROUTE_PREFIX}/`) ||
+        browser.location.pathname.startsWith(`/${APP_ROUTE_PREFIX}/`)
+    ) {
         // Change the url of the current history entry to the canonical url.
         // This change should be done only at the first load, and not when clicking on old style internal urls.
         // Or when clicking back/forward on the browser.
-        browser.history.replaceState(browser.history.state, null, url.href);
+        browser.history.replaceState({ nextState: state }, null, router.stateToUrl(state));
     }
     pushTimeout = null;
     pushArgs = {
@@ -262,7 +293,7 @@ export function startRouter() {
         state: {},
     };
     _lockedKeys = new Set(["debug", "lang"]);
-    _hiddenKeysFromUrl = new Set([...PATH_KEYS, "actionStack"]);
+    _hiddenKeysFromUrl = new Set([...PATH_KEYS, "actionStack", "appSlug"]);
 }
 
 /**
@@ -322,14 +353,16 @@ browser.addEventListener("click", (ev) => {
         }
         if (
             browser.location.host === url.host &&
-            browser.location.pathname.startsWith("/orbex") &&
-            (["/web", "/orbex"].includes(url.pathname) || url.pathname.startsWith("/orbex/")) &&
+            ["/app", "/orbex"].some((path) => browser.location.pathname.startsWith(path)) &&
+            (["/web", "/app", "/orbex"].includes(url.pathname) ||
+                url.pathname.startsWith("/app/") ||
+                url.pathname.startsWith("/orbex/")) &&
             a.target !== "_blank"
         ) {
             ev.preventDefault();
             state = router.urlToState(url);
-            if (url.pathname.startsWith("/orbex") && url.hash) {
-                browser.history.pushState({}, "", url.href);
+            if ((url.pathname.startsWith("/app") || url.pathname.startsWith("/orbex")) && url.hash) {
+                browser.history.pushState({ nextState: state }, "", router.stateToUrl(state));
             }
             new Promise((res) => setTimeout(res, 0)).then(() => routerBus.trigger("ROUTE_CHANGE"));
         }
@@ -358,6 +391,8 @@ function makeDebouncedPush(mode) {
             } else {
                 browser.history.replaceState({ nextState }, "", url);
             }
+        } else if (mode === "push") {
+            browser.history.pushState({ nextState }, "", url);
         } else {
             // URL didn't change but state might have, update it in place
             browser.history.replaceState({ nextState }, "", browser.location.href);

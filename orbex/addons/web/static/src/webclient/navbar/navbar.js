@@ -209,7 +209,12 @@ export class NavBar extends Component {
     }
 
     getMenuItemHref(payload) {
-        return `/orbex/${payload.actionPath || "action-" + payload.actionID}`;
+        const slug = (payload.actionPath || payload.name || "")
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9_-]+/g, "-")
+            .replace(/^-+|-+$/g, "");
+        return `/${slug || "app"}`;
     }
 
     _closeAppMenuSidebar() {

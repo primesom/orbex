@@ -1831,6 +1831,10 @@ export function makeActionManager(env, router = _router) {
         const newState = {
             actionStack: actions,
         };
+        const appSlug = browser.sessionStorage.getItem("app_slug");
+        if (appSlug) {
+            newState.appSlug = appSlug;
+        }
         const stateKeys = [...PATH_KEYS];
         const { action, props, currentState } = cStack.at(-1);
         if (props.type !== "form" && props.type !== action.views?.[0][1]) {

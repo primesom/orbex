@@ -1,4 +1,5 @@
 import { registry } from "../registry";
+import { user, userBus } from "@web/core/user";
 
 export const titleService = {
     start() {
@@ -35,13 +36,17 @@ export const titleService = {
 
         function updateTitle() {
             const counter = Object.values(titleCounters).reduce((acc, count) => acc + count, 0);
-            const name = Object.values(titleParts).join(" - ") || "Orbex";
+            const name =
+                user.activeCompany?.name || Object.values(titleParts).join(" - ") || "Orbex";
             if (!counter) {
                 document.title = name;
             } else {
                 document.title = `(${counter}) ${name}`;
             }
         }
+
+        userBus.addEventListener("ACTIVE_COMPANIES_CHANGED", updateTitle);
+        updateTitle();
 
         return {
             /**

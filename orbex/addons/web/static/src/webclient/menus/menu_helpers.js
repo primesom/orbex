@@ -11,6 +11,14 @@ function traverseMenuTree(tree, cb, parents = []) {
     tree.childrenTree.forEach((c) => traverseMenuTree(c, cb, parents.concat([tree])));
 }
 
+function cleanMenuSlug(menu) {
+    return (menu.actionPath || menu.name || "")
+        .trim()
+        .toLowerCase()
+        .replace(/[^a-z0-9_-]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
 /**
  * Computes the "apps" and "menuItems" from a given menu tree.
  *
@@ -34,7 +42,7 @@ export function computeAppsAndMenuItems(menuTree) {
             id: menuItem.id,
             xmlid: menuItem.xmlid,
             actionID: menuItem.actionID,
-            href: `/orbex/${menuItem.actionPath || "action-" + menuItem.actionID}`,
+            href: `/${cleanMenuSlug(menuItem) || "app"}`,
             appID: menuItem.appID,
         };
         if (isApp) {

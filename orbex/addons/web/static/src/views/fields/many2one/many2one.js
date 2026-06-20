@@ -231,7 +231,7 @@ export class Many2One extends Component {
         const relation = this.props.relation.includes(".")
             ? this.props.relation
             : `m-${this.props.relation}`;
-        return `/orbex/${relation}/${this.props.value.id}`;
+        return "/app";
     }
 
     async openBarcodeScanner() {

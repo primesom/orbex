@@ -70,6 +70,6 @@ class Session(http.Controller):
         request.session.logout()
 
     @http.route('/web/session/logout', type='http', auth='none', readonly=True)
-    def logout(self, redirect='/orbex'):
+    def logout(self, redirect='/app'):
         request.session.logout(keep_db=True)
         return request.redirect(redirect, 303)
