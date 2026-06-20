@@ -122,6 +122,298 @@ li.oe-nested {
     }
 }
 
+.article[class*="o_report_layout_"] {
+    color: #182032;
+
+    h2 {
+        margin: 0 0 1.25rem;
+        padding-bottom: .55rem;
+        border-bottom: 2px solid #e8edf2;
+        font-size: 1.85rem;
+        font-weight: 700;
+        letter-spacing: 0;
+    }
+
+    #informations {
+        margin-bottom: 1.5rem;
+        color: #4d5868;
+
+        strong {
+            display: block;
+            margin-bottom: .15rem;
+            color: #1f2937;
+            font-size: .78rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .address {
+        margin-bottom: 1.5rem !important;
+
+        address {
+            line-height: 1.45;
+        }
+    }
+
+    .o_main_table,
+    table:not(.o_ignore_layout_styling) {
+        thead th {
+            padding: .7rem .65rem;
+            border-top: 0;
+            border-bottom: 1px solid #dce3ea;
+            background-color: #f3f6f8;
+            color: #1f2937;
+            font-size: .78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        tbody td {
+            padding: .65rem;
+            border-top: 1px solid #edf1f5;
+            vertical-align: top;
+        }
+    }
+
+    #total {
+        table {
+            margin-top: .75rem;
+        }
+
+        td {
+            padding: .55rem .65rem;
+        }
+
+        .o_total td {
+            border-top: 2px solid #dce3ea;
+            background-color: #f3f6f8;
+        }
+    }
+}
+
+.header[class*="o_company_"] {
+    color: #283244;
+
+    .o_company_logo,
+    .o_company_logo_small,
+    .o_company_logo_big {
+        object-fit: contain;
+    }
+
+    .o_company_tagline {
+        font-size: .95rem;
+        letter-spacing: 0;
+    }
+
+    ul[name="company_address_list"] {
+        color: #4d5868;
+        line-height: 1.35;
+    }
+}
+
+.footer[class*="o_company_"] {
+    color: #697386;
+    font-size: .8rem;
+
+    .o_footer_content {
+        border-color: #dce3ea !important;
+    }
+}
+
+.o_report_layout_standard {
+    h2 {
+        border-bottom-width: 1px;
+    }
+
+    .o_main_table thead th,
+    table:not(.o_ignore_layout_styling) thead th {
+        background-color: transparent;
+    }
+}
+
+.o_report_layout_boxed {
+    padding: 1.25rem;
+    border: 1px solid #dce3ea;
+    border-radius: .45rem;
+
+    h2 {
+        padding-bottom: .65rem;
+    }
+}
+
+.o_report_layout_bold {
+    h2 {
+        padding-left: .85rem;
+        border-bottom: 0;
+        border-left: .28rem solid currentColor;
+    }
+
+    .o_main_table thead th,
+    table:not(.o_ignore_layout_styling) thead th {
+        border-bottom-width: 2px;
+        background-color: transparent;
+    }
+}
+
+.o_report_layout_striped {
+    h2 {
+        float: right;
+        width: 20%;
+        min-height: 0;
+        margin: 0 !important;
+        padding: .7rem 1rem;
+        border-bottom: 0 !important;
+        background-color: #f3f6f8;
+        text-align: left;
+    }
+
+    .o_striped_document_title_label {
+        display: block;
+        margin-bottom: .15rem;
+        color: #1f2937;
+        font-size: .78rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+    }
+
+    .o_striped_document_title_value {
+        display: block;
+        color: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.35;
+
+        span:first-child {
+            display: none;
+        }
+    }
+
+    #informations {
+        display: flex !important;
+        float: right;
+        width: 40%;
+        min-height: 0;
+        margin: 0 0 1rem !important;
+        background-color: #f3f6f8;
+
+        > div {
+            display: block;
+            flex: 1 1 50%;
+            width: auto;
+            max-width: none;
+            padding: .7rem 1rem;
+            border-top: 0;
+
+            strong {
+                display: block;
+                margin-bottom: .15rem;
+                color: #1f2937;
+                font-size: .78rem;
+                line-height: 1.2;
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    h2 + #informations {
+        margin-top: 0 !important;
+    }
+
+    .o_main_table,
+    table:not(.o_ignore_layout_styling) {
+        clear: both;
+    }
+
+    .o_striped_party_row {
+        float: left;
+        display: block;
+        width: 36%;
+        margin: 0 1rem 1rem 0;
+    }
+
+    .o_striped_party_card {
+        width: 100%;
+        min-width: 0;
+        max-width: none;
+        padding: .95rem 1rem;
+        border: 1px solid #dce3ea;
+        border-radius: .35rem;
+        background-color: #fbfcfd;
+        color: #283244;
+        line-height: 1.4;
+    }
+
+    .o_striped_information_block {
+        margin-bottom: .75rem;
+    }
+
+    .o_striped_party_label {
+        margin-bottom: .35rem;
+        color: #697386;
+        font-size: .72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .o_main_table tbody tr:nth-child(odd) td,
+    table:not(.o_ignore_layout_styling) tbody tr:nth-child(odd) td {
+        background-color: #fafbfd;
+    }
+}
+
+.o_report_striped_header {
+    padding-bottom: .85rem;
+    border-bottom: 1px solid #e8edf2;
+
+    .o_report_striped_brand {
+        min-width: 0;
+        max-width: 55%;
+    }
+
+    .o_report_striped_company_details {
+        max-width: 42%;
+        padding-top: .25rem;
+        color: #4d5868;
+        font-size: .85rem;
+    }
+}
+
+.o_report_layout_folder {
+    h2 {
+        border-bottom: 0;
+    }
+
+    .o_main_table thead th,
+    table:not(.o_ignore_layout_styling) thead th {
+        border-bottom: 0;
+        background-color: #f1f5f7;
+    }
+}
+
+.o_report_layout_wave {
+    h2 {
+        border-bottom: 0;
+    }
+
+    #informations {
+        border-width: 1px;
+        border-style: solid;
+    }
+}
+
+.o_report_layout_bubble {
+    h2 {
+        border-bottom: 0;
+    }
+
+    .o_main_table thead th,
+    table:not(.o_ignore_layout_styling) thead th,
+    #total .o_total td {
+        border-radius: .2rem;
+    }
+}
+
 .o_shape_bubble_1 ~ table .o_company_logo {
     margin-bottom: map-get($spacers, 1) !important;
     max-height: 3rem;
