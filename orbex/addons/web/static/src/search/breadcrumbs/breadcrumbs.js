@@ -9,6 +9,7 @@ export class Breadcrumbs extends Component {
     static props = {
         breadcrumbs: Array,
         formView: { type: Boolean, optional: true },
+        inline: { type: Boolean, optional: true },
         slots: { type: Object, optional: true },
     };
 

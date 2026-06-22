@@ -10,7 +10,7 @@
         <div
             t-if="collapsedBreadcrumbs.length || visiblePathBreadcrumbs.length"
             class="o_breadcrumb d-flex flex-row align-self-stretch justify-content-between min-w-0"
-            t-att-class="{ 'flex-md-column': !props.formView, 'o_form_breadcrumb': props.formView }"
+            t-att-class="{ 'flex-md-column': !props.formView and !props.inline, 'o_form_breadcrumb': props.formView, 'o_inline_breadcrumb': props.inline }"
         >
             <t t-if="env.isSmall">
                 <t t-set="previousBreadcrumb" t-value="visiblePathBreadcrumbs.at(-1)"/>

@@ -121,6 +121,106 @@
                     border-radius: $border-radius-lg;
                     padding-inline: map-get($spacers, 2);
                 }
+
+                .o_control_panel_main.o_has_context_breadcrumbs {
+                    display: grid !important;
+                    grid-template-columns: auto minmax(260px, 1fr) auto;
+                    grid-template-areas:
+                        "breadcrumbs breadcrumbs breadcrumbs"
+                        "buttons actions navigation";
+                    align-items: center !important;
+                    gap: map-get($spacers, 2) map-get($spacers, 3) !important;
+                    min-height: 0;
+                    overflow: visible;
+
+                    .o_control_panel_context_breadcrumbs {
+                        grid-area: breadcrumbs;
+                        min-height: 30px;
+                    }
+
+                    .o_control_panel_non_form_buttons {
+                        grid-area: buttons;
+                        align-self: center;
+                    }
+
+                    .o_control_panel_actions {
+                        grid-area: actions;
+                        align-self: center;
+                        min-width: 0 !important;
+                        width: 100% !important;
+                    }
+
+                    .o_control_panel_navigation {
+                        grid-area: navigation;
+                        align-self: center;
+                        min-width: max-content;
+                    }
+
+                    .o_cp_searchview {
+                        min-height: 40px;
+                        width: 100%;
+                    }
+                }
+
+                .o_control_panel_context_breadcrumbs {
+                    .o_inline_breadcrumb {
+                        align-items: center;
+                        align-self: center !important;
+                        justify-content: flex-start !important;
+                        gap: map-get($spacers, 1);
+                        line-height: 1.15;
+                    }
+
+                    .breadcrumb {
+                        flex: 0 1 auto;
+                        min-width: 0;
+                        margin: 0;
+                        font-size: $h5-font-size;
+                    }
+
+                    .breadcrumb-item {
+                        display: inline-flex;
+                        min-width: 0;
+                        align-items: center;
+                        color: #008577;
+
+                        + .breadcrumb-item::before {
+                            color: $text-muted;
+                            content: "›";
+                        }
+                    }
+
+                    .o_breadcrumb > .breadcrumb::after {
+                        display: inline-flex;
+                        flex: 0 0 auto;
+                        align-items: center;
+                        padding-inline: map-get($spacers, 2);
+                        color: $text-muted;
+                        font-size: $h5-font-size;
+                        font-weight: $font-weight-normal;
+                        content: "›";
+                    }
+
+                    .o_back_button a {
+                        color: #008577;
+                        font-weight: $font-weight-bold !important;
+                    }
+
+                    .o_last_breadcrumb_item {
+                        font-size: $h5-font-size;
+                        font-weight: $font-weight-bold;
+                    }
+
+                    .o_control_panel_breadcrumbs_actions {
+                        flex: 0 0 auto;
+                        align-items: center;
+                    }
+                }
+
+                &:has(.o_control_panel_main.o_has_context_breadcrumbs) + .o_content > .o_list_view.o_view_controller {
+                    top: 22px;
+                    height: calc(100% - 22px);
+                }
             }
         }
 
