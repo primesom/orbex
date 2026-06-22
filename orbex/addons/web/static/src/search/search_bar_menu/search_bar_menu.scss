@@ -35,13 +35,14 @@ $o-search-bar-menu-max-width: calc(100vw - #{map-get($spacers, 3) * 2 });
 }
 
 .o_search_bar_menu_toolbar_icons {
-    min-height: 40px;
+    align-self: stretch;
+    min-height: 38px;
 
     > .dropdown {
         display: flex;
 
         + .dropdown .o_search_bar_menu_toolbar_icon {
-            margin-left: -1px;
+            border-left: 1px solid $border-color;
         }
 
         &:first-child .o_search_bar_menu_toolbar_icon {
@@ -56,18 +57,19 @@ $o-search-bar-menu-max-width: calc(100vw - #{map-get($spacers, 3) * 2 });
     }
 
     .o_search_bar_menu_toolbar_icon {
-        width: 42px;
-        min-height: 40px;
+        width: 40px;
+        height: 100%;
+        min-height: 38px;
         padding: 0;
-        border-color: $border-color;
-        background-color: $o-view-background-color;
+        border: 0;
+        border-radius: 0;
+        background-color: transparent;
         box-shadow: none;
 
         &:hover,
         &:focus,
         &.show {
             z-index: 2;
-            border-color: $input-focus-border-color;
             background-color: $o-gray-100;
         }
     }

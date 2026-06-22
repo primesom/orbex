@@ -46,12 +46,21 @@
                 padding: map-get($spacers, 2) map-get($spacers, 3) !important;
 
                 .o_control_panel_main {
+                    display: grid !important;
+                    grid-template-columns: minmax(max-content, 1fr) minmax(300px, 560px) minmax(max-content, 1fr);
+                    grid-template-areas: "buttons actions navigation";
                     align-items: center !important;
                     flex-wrap: nowrap !important;
                     gap: map-get($spacers, 3) !important;
                 }
 
+                .o_control_panel_main:has(.o_cp_searchview .o_searchview_facet) {
+                    grid-template-columns: max-content minmax(560px, 1fr) max-content;
+                }
+
                 .o_control_panel_non_form_buttons {
+                    grid-area: buttons;
+                    justify-self: start;
                     flex: 0 0 auto;
                     min-width: 0;
                 }
@@ -62,28 +71,46 @@
                 }
 
                 .o_control_panel_actions {
+                    grid-area: actions;
+                    justify-self: center;
                     flex: 1 1 auto;
                     min-width: 0 !important;
-                    justify-content: flex-start !important;
+                    width: 100% !important;
+                    justify-content: center !important;
                 }
 
                 .o_control_panel_navigation {
+                    grid-area: navigation;
+                    justify-self: end;
                     flex: 0 0 auto;
                     align-items: center;
-                    margin-left: auto;
+                    margin-left: 0;
                 }
 
                 .o_cp_searchview {
-                    flex: 1 1 auto;
-                    min-width: 0;
-                    max-width: none;
-                    align-items: center;
+                    flex: 0 1 560px;
+                    min-width: 280px;
+                    max-width: 560px;
+                    width: 100%;
+                    align-items: stretch;
+                    margin-inline: auto;
+                }
+
+                .o_control_panel_main:has(.o_cp_searchview .o_searchview_facet) .o_cp_searchview {
+                    flex: 0 1 auto;
+                    min-width: 560px;
+                    max-width: 100%;
+                    width: fit-content;
+                }
+
+                .o_control_panel_main:has(.o_cp_searchview .o_searchview_facet) .o_control_panel_actions {
+                    justify-self: stretch;
                 }
 
                 .o_cp_searchview > .dropdown {
-                    flex: 1 1 420px;
-                    min-width: 240px;
-                    max-width: 720px;
+                    flex: 1 1 auto;
+                    min-width: 0;
+                    max-width: none;
                 }
 
                 .o_cp_searchview .o_searchview {
@@ -93,15 +120,62 @@
                     background-color: $o-view-background-color;
                 }
 
+                .o_cp_searchview:has(.o_search_bar_menu_toolbar_icons) {
+                    min-height: 40px;
+                    border: 1px solid $border-color;
+                    border-radius: 999px;
+                    background-color: $o-view-background-color;
+
+                    &:focus-within {
+                        border-color: $input-focus-border-color;
+                    }
+                }
+
                 .o_cp_searchview:has(.o_search_bar_menu_toolbar_icons) .o_searchview {
-                    border-top-right-radius: 0 !important;
-                    border-bottom-right-radius: 0 !important;
-                    border-right: 0 !important;
+                    min-height: 38px;
+                    border: 0 !important;
+                    border-radius: 999px 0 0 999px !important;
+                    background-color: transparent;
                 }
 
                 .o_cp_searchview .o_searchview_input_container {
+                    flex-wrap: nowrap !important;
+                    overflow: hidden;
+                }
+
+                .o_control_panel_main:has(.o_cp_searchview .o_searchview_facet) .o_cp_searchview .o_searchview_input_container {
                     flex-wrap: wrap !important;
+                    overflow: visible;
                     row-gap: map-get($spacers, 1);
+                }
+
+                .o_control_panel_main:has(.o_cp_searchview .o_searchview_facet) .o_cp_searchview .o_searchview_input {
+                    flex: 1 0 9rem;
+                    min-width: 9rem;
+                }
+
+                .o_cp_searchview .o_searchview_facet {
+                    flex: 0 1 auto;
+                    max-width: 28rem;
+                    min-height: 28px;
+                    align-self: center;
+                }
+
+                .o_control_panel_main:has(.o_cp_searchview .o_searchview_facet) .o_cp_searchview .o_searchview_facet {
+                    min-width: 0;
+                    max-width: 34rem;
+                }
+
+                .o_cp_searchview .o_facet_values {
+                    min-width: 0;
+                    flex-wrap: nowrap !important;
+                    text-wrap: nowrap !important;
+                    white-space: nowrap;
+                }
+
+                .o_cp_searchview .o_facet_value,
+                .o_cp_searchview .o_facet_values_sep {
+                    white-space: nowrap;
                 }
 
                 .o_searchview_dropdown_toggler {
@@ -113,10 +187,22 @@
                     flex-wrap: nowrap !important;
                 }
 
+                .o_search_bar_menu_toolbar_icons {
+                    border-left: 1px solid $border-color;
+                }
+
                 .o_search_bar_menu_toolbar_button {
-                    min-height: 40px;
+                    min-height: 38px;
                     font-weight: $font-weight-medium;
                     white-space: nowrap;
+                }
+
+                .o_control_panel_actions:has(.o_selection_container) {
+                    justify-content: center !important;
+                }
+
+                .o_selection_container {
+                    margin-inline: auto !important;
                 }
 
                 .o_cp_switch_view_dropdown {
@@ -152,6 +238,7 @@
                         align-self: center;
                         min-width: 0 !important;
                         width: 100% !important;
+                        justify-content: center !important;
                     }
 
                     .o_control_panel_navigation {
