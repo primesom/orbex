@@ -78,13 +78,12 @@
                     min-width: 0;
                     max-width: none;
                     align-items: center;
-                    gap: map-get($spacers, 2);
                 }
 
                 .o_cp_searchview > .dropdown {
-                    flex: 0 1 360px;
+                    flex: 1 1 420px;
                     min-width: 240px;
-                    max-width: 420px;
+                    max-width: 720px;
                 }
 
                 .o_cp_searchview .o_searchview {
@@ -94,8 +93,15 @@
                     background-color: $o-view-background-color;
                 }
 
+                .o_cp_searchview:has(.o_search_bar_menu_toolbar_icons) .o_searchview {
+                    border-top-right-radius: 0 !important;
+                    border-bottom-right-radius: 0 !important;
+                    border-right: 0 !important;
+                }
+
                 .o_cp_searchview .o_searchview_input_container {
-                    flex-wrap: nowrap !important;
+                    flex-wrap: wrap !important;
+                    row-gap: map-get($spacers, 1);
                 }
 
                 .o_searchview_dropdown_toggler {
@@ -109,8 +115,6 @@
 
                 .o_search_bar_menu_toolbar_button {
                     min-height: 40px;
-                    border-radius: $border-radius-lg;
-                    padding-inline: map-get($spacers, 3);
                     font-weight: $font-weight-medium;
                     white-space: nowrap;
                 }

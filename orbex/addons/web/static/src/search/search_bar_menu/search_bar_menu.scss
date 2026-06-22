@@ -33,3 +33,42 @@ $o-search-bar-menu-max-width: calc(100vw - #{map-get($spacers, 3) * 2 });
         }
     }
 }
+
+.o_search_bar_menu_toolbar_icons {
+    min-height: 40px;
+
+    > .dropdown {
+        display: flex;
+
+        + .dropdown .o_search_bar_menu_toolbar_icon {
+            margin-left: -1px;
+        }
+
+        &:first-child .o_search_bar_menu_toolbar_icon {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:last-child .o_search_bar_menu_toolbar_icon {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+        }
+    }
+
+    .o_search_bar_menu_toolbar_icon {
+        width: 42px;
+        min-height: 40px;
+        padding: 0;
+        border-color: $border-color;
+        background-color: $o-view-background-color;
+        box-shadow: none;
+
+        &:hover,
+        &:focus,
+        &.show {
+            z-index: 2;
+            border-color: $input-focus-border-color;
+            background-color: $o-gray-100;
+        }
+    }
+}
