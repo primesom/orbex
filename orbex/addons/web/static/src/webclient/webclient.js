@@ -69,8 +69,15 @@ export class WebClient extends Component {
         // ** url-retrocompatibility **
         // the menu_id in the url is only possible if we came from an old url
         let menuId = Number(router.current.menu_id || 0);
-        const storedMenuId = Number(browser.sessionStorage.getItem("menu_id"));
-        const currentAppSlug = router.current.appSlug || browser.sessionStorage.getItem("app_slug");
+        const loadFirstApp = Boolean(router.current.load_first_app);
+        if (loadFirstApp) {
+            browser.sessionStorage.removeItem("menu_id");
+            browser.sessionStorage.removeItem("app_slug");
+            router.replaceState({ load_first_app: undefined }, { sync: true });
+        }
+        const storedMenuId = loadFirstApp ? 0 : Number(browser.sessionStorage.getItem("menu_id"));
+        const currentAppSlug =
+            router.current.appSlug || (!loadFirstApp && browser.sessionStorage.getItem("app_slug"));
         if (!menuId && currentAppSlug) {
             const matchingApp = this.menuService.getApps().find((app) => {
                 const appSlug = (app.actionPath || app.name || "")

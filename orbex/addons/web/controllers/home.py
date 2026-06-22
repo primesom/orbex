@@ -151,6 +151,8 @@ class Home(http.Controller):
     def _login_redirect(self, uid, redirect=None):
         if not redirect and request.params.get("login_success") and not is_user_internal(uid):
             return "/web/login_successful"
+        if request.params.get("login_success") and request.session.uid and is_user_internal(uid):
+            return f"{APP_WEB_CLIENT_ROUTE}?load_first_app=1"
         return _get_login_redirect_url(uid, redirect)
 
     @http.route('/web/login', type='http', auth='none', readonly=False, list_as_website_content=_lt("Login"))

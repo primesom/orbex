@@ -41,7 +41,7 @@ class TestWebLogin(TestWebLoginCommon):
             data='{}'
         ).raise_for_status()
         # ensure we end up on the right page for internal users.
-        self.assertEqual(res_post.request.path_url, '/orbex')
+        self.assertEqual(res_post.request.path_url, '/app?load_first_app=1')
 
     def test_web_login_external(self):
         res_post = self.login('portal_user', 'portal_user')
