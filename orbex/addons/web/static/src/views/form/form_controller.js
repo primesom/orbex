@@ -663,15 +663,8 @@ export class FormController extends Component {
             }
             return saved;
         };
-        if (clickParams.special === "save") {
-            return saveRecord();
-        }
         if (clickParams.special !== "cancel") {
-            return this.askSaveOrDiscardChanges({
-                promptIfNew: true,
-                save: saveRecord,
-                discard: () => this.discard({ navigate: false }),
-            });
+            return saveRecord();
         } else if (this.props.onDiscard) {
             this.props.onDiscard(record);
         }

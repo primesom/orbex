@@ -749,7 +749,7 @@ class IrModuleModule(models.Model):
         return {
             'description': dedent(terp.get('description', '')),
             'shortdesc': terp.get('name', ''),
-            'author': terp.get('author', 'Unknown'),
+            'author': terp.get('author') or False,
             'maintainer': terp.get('maintainer', False),
             'contributors': ', '.join(terp.get('contributors', [])) or False,
             'website': terp.get('website', ''),

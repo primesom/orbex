@@ -96,6 +96,5 @@ class TestModuleManifest(BaseCase):
             manifest = Manifest.for_addon(self.module_name)
             manifest.raw_value('')  # parse the manifest
         self.assertEqual(manifest['license'], 'LGPL-3')
-        self.assertEqual(manifest['author'], '')
-        self.assertIn("Missing `author` key", capture.output[0])
-        self.assertIn("Missing `license` key", capture.output[1])
+        self.assertNotIn('author', manifest)
+        self.assertIn("Missing `license` key", capture.output[0])

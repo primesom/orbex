@@ -165,22 +165,10 @@
                     margin: 0;
                     padding: 1rem 1.05rem;
                     overflow: hidden;
-                    background:
-                        linear-gradient(135deg, rgba(0, 169, 143, .12) 0 26%, transparent 26% 100%),
-                        linear-gradient(315deg, rgba(47, 128, 237, .1) 0 22%, transparent 22% 100%),
-                        #f4f7f6;
+                    background: #ffffff;
                     border-bottom: 0;
                     color: #111827;
                     text-align: center;
-                }
-                .o_orbex_login_brand::after {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 34%;
-                    height: 100%;
-                    background: linear-gradient(135deg, transparent 0 36%, rgba(0, 169, 143, .08) 36% 100%);
                 }
                 .o_orbex_login_brand_logo {
                     position: relative;
@@ -192,9 +180,9 @@
                     min-width: 0;
                     height: 3.35rem;
                     padding: .45rem .55rem;
-                    background: #fff;
+                    background: #ffffff;
                     border-radius: 8px;
-                    box-shadow: 0 10px 24px rgba(15, 23, 42, .12);
+                    box-shadow: none;
                 }
                 .o_orbex_login_brand img {
                     display: block;
