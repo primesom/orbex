@@ -623,6 +623,16 @@
     }
 }
 
+@include media-breakpoint-up(lg) {
+    .o_web_client:has(.o_control_panel_main.o_has_context_breadcrumbs) {
+        .o_content > .o_list_view.o_view_controller,
+        .o_content .o_list_view.o_view_controller {
+            top: 22px;
+            height: calc(100% - 22px);
+        }
+    }
+}
+
 .o_dragged_embedded_action {
     transition: transform 0.5s;
     transform: rotate(2deg);
