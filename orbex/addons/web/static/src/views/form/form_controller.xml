@@ -6,7 +6,10 @@
             <div class="o_form_view_container">
                 <Layout className="model.useSampleModel ? 'o_view_sample_data' : ''" display="display">
                     <t t-set-slot="control-panel-create-button">
-                        <button t-if="canCreate" type="button" class="btn btn-outline-primary o_form_button_create" data-hotkey="c" t-on-click.stop="create">New</button>
+                        <button t-if="canCreate" type="button" class="btn btn-outline-primary o_form_button_create" data-hotkey="c" t-on-click.stop="create">
+                            <i class="fa fa-plus" aria-hidden="true"/>
+                            <span>New</span>
+                        </button>
                     </t>
 
                     <t t-set-slot="layout-buttons">
@@ -51,16 +54,19 @@
 
     <t t-name="web.FormView.Buttons">
         <button t-if="model.root.isInEdition" type="button" class="btn btn-primary o_form_button_save" data-hotkey="s" t-on-click.stop="() => this.saveButtonClicked({closable: true})">
-            Save
+            <i class="fa fa-check" aria-hidden="true"/>
+            <span>Save</span>
         </button>
         <button t-if="model.root.isInEdition" type="button" class="btn btn-secondary o_form_button_cancel" data-hotkey="j" t-on-click.stop="discard">
-            Discard
+            <i class="fa fa-times" aria-hidden="true"/>
+            <span>Discard</span>
         </button>
         <button t-if="model.root.isInEdition and props.removeRecord" class="btn btn-secondary o_form_button_remove" t-on-click="props.removeRecord" data-hotkey="x">
             Remove
         </button>
         <button t-if="!model.root.isInEdition and canCreate" type="button" class="btn btn-secondary o_form_button_create" data-hotkey="c" t-on-click.stop="create">
-            New
+            <i class="fa fa-plus" aria-hidden="true"/>
+            <span>New</span>
         </button>
     </t>
 

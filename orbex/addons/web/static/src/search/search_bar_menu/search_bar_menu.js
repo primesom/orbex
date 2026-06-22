@@ -31,6 +31,7 @@ export class SearchBarMenu extends Component {
             },
         },
         dropdownState: { ...Dropdown.props.state },
+        toolbarMode: { type: Boolean, optional: true },
     };
 
     setup() {

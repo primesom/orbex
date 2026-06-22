@@ -3,7 +3,7 @@
 .o_main_navbar {
     --NavBar-entry-color--active: #{$o-component-active-color};
     --NavBar-entry-borderColor-active: #{$o-component-active-border};
-    --NavBar-entry-backgroundColor--active: #{$o-component-active-bg};
+    --NavBar-entry-backgroundColor--active: #{rgba($o-brand-orbex, .12)};
     --NavBar-entry-backgroundColor--hover: #{$o-gray-200};
     --NavBar-entry-backgroundColor--focus: #{$o-gray-200};
 
@@ -12,12 +12,69 @@
     .o_menu_toggle {
         color: var(--NavBar-menuToggle-color, #{$o-brand-orbex});
     }
+
+    .o_menu_sections {
+        flex-grow: 0 !important;
+        width: auto !important;
+        align-self: center;
+        align-items: center;
+        gap: map-get($spacers, 1);
+        min-height: 38px;
+        margin-inline-start: map-get($spacers, 2);
+        padding: map-get($spacers, 1);
+        border: 1px solid rgba($border-color, .7);
+        border-radius: 999px;
+        background-color: $o-view-background-color;
+        box-shadow: 0 8px 22px rgba($black, .08);
+
+        > .dropdown,
+        .o_menu_sections_more,
+        .o_nav_entry {
+            flex: 0 0 auto;
+        }
+
+        .o_nav_entry,
+        .dropdown-toggle:not(.o-dropdown-toggle-custo),
+        .o_menu_sections_more > .dropdown > .dropdown-toggle {
+            min-height: 30px;
+            border: 0 !important;
+            border-radius: 999px !important;
+            padding-inline: map-get($spacers, 3);
+            background-color: transparent !important;
+            color: $o-main-text-color;
+            font-weight: $font-weight-medium;
+            line-height: 30px;
+
+            &:hover,
+            &:focus {
+                background-color: rgba($o-brand-orbex, .08) !important;
+                color: $o-brand-orbex;
+            }
+
+            &.active,
+            &:active {
+                background-color: rgba($o-brand-orbex, .12) !important;
+                color: $o-brand-orbex !important;
+                box-shadow: inset 0 0 0 1px rgba($o-brand-orbex, .12);
+            }
+        }
+
+        .dropdown.show > .dropdown-toggle,
+        .dropdown.show.dropdown-toggle {
+            border: 0 !important;
+            background-color: rgba($o-brand-orbex, .12) !important;
+            color: $o-brand-orbex !important;
+            box-shadow: inset 0 0 0 1px rgba($o-brand-orbex, .12);
+        }
+    }
 }
 
 @media (min-width: 1024px) and (min-height: 600px) {
     .o_main_navbar {
         .o_menu_toggle {
-            min-width: calc(var(--o-navbar-height) + #{map-get($spacers, 2)});
+            min-width: var(--o-navbar-height);
+            --NavBar-entry-padding-left: #{map-get($spacers, 1)};
+            --NavBar-entry-padding-right: #{map-get($spacers, 1)};
             pointer-events: none;
 
             .o_menu_toggle_icon,
@@ -27,6 +84,8 @@
 
             .o_menu_brand_icon {
                 position: static !important;
+                margin-left: 0 !important;
+                padding-left: 0 !important;
                 opacity: 1 !important;
                 transform: none !important;
                 transition: none !important;

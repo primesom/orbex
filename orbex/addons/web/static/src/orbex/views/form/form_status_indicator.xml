@@ -15,7 +15,8 @@
                 data-tooltip="Save"
                 aria-label="Save"
                 t-ref="save">
-                Save
+                <i class="fa fa-check" aria-hidden="true"/>
+                <span>Save</span>
             </button>
         </xpath>
 
@@ -27,7 +28,8 @@
                 t-on-click.stop="discard"
                 data-tooltip="Discard"
                 aria-label="Discard">
-                Discard
+                <i class="fa fa-times" aria-hidden="true"/>
+                <span>Discard</span>
             </button>
         </xpath>
     </t>

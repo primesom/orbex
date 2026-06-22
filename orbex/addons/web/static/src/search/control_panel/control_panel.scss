@@ -41,11 +41,103 @@
             }
         }
 
+        @include media-breakpoint-up(lg) {
+            &:not(.o_form_control_panel) {
+                padding: map-get($spacers, 2) map-get($spacers, 3) !important;
+
+                .o_control_panel_main {
+                    align-items: center !important;
+                    flex-wrap: nowrap !important;
+                    gap: map-get($spacers, 3) !important;
+                }
+
+                .o_control_panel_non_form_buttons {
+                    flex: 0 0 auto;
+                    min-width: 0;
+                }
+
+                .o_control_panel_breadcrumbs_actions {
+                    align-items: center;
+                    gap: map-get($spacers, 2);
+                }
+
+                .o_control_panel_actions {
+                    flex: 1 1 auto;
+                    min-width: 0 !important;
+                    justify-content: flex-start !important;
+                }
+
+                .o_control_panel_navigation {
+                    flex: 0 0 auto;
+                    align-items: center;
+                    margin-left: auto;
+                }
+
+                .o_cp_searchview {
+                    flex: 1 1 auto;
+                    min-width: 0;
+                    max-width: none;
+                    align-items: center;
+                    gap: map-get($spacers, 2);
+                }
+
+                .o_cp_searchview > .dropdown {
+                    flex: 0 1 360px;
+                    min-width: 240px;
+                    max-width: 420px;
+                }
+
+                .o_cp_searchview .o_searchview {
+                    min-height: 40px;
+                    border: 1px solid $border-color !important;
+                    border-radius: 999px !important;
+                    background-color: $o-view-background-color;
+                }
+
+                .o_cp_searchview .o_searchview_input_container {
+                    flex-wrap: nowrap !important;
+                }
+
+                .o_searchview_dropdown_toggler {
+                    display: none !important;
+                }
+
+                .o_search_bar_menu_toolbar {
+                    flex: 0 0 auto;
+                    flex-wrap: nowrap !important;
+                }
+
+                .o_search_bar_menu_toolbar_button {
+                    min-height: 40px;
+                    border-radius: $border-radius-lg;
+                    padding-inline: map-get($spacers, 3);
+                    font-weight: $font-weight-medium;
+                    white-space: nowrap;
+                }
+
+                .o_cp_switch_view_dropdown {
+                    min-width: 44px;
+                    min-height: 38px;
+                    border-radius: $border-radius-lg;
+                    padding-inline: map-get($spacers, 2);
+                }
+            }
+        }
+
         .o_cp_switch_buttons {
             .btn, .btn:focus, .btn.active {
                 // Boostrap plays around with the z-index of buttons, but this is not needed here
                 // It was causing issues with the hotkey overlay
                 z-index: 0;
+            }
+        }
+
+        .o_cp_switch_buttons_menu {
+            min-width: 150px;
+
+            .selected {
+                color: $o-component-active-color;
+                background-color: $o-component-active-bg;
             }
         }
 
@@ -72,28 +164,48 @@
         }
 
         &.o_form_control_panel {
+            gap: map-get($spacers, 1) !important;
+            padding: map-get($spacers, 1) map-get($spacers, 3) !important;
+
             .o_control_panel_main {
-                align-items: center !important;
+                flex-wrap: wrap !important;
+                align-items: flex-start !important;
+                gap: map-get($spacers, 1) map-get($spacers, 3) !important;
+            }
+
+            .o_form_control_panel_header,
+            .o_form_control_panel_toolbar {
+                flex: 0 0 100%;
+                min-width: 0;
+            }
+
+            .o_form_control_panel_header {
+                min-height: 32px;
+            }
+
+            .o_form_control_panel_toolbar {
+                min-height: 38px;
+                flex-wrap: nowrap !important;
             }
 
             .o_control_panel_breadcrumbs {
                 flex: 1 1 auto;
                 max-width: none;
-                flex-wrap: wrap;
-                align-items: flex-start !important;
-                row-gap: map-get($spacers, 2);
-                column-gap: map-get($spacers, 2);
+                min-width: 0;
+                align-items: center !important;
             }
 
             .o_control_panel_main_buttons {
                 flex: 0 0 auto;
-                order: 10;
+                order: 0;
             }
 
             .o_form_control_panel_buttons {
-                flex: 0 0 100%;
+                flex: 0 0 auto;
                 align-items: center;
-                order: 1;
+                flex-wrap: nowrap;
+                gap: map-get($spacers, 2) !important;
+                min-width: 0;
             }
 
             .o_breadcrumb {
@@ -131,7 +243,7 @@
                 align-items: center;
                 padding-inline: map-get($spacers, 2);
                 color: $text-muted;
-                font-size: $h2-font-size;
+                font-size: $h5-font-size;
                 font-weight: $font-weight-normal;
                 content: "›";
             }
@@ -142,12 +254,12 @@
 
             .o_breadcrumb .o_back_button a {
                 color: #008577;
-                font-size: $h2-font-size;
+                font-size: $h5-font-size;
                 font-weight: $font-weight-bold !important;
             }
 
             .o_breadcrumb .o_last_breadcrumb_item {
-                font-size: $h2-font-size;
+                font-size: $h5-font-size;
                 font-weight: $font-weight-bold;
             }
 
@@ -164,18 +276,29 @@
                     margin: 0;
                 }
 
+                .o_form_breadcrumb_back {
+                    flex: 0 0 auto;
+                    color: #008577;
+                    font-size: $h5-font-size;
+                    line-height: 1;
+
+                    &:hover {
+                        color: darken(#008577, 5%);
+                    }
+                }
+
                 > .d-flex {
                     min-width: 0;
                 }
 
                 .o_back_button a {
                     color: #008577;
-                    font-size: $h2-font-size;
+                    font-size: $h5-font-size;
                     font-weight: $font-weight-bold !important;
                 }
 
                 .o_last_breadcrumb_item {
-                    font-size: $h2-font-size;
+                    font-size: $h5-font-size;
                     font-weight: $font-weight-bold;
                 }
             }
@@ -186,7 +309,7 @@
 
             .o_form_status_indicator {
                 flex: 0 0 auto;
-                order: 11;
+                order: 0;
                 margin: 0 !important;
                 align-self: center !important;
             }
@@ -197,9 +320,129 @@
 
             .o_control_panel_actions {
                 flex: 1 1 auto;
+                max-width: none;
                 min-width: 0;
                 overflow-x: auto;
                 scrollbar-width: thin;
+                width: auto !important;
+                justify-content: flex-start !important;
+                margin-left: map-get($spacers, 2);
+                order: 1;
+            }
+
+            .o_control_panel_navigation {
+                flex: 0 0 auto;
+                margin-left: auto;
+                order: 2;
+            }
+
+            .o_cp_searchview {
+                flex: 1 1 360px;
+                max-width: 720px;
+                min-width: 280px;
+                margin-inline-start: map-get($spacers, 2);
+                order: 1;
+            }
+
+            .o_cp_searchview .o_searchview {
+                border: 1px solid $border-color !important;
+                border-radius: $border-radius-lg !important;
+                background-color: $o-view-background-color;
+            }
+
+            .o_form_button_create,
+            .o_form_button_save,
+            .o_form_button_cancel {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: map-get($spacers, 2);
+                min-height: 38px;
+                padding-inline: map-get($spacers, 3);
+                border-radius: $border-radius-lg;
+                font-weight: $font-weight-medium;
+                text-transform: uppercase;
+                box-shadow: 0 3px 8px rgba($black, .08);
+            }
+
+            .o_form_button_create {
+                border-color: #00a989;
+                color: #008577;
+                background-color: $o-view-background-color;
+            }
+
+            .o_form_button_save {
+                border-color: #00a989;
+                background-color: #00a989;
+                color: $o-white;
+            }
+
+            .o_form_button_cancel {
+                border: 1px solid $border-color !important;
+                background-color: $o-view-background-color !important;
+                color: $o-main-text-color !important;
+            }
+
+            .o_control_panel_actions .oe_button_box {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: map-get($spacers, 2);
+            }
+
+            .o_control_panel_actions .oe_stat_button {
+                min-height: 38px;
+                border-radius: $border-radius-lg;
+            }
+        }
+
+        .o_cp_pager {
+            .o_pager {
+                align-items: center;
+                gap: map-get($spacers, 2) !important;
+                height: auto !important;
+            }
+
+            .o_pager_counter {
+                order: 1;
+                color: $o-main-text-color;
+                font-size: $font-size-base;
+                font-weight: $font-weight-medium;
+                line-height: 1;
+            }
+
+            .btn-group {
+                display: contents;
+            }
+
+            .o_pager_previous,
+            .o_pager_next {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 38px;
+                height: 38px;
+                border: 1px solid $border-color !important;
+                border-radius: $border-radius-lg !important;
+                background-color: $o-view-background-color !important;
+                color: $o-main-text-color !important;
+                box-shadow: none !important;
+
+                &:hover:not(:disabled) {
+                    border-color: darken($border-color, 8%) !important;
+                    background-color: $o-gray-100 !important;
+                }
+
+                &:disabled {
+                    opacity: .45;
+                }
+            }
+
+            .o_pager_previous {
+                order: 0;
+            }
+
+            .o_pager_next {
+                order: 2;
             }
         }
     }

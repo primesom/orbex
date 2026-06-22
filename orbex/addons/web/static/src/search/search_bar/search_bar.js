@@ -51,6 +51,9 @@ export class SearchBar extends Component {
     };
     static props = {
         autofocus: { type: Boolean, optional: true },
+        hideFacets: { type: Boolean, optional: true },
+        hideSearchMenu: { type: Boolean, optional: true },
+        toolbarMenu: { type: Boolean, optional: true },
         slots: {
             type: Object,
             optional: true,

@@ -112,7 +112,7 @@
                         />
                     </button>
                     <div class="o_searchview_input_container d-flex flex-grow-1 flex-wrap gap-1 mw-100" t-ref="facetContainerRef">
-                        <t t-call="web.SearchBar.Facets"/>
+                        <t t-if="!props.hideFacets and !props.toolbarMenu" t-call="web.SearchBar.Facets"/>
                         <input type="text"
                             class="o_searchview_input o_input d-print-none flex-grow-1 w-auto border-0"
                             accesskey="Q"
@@ -129,7 +129,7 @@
                     <t t-call="web.SearchBar.QuickSearchItems"/>
                 </t>
             </Dropdown>
-            <SearchBarMenu dropdownState="searchBarDropdownState">
+            <SearchBarMenu t-if="!props.hideSearchMenu" dropdownState="searchBarDropdownState" toolbarMode="props.toolbarMenu">
                 <t t-slot="search-bar-additional-menu"/>
             </SearchBarMenu>
         </div>

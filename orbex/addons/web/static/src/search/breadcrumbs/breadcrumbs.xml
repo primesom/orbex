@@ -19,6 +19,13 @@
                 </button>
             </t>
             <t t-else="">
+                <button t-if="props.formView and visiblePathBreadcrumbs.length"
+                    class="o_form_breadcrumb_back btn btn-link d-print-none p-0"
+                    t-on-click.prevent="visiblePathBreadcrumbs.at(-1).onSelected"
+                    t-att-data-tooltip="'Back to &quot;' + visiblePathBreadcrumbs.at(-1).name + '&quot;'"
+                >
+                    <i class="oi oi-fw oi-arrow-left"/>
+                </button>
                 <ol class="breadcrumb flex-nowrap text-nowrap lh-sm">
                     <li t-if="collapsedBreadcrumbs.length" class="breadcrumb-item d-inline-flex min-w-0">
                         <Dropdown>
