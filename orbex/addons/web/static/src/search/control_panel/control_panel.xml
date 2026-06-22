@@ -2,7 +2,7 @@
 <templates xml:space="preserve">
 
     <t t-name="web.ControlPanel">
-        <div class="o_control_panel d-flex flex-column gap-3 px-3 pt-2 pb-3" t-att-class="{ o_form_control_panel: display.formView }" t-ref="root" data-command-category="actions">
+        <div class="o_control_panel d-flex flex-column gap-3 px-3 pt-2 pb-3" t-att-class="{ 'o_form_control_panel': display.formView }" t-ref="root" data-command-category="actions">
             <Transition t-if="!env.isSmall" visible="state.embeddedInfos.showEmbedded" name="'o-fade'" t-slot-scope="transition" leaveDuration="500">
                 <div class="o_embedded_actions d-flex flex-wrap w-100 align-items-center justify-content-center gap-2" t-att-class="transition.className">
                     <t t-foreach="state.embeddedInfos.embeddedActions" t-as="action" t-key="action.id">
@@ -21,31 +21,51 @@
             </Transition>
             <div class="o_control_panel_main d-flex flex-wrap flex-lg-nowrap justify-content-between align-items-lg-start gap-2 gap-lg-3 flex-grow-1">
                 <div class="o_control_panel_breadcrumbs d-flex align-items-center gap-1 order-0 h-lg-100">
-                    <div class="o_control_panel_main_buttons d-flex gap-1 d-empty-none d-print-none" t-on-keydown="onMainButtonsKeydown">
-                        <t t-slot="control-panel-create-button"/>
-                        <t t-slot="layout-buttons"/>
-                        <t t-slot="control-panel-always-buttons"/>
-                        <Dropdown t-if="env.isSmall" menuClass="'o-control-panel-adaptive-dropdown'" onOpened.bind="dropdownifyButtons">
-                            <button class="btn btn-secondary o-control-panel-adaptive-dropdown" title="More">
-                                <i class="oi oi-fw oi-ellipsis-v" />
-                            </button>
-                            <t t-set-slot="content">
+                    <t t-if="display.formView and !env.isSmall">
+                        <t t-if="env.config.noBreadcrumbs">
+                            <section class="o_control_panel_breadcrumbs_actions d-contents d-print-none">
+                                <t t-slot="control-panel-additional-actions"/>
+                            </section>
+                        </t>
+                        <t t-else="">
+                            <Breadcrumbs breadcrumbs="breadcrumbs" formView="true">
+                                <t t-set-slot="breadcrumb-additional-actions">
+                                    <t t-slot="control-panel-additional-actions"/>
+                                </t>
+                            </Breadcrumbs>
+                        </t>
+                        <div class="o_form_control_panel_buttons d-flex gap-2 d-print-none" t-on-keydown="onMainButtonsKeydown">
+                            <div class="o_control_panel_main_buttons d-flex gap-2 d-empty-none">
                                 <t t-slot="control-panel-create-button"/>
                                 <t t-slot="layout-buttons"/>
                                 <t t-slot="control-panel-always-buttons"/>
-                            </t>
-                        </Dropdown>
-                    </div>
-                    <t t-if="display.formView and !env.isSmall">
-                        <t t-slot="control-panel-status-indicator" />
+                            </div>
+                            <t t-slot="control-panel-status-indicator" />
+                        </div>
                     </t>
-                    <t t-if="env.config.noBreadcrumbs">
-                        <section class="o_control_panel_breadcrumbs_actions d-contents d-print-none">
-                            <t t-slot="control-panel-additional-actions"/>
-                            <t t-if="!display.formView" t-slot="control-panel-status-indicator" />
-                        </section>
-                    </t>
-                    <t t-elif="env.isSmall">
+                    <t t-else="">
+                        <div class="o_control_panel_main_buttons d-flex gap-1 d-empty-none d-print-none" t-on-keydown="onMainButtonsKeydown">
+                            <t t-slot="control-panel-create-button"/>
+                            <t t-slot="layout-buttons"/>
+                            <t t-slot="control-panel-always-buttons"/>
+                            <Dropdown t-if="env.isSmall" menuClass="'o-control-panel-adaptive-dropdown'" onOpened.bind="dropdownifyButtons">
+                                <button class="btn btn-secondary o-control-panel-adaptive-dropdown" title="More">
+                                    <i class="oi oi-fw oi-ellipsis-v" />
+                                </button>
+                                <t t-set-slot="content">
+                                    <t t-slot="control-panel-create-button"/>
+                                    <t t-slot="layout-buttons"/>
+                                    <t t-slot="control-panel-always-buttons"/>
+                                </t>
+                            </Dropdown>
+                        </div>
+                        <t t-if="env.config.noBreadcrumbs">
+                            <section class="o_control_panel_breadcrumbs_actions d-contents d-print-none">
+                                <t t-slot="control-panel-additional-actions"/>
+                                <t t-slot="control-panel-status-indicator" />
+                            </section>
+                        </t>
+                        <t t-elif="env.isSmall">
                         <!--
                             Here be dragons...
                             REFACTORME: this `t-portal` introduces an implicit
@@ -55,22 +75,23 @@
                             management to allow the proper instanciation of the
                             Breadcrumbs component in the NavBar.
                         -->
-                        <div class="o_fallback_breadcrumbs d-contents"/>
-                        <Breadcrumbs breadcrumbs="breadcrumbs" t-portal="'.o_navbar_breadcrumbs, .o_fallback_breadcrumbs'"/>
-                        <section class="o_control_panel_breadcrumbs_actions d-contents">
-                            <t t-slot="control-panel-additional-actions"/>
-                            <t t-slot="control-panel-status-indicator" />
-                        </section>
-                    </t>
-                    <t t-else="">
-                        <Breadcrumbs breadcrumbs="breadcrumbs">
-                            <t t-set-slot="breadcrumb-status-indicator">
-                                <t t-if="!display.formView" t-slot="control-panel-status-indicator" />
-                            </t>
-                            <t t-set-slot="breadcrumb-additional-actions">
+                            <div class="o_fallback_breadcrumbs d-contents"/>
+                            <Breadcrumbs breadcrumbs="breadcrumbs" t-portal="'.o_navbar_breadcrumbs, .o_fallback_breadcrumbs'"/>
+                            <section class="o_control_panel_breadcrumbs_actions d-contents">
                                 <t t-slot="control-panel-additional-actions"/>
-                            </t>
-                        </Breadcrumbs>
+                                <t t-slot="control-panel-status-indicator" />
+                            </section>
+                        </t>
+                        <t t-else="">
+                            <Breadcrumbs breadcrumbs="breadcrumbs">
+                                <t t-set-slot="breadcrumb-status-indicator">
+                                    <t t-slot="control-panel-status-indicator" />
+                                </t>
+                                <t t-set-slot="breadcrumb-additional-actions">
+                                    <t t-slot="control-panel-additional-actions"/>
+                                </t>
+                            </Breadcrumbs>
+                        </t>
                     </t>
                     <button t-if="props.hasSearchPanel and !env.isSmall"
                         type="button"

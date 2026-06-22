@@ -20,10 +20,9 @@
                     <img
                         t-if="currentApp.webIconData"
                         t-att-src="currentApp.webIconData"
-                        class="o_menu_brand_icon d-inline position-absolute start-0 h-100 ps-1 ms-2"
+                        class="o_menu_brand_icon d-inline h-100 ps-1 ms-2"
                         t-att-alt="currentApp.name"
                         t-ref="appIcon"/>
-                    <span t-esc="currentApp.name" class="o_menu_brand d-flex ms-3 pe-0"/>
                 </t>
             </t>
         </a>

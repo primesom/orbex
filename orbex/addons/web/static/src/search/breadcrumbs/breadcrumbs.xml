@@ -7,7 +7,11 @@
         <t t-set="collapsedBreadcrumbs" t-value="props.breadcrumbs.slice(0, -3).reverse()"/>
         <t t-set="breadcrumb" t-value="currentBreadcrumbs[0] || {}"/>
 
-        <div t-if="collapsedBreadcrumbs.length || visiblePathBreadcrumbs.length" class="o_breadcrumb d-flex flex-row flex-md-column align-self-stretch justify-content-between min-w-0">
+        <div
+            t-if="collapsedBreadcrumbs.length || visiblePathBreadcrumbs.length"
+            class="o_breadcrumb d-flex flex-row align-self-stretch justify-content-between min-w-0"
+            t-att-class="{ 'flex-md-column': !props.formView, 'o_form_breadcrumb': props.formView }"
+        >
             <t t-if="env.isSmall">
                 <t t-set="previousBreadcrumb" t-value="visiblePathBreadcrumbs.at(-1)"/>
                 <button class="o_back_button btn btn-link d-print-none px-1 py-0" t-on-click.prevent="previousBreadcrumb.onSelected">

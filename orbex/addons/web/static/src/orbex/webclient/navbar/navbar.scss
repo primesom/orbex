@@ -16,9 +16,35 @@
 
 @media (min-width: 1024px) and (min-height: 600px) {
     .o_main_navbar {
-        .o_menu_toggle.o_menu_toggle_back {
-            display: none !important;
+        .o_menu_toggle {
+            min-width: calc(var(--o-navbar-height) + #{map-get($spacers, 2)});
             pointer-events: none;
+
+            .o_menu_toggle_icon,
+            .o_menu_brand {
+                display: none !important;
+            }
+
+            .o_menu_brand_icon {
+                position: static !important;
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+
+            &:hover {
+                transform: none !important;
+
+                .o_menu_toggle_icon,
+                .o_menu_brand {
+                    display: none !important;
+                }
+
+                .o_menu_brand_icon {
+                    opacity: 1 !important;
+                    transform: none !important;
+                }
+            }
         }
     }
 }

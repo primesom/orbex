@@ -21,6 +21,7 @@ export class WebClientOrbex extends WebClient {
             collapsed: localStorage.getItem("orbex_app_sidebar_collapsed") === "1",
         });
         useBus(this.env.bus, "ORBEX-APP-SIDEBAR:TOGGLE", () => this.toggleAppSidebar());
+        useBus(this.env.bus, "MENUS:APP-CHANGED", () => this.render());
     }
     _loadDefaultApp() {
         return this.hm.toggle(true);

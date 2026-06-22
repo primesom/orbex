@@ -13,6 +13,12 @@ export class AppSidebar extends Component {
     };
 
     isActive(app) {
-        return this.props.currentApp && this.props.currentApp.id === app.id;
+        const currentApp = this.props.currentApp;
+        return Boolean(
+            currentApp &&
+                (String(currentApp.id) === String(app.id) ||
+                    (currentApp.xmlid && currentApp.xmlid === app.xmlid) ||
+                    (currentApp.actionPath && currentApp.actionPath === app.actionPath))
+        );
     }
 }

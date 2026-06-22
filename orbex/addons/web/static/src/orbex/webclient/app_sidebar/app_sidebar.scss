@@ -177,8 +177,12 @@
 
         &.o_active {
             color: #ffffff;
-            background: #3c3e4b;
+            background: rgba(#00c7c7, .16);
             box-shadow: inset 3px 0 0 #00c7c7;
+
+            .o_orbex_app_sidebar_icon {
+                filter: saturate(1.15);
+            }
         }
     }
 

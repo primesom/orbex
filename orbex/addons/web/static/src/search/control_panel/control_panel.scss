@@ -2,6 +2,14 @@
     border-bottom: var(--ControlPanel-border-bottom, #{$o-control-panel-border-bottom});
     background-color: $o-control-panel-background-color;
     @include media-only(screen) {
+        gap: map-get($spacers, 2) !important;
+        padding-top: map-get($spacers, 2) !important;
+        padding-bottom: map-get($spacers, 2) !important;
+
+        .o_control_panel_main {
+            min-height: 0;
+        }
+
         .o_control_panel_breadcrumbs {
             --#{$variable-prefix}breadcrumb-font-size: #{$small-font-size};
 
@@ -52,10 +60,10 @@
             }
 
             .o_breadcrumb {
-                flex: 0 0 100%;
+                flex: 1 1 auto;
                 min-width: 0;
-                order: 10;
-                padding-top: map-get($spacers, 1);
+                order: 0;
+                padding-top: 0;
             }
 
             .o_control_panel_breadcrumbs_actions {
@@ -69,13 +77,38 @@
             }
 
             .o_control_panel_breadcrumbs {
-                flex: 0 0 100%;
+                flex: 1 1 auto;
                 max-width: none;
+                flex-wrap: wrap;
+                align-items: flex-start !important;
+                row-gap: map-get($spacers, 2);
+                column-gap: map-get($spacers, 2);
             }
 
-            .o_breadcrumb:not(:has(.breadcrumb)) {
-                flex-direction: column;
-                justify-content: center;
+            .o_control_panel_main_buttons {
+                flex: 0 0 auto;
+                order: 10;
+            }
+
+            .o_form_control_panel_buttons {
+                flex: 0 0 100%;
+                align-items: center;
+                order: 1;
+            }
+
+            .o_breadcrumb {
+                flex: 0 0 100%;
+                flex-direction: row !important;
+                order: 0;
+                padding-top: 0;
+                align-items: center;
+                align-self: flex-start !important;
+                justify-content: flex-start !important;
+                gap: map-get($spacers, 1);
+                line-height: 1.15;
+            }
+
+            .o_breadcrumb:not(.o_form_breadcrumb):not(:has(.breadcrumb)) {
                 line-height: 1.15;
 
                 .o_last_breadcrumb_item {
@@ -86,13 +119,80 @@
                 }
             }
 
+            .o_breadcrumb > .breadcrumb {
+                flex: 0 1 auto;
+                min-width: 0;
+                margin: 0;
+            }
+
+            .o_breadcrumb > .breadcrumb::after {
+                display: inline-flex;
+                flex: 0 0 auto;
+                align-items: center;
+                padding-inline: map-get($spacers, 2);
+                color: $text-muted;
+                font-size: $h2-font-size;
+                font-weight: $font-weight-normal;
+                content: "›";
+            }
+
+            .o_breadcrumb > .d-flex {
+                min-width: 0;
+            }
+
+            .o_breadcrumb .o_back_button a {
+                color: #008577;
+                font-size: $h2-font-size;
+                font-weight: $font-weight-bold !important;
+            }
+
+            .o_breadcrumb .o_last_breadcrumb_item {
+                font-size: $h2-font-size;
+                font-weight: $font-weight-bold;
+            }
+
+            .o_form_breadcrumb {
+                align-items: center;
+                align-self: center !important;
+                justify-content: flex-start !important;
+                gap: map-get($spacers, 1);
+                line-height: 1.15;
+
+                > .breadcrumb {
+                    flex: 0 1 auto;
+                    min-width: 0;
+                    margin: 0;
+                }
+
+                > .d-flex {
+                    min-width: 0;
+                }
+
+                .o_back_button a {
+                    color: #008577;
+                    font-size: $h2-font-size;
+                    font-weight: $font-weight-bold !important;
+                }
+
+                .o_last_breadcrumb_item {
+                    font-size: $h2-font-size;
+                    font-weight: $font-weight-bold;
+                }
+            }
+
             .o_control_panel_breadcrumbs_actions {
                 flex: 0 0 auto;
             }
 
             .o_form_status_indicator {
                 flex: 0 0 auto;
-                margin-left: map-get($spacers, 1);
+                order: 11;
+                margin: 0 !important;
+                align-self: center !important;
+            }
+
+            .o_form_status_indicator_buttons {
+                align-items: center;
             }
 
             .o_control_panel_actions {
