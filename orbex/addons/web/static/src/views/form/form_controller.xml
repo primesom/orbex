@@ -10,6 +10,10 @@
                             <i class="fa fa-plus" aria-hidden="true"/>
                             <span>New</span>
                         </button>
+                        <button t-if="!model.root.isInEdition and !model.root.isNew and canEdit and !props.readonly" type="button" class="btn btn-outline-secondary o_form_button_edit" data-hotkey="e" t-on-click.stop="edit">
+                            <i class="fa fa-pencil" aria-hidden="true"/>
+                            <span>Edit</span>
+                        </button>
                     </t>
 
                     <t t-set-slot="layout-buttons">
@@ -67,6 +71,10 @@
         <button t-if="!model.root.isInEdition and canCreate" type="button" class="btn btn-secondary o_form_button_create" data-hotkey="c" t-on-click.stop="create">
             <i class="fa fa-plus" aria-hidden="true"/>
             <span>New</span>
+        </button>
+        <button t-if="!model.root.isInEdition and !model.root.isNew and canEdit and !props.readonly" type="button" class="btn btn-secondary o_form_button_edit" data-hotkey="e" t-on-click.stop="edit">
+            <i class="fa fa-pencil" aria-hidden="true"/>
+            <span>Edit</span>
         </button>
     </t>
 

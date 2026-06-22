@@ -362,7 +362,7 @@ export class FormController extends Component {
                 fields: this.props.fields,
                 activeFields: {}, // will be generated after loading sub views (see willStart)
                 isMonoRecord: true,
-                mode: this.props.readonly ? "readonly" : "edit",
+                mode: this.props.readonly || this.props.resId ? "readonly" : "edit",
                 context: this.props.context,
             },
             state: this.props.state?.modelState,
@@ -464,15 +464,31 @@ export class FormController extends Component {
     }
 
     async onPagerUpdate({ offset, resIds }) {
+        const nextId = resIds[offset];
         const dirty = await this.model.root.isDirty();
         try {
             if (dirty) {
-                await this.model.root.save({
-                    onError: (error, options) => this.onSaveError(error, options, true),
-                    nextId: resIds[offset],
+                const canProceed = await this.askSaveOrDiscardChanges({
+                    save: async () => {
+                        const saved = await this.model.root.save({
+                            onError: (error, options) => this.onSaveError(error, options, true),
+                            nextId,
+                        });
+                        if (saved && this.model.root.isInEdition) {
+                            await this.model.root.switchMode("readonly");
+                        }
+                        return saved;
+                    },
+                    discard: async () => {
+                        await this.discard({ navigate: false });
+                        await this.model.load({ resId: nextId });
+                    },
                 });
+                if (!canProceed) {
+                    return;
+                }
             } else {
-                await this.model.load({ resId: resIds[offset] });
+                await this.model.load({ resId: nextId });
             }
         } catch (e) {
             if (e instanceof FetchRecordError) {
@@ -491,12 +507,16 @@ export class FormController extends Component {
     }
 
     async beforeLeave({ forceLeave } = {}) {
-        if (this.model.root.dirty && !forceLeave) {
-            return this.save({
+        if (forceLeave) {
+            return true;
+        }
+        return this.askSaveOrDiscardChanges({
+            save: () => this.save({
                 reload: false,
                 onError: (error, options) => this.onSaveError(error, options, true),
-            });
-        }
+            }),
+            discard: () => this.discard({ navigate: false }),
+        });
     }
 
     async beforeUnload(ev) {
@@ -590,14 +610,20 @@ export class FormController extends Component {
     async shouldExecuteAction(item) {
         const dirty = await this.model.root.isDirty();
         if ((dirty || this.model.root.isNew) && !item.skipSave) {
-            let hasError = false;
-            const isSaved = await this.model.root.save({
-                onError: (error, options) => {
-                    hasError = true;
-                    return this.onSaveError(error, options, true);
+            return this.askSaveOrDiscardChanges({
+                promptIfNew: true,
+                save: async () => {
+                    let hasError = false;
+                    const isSaved = await this.model.root.save({
+                        onError: (error, options) => {
+                            hasError = true;
+                            return this.onSaveError(error, options, true);
+                        },
+                    });
+                    return isSaved && !hasError;
                 },
+                discard: () => this.discard({ navigate: false }),
             });
-            return isSaved && !hasError;
         }
         return true;
     }
@@ -624,7 +650,7 @@ export class FormController extends Component {
 
     async beforeExecuteActionButton(clickParams) {
         const record = this.model.root;
-        if (clickParams.special !== "cancel") {
+        const saveRecord = async () => {
             let saved = false;
             if (clickParams.special === "save" && this.props.saveRecord) {
                 saved = await this.props.saveRecord(record, clickParams);
@@ -636,6 +662,16 @@ export class FormController extends Component {
                 this.props.onSave(record, clickParams);
             }
             return saved;
+        };
+        if (clickParams.special === "save") {
+            return saveRecord();
+        }
+        if (clickParams.special !== "cancel") {
+            return this.askSaveOrDiscardChanges({
+                promptIfNew: true,
+                save: saveRecord,
+                discard: () => this.discard({ navigate: false }),
+            });
         } else if (this.props.onDiscard) {
             this.props.onDiscard(record);
         }
@@ -643,10 +679,19 @@ export class FormController extends Component {
 
     async afterExecuteActionButton(clickParams) {}
 
+    async edit() {
+        if (this.canEdit && !this.model.root.isInEdition) {
+            await this.model.root.switchMode("edit");
+        }
+    }
+
     async create() {
-        const dirty = await this.model.root.isDirty();
         const onError = (error, options) => this.onSaveError(error, options, true);
-        const canProceed = !dirty || (await this.model.root.save({ onError }));
+        const canProceed = await this.askSaveOrDiscardChanges({
+            promptIfNew: true,
+            save: () => this.model.root.save({ onError }),
+            discard: () => this.discard({ navigate: false }),
+        });
         // FIXME: disable/enable not done in onPagerUpdate
         if (canProceed) {
             await executeButtonCallback(this.ui.activeElement, () =>
@@ -676,18 +721,66 @@ export class FormController extends Component {
         return executeButtonCallback(this.ui.activeElement, () => this.save(params));
     }
 
-    async discard() {
+    async askSaveOrDiscardChanges({ save, discard, promptIfNew = false } = {}) {
+        const record = this.model.root;
+        const dirty = await record.isDirty();
+        if ((!dirty && !(promptIfNew && record.isNew)) || !record.isInEdition) {
+            return true;
+        }
+        return new Promise((resolve) => {
+            let resolved = false;
+            const finish = (value) => {
+                if (!resolved) {
+                    resolved = true;
+                    resolve(value);
+                }
+            };
+            this.dialogService.add(ConfirmationDialog, {
+                title: _t("Unsaved changes"),
+                body: _t("You have unsaved changes. Do you want to save or discard them?"),
+                confirmLabel: _t("Save"),
+                confirmClass: "btn-primary",
+                confirm: async () => {
+                    const saved = save ? await save() : await this.save({ reload: false });
+                    finish(Boolean(saved));
+                },
+                cancelLabel: _t("Discard"),
+                cancel: async () => {
+                    if (discard) {
+                        await discard();
+                    } else {
+                        await this.discard({ navigate: false });
+                    }
+                    finish(true);
+                },
+                dismiss: () => finish(false),
+            });
+        });
+    }
+
+    async discard({ navigate = true } = {}) {
+        const record = this.model.root;
+        const wasNew = record.isNew;
         if (this.props.discardRecord) {
-            this.props.discardRecord(this.model.root);
+            await this.props.discardRecord(record);
+            if (!wasNew && record.isInEdition) {
+                await record.switchMode("readonly");
+            }
             return;
         }
-        await this.model.root.discard();
+        await record.discard();
+        if (!wasNew && record.isInEdition) {
+            await record.switchMode("readonly");
+        }
         if (this.props.onDiscard) {
-            this.props.onDiscard(this.model.root);
+            this.props.onDiscard(record);
+        }
+        if (!navigate) {
+            return;
         }
         if (this.env.inDialog) {
             await this.env.dialogData.close();
-        } else if (this.model.root.isNew) {
+        } else if (wasNew) {
             this.env.config.historyBack();
         }
     }

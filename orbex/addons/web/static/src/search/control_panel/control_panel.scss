@@ -451,6 +451,7 @@
             }
 
             .o_form_button_create,
+            .o_form_button_edit,
             .o_form_button_save,
             .o_form_button_cancel {
                 display: inline-flex;
@@ -468,6 +469,12 @@
             .o_form_button_create {
                 border-color: #00a989;
                 color: #008577;
+                background-color: $o-view-background-color;
+            }
+
+            .o_form_button_edit {
+                border: 1px solid $border-color !important;
+                color: $o-main-text-color;
                 background-color: $o-view-background-color;
             }
 
