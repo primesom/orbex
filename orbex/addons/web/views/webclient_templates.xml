@@ -132,48 +132,53 @@
                 }
                 .o_orbex_login_container {
                     min-height: 100vh;
-                    padding: clamp(1.5rem, 5vh, 3.5rem) 1rem;
+                    padding: clamp(1rem, 4vh, 2.5rem) 1rem;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                 }
                 .o_orbex_login_card {
                     width: 100%;
-                    max-width: 348px !important;
+                    max-width: 312px !important;
                     background: #fff !important;
                     border-radius: 6px !important;
                     box-shadow: 0 20px 44px rgba(5, 18, 45, 0.16) !important;
                 }
                 .o_orbex_login_card .card-body {
-                    padding: clamp(1.25rem, 2.4vw, 1.75rem);
+                    padding: clamp(1rem, 2vw, 1.35rem);
                 }
                 .o_orbex_login_brand {
-                    padding: 0 0 1.15rem;
-                    margin-bottom: 1.2rem;
+                    padding: 0 0 .85rem;
+                    margin-bottom: .95rem;
                     border-bottom: 1px solid #d7dbe2;
                     text-align: center;
                 }
                 .o_orbex_login_brand img {
                     display: block;
                     width: 100%;
-                    max-width: 190px;
+                    max-width: 158px;
                     height: auto;
                     margin: 0 auto;
                 }
                 .o_orbex_login_card .form-label,
                 .o_orbex_login_card .col-form-label {
-                    margin-bottom: .5rem;
+                    margin-bottom: .35rem;
                     color: #050505;
-                    font-size: .98rem;
+                    font-size: .88rem;
                     font-weight: 500;
                 }
+                .o_orbex_login_card .field-login,
+                .o_orbex_login_card .o_caps_lock_warning,
+                .o_orbex_login_card .oe_login_buttons {
+                    margin-bottom: .7rem !important;
+                }
                 .o_orbex_login_card .form-control {
-                    min-height: 2.9rem;
-                    padding: .62rem 1rem;
+                    min-height: 2.45rem;
+                    padding: .48rem .82rem;
                     border-color: #d8dde3;
-                    border-radius: 8px;
+                    border-radius: 7px;
                     color: #111827;
-                    font-size: .95rem;
+                    font-size: .88rem;
                     box-shadow: none;
                 }
                 .o_orbex_login_card .form-control::placeholder {
@@ -181,27 +186,30 @@
                 }
                 .o_orbex_login_card .form-control:focus {
                     border-color: #00a98f;
-                    box-shadow: 0 0 0 .2rem rgba(0, 169, 143, .2);
+                    box-shadow: 0 0 0 .16rem rgba(0, 169, 143, .18);
                 }
                 .o_orbex_login_card .input-group .form-control {
                     border-top-right-radius: 0;
                     border-bottom-right-radius: 0;
                 }
                 .o_orbex_login_card .input-group .btn {
-                    min-width: 2.8rem;
+                    min-width: 2.45rem;
                     border-color: #d8dde3 !important;
-                    border-top-right-radius: 8px;
-                    border-bottom-right-radius: 8px;
+                    border-top-right-radius: 7px;
+                    border-bottom-right-radius: 7px;
                     background: #fff;
                     color: #050505;
                 }
                 .o_orbex_login_card .btn-primary {
-                    min-height: 2.9rem;
+                    min-height: 2.45rem;
                     border: 0;
-                    border-radius: 8px;
+                    border-radius: 7px;
                     background: #00a98f;
-                    font-size: 1rem;
+                    font-size: .9rem;
                     font-weight: 600;
+                }
+                .o_orbex_login_card .oe_login_buttons {
+                    padding-top: .65rem !important;
                 }
                 .o_orbex_login_card .btn-primary:hover,
                 .o_orbex_login_card .btn-primary:focus {
@@ -218,16 +226,16 @@
                     text-decoration: underline;
                 }
                 .o_orbex_login_card .o_login_auth em {
-                    margin: 1.35rem 0 1rem !important;
+                    margin: .9rem 0 .7rem !important;
                     color: #4f4f52 !important;
-                    font-size: 1rem;
+                    font-size: .88rem;
                 }
                 .o_orbex_login_card .o_login_auth .list-group-item {
-                    min-height: 2.9rem;
+                    min-height: 2.45rem;
                     border-color: #d8dde3;
-                    border-radius: 8px;
+                    border-radius: 7px;
                     color: #050505;
-                    font-size: 1rem;
+                    font-size: .9rem;
                     font-weight: 600;
                 }
                 @media (max-width: 575.98px) {
@@ -235,21 +243,21 @@
                         background: linear-gradient(180deg, #f8fbfc 0%, #eef7f8 100%) !important;
                     }
                     .o_orbex_login_container {
-                        padding: 1rem;
+                        padding: .75rem;
                         align-items: flex-start;
                     }
                     .o_orbex_login_card .card-body {
-                        padding: 1.5rem;
+                        padding: 1rem;
                     }
                     .o_orbex_login_brand {
-                        padding-bottom: 1.5rem;
-                        margin-bottom: 1.5rem;
+                        padding-bottom: .85rem;
+                        margin-bottom: .95rem;
                     }
                     .o_orbex_login_card .form-control,
                     .o_orbex_login_card .btn-primary,
                     .o_orbex_login_card .o_login_auth .list-group-item {
-                        min-height: 3rem;
-                        font-size: .95rem;
+                        min-height: 2.55rem;
+                        font-size: .9rem;
                     }
                 }
             </style>
