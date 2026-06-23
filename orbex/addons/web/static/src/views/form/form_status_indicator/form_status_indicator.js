@@ -20,6 +20,9 @@ export class FormStatusIndicator extends Component {
         );
         useEffect(
             () => {
+                if (!this.saveButton.el) {
+                    return;
+                }
                 if (!this.props.model.root.isNew && this.indicatorMode === "invalid") {
                     this.saveButton.el.setAttribute("disabled", "1");
                 } else {
@@ -33,6 +36,10 @@ export class FormStatusIndicator extends Component {
     }
 
     get displayButtons() {
+        return this.props.model.root.isInEdition || this.displaySaveButton;
+    }
+
+    get displaySaveButton() {
         return this.indicatorMode !== "saved";
     }
 

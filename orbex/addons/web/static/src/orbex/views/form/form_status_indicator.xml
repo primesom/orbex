@@ -8,6 +8,7 @@
 
         <xpath expr="//button[hasclass('o_form_button_save')]" position="replace">
             <button
+                t-if="displaySaveButton"
                 type="button"
                 class="o_form_button_save btn btn-primary"
                 data-hotkey="s"
