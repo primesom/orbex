@@ -209,7 +209,11 @@ export class NavBar extends Component {
     }
 
     getMenuItemHref(payload) {
-        const slug = (payload.actionPath || payload.name || "")
+        const slug = (
+            payload.actionPath ||
+            (payload.actionID ? `action-${payload.actionID}` : payload.name) ||
+            ""
+        )
             .trim()
             .toLowerCase()
             .replace(/[^a-z0-9_-]+/g, "-")

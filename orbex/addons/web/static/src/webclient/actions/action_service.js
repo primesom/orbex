@@ -600,6 +600,9 @@ export function makeActionManager(env, router = _router) {
                 }
                 return params;
             }
+            if (state.action || state.model || state.resId) {
+                return null;
+            }
             // Fall back to the home action if no valid action was found
             actionRequest = user.homeActionId;
         }
@@ -1781,15 +1784,18 @@ export function makeActionManager(env, router = _router) {
                 if (
                     error.exceptionName === "orbex.addons.web.controllers.action.MissingActionError"
                 ) {
-                    if (state.actionStack.length > 1) {
+                    if (state.actionStack?.length > 1) {
                         const newState = {
                             ...state.actionStack.slice(0, -1).at(-1),
                             actionStack: [...state.actionStack.slice(0, -1)],
                         };
                         return loadState(newState);
-                    } else {
+                    } else if (
+                        !(state.action || state.model || state.resId || state.actionStack?.length)
+                    ) {
                         env.bus.trigger("WEBCLIENT:LOAD_DEFAULT_APP");
                     }
+                    return false;
                 } else {
                     throw error;
                 }

@@ -6,7 +6,7 @@ import { registry } from "../../core/registry";
 const loadMenusUrl = `/web/webclient/load_menus`;
 
 function cleanMenuSlug(menu) {
-    return (menu.actionPath || menu.name || "")
+    return (menu.actionPath || (menu.actionID ? `action-${menu.actionID}` : menu.name) || "")
         .trim()
         .toLowerCase()
         .replace(/[^a-z0-9_-]+/g, "-")

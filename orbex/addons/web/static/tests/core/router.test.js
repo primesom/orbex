@@ -189,6 +189,25 @@ describe("stateToUrl", () => {
         ).toBe("/orbex/5/some-path/2");
         expect(
             router.stateToUrl({
+                action: "passengers",
+                actionStack: [{ action: "passengers" }],
+                appSlug: "gsa",
+            })
+        ).toBe("/passengers", {
+            message: "list action routes must not collapse to the current app's first menu",
+        });
+        expect(
+            router.stateToUrl({
+                action: "contacts",
+                resId: 9,
+                actionStack: [{ action: "contacts", resId: 9 }],
+                appSlug: "contacts",
+            })
+        ).toBe("/contacts/9", {
+            message: "form routes must keep the action path before the record id",
+        });
+        expect(
+            router.stateToUrl({
                 actionStack: [{ active_id: 5, action: "some-path", resId: "new" }],
             })
         ).toBe("/orbex/5/some-path/new");
@@ -1582,6 +1601,29 @@ describe("pushState", () => {
 });
 
 describe("History", () => {
+    test("startRouter prefers the visible URL over stale history state", () => {
+        browser.history.replaceState(
+            {
+                nextState: {
+                    action: "discuss",
+                    actionStack: [{ action: "discuss" }],
+                    appSlug: "discuss",
+                },
+            },
+            "",
+            "/cabin-classes?debug=1"
+        );
+
+        createRouter();
+
+        expect(router.current).toEqual({
+            action: "cabin-classes",
+            actionStack: [{ action: "cabin-classes" }],
+            appSlug: "cabin-classes",
+            debug: 1,
+        });
+    });
+
     test("properly handles history.back and history.forward", async () => {
         redirect("/");
         on(routerBus, "ROUTE_CHANGE", () => expect.step("ROUTE_CHANGE"));

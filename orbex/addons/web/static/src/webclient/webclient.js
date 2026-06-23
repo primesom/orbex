@@ -153,7 +153,15 @@ export class WebClient extends Component {
             }
         }
 
-        if (!stateLoaded) {
+        if (
+            !stateLoaded &&
+            !(
+                router.current.action ||
+                router.current.model ||
+                router.current.resId ||
+                router.current.actionStack?.length
+            )
+        ) {
             // If no action => falls back to the default app
             await this._loadDefaultApp();
         }

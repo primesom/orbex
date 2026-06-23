@@ -134,14 +134,6 @@ function cleanAppSlug(slug) {
         .replace(/^-+|-+$/g, "");
 }
 
-function stripDuplicatedAppSlugFromPath(path, appSlug) {
-    const slug = cleanAppSlug(appSlug);
-    if (!slug || (path !== `/${slug}` && !path.startsWith(`/${slug}/`))) {
-        return path;
-    }
-    return path.slice(slug.length + 1);
-}
-
 export function startUrl() {
     return isScopedApp() ? "scoped_app" : APP_ROUTE_PREFIX;
 }
@@ -183,12 +175,9 @@ function stateToUrl(state) {
     const search = objectToUrlEncodedString(omit(state, ...pathKeysToOmit));
     const start_url = startUrl();
     if (start_url !== "scoped_app") {
-        const shouldKeepPath = actionStack.some((action) => action.resId || action.active_id);
         const appSlug = cleanAppSlug(state.appSlug);
-        const actionPath = shouldKeepPath ? stripDuplicatedAppSlugFromPath(path, appSlug) : "";
-        return `/${appSlug || start_url}${actionPath}${
-            search ? `?${search}` : ""
-        }`;
+        const route = appSlug ? path || `/${appSlug}` : `/${start_url}${path}`;
+        return `${route}${search ? `?${search}` : ""}`;
     }
     return `/${start_url}${path}${search ? `?${search}` : ""}`;
 }
@@ -293,7 +282,14 @@ let _hiddenKeysFromUrl = new Set();
 
 export function startRouter() {
     const url = new URL(browser.location);
-    state = browser.history.state?.nextState || router.urlToState(url);
+    _lockedKeys = new Set(["debug", "lang"]);
+    _hiddenKeysFromUrl = new Set([...PATH_KEYS, "actionStack", "appSlug"]);
+    const nextState = browser.history.state?.nextState;
+    state =
+        nextState &&
+        compareUrls(browser.location.origin + router.stateToUrl(nextState), browser.location.href)
+            ? nextState
+            : router.urlToState(url);
     // ** url-retrocompatibility **
     if (
         browser.location.pathname === "/web" ||
@@ -312,8 +308,6 @@ export function startRouter() {
         reload: false,
         state: {},
     };
-    _lockedKeys = new Set(["debug", "lang"]);
-    _hiddenKeysFromUrl = new Set([...PATH_KEYS, "actionStack", "appSlug"]);
 }
 
 /**
