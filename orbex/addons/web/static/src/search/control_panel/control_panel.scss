@@ -10,6 +10,14 @@
             min-height: 0;
         }
 
+        & .o_list_button_add,
+        & .o-kanban-button-new {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: map-get($spacers, 2);
+        }
+
         .o_control_panel_breadcrumbs {
             --#{$variable-prefix}breadcrumb-font-size: #{$small-font-size};
 
@@ -569,12 +577,15 @@
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                gap: map-get($spacers, 2);
+                gap: map-get($spacers, 1);
                 min-height: 38px;
-                padding-inline: map-get($spacers, 3);
+                padding: map-get($spacers, 1) map-get($spacers, 3);
                 border-radius: $border-radius-lg;
+                font-size: $font-size-base;
                 font-weight: $font-weight-medium;
-                text-transform: uppercase;
+                line-height: 1.2;
+                text-transform: none;
+                white-space: nowrap;
                 box-shadow: 0 3px 8px rgba($black, .08);
             }
 
