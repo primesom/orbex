@@ -122,3 +122,9 @@ export class Many2OneField extends Component {
 registry.category("fields").add("many2one", {
     ...buildM2OFieldDescription(Many2OneField),
 });
+
+// Compatibility for existing partner views that still request this specialized
+// widget name. It intentionally reuses the standard many2one behavior.
+registry.category("fields").add("res_partner_many2one", {
+    ...buildM2OFieldDescription(Many2OneField),
+});
