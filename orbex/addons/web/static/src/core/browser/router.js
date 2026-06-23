@@ -134,6 +134,14 @@ function cleanAppSlug(slug) {
         .replace(/^-+|-+$/g, "");
 }
 
+function stripDuplicatedAppSlugFromPath(path, appSlug) {
+    const slug = cleanAppSlug(appSlug);
+    if (!slug || (path !== `/${slug}` && !path.startsWith(`/${slug}/`))) {
+        return path;
+    }
+    return path.slice(slug.length + 1);
+}
+
 export function startUrl() {
     return isScopedApp() ? "scoped_app" : APP_ROUTE_PREFIX;
 }
@@ -176,8 +184,9 @@ function stateToUrl(state) {
     const start_url = startUrl();
     if (start_url !== "scoped_app") {
         const shouldKeepPath = actionStack.some((action) => action.resId || action.active_id);
-        const actionPath = shouldKeepPath ? path : "";
-        return `/${cleanAppSlug(state.appSlug) || start_url}${actionPath}${
+        const appSlug = cleanAppSlug(state.appSlug);
+        const actionPath = shouldKeepPath ? stripDuplicatedAppSlugFromPath(path, appSlug) : "";
+        return `/${appSlug || start_url}${actionPath}${
             search ? `?${search}` : ""
         }`;
     }
@@ -211,21 +220,25 @@ function urlToState(urlObj) {
 
     const [prefix, ...splitPath] = urlObj.pathname.split("/").filter(Boolean);
 
-    if (prefix && !RESERVED_ROUTE_PREFIXES.has(prefix)) {
+    const isCleanAppRoute = prefix && !RESERVED_ROUTE_PREFIXES.has(prefix);
+
+    if (isCleanAppRoute) {
         state.appSlug = prefix;
     }
 
     if (
         [APP_ROUTE_PREFIX, LEGACY_APP_ROUTE_PREFIX, "scoped_app"].includes(prefix) ||
-        (prefix && !RESERVED_ROUTE_PREFIXES.has(prefix))
+        isCleanAppRoute
     ) {
-        const actionParts = [...splitPath.entries()].filter(
+        const routeParts =
+            isCleanAppRoute && splitPath[0] !== prefix ? [prefix, ...splitPath] : splitPath;
+        const actionParts = [...routeParts.entries()].filter(
             ([_, part]) => !isNumeric(part) && part !== "new"
         );
         const actions = [];
         for (const [i, part] of actionParts) {
             const action = {};
-            const [left, right] = [splitPath[i - 1], splitPath[i + 1]];
+            const [left, right] = [routeParts[i - 1], routeParts[i + 1]];
             if (isNumeric(left)) {
                 action.active_id = parseInt(left);
             }
@@ -254,7 +267,7 @@ function urlToState(urlObj) {
             }
             // Don't create actions for models without resId unless they're the last one.
             // If the last one is a model but doesn't have a view_type, the action service will not mount it anyway.
-            if (action.action || action.resId || i === splitPath.length - 1) {
+            if (action.action || action.resId || i === routeParts.length - 1) {
                 actions.push(action);
             }
         }
