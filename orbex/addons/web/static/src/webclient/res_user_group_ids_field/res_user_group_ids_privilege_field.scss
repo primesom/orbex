@@ -1,4 +1,43 @@
 .o_field_res_user_group_ids_privilege {
+    .o_access_choice_group {
+        max-width: 100%;
+    }
+
+    .o_access_choice {
+        $access-choice-accent: #008577;
+
+        --#{$prefix}btn-border-color: #{$border-color};
+        --#{$prefix}btn-color: #{$o-main-text-color};
+        --#{$prefix}btn-bg: #{$o-view-background-color};
+        --#{$prefix}btn-hover-border-color: #{$access-choice-accent};
+        --#{$prefix}btn-hover-color: #{$access-choice-accent};
+        --#{$prefix}btn-hover-bg: #{mix($access-choice-accent, $o-view-background-color, 8%)};
+        --#{$prefix}btn-active-border-color: #{$access-choice-accent};
+        --#{$prefix}btn-active-color: #{$access-choice-accent};
+        --#{$prefix}btn-active-bg: #{mix($access-choice-accent, $o-view-background-color, 12%)};
+
+        border-radius: 999px;
+        font-weight: $font-weight-medium;
+        line-height: 1.2;
+        white-space: nowrap;
+
+        &.active {
+            border-color: var(--#{$prefix}btn-active-border-color);
+            color: var(--#{$prefix}btn-active-color);
+            background-color: var(--#{$prefix}btn-active-bg);
+        }
+
+        &.o_is_implied_choice {
+            border-style: dashed;
+        }
+    }
+
+    .o_access_choice_readonly {
+        min-height: $input-height;
+        display: inline-flex;
+        align-items: center;
+    }
+
     @mixin o-custom-checkbox($color) {
         $background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="none" stroke="#{$color}" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m6 10 3 3 6-6"/></svg>');
         border-color: $color;

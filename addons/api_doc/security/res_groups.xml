@@ -1,8 +1,15 @@
 <?xml version="1.0"?>
 <orbex>
     <data>
+        <record model="res.groups.privilege" id="res_groups_privilege_technical_documentation">
+            <field name="name">Technical Documentation</field>
+            <field name="category_id" ref="base.module_category_extra"/>
+            <field name="sequence">100</field>
+        </record>
+
         <record model="res.groups" id="group_allow_doc">
             <field name="name">Technical Documentation</field>
+            <field name="privilege_id" ref="res_groups_privilege_technical_documentation"/>
             <field name="user_ids" eval="[Command.link(ref('base.user_root'))]"/>
             <field name="implied_by_ids" eval="[Command.link(ref('base.group_system'))]"/>
         </record>

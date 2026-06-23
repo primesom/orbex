@@ -175,7 +175,11 @@ function stateToUrl(state) {
     const search = objectToUrlEncodedString(omit(state, ...pathKeysToOmit));
     const start_url = startUrl();
     if (start_url !== "scoped_app") {
-        return `/${cleanAppSlug(state.appSlug) || start_url}${search ? `?${search}` : ""}`;
+        const shouldKeepPath = actionStack.some((action) => action.resId || action.active_id);
+        const actionPath = shouldKeepPath ? path : "";
+        return `/${cleanAppSlug(state.appSlug) || start_url}${actionPath}${
+            search ? `?${search}` : ""
+        }`;
     }
     return `/${start_url}${path}${search ? `?${search}` : ""}`;
 }
@@ -211,7 +215,10 @@ function urlToState(urlObj) {
         state.appSlug = prefix;
     }
 
-    if ([APP_ROUTE_PREFIX, LEGACY_APP_ROUTE_PREFIX, "scoped_app"].includes(prefix)) {
+    if (
+        [APP_ROUTE_PREFIX, LEGACY_APP_ROUTE_PREFIX, "scoped_app"].includes(prefix) ||
+        (prefix && !RESERVED_ROUTE_PREFIXES.has(prefix))
+    ) {
         const actionParts = [...splitPath.entries()].filter(
             ([_, part]) => !isNumeric(part) && part !== "new"
         );

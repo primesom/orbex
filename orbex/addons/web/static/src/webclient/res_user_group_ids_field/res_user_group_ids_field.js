@@ -64,15 +64,26 @@ class ResUserGroupIdsField extends Component {
             for (const privilegeId of category.privilege_ids) {
                 const privilege = privileges[privilegeId];
                 category.privileges.push(privilege);
+                privilege.groupFieldName = this.getFieldName(privilege);
                 const helpLines = privilege.description ? [privilege.description] : [];
                 for (const gid of privilege.group_ids) {
                     if (groups[gid].comment) {
                         helpLines.push(`- ${groups[gid].name}: ${groups[gid].comment}`);
                     }
                 }
+                const fieldName = privilege.groupFieldName;
+                if (privilege.group_ids.length === 1) {
+                    this._fields[fieldName] = {
+                        help: helpLines.join("\n"),
+                        string: privilege.name,
+                        type: "boolean",
+                    };
+                    booleanFieldToGroupId[fieldName] = privilege.group_ids[0];
+                    continue;
+                }
                 const selection = privilege.group_ids.map((gId) => [gId, groups[gId].name]);
                 selection.unshift([false, privilege.placeholder || ""]);
-                this._fields[this.getFieldName(privilege)] = {
+                this._fields[fieldName] = {
                     help: helpLines.join("\n"),
                     selection,
                     string: privilege.name,
@@ -94,9 +105,7 @@ class ResUserGroupIdsField extends Component {
         const models = { main: { fields: this._fields } };
         const arch = `
             <t>
-                <group>
-                    ${categories.map((category) => this.getCategoryArch(category)).join("")}
-                </group>
+                ${categories.map((category) => this.getCategoryArch(category)).join("")}
                 ${orbex.debug ? this.getExtraGroupsArch() : ""}
             </t>`;
         this.archInfo = new FormArchParser().parse(parseXML(arch), models, "main");
@@ -175,9 +184,13 @@ class ResUserGroupIdsField extends Component {
             this.shadowedGroupIds = [];
             for (const category of categories) {
                 for (const privilege of category.privileges) {
+                    const fieldName = privilege.groupFieldName;
+                    if (this.fields[fieldName].type === "boolean") {
+                        this.values[fieldName] = selectedIds.has(privilege.group_ids[0]);
+                        continue;
+                    }
                     let groupId =
                         privilege.group_ids.findLast((gId) => selectedIds.has(gId)) || false;
-                    const fieldName = this.getFieldName(privilege);
                     const options = this.fields[fieldName].selection;
                     if (groupId && !options.some((option) => option[0] === groupId)) {
                         // The option has been removed because a higher level group is implied
@@ -229,8 +242,19 @@ class ResUserGroupIdsField extends Component {
 
     getCategoryArch(category) {
         return `
-            <group string="${category.name}">
-                ${category.privileges.map((privilege) => this.getPrivilegeArch(privilege)).join("")}
+            <group string="${category.name}" class="o_access_rights_group">
+                <group>
+                    ${category.privileges
+                        .filter((privilege, index) => index % 2 === 0)
+                        .map((privilege) => this.getPrivilegeArch(privilege))
+                        .join("")}
+                </group>
+                <group>
+                    ${category.privileges
+                        .filter((privilege, index) => index % 2 === 1)
+                        .map((privilege) => this.getPrivilegeArch(privilege))
+                        .join("")}
+                </group>
             </group>`;
     }
 
@@ -238,6 +262,11 @@ class ResUserGroupIdsField extends Component {
         let selectedGroupIds = Object.entries(values)
             .filter(([fieldName, gid]) => this.fields[fieldName].type === "selection" && gid)
             .map(([_, gid]) => gid);
+        selectedGroupIds = selectedGroupIds.concat(
+            Object.entries(this.info.booleanFieldToGroupId)
+                .filter(([fieldName]) => values[fieldName])
+                .map(([, gid]) => gid)
+        );
         // Keep shadowed groups, except if an higher level group has been set, in which case they
         // are not shadowed anymore
         const { groups, privileges } = this.info;
@@ -245,11 +274,6 @@ class ResUserGroupIdsField extends Component {
             (gid) => !values[this.getFieldName(privileges[groups[gid].privilege_id])]
         );
         selectedGroupIds = selectedGroupIds.concat(shadowedGroupIds);
-        for (const privilege of this.extraCategory.privileges) {
-            if (values[privilege.groupFieldName]) {
-                selectedGroupIds.push(privilege.groupId);
-            }
-        }
         return this.props.record.update({
             [this.props.name]: [x2ManyCommands.set(selectedGroupIds)],
         });

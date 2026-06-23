@@ -7,6 +7,12 @@
         <field name="category_id" ref="base.module_category_marketing"/>
     </record>
 
+    <record model="res.groups.privilege" id="res_groups_privilege_mail_template_editor">
+        <field name="name">Mail Template Editor</field>
+        <field name="sequence">110</field>
+        <field name="category_id" ref="base.module_category_marketing"/>
+    </record>
+
     <record id="group_mail_canned_response_admin" model="res.groups">
         <field name="name">Canned Response Administrator</field>
         <field name="privilege_id" ref="res_groups_privilege_canned_response"/>
@@ -14,6 +20,7 @@
 
     <record id="group_mail_template_editor" model="res.groups">
         <field name="name">Mail Template Editor</field>
+        <field name="privilege_id" ref="res_groups_privilege_mail_template_editor"/>
     </record>
 
     <record id="base.group_system" model="res.groups">
@@ -24,5 +31,11 @@
     <record id="group_mail_notification_type_inbox" model="res.groups">
         <field name="name">Receive notifications in Orbex</field>
     </record>
+</data>
+<data noupdate="0">
+    <function model="res.groups" name="write">
+        <value eval="[ref('group_mail_template_editor')]"/>
+        <value eval="{'privilege_id': ref('res_groups_privilege_mail_template_editor')}"/>
+    </function>
 </data>
 </orbex>

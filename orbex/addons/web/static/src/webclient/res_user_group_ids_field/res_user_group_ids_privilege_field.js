@@ -1,6 +1,6 @@
 import { registry } from "@web/core/registry";
 import { BooleanField } from "@web/views/fields/boolean/boolean_field";
-import { SelectionField } from "@web/views/fields/selection/selection_field";
+import { _t } from "@web/core/l10n/translation";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
 
 import { ResUserGroupIdsPopover } from "./res_user_group_ids_popover";
@@ -15,7 +15,7 @@ import { usePopover } from "@web/core/popover/popover_hook";
 
 class ResUserGroupIdsPrivilegeField extends Component {
     static template = "web.ResUserGroupIdsPrivilegeField";
-    static components = { BooleanField, SelectionField };
+    static components = { BooleanField };
     static props = { ...standardFieldProps };
 
     setup() {
@@ -41,6 +41,28 @@ class ResUserGroupIdsPrivilegeField extends Component {
 
     get impliedGroupDisplayName() {
         return !this.isSet && this.impliedGroup ? this.groups[this.impliedGroup.id].name : "";
+    }
+
+    get noneLabel() {
+        return _t("None");
+    }
+
+    get selectionOptions() {
+        if (this.type !== "selection") {
+            return [];
+        }
+        return this.props.record.fields[this.props.name].selection;
+    }
+
+    get selectionValue() {
+        return this.props.record.data[this.props.name] || false;
+    }
+
+    get selectionDisplayName() {
+        if (this.selectionValue) {
+            return this.getOptionLabel(this.selectionOptions.find((option) => option[0] === this.selectionValue));
+        }
+        return this.impliedGroupDisplayName || "";
     }
 
     get infoButtonClassnames() {
@@ -75,6 +97,21 @@ class ResUserGroupIdsPrivilegeField extends Component {
         return this.props.record.fields[this.props.name].type;
     }
 
+    getOptionLabel(option) {
+        return option?.[1] || this.noneLabel;
+    }
+
+    isOptionActive(option) {
+        if (this.selectionValue === option[0]) {
+            return true;
+        }
+        return !this.selectionValue && !!option[0] && this.impliedGroup?.id === option[0];
+    }
+
+    isOptionImplied(option) {
+        return !this.selectionValue && !!option[0] && this.impliedGroup?.id === option[0];
+    }
+
     findGroupId(predicate) {
         if (this.type === "selection") {
             const options = this.props.record.fields[this.props.name].selection;
@@ -95,6 +132,12 @@ class ResUserGroupIdsPrivilegeField extends Component {
                 groups: this.env.resUserGroupsInfo.groups,
                 privileges: this.env.resUserGroupsInfo.privileges,
             });
+        }
+    }
+
+    onSelectOption(value) {
+        if (!this.props.readonly) {
+            this.props.record.update({ [this.props.name]: value || false });
         }
     }
 }

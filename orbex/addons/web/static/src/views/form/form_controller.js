@@ -707,6 +707,9 @@ export class FormController extends Component {
         if (saved && this.props.onSave) {
             this.props.onSave(record, params);
         }
+        if (saved && !this.env.inDialog && record.isInEdition) {
+            await record.switchMode("readonly");
+        }
         return saved;
     }
 
