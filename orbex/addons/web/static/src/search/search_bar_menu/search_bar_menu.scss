@@ -37,6 +37,9 @@ $o-search-bar-menu-max-width: calc(100vw - #{map-get($spacers, 3) * 2 });
 .o_search_bar_menu_toolbar_icons {
     align-self: stretch;
     min-height: 38px;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    overflow: hidden;
 
     > .dropdown {
         display: flex;
@@ -53,6 +56,19 @@ $o-search-bar-menu-max-width: calc(100vw - #{map-get($spacers, 3) * 2 });
         &:last-child .o_search_bar_menu_toolbar_icon {
             border-top-right-radius: 999px;
             border-bottom-right-radius: 999px;
+
+            &:hover,
+            &:focus,
+            &.show {
+                border-top-right-radius: 999px;
+                border-bottom-right-radius: 999px;
+            }
+        }
+
+        &:last-child {
+            border-top-right-radius: 999px;
+            border-bottom-right-radius: 999px;
+            overflow: hidden;
         }
     }
 

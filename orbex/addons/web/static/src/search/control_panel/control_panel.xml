@@ -20,7 +20,7 @@
                 </div>
             </Transition>
             <div class="o_control_panel_main d-flex flex-wrap flex-lg-nowrap justify-content-between align-items-lg-start gap-2 gap-lg-3 flex-grow-1"
-                 t-att-class="{ 'o_has_context_breadcrumbs': !display.formView and !env.isSmall and !env.config.noBreadcrumbs and breadcrumbs.length > 1 }">
+                 t-att-class="{ 'o_has_context_breadcrumbs': !display.formView and !env.isSmall and !env.config.noBreadcrumbs and breadcrumbs.length > 1, 'o_has_single_breadcrumb': !display.formView and !env.isSmall and !env.config.noBreadcrumbs and breadcrumbs.length === 1 }">
                 <t t-if="display.formView and !env.isSmall">
                     <div class="o_form_control_panel_header d-flex align-items-center gap-3 w-100">
                         <div class="o_control_panel_breadcrumbs d-flex align-items-center gap-1 min-w-0 flex-grow-1">
@@ -61,6 +61,7 @@
                 </t>
                 <t t-elif="!env.isSmall">
                     <t t-set="showContextBreadcrumbs" t-value="!env.config.noBreadcrumbs and breadcrumbs.length > 1"/>
+                    <t t-set="showSingleBreadcrumb" t-value="!env.config.noBreadcrumbs and breadcrumbs.length === 1"/>
                     <div t-if="showContextBreadcrumbs" class="o_control_panel_context_breadcrumbs d-flex align-items-center min-w-0 w-100">
                         <Breadcrumbs breadcrumbs="breadcrumbs" inline="true">
                             <t t-set-slot="breadcrumb-additional-actions">
@@ -75,8 +76,20 @@
                             <t t-slot="control-panel-always-buttons"/>
                         </div>
                         <section t-if="!showContextBreadcrumbs" class="o_control_panel_breadcrumbs_actions d-inline-flex align-items-center d-print-none">
-                            <t t-slot="control-panel-additional-actions"/>
-                            <t t-slot="control-panel-status-indicator" />
+                            <t t-if="showSingleBreadcrumb">
+                                <Breadcrumbs breadcrumbs="breadcrumbs" inline="true">
+                                    <t t-set-slot="breadcrumb-additional-actions">
+                                        <t t-slot="control-panel-additional-actions"/>
+                                    </t>
+                                    <t t-set-slot="breadcrumb-status-indicator">
+                                        <t t-slot="control-panel-status-indicator" />
+                                    </t>
+                                </Breadcrumbs>
+                            </t>
+                            <t t-else="">
+                                <t t-slot="control-panel-additional-actions"/>
+                                <t t-slot="control-panel-status-indicator" />
+                            </t>
                         </section>
                         <button t-if="props.hasSearchPanel"
                             type="button"

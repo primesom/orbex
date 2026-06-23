@@ -63,6 +63,24 @@
                     justify-self: start;
                     flex: 0 0 auto;
                     min-width: 0;
+
+                    .o_control_panel_breadcrumbs_actions {
+                        min-width: 0;
+                        gap: map-get($spacers, 1);
+                    }
+
+                    .o_breadcrumb {
+                        align-items: center;
+                        min-width: 0;
+                        gap: map-get($spacers, 1);
+                        line-height: 1.15;
+                    }
+
+                    .o_last_breadcrumb_item {
+                        color: $o-main-text-color;
+                        font-size: $h4-font-size;
+                        font-weight: $font-weight-bold;
+                    }
                 }
 
                 .o_control_panel_breadcrumbs_actions {
@@ -189,6 +207,9 @@
 
                 .o_search_bar_menu_toolbar_icons {
                     border-left: 1px solid $border-color;
+                    border-top-right-radius: 999px;
+                    border-bottom-right-radius: 999px;
+                    overflow: hidden;
                 }
 
                 .o_search_bar_menu_toolbar_button {
