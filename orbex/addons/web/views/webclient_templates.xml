@@ -120,8 +120,8 @@
         <t t-call="web.frontend_layout">
             <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
             <t t-set="body_classname" t-value="'bg-100 o_orbex_login_page'"/>
-            <t t-set="no_header" t-value="True"/>
-            <t t-set="no_footer" t-value="True"/>
+            <t t-set="no_header" t-value="False"/>
+            <t t-set="no_footer" t-value="False"/>
 
             <style>
                 body:has(.o_orbex_login_card) {
@@ -131,9 +131,8 @@
                         #f5f7fa !important;
                 }
                 .o_orbex_login_container {
-                    min-height: 100vh;
-                    min-height: 100dvh;
-                    padding: clamp(1rem, 4vh, 2.5rem) 1rem;
+                    min-height: auto;
+                    padding: clamp(1.25rem, 3vh, 2rem) 1rem clamp(1.5rem, 4vh, 2.5rem);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -193,7 +192,13 @@
                     margin: 0 auto;
                 }
                 .o_orbex_login_body {
-                    padding: 1rem 1.1rem 1.15rem;
+                    padding: .85rem 1.1rem 1.15rem;
+                }
+                .o_orbex_login_card .oe_login_form,
+                .o_orbex_login_card .oe_signup_form,
+                .o_orbex_login_card .oe_reset_password_form {
+                    max-width: none;
+                    margin: 0;
                 }
                 .o_orbex_login_card .form-label,
                 .o_orbex_login_card .col-form-label {
@@ -312,7 +317,7 @@
                         min-width: 0;
                     }
                     .o_orbex_login_body {
-                        padding: 1rem;
+                        padding: .85rem 1rem 1rem;
                     }
                     .o_orbex_login_card .form-control,
                     .o_orbex_login_card .btn-primary,
