@@ -14,8 +14,8 @@ $-mini-nav-size: 40px;
     &::before {
         content: "";
         @include o-position-absolute(0, auto, auto, 0);
-        border-top: $-mini-nav-size/2 solid $o-enterprise-color;
-        border-left: $-mini-nav-size/2 solid $o-enterprise-color;
+        border-top: $-mini-nav-size/2 solid $o-brand-primary;
+        border-left: $-mini-nav-size/2 solid $o-brand-primary;
         border-bottom: $-mini-nav-size/2 solid transparent;
         border-right: $-mini-nav-size/2 solid transparent;
         cursor: pointer;
@@ -46,7 +46,7 @@ $-mini-nav-size: 40px;
         overflow: auto;
     }
 
-    @each $-name, $-color in ('apps': $o-enterprise-color, 'edit': $o-we-bg-lighter) {
+    @each $-name, $-color in ('apps': $o-brand-primary, 'edit': $o-we-bg-lighter) {
         .o_frontend_to_backend_#{$-name}_btn {
             background-color: $-color;
 

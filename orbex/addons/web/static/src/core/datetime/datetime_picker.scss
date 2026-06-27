@@ -4,11 +4,52 @@
     --DateTimePicker__Day-template-rows: 6;
 
     width: $o-datetime-picker-width;
+    min-width: 22rem;
+    padding: 1rem !important;
+    border: 1px solid rgba(203, 213, 225, .9);
+    border-radius: .7rem;
+    background: #fff;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, .16);
+
+    .o_datetime_picker_header {
+        align-items: center;
+        gap: .4rem;
+        margin-bottom: .5rem;
+
+        .btn {
+            border: 0;
+            background: transparent;
+            color: #4b5563;
+            font-weight: 800;
+
+            &:hover,
+            &:focus {
+                background: #f1f5f9;
+                color: #111827;
+            }
+        }
+
+        .o_previous,
+        .o_next {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            font-size: 1.1rem;
+        }
+
+        .o_zoom_out {
+            flex: 1 1 auto;
+            justify-content: center;
+            min-width: 0;
+            color: #374151;
+            font-size: 1.25rem;
+        }
+    }
 
     // Day
     .o_selected {
-        color: $o-component-active-color;
-        background: $o-component-active-bg;
+        color: #fff;
+        background: #e63b4a;
     }
 
     .o_select_start,
@@ -37,8 +78,8 @@
 
     .o_today > div {
         aspect-ratio: 1;
-        background-color: $o-calendar-today-background-color;
-        color: $o-calendar-today-color;
+        background-color: #c7eef2;
+        color: #111827;
     }
 
     // Grids
@@ -46,6 +87,7 @@
     .o_date_picker {
         grid-template-rows: repeat(var(--DateTimePicker__Day-template-rows), 1fr);
         grid-template-columns: repeat(var(--DateTimePicker__Day-template-columns), 1fr);
+        gap: .25rem .45rem;
     }
 
     .o_date_item_picker {
@@ -67,12 +109,38 @@
         place-items: center;
     }
 
+    .o_day_of_week_cell,
+    .o_week_number_cell,
+    .o_date_item_cell {
+        min-width: 2.1rem;
+        min-height: 2.1rem;
+        color: #111827;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .o_day_of_week_cell {
+        color: #111827;
+        font-weight: 900;
+    }
+
+    .o_week_number_cell {
+        color: #111827;
+        font-weight: 900;
+    }
+
+    .o_out_of_range {
+        color: #6b7280 !important;
+    }
+
     .o_date_item_cell {
         aspect-ratio: 1;
         position: relative;
+        border-radius: 50%;
 
         &:hover, &:focus {
-            --DateTimePicker__date-cell-border-color-hover: #{$o-component-active-border};
+            --DateTimePicker__date-cell-border-color-hover: #d1d5db;
+            background: #f8fafc;
         }
 
         &:not([disabled])::before {
